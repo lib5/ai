@@ -1,0 +1,51 @@
+[33mcommit 163b2992502444b750efb2a3b7387058fc1099a8[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: lib5 <libo@dataelem.com>
+Date:   Fri Dec 19 15:38:19 2025 +0800
+
+    集成用户metadata到系统提示词
+    
+    - 在 main.py 中添加 metadata 提取和传递逻辑
+    - 在 true_react_agent.py 中构建包含用户信息的系统提示词
+    - 更新 test_chat.py 测试用例，验证 metadata 功能
+    - 用户信息现在会添加到系统提示词中供模型参考
+    
+    支持的用户字段：
+    - 用户名、城市、行业、公司、国家、地址、邮箱、电话等
+    
+    🤖 Generated with [Claude Code](https://claude.com/claude-code)
+    
+    Co-Authored-By: Claude <noreply@anthropic.com>
+
+[33mcommit 4a7c187440113abc09018e9c2736a9c8da0250b9[m
+Author: lib5 <libo@dataelem.com>
+Date:   Fri Dec 19 13:56:15 2025 +0800
+
+    修复流式响应 Broken pipe 错误
+    
+    - 在 StreamingService 中为所有流式生成方法添加异常处理
+    - 防止客户端断开连接时服务器继续写入导致管道破裂
+    - 测试通过：输入输出正常，可以调用bing搜索
+    
+    修复文件：
+    - services/streaming_service.py: 添加 try-except 处理客户端断开连接
+    - 所有测试用例通过验证
+    
+    🤖 Generated with [Claude Code](https://claude.com/claude-code)
+    
+    Co-Authored-By: Claude <noreply@anthropic.com>
+
+[33mcommit f95923efe8f30f0dc74f36859580fa145b6a7f91[m
+Author: lib5 <libo@dataelem.com>
+Date:   Fri Dec 19 10:18:24 2025 +0800
+
+    Initial commit: FastAPI Chat API with Azure OpenAI and ReAct Agent
+    
+    - FastAPI-based chat API with streaming JSON responses
+    - Azure OpenAI GPT-4.1 integration
+    - ReAct (Reasoning and Acting) agent for intelligent tool use
+    - MCP (Model Context Protocol) client support
+    - Image analysis capabilities
+    
+    🤖 Generated with [Claude Code](https://claude.com/claude-code)
+    
+    Co-Authored-By: Claude <noreply@anthropic.com>

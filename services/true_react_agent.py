@@ -102,50 +102,73 @@ class TrueReActAgent:
             self.multi_mcp_client = None
 
     def _register_tools(self):
-        """注册可用工具 - 从 MultiMCPClient 获取具体工具"""
+        """注册可用工具 - 从 MultiMCPClient 获取具体工具信息"""
         self.tools = {}
 
         # 获取 MultiMCP 客户端中的所有工具
         if self.multi_mcp_client:
             available_tools = self.multi_mcp_client.get_available_tools()
             for tool_name in available_tools:
-                # 根据工具名称设置不同的参数描述
-                if "bing_search" in tool_name.lower():
-                    params = {
-                        "query": "搜索查询关键词",
-                        "count": "返回结果数量（可选，默认5）"
-                    }
-                elif "fetch_webpage" in tool_name.lower():
-                    params = {
-                        "result_id": "从搜索结果中获取的 result_id"
-                    }
-                else:
-                    # 其他工具使用通用参数
-                    params = {
-                        "query": "查询参数",
-                        "arguments": "附加参数（可选）"
+                # 从 MultiMCPClient 获取工具的完整信息
+                tool_info = self.multi_mcp_client.get_tool_info(tool_name)
+                if tool_info:
+                    # 提取参数模式
+                    schema = tool_info.get('schema')
+                    params = {}
+
+                    # 处理参数模式
+                    if schema:
+                        # 如果 schema 是对象，尝试转换为字典
+                        if hasattr(schema, '__dict__') and not isinstance(schema, dict):
+                            schema = vars(schema) if not isinstance(schema, dict) else schema
+
+                        # 如果 schema 有 model_dump 方法（Pydantic 模型）
+                        if hasattr(schema, 'model_dump'):
+                            schema = schema.model_dump()
+
+                        # 从 schema 中提取参数信息
+                        if isinstance(schema, dict) and "properties" in schema:
+                            properties = schema["properties"]
+                            required = schema.get("required", [])
+                            for param_name, param_info in properties.items():
+                                if isinstance(param_info, dict):
+                                    desc = param_info.get('description', '参数')
+                                else:
+                                    desc = getattr(param_info, 'description', '参数')
+                                param_desc = f"{desc}"
+                                if param_name in required:
+                                    param_desc += " (必需)"
+                                else:
+                                    param_desc += " (可选)"
+                                params[param_name] = param_desc
+                        else:
+                            # 如果 schema 没有 'properties' 字段，使用通用参数
+                            params = {
+                                "arguments": "工具参数（JSON格式）"
+                            }
+                    else:
+                        # 如果没有 schema，使用通用参数
+                        params = {
+                            "arguments": "工具参数（JSON格式）"
+                        }
+
+                    # 使用工具描述或默认描述
+                    description = tool_info.get('description') or f"调用 {tool_name} 工具"
+
+                    self.tools[tool_name] = {
+                        "description": description,
+                        "parameters": params,
+                        "server": tool_info.get('server', 'unknown')
                     }
 
-                self.tools[tool_name] = {
-                    "description": f"调用 {tool_name} 工具",
-                    "parameters": params,
-                    "handler": self._create_tool_handler(tool_name)
-                }
-
-        # 添加 finish 工具
+        # 添加 finish 工具（特殊处理，不需要调用服务器）
         self.tools["finish"] = {
             "description": "完成任务并返回最终答案。当你已经有足够信息回答问题时使用。",
             "parameters": {
-                "answer": "最终答案"
+                "answer": "最终答案（必需）"
             },
-            "handler": None  # 特殊工具，不需要handler
+            "server": "internal"  # 标记为内部工具
         }
-
-    def _create_tool_handler(self, tool_name: str):
-        """为指定工具创建处理器"""
-        async def handler(**args):
-            return await self._tool_mcp_call_tool(tool_name, args)
-        return handler
 
     def _build_system_prompt(self, image_urls: List[str] = None, user_metadata: Optional[Dict[str, Any]] = None) -> str:
         """构建系统提示词"""
@@ -379,15 +402,16 @@ class TrueReActAgent:
             return {"success": False, "error": f"未知工具: {tool_name}"}
 
         tool = self.tools[tool_name]
-        handler = tool.get("handler")
+        server = tool.get("server")
 
-        if handler is None:
-            # finish 工具不需要执行
+        # finish 工具是内部工具，不需要调用服务器
+        if server == "internal" or tool_name == "finish":
             return {"success": True, "result": args}
 
+        # 调用 MCP 工具
         try:
-            result = await handler(**args)
-            return {"success": True, "result": result}
+            result = await self._tool_mcp_call_tool(tool_name, args)
+            return result
         except Exception as e:
             return {"success": False, "error": str(e)}
 
@@ -451,11 +475,21 @@ class TrueReActAgent:
         image_urls = image_urls or []
         final_answer = ""
 
+        # 构建系统提示词
+        system_prompt = self._build_system_prompt(image_urls, user_metadata)
+
         print(f"\n{'='*60}")
         print(f"[ReAct] 开始处理: {query}")
         if image_urls:
             print(f"[ReAct] 图像数量: {len(image_urls)}")
         print(f"{'='*60}")
+
+        # 打印系统提示词
+        print(f"\n{'='*80}")
+        print(f"[SYSTEM PROMPT]")
+        print(f"{'='*80}")
+        print(f"{system_prompt}")
+        print(f"{'='*80}\n")
 
         for iteration in range(1, self.max_iterations + 1):
             print(f"\n--- 迭代 {iteration} ---")

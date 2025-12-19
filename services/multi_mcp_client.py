@@ -34,6 +34,7 @@ class MultiMCPClient:
         """初始化多 MCP 客户端"""
         self.servers = {}
         self.tools_index = {}  # 工具名称到服务器 URL 的映射
+        self.tools_info = {}  # 工具名称到完整工具信息的映射（包含参数模式）
 
         # 初始化 MCP 服务器
         self._init_servers()
@@ -86,20 +87,40 @@ class MultiMCPClient:
                 tools = await self._list_tools_from_server(url)
                 all_tools[server_name] = tools
 
-                # 打印工具列表
+                # 打印工具列表并保存完整工具信息
                 for tool in tools:
                     tool_name = "unknown"
+                    tool_desc = ""
+                    tool_schema = None
+
+                    # 提取工具名称
                     if isinstance(tool, dict):
                         tool_name = tool.get('name', 'unknown')
+                        tool_desc = tool.get('description', '')
+                        tool_schema = tool.get('inputSchema') or tool.get('input_schema') or tool.get('schema')
                     elif hasattr(tool, 'name'):
                         name_attr = tool.name
                         tool_name = name_attr() if callable(name_attr) else str(name_attr)
+                        tool_desc = getattr(tool, 'description', '')
+                        # 尝试获取参数模式
+                        for attr_name in ['inputSchema', 'input_schema', 'schema', 'parameters']:
+                            tool_schema = getattr(tool, attr_name, None)
+                            if tool_schema is not None:
+                                break
                     elif hasattr(tool, '__name__'):
                         tool_name = str(tool.__name__)
+
                     print(f"  - {tool_name}")
-                    # 建立工具索引 - 确保只存储工具名称字符串
+                    # 建立工具索引
                     if tool_name != "unknown":
                         self.tools_index[tool_name] = server_name
+                        # 保存完整的工具信息（包含参数模式）
+                        self.tools_info[tool_name] = {
+                            'name': tool_name,
+                            'description': tool_desc,
+                            'schema': tool_schema,
+                            'server': server_name
+                        }
 
             except Exception as e:
                 print(f"⚠️  列出 {server_name} 工具失败: {str(e)}")
@@ -209,6 +230,10 @@ class MultiMCPClient:
     def get_tool_server(self, tool_name: str) -> Optional[str]:
         """获取工具所属的服务器名称"""
         return self.tools_index.get(tool_name)
+
+    def get_tool_info(self, tool_name: str) -> Optional[Dict[str, Any]]:
+        """获取工具的完整信息（包含参数模式）"""
+        return self.tools_info.get(tool_name)
 
 
 async def test_multi_mcp_client():
