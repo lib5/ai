@@ -1,0 +1,40 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv*/
+env/
+.venv/
+.env
+
+# Downloaded files
+get-pip.py
+
+# Core dumps
+core.*
+
+# Temp files
+=*
+
+# Claude settings
+.claude/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Test artifacts
+.pytest_cache/
+.coverage
+htmlcov/
