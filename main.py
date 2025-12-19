@@ -28,9 +28,28 @@ class QueryItem(BaseModel):
     role: str
     content: List[ContentItem]
 
+class UserMetadata(BaseModel):
+    id: Optional[str] = None
+    username: Optional[str] = None
+    email: Optional[str] = None
+    phone: Optional[str] = None
+    city: Optional[str] = None
+    wechat: Optional[str] = None
+    company: Optional[str] = None
+    birthday: Optional[str] = None
+    industry: Optional[str] = None
+    longitude: Optional[float] = None
+    latitude: Optional[float] = None
+    address: Optional[str] = None
+    country: Optional[str] = None
+    location_updated_at: Optional[str] = None
+    created_at: Optional[str] = None
+    updated_at: Optional[str] = None
+
 class ChatRequest(BaseModel):
     user_id: str
     query: List[QueryItem]
+    metadata: Optional[Dict[str, Any]] = None
 
 class ProcessingStep(BaseModel):
     message_id: str
@@ -91,13 +110,20 @@ async def handle_react_chat(request: ChatRequest, request_id: str):
         if has_image:
             input_desc.append(f"图像数量: {len(image_urls)}")
 
+        # 提取用户元数据
+        user_metadata = None
+        if request.metadata and 'user' in request.metadata:
+            user_metadata = request.metadata['user']
+
         print(f"\n{'='*60}")
         print(f"处理请求 (模式: {'文本' if has_text else ''}{' + ' if has_text and has_image else ''}{'图像' if has_image else ''})")
         print(f"输入: {', '.join(input_desc)}")
+        if user_metadata:
+            print(f"用户: {user_metadata.get('username', 'N/A')} ({user_metadata.get('city', 'N/A')})")
         print(f"{'='*60}\n")
 
-        # 运行ReAct循环
-        react_result = await true_react_agent.run(query_text, image_urls)
+        # 运行ReAct循环，传递metadata
+        react_result = await true_react_agent.run(query_text, image_urls, user_metadata)
 
         # 构建流式步骤
         all_steps = []

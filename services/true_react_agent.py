@@ -147,16 +147,40 @@ class TrueReActAgent:
             return await self._tool_mcp_call_tool(tool_name, args)
         return handler
 
-    def _build_system_prompt(self, image_urls: List[str] = None) -> str:
+    def _build_system_prompt(self, image_urls: List[str] = None, user_metadata: Optional[Dict[str, Any]] = None) -> str:
         """构建系统提示词"""
         tools_desc = "\n".join([
             f"- {name}: {info['description']}\n  参数: {json.dumps(info['parameters'], ensure_ascii=False)}"
             for name, info in self.tools.items()
         ])
 
+        # 构建用户信息部分
+        user_info = ""
+        if user_metadata:
+            user_fields = []
+            if user_metadata.get('username'):
+                user_fields.append(f"用户名: {user_metadata['username']}")
+            if user_metadata.get('city'):
+                user_fields.append(f"城市: {user_metadata['city']}")
+            if user_metadata.get('industry'):
+                user_fields.append(f"行业: {user_metadata['industry']}")
+            if user_metadata.get('company'):
+                user_fields.append(f"公司: {user_metadata['company']}")
+            if user_metadata.get('country'):
+                user_fields.append(f"国家: {user_metadata['country']}")
+            if user_metadata.get('address'):
+                user_fields.append(f"地址: {user_metadata['address']}")
+            if user_metadata.get('email'):
+                user_fields.append(f"邮箱: {user_metadata['email']}")
+            if user_metadata.get('phone'):
+                user_fields.append(f"电话: {user_metadata['phone']}")
+
+            if user_fields:
+                user_info = f"## 用户信息\n" + "\n".join([f"- {field}" for field in user_fields]) + "\n\n"
+
         return f"""你是一个ReAct智能体。你需要通过"思考-行动-观察"循环来解决问题。
 
-## 可用工具
+{user_info}## 可用工具
 {tools_desc}
 
 ## 输出格式
@@ -190,11 +214,12 @@ class TrueReActAgent:
         self,
         query: str,
         steps: List[ReActStep],
-        image_urls: List[str] = None
+        image_urls: List[str] = None,
+        user_metadata: Optional[Dict[str, Any]] = None
     ) -> List[Dict]:
         """构建对话历史"""
         messages = [
-            {"role": "system", "content": self._build_system_prompt(image_urls)}
+            {"role": "system", "content": self._build_system_prompt(image_urls, user_metadata)}
         ]
 
         # 构建用户消息（可能包含图像）
@@ -410,7 +435,7 @@ class TrueReActAgent:
 
     # ============== 主循环 ==============
 
-    async def run(self, query: str, image_urls: Optional[List[str]] = None) -> Dict[str, Any]:
+    async def run(self, query: str, image_urls: Optional[List[str]] = None, user_metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """
         运行ReAct循环
 
@@ -436,7 +461,7 @@ class TrueReActAgent:
             print(f"\n--- 迭代 {iteration} ---")
 
             # Step 1: 构建对话并调用模型
-            messages = self._build_conversation(query, steps, image_urls)
+            messages = self._build_conversation(query, steps, image_urls, user_metadata)
             model_output = await self._call_model(messages)
 
             thought = model_output.get("thought", "")
