@@ -163,13 +163,9 @@ class ChatAPITester:
                     steps = final_result.get('data', {}).get('steps', [])
                     for i, step in enumerate(steps[:], 1):
                         print(f"\n  步骤 {i}:")
-                        print(f"    message_id: {step.get('message_id', '')}")
-                        print(f"    present_content: {step.get('present_content', '')}")
-                        print(f"    tool_type: {step.get('tool_type', '')}")
-                        print(f"    parameters: {step.get('parameters', '')}")
-                        print(f"    observation: {step.get('observation', '')}")
-                        print(f"    tool_status: {step.get('tool_status', '')}")
-                        print(f"    execution_duration: {step.get('execution_duration', 0)}ms")
+                        # 只打印实际存在的字段
+                        for key, value in step.items():
+                            print(f"    {key}: {value}")
 
                     return final_result
                 else:

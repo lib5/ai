@@ -112,7 +112,11 @@ class MultiMCPClient:
     async def _list_tools_from_server(self, url: str) -> List[Dict[str, Any]]:
         """从单个服务器列出工具"""
         # 使用 FastMCPClient 包装器以确保一致性
-        from services.mcp_client import FastMCPClient
+        try:
+            from .mcp_client import FastMCPClient
+        except ImportError:
+            # 直接运行时的备选方案
+            from mcp_client import FastMCPClient
 
         async with FastMCPClient(url) as client:
             return await client.list_tools()
@@ -149,7 +153,10 @@ class MultiMCPClient:
                 async with streamable_http_client(url) as client:
                     result = await client.call_tool(tool_name, arguments)
                     # 格式化结果
-                    from services.mcp_client import FastMCPClient
+                    try:
+                        from .mcp_client import FastMCPClient
+                    except ImportError:
+                        from mcp_client import FastMCPClient
                     client_instance = FastMCPClient(url)
                     formatted_result = client_instance._format_result(result)
                     extracted_data = client_instance.extract_response_data(formatted_result)
@@ -167,7 +174,10 @@ class MultiMCPClient:
                 async with Client(transport) as client:
                     result = await client.call_tool(tool_name, arguments)
                     # 格式化结果
-                    from services.mcp_client import FastMCPClient
+                    try:
+                        from .mcp_client import FastMCPClient
+                    except ImportError:
+                        from mcp_client import FastMCPClient
                     client_instance = FastMCPClient(url)
                     formatted_result = client_instance._format_result(result)
                     extracted_data = client_instance.extract_response_data(formatted_result)

@@ -32,8 +32,12 @@ class StreamingService:
             "requestId": self.request_id,
             "timestamp": response_data.get("timestamp", "")
         }
-        yield f"data: {json.dumps(start_marker, ensure_ascii=False)}\n\n"
-        await asyncio.sleep(0.01)  # 短暂延迟
+        try:
+            yield f"data: {json.dumps(start_marker, ensure_ascii=False)}\n\n"
+            await asyncio.sleep(0.01)  # 短暂延迟
+        except Exception:
+            # 客户端已断开连接，退出
+            return
 
         # 分块发送数据
         for i in range(0, len(response_json), chunk_size):
@@ -45,8 +49,12 @@ class StreamingService:
                 "data": chunk,
                 "sequence": i // chunk_size
             }
-            yield f"data: {json.dumps(chunk_event, ensure_ascii=False)}\n\n"
-            await asyncio.sleep(0.01)  # 短暂延迟
+            try:
+                yield f"data: {json.dumps(chunk_event, ensure_ascii=False)}\n\n"
+                await asyncio.sleep(0.01)  # 短暂延迟
+            except Exception:
+                # 客户端已断开连接，退出
+                return
 
         # 发送结束标记
         end_marker = {
@@ -54,7 +62,11 @@ class StreamingService:
             "requestId": self.request_id,
             "totalLength": len(response_json)
         }
-        yield f"data: {json.dumps(end_marker, ensure_ascii=False)}\n\n"
+        try:
+            yield f"data: {json.dumps(end_marker, ensure_ascii=False)}\n\n"
+        except Exception:
+            # 客户端已断开连接，忽略
+            pass
 
     async def generate_stream_with_steps(self, steps_data: list) -> AsyncGenerator[str, None]:
         """
@@ -74,8 +86,12 @@ class StreamingService:
                 "stepIndex": i,
                 "stepData": step
             }
-            yield f"data: {json.dumps(step_event, ensure_ascii=False)}\n\n"
-            await asyncio.sleep(0.1)  # 步骤间延迟
+            try:
+                yield f"data: {json.dumps(step_event, ensure_ascii=False)}\n\n"
+                await asyncio.sleep(0.1)  # 步骤间延迟
+            except Exception:
+                # 客户端已断开连接，退出
+                return
 
         # 发送完成事件
         completion_event = {
@@ -83,7 +99,11 @@ class StreamingService:
             "requestId": self.request_id,
             "totalSteps": len(steps_data)
         }
-        yield f"data: {json.dumps(completion_event, ensure_ascii=False)}\n\n"
+        try:
+            yield f"data: {json.dumps(completion_event, ensure_ascii=False)}\n\n"
+        except Exception:
+            # 客户端已断开连接，忽略
+            pass
 
     async def generate_step_by_step_stream(self, steps_data: list, code: int = 200, message: str = "成功") -> AsyncGenerator[str, None]:
         """
@@ -121,5 +141,9 @@ class StreamingService:
             response_data = {k: v for k, v in response_data.items() if v is not None}
 
             # 输出完整的响应
-            yield json.dumps(response_data, ensure_ascii=False, separators=(',', ':')) + '\n'
-            await asyncio.sleep(0.1)  # 步骤间延迟
+            try:
+                yield json.dumps(response_data, ensure_ascii=False, separators=(',', ':')) + '\n'
+                await asyncio.sleep(0.1)  # 步骤间延迟
+            except Exception:
+                # 客户端已断开连接，退出
+                return

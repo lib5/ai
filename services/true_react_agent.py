@@ -102,24 +102,50 @@ class TrueReActAgent:
             self.multi_mcp_client = None
 
     def _register_tools(self):
-        """注册可用工具 - 只使用 MCP 服务器的工具"""
-        self.tools = {
-            "mcp_call_tool": {
-                "description": "调用 MCP 服务器上的工具。可以使用任何 MCP 服务器提供的工具，包括天气、搜索、模型等。",
-                "parameters": {
-                    "tool_name": "MCP 工具名称",
-                    "arguments": "工具参数（字典格式）"
-                },
-                "handler": self._tool_mcp_call_tool
+        """注册可用工具 - 从 MultiMCPClient 获取具体工具"""
+        self.tools = {}
+
+        # 获取 MultiMCP 客户端中的所有工具
+        if self.multi_mcp_client:
+            available_tools = self.multi_mcp_client.get_available_tools()
+            for tool_name in available_tools:
+                # 根据工具名称设置不同的参数描述
+                if "bing_search" in tool_name.lower():
+                    params = {
+                        "query": "搜索查询关键词",
+                        "count": "返回结果数量（可选，默认5）"
+                    }
+                elif "fetch_webpage" in tool_name.lower():
+                    params = {
+                        "result_id": "从搜索结果中获取的 result_id"
+                    }
+                else:
+                    # 其他工具使用通用参数
+                    params = {
+                        "query": "查询参数",
+                        "arguments": "附加参数（可选）"
+                    }
+
+                self.tools[tool_name] = {
+                    "description": f"调用 {tool_name} 工具",
+                    "parameters": params,
+                    "handler": self._create_tool_handler(tool_name)
+                }
+
+        # 添加 finish 工具
+        self.tools["finish"] = {
+            "description": "完成任务并返回最终答案。当你已经有足够信息回答问题时使用。",
+            "parameters": {
+                "answer": "最终答案"
             },
-            "finish": {
-                "description": "完成任务并返回最终答案。当你已经有足够信息回答问题时使用。",
-                "parameters": {
-                    "answer": "最终答案"
-                },
-                "handler": None  # 特殊工具，不需要handler
-            }
+            "handler": None  # 特殊工具，不需要handler
         }
+
+    def _create_tool_handler(self, tool_name: str):
+        """为指定工具创建处理器"""
+        async def handler(**args):
+            return await self._tool_mcp_call_tool(tool_name, args)
+        return handler
 
     def _build_system_prompt(self, image_urls: List[str] = None) -> str:
         """构建系统提示词"""
@@ -150,12 +176,11 @@ class TrueReActAgent:
 3. 如果工具执行失败，思考其他方案
 4. 不要重复使用相同的工具和参数
 5. thought 字段必须包含你的真实推理过程
-6. 你只能使用 MCP 工具（mcp_call_tool）来完成任务，调用格式：
+6. 你可以直接使用列出的 MCP 工具来完成任务，调用格式：
    {{
-       "tool": "mcp_call_tool",
+       "tool": "具体的工具名称",
        "args": {{
-           "tool_name": "具体的MCP工具名称",
-           "arguments": {{工具参数}}
+           "query": "搜索关键词"  // 根据工具要求填写参数
        }}
    }}
 
@@ -214,6 +239,15 @@ class TrueReActAgent:
     async def _call_model(self, messages: List[Dict]) -> Dict[str, Any]:
         """调用模型并解析输出"""
         try:
+            # 打印系统提示词
+            if messages and len(messages) > 0:
+                system_msg = messages[0].get("content", "")
+                print(f"\n{'='*80}")
+                print(f"[SYSTEM PROMPT]")
+                print(f"{'='*80}")
+                print(f"{system_msg}")
+                print(f"{'='*80}\n")
+
             response = await self.azure_service.chat_completion(
                 messages,
                 max_tokens=1000,
@@ -221,7 +255,11 @@ class TrueReActAgent:
             )
 
             content = response.get("choices", [{}])[0].get("message", {}).get("content", "")
-            print(f"\n[MODEL OUTPUT]:\n{content}\n")
+            print(f"\n{'='*80}")
+            print(f"[MODEL RAW OUTPUT]")
+            print(f"{'='*80}")
+            print(f"{content}")
+            print(f"{'='*80}\n")
 
             # 尝试解析JSON
             # 处理可能的markdown代码块

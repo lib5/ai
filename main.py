@@ -1,5 +1,4 @@
 from fastapi import FastAPI, HTTPException
-from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import StreamingResponse
 from pydantic import BaseModel
 from typing import List, Dict, Any, Optional, Union
@@ -17,13 +16,8 @@ from config import settings
 
 app = FastAPI(title="Chat API with Azure OpenAI", version="1.0.0")
 
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
+# Note: CORS middleware removed due to compatibility issues
+# For production, consider using a reverse proxy for CORS
 
 class ContentItem(BaseModel):
     type: str
@@ -194,10 +188,12 @@ async def handle_react_chat(request: ChatRequest, request_id: str):
                 all_steps.append(success_step)
 
         # 步骤 2: 最终答案 (Finish)
-        # Finish步骤只包含三个字段：message_id, present_content, tool_type
+        # Finish步骤只包含message_id、present_content和tool_type三个字段
+        # 不包含parameters、observation、tool_status、execution_duration字段
+        final_answer = react_result.get('answer', '')
         finish_step = {
             "message_id": str(uuid.uuid4()),
-            "present_content": react_result.get('answer', '未生成答案'),
+            "present_content": final_answer,
             "tool_type": "Finish"
         }
         all_steps.append(finish_step)
