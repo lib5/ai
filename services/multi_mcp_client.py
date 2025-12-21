@@ -93,6 +93,9 @@ class MultiMCPClient:
                     tool_desc = ""
                     tool_schema = None
 
+                    # 添加调试信息
+                    print(f"  [DEBUG] Processing tool: {type(tool)} - {tool}")
+
                     # 提取工具名称
                     if isinstance(tool, dict):
                         tool_name = tool.get('name', 'unknown')

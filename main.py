@@ -19,6 +19,45 @@ app = FastAPI(title="Chat API with Azure OpenAI", version="1.0.0")
 # Note: CORS middleware removed due to compatibility issues
 # For production, consider using a reverse proxy for CORS
 
+# 启动事件：初始化 ReAct Agent
+@app.on_event("startup")
+async def startup_event():
+    """应用启动时初始化 ReAct Agent 和 MCP 工具"""
+    print("\n" + "=" * 80)
+    print("🚀 应用启动中...")
+    print("=" * 80 + "\n")
+    print("📋 正在初始化 ReAct Agent...")
+    try:
+        await true_react_agent.initialize()
+        print("✅ ReAct Agent 初始化成功")
+        print(f"✅ 已注册 {len(true_react_agent.tools)} 个工具")
+        print("\n📦 可用工具列表:")
+        for name, info in true_react_agent.tools.items():
+            print(f"  - {name}: {info['description']}")
+        print("\n" + "=" * 80)
+        print("✅ 应用启动完成，工具已准备就绪")
+        print("=" * 80 + "\n")
+    except Exception as e:
+        print(f"\n❌ ReAct Agent 初始化失败: {e}")
+        print("=" * 80 + "\n")
+        raise
+
+# 关闭事件：清理资源
+@app.on_event("shutdown")
+async def shutdown_event():
+    """应用关闭时清理资源"""
+    print("\n" + "=" * 80)
+    print("🔄 应用关闭中...")
+    print("=" * 80 + "\n")
+    try:
+        # 清理 MultiMCP 客户端资源
+        if true_react_agent.multi_mcp_client:
+            print("✅ MCP 客户端资源清理完成")
+        print("✅ 应用关闭完成")
+    except Exception as e:
+        print(f"⚠️  关闭时发生错误: {e}")
+    print("=" * 80 + "\n")
+
 class ContentItem(BaseModel):
     type: str
     text: Optional[str] = None

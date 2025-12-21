@@ -9,11 +9,11 @@
 """
 
 import json
+import calendar
 from typing import List, Dict, Any, Optional
-from datetime import datetime
+from datetime import datetime, timedelta
 
 from services.azure_openai_service import AzureOpenAIService
-from services.mcp_client import ModelscopeMCPClient, FastMCPClient
 from services.multi_mcp_client import MultiMCPClient
 from config import settings
 
@@ -170,6 +170,61 @@ class TrueReActAgent:
             "server": "internal"  # 标记为内部工具
         }
 
+    def _get_calendar_info(self) -> str:
+        """
+        获取日历信息，包括当前时间、上个月、当前月、下个月的详细日历
+        方便模型进行日期计算和星期推断
+        """
+        now = datetime.now()
+        current_year = now.year
+        current_month = now.month
+
+        # 当前日期的详细信息（包含时分秒）
+        current_date_str = now.strftime(f"%Y年%m月%d日 %H:%M:%S 星期{['一', '二', '三', '四', '五', '六', '日'][now.weekday()]}")
+
+        # 计算上个月、当前月、下个月的年份和月份
+        # 上个月
+        if current_month == 1:
+            prev_year = current_year - 1
+            prev_month = 12
+        else:
+            prev_year = current_year
+            prev_month = current_month - 1
+
+        # 下个月
+        if current_month == 12:
+            next_year = current_year + 1
+            next_month = 1
+        else:
+            next_year = current_year
+            next_month = current_month + 1
+
+        # 月份名称
+        month_names = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
+
+        # 生成简化日历信息（只包含日期和星期）
+        calendar_info = f"""## 当前时间信息
+当前时间：{current_date_str}
+今天是星期{['一', '二', '三', '四', '五', '六', '日'][now.weekday()]}
+
+## 日期星期对照表
+
+### {prev_year}年{prev_month}月（{month_names[prev_month]}月）
+{chr(10).join([f"{prev_month}月{day:02d}日 = 星期{['一', '二', '三', '四', '五', '六', '日'][datetime(prev_year, prev_month, day).weekday()]}" for day in range(1, calendar.monthrange(prev_year, prev_month)[1] + 1)])}
+
+### {current_year}年{current_month}月（{month_names[current_month]}月）
+{chr(10).join([f"{current_month}月{day:02d}日 = 星期{['一', '二', '三', '四', '五', '六', '日'][datetime(current_year, current_month, day).weekday()]}" for day in range(1, calendar.monthrange(current_year, current_month)[1] + 1)])}
+
+### {next_year}年{next_month}月（{month_names[next_month]}月）
+{chr(10).join([f"{next_month}月{day:02d}日 = 星期{['一', '二', '三', '四', '五', '六', '日'][datetime(next_year, next_month, day).weekday()]}" for day in range(1, calendar.monthrange(next_year, next_month)[1] + 1)])}
+
+## 使用说明
+- 所有日期计算基于当前时间：{current_date_str}
+- 查找某一天是星期几：直接查看上方对照表，如"12月22日 = 星期一"
+- 计算"下周一"：今天星期{['一', '二', '三', '四', '五', '六', '日'][now.weekday()]} + 1天 = 下星期一"""
+
+        return calendar_info
+
     def _build_system_prompt(self, image_urls: List[str] = None, user_metadata: Optional[Dict[str, Any]] = None) -> str:
         """构建系统提示词"""
         tools_desc = "\n".join([
@@ -214,7 +269,13 @@ class TrueReActAgent:
             if user_fields:
                 user_info = f"## 用户信息\n" + "\n".join([f"- {field}" for field in user_fields]) + "\n\n"
 
+        # 获取日历信息
+        calendar_info = self._get_calendar_info()
+        
+
         return f"""你是一个ReAct智能体。你需要通过"思考-行动-观察"循环来解决问题。
+
+{calendar_info}
 
 {user_info}## 可用工具
 {tools_desc}

@@ -247,7 +247,7 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "查询用户名为 小李的联系人"}
+                        {"type": "input_text", "text": "下周四要开会"}
                     ]
                 }
             ],
