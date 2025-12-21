@@ -68,6 +68,7 @@ class TrueReActAgent:
         self.tools = {}  # 工具注册表
         self.max_iterations = 10
         self.multi_mcp_client = None  # 多 MCP 客户端
+        self.user_id = None  # 当前用户ID
 
     async def initialize(self):
         """初始化服务"""
@@ -131,8 +132,8 @@ class TrueReActAgent:
                             properties = schema["properties"]
                             required = schema.get("required", [])
                             for param_name, param_info in properties.items():
-                                # 过滤掉 id 字段，不在提示词中显示
-                                if param_name == "id":
+                                # 过滤掉 id 和 user_id 字段，不在提示词中显示
+                                if param_name in ["id", "user_id"]:
                                     continue
 
                                 if isinstance(param_info, dict):
@@ -299,9 +300,12 @@ class TrueReActAgent:
             # 遍历metadata中的所有字段，传递给模型
             for key, value in user_metadata.items():
                 if value is not None:  # 如果值不为 None（即使为空字符串也保留）
+                    # 过滤掉id字段，不传递给模型（仅用于服务端追踪）
+                    if key == 'id':
+                        continue
+
                     # 字段中文映射表
                     label_map = {
-                        'id': '用户ID',
                         'username': '用户名',
                         'email': '邮箱',
                         'phone': '电话',
@@ -575,6 +579,11 @@ class TrueReActAgent:
             }
 
         try:
+            # 自动添加 user_id 到参数中（如果存在且参数中还没有）
+            if self.user_id and 'user_id' not in arguments:
+                arguments = arguments.copy()  # 避免修改原始参数
+                arguments['user_id'] = self.user_id
+
             # 使用多 MCP 客户端调用工具
             result = await self.multi_mcp_client.call_tool(tool_name, arguments)
 
@@ -608,6 +617,11 @@ class TrueReActAgent:
         4. 重复直到模型选择finish
         """
         await self.initialize()
+
+        # 设置当前用户ID（从 user_metadata 中提取）
+        self.user_id = None
+        if user_metadata and isinstance(user_metadata, dict):
+            self.user_id = user_metadata.get('id')
 
         steps: List[ReActStep] = []
         image_urls = image_urls or []
