@@ -131,6 +131,10 @@ class TrueReActAgent:
                             properties = schema["properties"]
                             required = schema.get("required", [])
                             for param_name, param_info in properties.items():
+                                # 过滤掉 id 字段，不在提示词中显示
+                                if param_name == "id":
+                                    continue
+
                                 if isinstance(param_info, dict):
                                     desc = param_info.get('description', '参数')
                                 else:
@@ -227,10 +231,66 @@ class TrueReActAgent:
 
     def _build_system_prompt(self, image_urls: List[str] = None, user_metadata: Optional[Dict[str, Any]] = None) -> str:
         """构建系统提示词"""
-        tools_desc = "\n".join([
-            f"- {name}: {info['description']}\n  参数: {json.dumps(info['parameters'], ensure_ascii=False)}"
-            for name, info in self.tools.items()
-        ])
+        # 生成 OpenAI function calling 格式的工具列表
+        tools_list = []
+        for name, info in self.tools.items():
+            # 转换参数格式
+            if isinstance(info['parameters'], dict):
+                # 处理参数字典
+                properties = {}
+                required = []
+                for param_name, param_desc in info['parameters'].items():
+                    # 检查是否为必需参数
+                    is_required = "必需" in str(param_desc) or param_name in ['answer', 'query', 'file_path']
+                    if is_required:
+                        required.append(param_name)
+
+                    # 根据描述推断类型
+                    if "整数" in str(param_desc) or "number" in str(param_desc).lower():
+                        param_type = "integer"
+                    elif "布尔" in str(param_desc) or "bool" in str(param_desc).lower():
+                        param_type = "boolean"
+                    elif "列表" in str(param_desc) or "array" in str(param_desc).lower():
+                        param_type = "array"
+                    elif "对象" in str(param_desc) or "object" in str(param_desc).lower():
+                        param_type = "object"
+                    else:
+                        param_type = "string"
+
+                    properties[param_name] = {
+                        "description": str(param_desc),
+                        "type": param_type
+                    }
+
+                parameters = {
+                    "type": "object",
+                    "properties": properties
+                }
+
+                if required:
+                    parameters["required"] = required
+            else:
+                # 通用参数格式
+                parameters = {
+                    "type": "object",
+                    "properties": {
+                        "arguments": {
+                            "description": str(info['parameters']),
+                            "type": "object"
+                        }
+                    }
+                }
+
+            tools_list.append({
+                "type": "function",
+                "function": {
+                    "name": name,
+                    "description": info['description'],
+                    "parameters": parameters
+                }
+            })
+
+        tools_desc = "可用工具列表:\n" + json.dumps(tools_list, ensure_ascii=False, indent=2)
 
         # 构建用户信息部分
         user_info = ""
