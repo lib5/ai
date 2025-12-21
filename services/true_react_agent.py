@@ -181,22 +181,35 @@ class TrueReActAgent:
         user_info = ""
         if user_metadata:
             user_fields = []
-            if user_metadata.get('username'):
-                user_fields.append(f"用户名: {user_metadata['username']}")
-            if user_metadata.get('city'):
-                user_fields.append(f"城市: {user_metadata['city']}")
-            if user_metadata.get('industry'):
-                user_fields.append(f"行业: {user_metadata['industry']}")
-            if user_metadata.get('company'):
-                user_fields.append(f"公司: {user_metadata['company']}")
-            if user_metadata.get('country'):
-                user_fields.append(f"国家: {user_metadata['country']}")
-            if user_metadata.get('address'):
-                user_fields.append(f"地址: {user_metadata['address']}")
-            if user_metadata.get('email'):
-                user_fields.append(f"邮箱: {user_metadata['email']}")
-            if user_metadata.get('phone'):
-                user_fields.append(f"电话: {user_metadata['phone']}")
+            # 遍历metadata中的所有字段，传递给模型
+            for key, value in user_metadata.items():
+                if value is not None:  # 如果值不为 None（即使为空字符串也保留）
+                    # 字段中文映射表
+                    label_map = {
+                        'id': '用户ID',
+                        'username': '用户名',
+                        'email': '邮箱',
+                        'phone': '电话',
+                        'city': '城市',
+                        'wechat': '微信',
+                        'company': '公司',
+                        'birthday': '生日',
+                        'industry': '行业',
+                        'longitude': '经度',
+                        'latitude': '纬度',
+                        'address': '地址',
+                        'country': '国家',
+                        'location_updated_at': '位置更新时间',
+                        'created_at': '创建时间',
+                        'updated_at': '更新时间'
+                    }
+                    # 使用中文标签，如果key不在映射中则使用原key
+                    label = label_map.get(key, key)
+                    # 处理不同类型的值
+                    display_value = value
+                    if isinstance(value, str):
+                        display_value = value if value else "(空)"
+                    user_fields.append(f"{label}: {display_value}")
 
             if user_fields:
                 user_info = f"## 用户信息\n" + "\n".join([f"- {field}" for field in user_fields]) + "\n\n"
@@ -230,6 +243,10 @@ class TrueReActAgent:
            "query": "搜索关键词"  // 根据工具要求填写参数
        }}
    }}
+7.**必须使用真实工具**：
+   - 当用户请求涉及操作（创建、查询、更新、删除）时，必须调用对应的MCP工具
+   - 示例：
+     * 用户说"创建联系人" → 调用 `contacts_create' 工具
 
 """
 

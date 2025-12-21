@@ -33,29 +33,29 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "搜索关于 Python 编程的信息"}
+                        {"type": "input_text", "text": "搜索如何学习python"}
                     ]
                 }
             ],
             "metadata": {
-                "user": {
-                    "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
-                    "username": "test_user_001",
-                    "email": "test_001@example.com",
-                    "phone": "13900139001",
-                    "city": "北京",
-                    "wechat": "test_wechat_001",
-                    "company": "测试公司",
-                    "birthday": "1990-01-01T00:00:00",
-                    "industry": "互联网",
-                    "longitude": 116.397128,
-                    "latitude": 39.916527,
-                    "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
-                    "country": "中国",
-                    "location_updated_at": "2025-12-18T09:50:53.615000",
-                    "created_at": "2025-12-18T09:50:53.442000",
-                    "updated_at": "2025-12-18T09:50:53.615000"
-                }
+                "user":{
+        "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
+        "username": "test_user_2e3b6b0f",
+        "email": "test_29bd727c@example.com",
+        "phone": "13900139000",
+        "city": "上海",
+        "wechat": "test_wechat",
+        "company": "新测试公司",
+        "birthday": "1990-01-01T00:00:00",
+        "industry": "互联网",
+        "longitude": 116.397128,
+        "latitude": 39.916527,
+        "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
+        "country": "中国",
+        "location_updated_at": "2025-12-18T09:50:53.615000",
+        "created_at": "2025-12-18T09:50:53.442000",
+        "updated_at": "2025-12-18T09:50:53.615000"
+      } 
             }
         }
 
@@ -77,24 +77,24 @@ class ChatAPITester:
                 }
             ],
             "metadata": {
-                "user": {
-                    "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
-                    "username": "test_user_002",
-                    "email": "test_002@example.com",
-                    "phone": "13900139002",
-                    "city": "上海",
-                    "wechat": "test_wechat_002",
-                    "company": "新测试公司",
-                    "birthday": "1990-01-01T00:00:00",
-                    "industry": "互联网",
-                    "longitude": 116.397128,
-                    "latitude": 39.916527,
-                    "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
-                    "country": "中国",
-                    "location_updated_at": "2025-12-18T09:50:53.615000",
-                    "created_at": "2025-12-18T09:50:53.442000",
-                    "updated_at": "2025-12-18T09:50:53.615000"
-                }
+                "user":{
+        "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
+        "username": "test_user_2e3b6b0f",
+        "email": "test_29bd727c@example.com",
+        "phone": "13900139000",
+        "city": "上海",
+        "wechat": "test_wechat",
+        "company": "新测试公司",
+        "birthday": "1990-01-01T00:00:00",
+        "industry": "互联网",
+        "longitude": 116.397128,
+        "latitude": 39.916527,
+        "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
+        "country": "中国",
+        "location_updated_at": "2025-12-18T09:50:53.615000",
+        "created_at": "2025-12-18T09:50:53.442000",
+        "updated_at": "2025-12-18T09:50:53.615000"
+      }
             }
         }
 
@@ -121,24 +121,24 @@ class ChatAPITester:
                 }
             ],
             "metadata": {
-                "user": {
-                    "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
-                    "username": "test_user_003",
-                    "email": "test_003@example.com",
-                    "phone": "13900139003",
-                    "city": "广州",
-                    "wechat": "test_wechat_003",
-                    "company": "AI科技公司",
-                    "birthday": "1990-01-01T00:00:00",
-                    "industry": "人工智能",
-                    "longitude": 113.264435,
-                    "latitude": 23.129163,
-                    "address": "广州市天河区珠江新城",
-                    "country": "中国",
-                    "location_updated_at": "2025-12-18T09:50:53.615000",
-                    "created_at": "2025-12-18T09:50:53.442000",
-                    "updated_at": "2025-12-18T09:50:53.615000"
-                }
+                "user":{
+        "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
+        "username": "test_user_2e3b6b0f",
+        "email": "test_29bd727c@example.com",
+        "phone": "13900139000",
+        "city": "上海",
+        "wechat": "test_wechat",
+        "company": "新测试公司",
+        "birthday": "1990-01-01T00:00:00",
+        "industry": "互联网",
+        "longitude": 116.397128,
+        "latitude": 39.916527,
+        "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
+        "country": "中国",
+        "location_updated_at": "2025-12-18T09:50:53.615000",
+        "created_at": "2025-12-18T09:50:53.442000",
+        "updated_at": "2025-12-18T09:50:53.615000"
+      }
             }
         }
 
@@ -247,29 +247,29 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "请用流式方式回答：什么是深度学习？"}
+                        {"type": "input_text", "text": "查询用户名为 小李的联系人"}
                     ]
                 }
             ],
             "metadata": {
-                "user": {
-                    "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
-                    "username": "test_user_004",
-                    "email": "test_004@example.com",
-                    "phone": "13900139004",
-                    "city": "深圳",
-                    "wechat": "test_wechat_004",
-                    "company": "深度学习实验室",
-                    "birthday": "1990-01-01T00:00:00",
-                    "industry": "机器学习",
-                    "longitude": 114.057868,
-                    "latitude": 22.543099,
-                    "address": "深圳市南山区科技园",
-                    "country": "中国",
-                    "location_updated_at": "2025-12-18T09:50:53.615000",
-                    "created_at": "2025-12-18T09:50:53.442000",
-                    "updated_at": "2025-12-18T09:50:53.615000"
-                }
+                "user":{
+        "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
+        "username": "test_user_2e3b6b0f",
+        "email": "test_29bd727c@example.com",
+        "phone": "13900139000",
+        "city": "上海",
+        "wechat": "test_wechat",
+        "company": "新测试公司",
+        "birthday": "1990-01-01T00:00:00",
+        "industry": "互联网",
+        "longitude": 116.397128,
+        "latitude": 39.916527,
+        "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
+        "country": "中国",
+        "location_updated_at": "2025-12-18T09:50:53.615000",
+        "created_at": "2025-12-18T09:50:53.442000",
+        "updated_at": "2025-12-18T09:50:53.615000"
+      }
             }
         }
 
@@ -308,24 +308,24 @@ class ChatAPITester:
                 }
             ],
             "metadata": {
-                "user": {
-                    "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
-                    "username": "test_user_005",
-                    "email": "test_005@example.com",
-                    "phone": "13900139005",
-                    "city": "杭州",
-                    "wechat": "test_wechat_005",
-                    "company": "科技创新公司",
-                    "birthday": "1990-01-01T00:00:00",
-                    "industry": "科技",
-                    "longitude": 120.155070,
-                    "latitude": 30.274084,
-                    "address": "杭州市西湖区文三路",
-                    "country": "中国",
-                    "location_updated_at": "2025-12-18T09:50:53.615000",
-                    "created_at": "2025-12-18T09:50:53.442000",
-                    "updated_at": "2025-12-18T09:50:53.615000"
-                }
+               "user":{
+        "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
+        "username": "test_user_2e3b6b0f",
+        "email": "test_29bd727c@example.com",
+        "phone": "13900139000",
+        "city": "上海",
+        "wechat": "test_wechat",
+        "company": "新测试公司",
+        "birthday": "1990-01-01T00:00:00",
+        "industry": "互联网",
+        "longitude": 116.397128,
+        "latitude": 39.916527,
+        "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
+        "country": "中国",
+        "location_updated_at": "2025-12-18T09:50:53.615000",
+        "created_at": "2025-12-18T09:50:53.442000",
+        "updated_at": "2025-12-18T09:50:53.615000"
+      }
             }
         }
 
@@ -346,24 +346,24 @@ class ChatAPITester:
                 }
             ],
             "metadata": {
-                "user": {
-                    "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
-                    "username": "test_user_2e3b6b0f",
-                    "email": "test_29bd727c@example.com",
-                    "phone": "13900139000",
-                    "city": "上海",
-                    "wechat": "test_wechat",
-                    "company": "新测试公司",
-                    "birthday": "1990-01-01T00:00:00",
-                    "industry": "互联网",
-                    "longitude": 116.397128,
-                    "latitude": 39.916527,
-                    "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
-                    "country": "中国",
-                    "location_updated_at": "2025-12-18T09:50:53.615000",
-                    "created_at": "2025-12-18T09:50:53.442000",
-                    "updated_at": "2025-12-18T09:50:53.615000"
-                }
+               "user":{
+        "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
+        "username": "test_user_2e3b6b0f",
+        "email": "test_29bd727c@example.com",
+        "phone": "13900139000",
+        "city": "上海",
+        "wechat": "test_wechat",
+        "company": "新测试公司",
+        "birthday": "1990-01-01T00:00:00",
+        "industry": "互联网",
+        "longitude": 116.397128,
+        "latitude": 39.916527,
+        "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
+        "country": "中国",
+        "location_updated_at": "2025-12-18T09:50:53.615000",
+        "created_at": "2025-12-18T09:50:53.442000",
+        "updated_at": "2025-12-18T09:50:53.615000"
+      }
             }
         }
 
@@ -430,10 +430,10 @@ async def main():
 
     async with ChatAPITester(base_url) as tester:
         # 测试健康检查
-        await tester.test_health_check()
+        #await tester.test_health_check()
 
         # 测试文本输入
-        await tester.test_text_only()
+        #await tester.test_text_only()
 
         # 测试文本和图像混合输入
         #await tester.test_text_and_image()
@@ -445,7 +445,7 @@ async def main():
        # await tester.test_mcp_tools()
 
         # 测试流式响应
-       # await tester.test_streaming_response()
+        await tester.test_streaming_response()
 
     # 测试 MCP 客户端
    # await test_modelscope_mcp()
