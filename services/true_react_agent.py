@@ -10,8 +10,9 @@
 
 import json
 import calendar
+import aiohttp
 from typing import List, Dict, Any, Optional
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from services.azure_openai_service import AzureOpenAIService
 from services.multi_mcp_client import MultiMCPClient
@@ -36,7 +37,7 @@ class ReActStep:
         self.tool_name = tool_name
         self.tool_args = tool_args
         self.tool_result = tool_result
-        self.timestamp = datetime.utcnow().isoformat() + "Z"
+        self.timestamp = datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z')
 
     def to_dict(self) -> Dict[str, Any]:
         result = {
@@ -69,6 +70,7 @@ class TrueReActAgent:
         self.max_iterations = 10
         self.multi_mcp_client = None  # 多 MCP 客户端
         self.user_id = None  # 当前用户ID
+        self.chat_history = []  # 聊天历史
 
     async def initialize(self):
         """初始化服务"""
@@ -174,6 +176,240 @@ class TrueReActAgent:
             },
             "server": "internal"  # 标记为内部工具
         }
+
+    # ============== 聊天历史 HTTP 接口 ==============
+
+    async def fetch_chat_history(self, user_id: str, page: int = 1, page_size: int = 10) -> List[Dict[str, Any]]:
+        """
+        从 HTTP 接口获取聊天历史
+
+        Args:
+            user_id: 用户ID
+            page: 页码
+            page_size: 每页数量
+
+        Returns:
+            聊天消息列表
+        """
+        try:
+            url = f"{settings.chat_api_base_url}/api/v1/chat/history"
+            request_data = {
+                "user_id": user_id,
+                "page": page,
+                "page_size": page_size
+            }
+
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    url,
+                    json=request_data,
+                    headers={"Content-Type": "application/json"},
+                    timeout=aiohttp.ClientTimeout(total=30)
+                ) as response:
+                    if response.status == 200:
+                        result = await response.json()
+                        if isinstance(result, dict) and "data" in result:
+                            messages = result.get("data", {}).get("messages", [])
+                            print(f"[ChatHistory] 获取到 {len(messages)} 条历史消息")
+                            return messages
+                    else:
+                        print(f"[ChatHistory] 获取失败，状态码: {response.status}")
+                        return []
+        except Exception as e:
+            print(f"[ChatHistory] 获取历史消息异常: {str(e)}")
+            return []
+
+    async def create_chat_message(
+        self,
+        user_id: str,
+        content: str,
+        role: str = "assistant",
+        steps: Dict = None,
+        intent_type: str = "chat"
+    ) -> Optional[str]:
+        """
+        通过 HTTP 接口创建聊天消息
+
+        Args:
+            user_id: 用户ID
+            content: 消息内容
+            role: 消息角色 (user/assistant)
+            steps: 步骤信息
+            intent_type: 意图类型
+
+        Returns:
+            创建的消息ID，失败返回 None
+        """
+        try:
+            url = f"{settings.chat_api_base_url}/api/v1/chat/message"
+            request_data = {
+                "user_id": user_id,
+                "message_type": "text",
+                "role": role,
+                "content": content,
+                "intent_type": intent_type,
+                "steps": steps or {}
+            }
+
+            async with aiohttp.ClientSession() as session:
+                async with session.post(
+                    url,
+                    json=request_data,
+                    headers={"Content-Type": "application/json"},
+                    timeout=aiohttp.ClientTimeout(total=30)
+                ) as response:
+                    if response.status == 200:
+                        result = await response.json()
+                        if isinstance(result, dict) and "data" in result:
+                            message_id = result.get("data", {}).get("id")
+                            print(f"[ChatHistory] 创建消息成功，ID: {message_id}")
+                            return message_id
+                    else:
+                        print(f"[ChatHistory] 创建消息失败，状态码: {response.status}")
+                        return None
+        except Exception as e:
+            print(f"[ChatHistory] 创建消息异常: {str(e)}")
+            return None
+
+    async def _save_chat_history(self, query: str, final_answer: str, steps: List[ReActStep], image_urls: List[str] = None):
+        """
+        保存聊天历史到数据库
+
+        Args:
+            query: 用户问题
+            final_answer: 助手回答
+            steps: 处理步骤
+            image_urls: 图像URL列表
+        """
+        if not self.user_id:
+            print("[ChatHistory] 跳过保存：没有有效的user_id")
+            return
+
+        try:
+            image_urls = image_urls or []
+            has_images = len(image_urls) > 0
+
+            # 1. 保存用户消息
+            # 构建用户消息内容（包含文本和可能的图像）
+            user_content = [{"type": "input_text", "text": query}]
+
+            # 如果有图像，添加到内容中
+            if has_images:
+                for img_url in image_urls:
+                    user_content.append({"type": "input_image", "image_url": img_url})
+
+            user_steps = {
+                "query": query,
+                "has_images": has_images,
+                "image_count": len(image_urls),
+                "image_urls": image_urls if has_images else []
+            }
+
+            user_message_id = await self.create_chat_message(
+                user_id=self.user_id,
+                content=json.dumps(user_content, ensure_ascii=False),
+                role="user",
+                steps=user_steps,
+                intent_type="chat"
+            )
+
+            # 2. 保存助手回复
+            # 从 steps 中提取 final_answer 的信息
+            assistant_steps_data = {
+                "final_answer": final_answer,
+                "total_iterations": len([s for s in steps if s.type == "action"]),
+                "tools_used": list(set([s.tool_name for s in steps if s.tool_name and s.tool_name != "finish"])),
+                "react_mode": True,
+                "has_images": has_images,
+                "user_image_count": len(image_urls)
+            }
+
+            assistant_message_id = await self.create_chat_message(
+                user_id=self.user_id,
+                content=json.dumps([{"type": "output_text", "text": final_answer}], ensure_ascii=False),
+                role="assistant",
+                steps=assistant_steps_data,
+                intent_type="chat"
+            )
+
+            print(f"[ChatHistory] 保存成功: 用户消息ID={user_message_id}, 助手消息ID={assistant_message_id}")
+
+        except Exception as e:
+            print(f"[ChatHistory] 保存聊天历史异常: {str(e)}")
+            # 不抛出异常，避免影响主流程
+
+    def _format_chat_history(self, messages: List[Dict[str, Any]], max_messages: int = 5) -> str:
+        """
+        格式化聊天历史为提示词格式
+
+        Args:
+            messages: 聊天消息列表
+            max_messages: 最大消息数量
+
+        Returns:
+            格式化后的历史字符串
+        """
+        if not messages:
+            return ""
+
+        # 取最近的消息（messages 已经按时间倒序）
+        recent_messages = messages[:max_messages]
+        # 反转顺序，让旧消息在前
+        recent_messages = list(reversed(recent_messages))
+
+        history_lines = []
+        for msg in recent_messages:
+            role = msg.get("role", "unknown")
+            if role == "user":
+                # 用户消息
+                content = msg.get("content", [])
+                if isinstance(content, list):
+                    text_items = [
+                        item.get("text", "")
+                        for item in content
+                        if isinstance(item, dict) and item.get("type") == "input_text"
+                    ]
+                    text = " ".join(text_items)
+                else:
+                    text = str(content)
+                history_lines.append(f"用户: {text[:200]}")
+            elif role == "assistant":
+                # 助手消息 - 从 steps 或 content 中提取答案
+                answer = ""
+
+                # 方式1: 从 steps 字典中提取 final_answer
+                steps = msg.get("steps", {})
+                if isinstance(steps, dict) and "final_answer" in steps:
+                    answer = steps.get("final_answer", "")
+
+                # 方式2: 从 content 中提取答案
+                if not answer:
+                    content = msg.get("content", [])
+                    if isinstance(content, str):
+                        try:
+                            content = json.loads(content)
+                        except:
+                            answer = content[:200]
+                    if isinstance(content, list):
+                        for item in content:
+                            if isinstance(item, dict) and item.get("type") == "output_text":
+                                answer = item.get("text", "")
+                                break
+
+                # 方式3: 兼容旧格式 - steps 是列表
+                if not answer and isinstance(steps, list):
+                    for step in steps:
+                        if isinstance(step, dict) and step.get("type") == "final_answer":
+                            answer = step.get("content", "")
+                            break
+
+                if answer:
+                    history_lines.append(f"助手: {answer[:200]}")
+
+        if not history_lines:
+            return ""
+
+        return "## 最近对话历史\n" + "\n".join(history_lines) + "\n\n"
 
     def _get_calendar_info(self) -> str:
         """
@@ -335,13 +571,18 @@ class TrueReActAgent:
 
         # 获取日历信息
         calendar_info = self._get_calendar_info()
-        
+
+        # 格式化聊天历史
+        chat_history_info = self._format_chat_history(self.chat_history)
+
 
         return f"""你是一个ReAct智能体。你需要通过"思考-行动-观察"循环来解决问题。
 
 {calendar_info}
 
-{user_info}## 可用工具
+{user_info}
+
+## 可用工具
 {tools_desc}
 
 ## 输出格式
@@ -361,18 +602,9 @@ class TrueReActAgent:
 3. 如果工具执行失败，思考其他方案
 4. 不要重复使用相同的工具和参数
 5. thought 字段必须包含你的真实推理过程
-6. 你可以直接使用列出的 MCP 工具来完成任务，调用格式：
-   {{
-       "tool": "具体的工具名称",
-       "args": {{
-           "query": "搜索关键词"  // 根据工具要求填写参数
-       }}
-   }}
-7.**必须使用真实工具**：
-   - 当用户请求涉及操作（创建、查询、更新、删除）时，必须调用对应的MCP工具
-   - 示例：
-     * 用户说"创建联系人" → 调用 `contacts_create' 工具
+6. 你是智能小秘书 在thought中你需要以一个秘书的语气输出，你需要谄媚一点。
 
+{chat_history_info}
 """
 
     def _build_conversation(
@@ -429,14 +661,14 @@ class TrueReActAgent:
     async def _call_model(self, messages: List[Dict]) -> Dict[str, Any]:
         """调用模型并解析输出"""
         try:
-            # 打印系统提示词
-            if messages and len(messages) > 0:
-                system_msg = messages[0].get("content", "")
-                print(f"\n{'='*80}")
-                print(f"[SYSTEM PROMPT]")
-                print(f"{'='*80}")
-                print(f"{system_msg}")
-                print(f"{'='*80}\n")
+            # 打印系统提示词 (已注释，避免日志过大)
+            # if messages and len(messages) > 0:
+            #     system_msg = messages[0].get("content", "")
+            #     print(f"\n{'='*80}")
+            #     print(f"[SYSTEM PROMPT]")
+            #     print(f"{'='*80}")
+            #     print(f"{system_msg}")
+            #     print(f"{'='*80}\n")
 
             response = await self.azure_service.chat_completion(
                 messages,
@@ -446,7 +678,7 @@ class TrueReActAgent:
 
             content = response.get("choices", [{}])[0].get("message", {}).get("content", "")
             print(f"\n{'='*80}")
-            print(f"[MODEL RAW OUTPUT]")
+            print(f"[MODEL OUTPUT]")
             print(f"{'='*80}")
             print(f"{content}")
             print(f"{'='*80}\n")
@@ -623,6 +855,11 @@ class TrueReActAgent:
         if user_metadata and isinstance(user_metadata, dict):
             self.user_id = user_metadata.get('id')
 
+        # 获取聊天历史（需要在构建系统提示词之前）
+        self.chat_history = []
+        if self.user_id:
+            self.chat_history = await self.fetch_chat_history(self.user_id, page=1, page_size=5)
+
         steps: List[ReActStep] = []
         image_urls = image_urls or []
         final_answer = ""
@@ -636,18 +873,20 @@ class TrueReActAgent:
             print(f"[ReAct] 图像数量: {len(image_urls)}")
         print(f"{'='*60}")
 
-        # 打印系统提示词
-        print(f"\n{'='*80}")
-        print(f"[SYSTEM PROMPT]")
-        print(f"{'='*80}")
-        print(f"{system_prompt}")
-        print(f"{'='*80}\n")
+        # 打印系统提示词 (已注释，避免日志过大)
+        # print(f"\n{'='*80}")
+        # print(f"[SYSTEM PROMPT]")
+        # print(f"{'='*80}")
+        # print(f"{system_prompt}")
+        # print(f"{'='*80}\n")
 
         for iteration in range(1, self.max_iterations + 1):
             print(f"\n--- 迭代 {iteration} ---")
 
             # Step 1: 构建对话并调用模型
             messages = self._build_conversation(query, steps, image_urls, user_metadata)
+            print("message信息：\n")
+            print(json.dumps(messages, ensure_ascii=False, indent=2))
             model_output = await self._call_model(messages)
 
             thought = model_output.get("thought", "")
@@ -700,6 +939,9 @@ class TrueReActAgent:
         print(f"[最终答案]: {final_answer}")
         print(f"{'='*60}\n")
 
+        # 保存聊天历史到数据库
+        await self._save_chat_history(query, final_answer, steps, image_urls)
+
         return {
             "query": query,
             "answer": final_answer,
@@ -707,7 +949,7 @@ class TrueReActAgent:
             "iterations": iteration,
             "success": True
         }
-
+#接下来集成http接口 实现创建messages和获取历史的功能
 
 # 全局实例
 true_react_agent = TrueReActAgent()

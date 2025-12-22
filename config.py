@@ -29,6 +29,9 @@ class Settings:
     test_mcp_base_url: str = os.getenv("TEST_MCP_BASE_URL", "http://192.168.106.108:8001")
     mcp_service_token: str = os.getenv("MCP_SERVICE_TOKEN", "test-service-token")
 
+    # Chat API 配置（用于获取聊天历史）
+    chat_api_base_url: str = os.getenv("CHAT_API_BASE_URL", "http://192.168.106.108:8000")
+
     # 应用配置
     app_host: str = os.getenv("APP_HOST", "0.0.0.0")
     app_port: int = int(os.getenv("APP_PORT", "8000"))
