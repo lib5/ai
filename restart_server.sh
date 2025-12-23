@@ -7,7 +7,8 @@ pkill -f "python.*main.py"
 sleep 1
 
 echo "=== 启动新服务器 ==="
-python3 main.py > server.log 2>&1 &
+# 使用 unbuffer 或 PYTHONUNBUFFERED 来确保无缓冲输出
+PYTHONUNBUFFERED=1 python3 -u main.py > server.log 2>&1 &
 sleep 2
 
 echo "=== 检查服务器状态 ==="

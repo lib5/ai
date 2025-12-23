@@ -63,7 +63,7 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "老李的电话多少"}
+                        {"type": "input_text", "text": "查一下天有什么行程"}
                     ]
                 }
             ],
@@ -110,7 +110,7 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "提取图像文字并调用工具执行"},
+                        {"type": "input_text", "text": "提取图像文字并调用工具执"},
                         {"type": "input_image", "image_url": f"data:image/png;base64,{image_base64}"}
                     ]
                 }
@@ -259,59 +259,83 @@ class ChatAPITester:
         return await self._send_request(request_data)
 
     async def _send_request(self, request_data: Dict[str, Any]) -> Dict[str, Any]:
-        """发送请求并接收响应（支持SSE流式响应）"""
+        """发送请求并接收响应（支持真正的流式响应）"""
         url = f"{self.base_url}/api/chat"
 
         try:
             async with self.session.post(url, json=request_data) as response:
                 if response.status == 200:
-                    # 收集所有SSE数据块
-                    content = await response.text()
+                    # 边接收边处理，实现真正的流式显示
+                    print(f"\n{'='*60}")
+                    print(f"流式响应内容:")
+                    print(f"{'='*60}\n")
 
-                    # 解析流式JSON格式的响应
-                    # 新格式：每行一个完整的JSON响应，包含累积的steps
                     all_steps = []
                     request_id = "N/A"
                     final_result = None
 
-                    for line in content.split('\n'):
-                        line = line.strip()
+
+                    # 逐行读取响应
+                    async for line in response.content:
+                        print( "\nresponse.content\n")
+                        print(line)
+                        line = line.decode('utf-8').strip()
                         if line:
                             try:
                                 # 尝试解析为JSON
                                 data = json.loads(line)
 
+                                # 显示接收到的数据（完整输出，不省略）
+                                # 跳过steps为空的情况
+                                if not ('data' in data and 'steps' in data['data'] and len(data['data']['steps']) == 0):
+                                    print(f"📥 收到数据: {line}")
+
                                 # 如果是新的流式格式（包含data.steps）
                                 if 'data' in data and 'steps' in data['data']:
                                     final_result = data
-                                    all_steps = data['data']['steps']
+                                    # 累积所有步骤（新格式的每次输出都包含完整的累积列表）
+                                    current_steps = data['data']['steps']
+                                    if current_steps:
+                                        # 更新累积列表
+                                        all_steps = current_steps
                                     request_id = data.get('requestId', request_id)
+
+                                    # 显示当前步骤
+                                    if current_steps:
+                                        latest_step = current_steps[-1]
+                                        step_type = latest_step.get('tool_type', 'Unknown')
+                                        step_status = latest_step.get('tool_status', 'Unknown')
+                                        print(f"  ✅ 步骤更新: [{step_status}] {step_type}")
                                 # 如果是SSE格式的响应
                                 elif 'event' in data:
                                     if data.get('event') == 'start':
                                         request_id = data.get('requestId', 'N/A')
+                                        print(f"  🚀 开始流式响应")
                                     elif data.get('event') == 'step':
                                         step_data = data.get('stepData')
                                         if step_data:
                                             all_steps.append(step_data)
+                                            step_type = step_data.get('tool_type', 'Unknown')
+                                            print(f"  📝 步骤: {step_type}")
                                         if request_id == "N/A":
                                             request_id = data.get('requestId', 'N/A')
                             except json.JSONDecodeError:
                                 continue
 
+                    print(f"\n{'='*60}")
+                    print(f"流式响应完成")
+                    print(f"{'='*60}\n")
+
                     # 如果没有找到响应，尝试直接解析整个content
                     if final_result is None:
-                        try:
-                            final_result = json.loads(content)
-                        except json.JSONDecodeError:
-                            final_result = {
-                                "code": 200,
-                                "message": "成功",
-                                "requestId": request_id,
-                                "data": {
-                                    "steps": all_steps
-                                }
+                        final_result = {
+                            "code": 200,
+                            "message": "成功",
+                            "requestId": request_id,
+                            "data": {
+                                "steps": all_steps
                             }
+                        }
 
                     print(f"响应状态: {response.status}")
                     print(f"请求 ID: {final_result.get('requestId', request_id)}")

@@ -19,6 +19,17 @@ async def main():
     print("🚀 测试 ReAct Agent (使用具体工具)")
     print("=" * 80 + "\n")
 
+    # 初始化agent
+    print("📋 正在初始化 ReAct Agent...")
+    try:
+        await true_react_agent.initialize()
+        print("✅ ReAct Agent 初始化成功\n")
+    except Exception as e:
+        print(f"❌ 初始化失败: {e}")
+        import traceback
+        traceback.print_exc()
+        return
+
     # 测试问题
     test_queries = [
         "搜索关于 Python 编程的信息",
@@ -32,13 +43,17 @@ async def main():
         print("=" * 80)
 
         try:
-            result = await true_react_agent.run(query)
+            # run 方法返回 AsyncGenerator，需要用 async for
+            final_result = None
+            async for output in true_react_agent.run(query):
+                output_type = output.get('type')
+                if output_type == 'final_answer':
+                    final_result = output
+                    break
 
-            print(f"\n✅ 查询完成")
-            print(f"📝 问题: {result.get('query')}")
-            print(f"💡 答案: {result.get('answer', 'N/A')[:200]}...")
-            print(f"🔄 迭代次数: {result.get('iterations', 0)}")
-            print(f"📊 步骤数: {len(result.get('steps', []))}")
+            if final_result:
+                print(f"\n✅ 查询完成")
+                print(f"💡 答案: {final_result.get('answer', 'N/A')[:200]}...")
 
         except Exception as e:
             print(f"\n❌ 测试失败: {e}")

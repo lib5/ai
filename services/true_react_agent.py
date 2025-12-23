@@ -11,7 +11,7 @@
 import json
 import calendar
 import aiohttp
-from typing import List, Dict, Any, Optional
+from typing import List, Dict, Any, Optional, AsyncGenerator
 from datetime import datetime, timedelta, timezone
 
 from services.azure_openai_service import AzureOpenAIService
@@ -118,6 +118,7 @@ class TrueReActAgent:
                     # 提取参数模式
                     schema = tool_info.get('schema')
                     params = {}
+                    hidden_params = []  # 存储模型不可见的参数名
 
                     # 处理参数模式
                     if schema:
@@ -134,14 +135,19 @@ class TrueReActAgent:
                             properties = schema["properties"]
                             required = schema.get("required", [])
                             for param_name, param_info in properties.items():
-                                # 过滤掉 id 和 user_id 字段，不在提示词中显示
-                                if param_name in ["id", "user_id"]:
-                                    continue
-
                                 if isinstance(param_info, dict):
                                     desc = param_info.get('description', '参数')
                                 else:
                                     desc = getattr(param_info, 'description', '参数')
+
+                                # 检查 description 是否包含"模型不可见"字样
+                                is_hidden = "模型不可见" in str(desc)
+
+                                if is_hidden:
+                                    # 将隐藏参数加入列表，不在系统提示词中显示
+                                    hidden_params.append(param_name)
+                                    continue
+
                                 param_desc = f"{desc}"
                                 if param_name in required:
                                     param_desc += " (必需)"
@@ -165,7 +171,8 @@ class TrueReActAgent:
                     self.tools[tool_name] = {
                         "description": description,
                         "parameters": params,
-                        "server": tool_info.get('server', 'unknown')
+                        "server": tool_info.get('server', 'unknown'),
+                        "hidden_params": hidden_params  # 记录隐藏参数列表
                     }
 
         # 添加 finish 工具（特殊处理，不需要调用服务器）
@@ -273,7 +280,7 @@ class TrueReActAgent:
 
     async def _save_chat_history(self, query: str, final_answer: str, steps: List[ReActStep], image_urls: List[str] = None):
         """
-        保存聊天历史到数据库
+        保存聊天历史到数据库（已禁用）
 
         Args:
             query: 用户问题
@@ -281,62 +288,8 @@ class TrueReActAgent:
             steps: 处理步骤
             image_urls: 图像URL列表
         """
-        if not self.user_id:
-            print("[ChatHistory] 跳过保存：没有有效的user_id")
-            return
-
-        try:
-            image_urls = image_urls or []
-            has_images = len(image_urls) > 0
-
-            # 1. 保存用户消息
-            # 构建用户消息内容（包含文本和可能的图像）
-            user_content = [{"type": "input_text", "text": query}]
-
-            # 如果有图像，添加到内容中
-            if has_images:
-                for img_url in image_urls:
-                    user_content.append({"type": "input_image", "image_url": img_url})
-
-            user_steps = {
-                "query": query,
-                "has_images": has_images,
-                "image_count": len(image_urls),
-                "image_urls": image_urls if has_images else []
-            }
-
-            user_message_id = await self.create_chat_message(
-                user_id=self.user_id,
-                content=json.dumps(user_content, ensure_ascii=False),
-                role="user",
-                steps=user_steps,
-                intent_type="chat"
-            )
-
-            # 2. 保存助手回复
-            # 从 steps 中提取 final_answer 的信息
-            assistant_steps_data = {
-                "final_answer": final_answer,
-                "total_iterations": len([s for s in steps if s.type == "action"]),
-                "tools_used": list(set([s.tool_name for s in steps if s.tool_name and s.tool_name != "finish"])),
-                "react_mode": True,
-                "has_images": has_images,
-                "user_image_count": len(image_urls)
-            }
-
-            assistant_message_id = await self.create_chat_message(
-                user_id=self.user_id,
-                content=json.dumps([{"type": "output_text", "text": final_answer}], ensure_ascii=False),
-                role="assistant",
-                steps=assistant_steps_data,
-                intent_type="chat"
-            )
-
-            print(f"[ChatHistory] 保存成功: 用户消息ID={user_message_id}, 助手消息ID={assistant_message_id}")
-
-        except Exception as e:
-            print(f"[ChatHistory] 保存聊天历史异常: {str(e)}")
-            # 不抛出异常，避免影响主流程
+        # 功能已禁用，不保存聊天历史
+        pass
 
     def _format_chat_history(self, messages: List[Dict[str, Any]], max_messages: int = 5) -> str:
         """
@@ -462,7 +415,7 @@ class TrueReActAgent:
 ## 使用说明
 - 所有日期计算基于当前时间：{current_date_str}
 - 查找某一天是星期几：直接查看上方对照表，如"12月22日 = 星期一"
-- 计算"下周一"：今天星期{['一', '二', '三', '四', '五', '六', '日'][now.weekday()]} + 1天 = 下星期一"""
+"""
 
         return calendar_info
 
@@ -661,15 +614,6 @@ class TrueReActAgent:
     async def _call_model(self, messages: List[Dict]) -> Dict[str, Any]:
         """调用模型并解析输出"""
         try:
-            # 打印系统提示词 (已注释，避免日志过大)
-            # if messages and len(messages) > 0:
-            #     system_msg = messages[0].get("content", "")
-            #     print(f"\n{'='*80}")
-            #     print(f"[SYSTEM PROMPT]")
-            #     print(f"{'='*80}")
-            #     print(f"{system_msg}")
-            #     print(f"{'='*80}\n")
-
             response = await self.azure_service.chat_completion(
                 messages,
                 max_tokens=1000,
@@ -811,13 +755,30 @@ class TrueReActAgent:
             }
 
         try:
-            # 自动添加 user_id 到参数中（如果存在且参数中还没有）
-            if self.user_id and 'user_id' not in arguments:
-                arguments = arguments.copy()  # 避免修改原始参数
-                arguments['user_id'] = self.user_id
+            # 获取工具信息，包括隐藏参数列表
+            tool_info = self.tools.get(tool_name, {})
+            hidden_params = tool_info.get('hidden_params', [])
+
+            # 复制参数以避免修改原始参数
+            final_arguments = arguments.copy()
+
+            # 添加隐藏参数（从工具的 schema 中自动获取或从当前上下文获取）
+            for param_name in hidden_params:
+                if param_name not in final_arguments:
+                    # 根据参数名设置默认值
+                    if param_name == 'user_id':
+                        # 从当前用户ID获取
+                        if self.user_id:
+                            final_arguments[param_name] = self.user_id
+                    elif param_name == 'id':
+                        # ID 参数通常需要生成或从其他来源获取，这里暂不自动设置
+                        pass
+                    else:
+                        # 其他隐藏参数可以根据需要设置默认值
+                        pass
 
             # 使用多 MCP 客户端调用工具
-            result = await self.multi_mcp_client.call_tool(tool_name, arguments)
+            result = await self.multi_mcp_client.call_tool(tool_name, final_arguments)
 
             if result.get('success'):
                 print(f"[MultiMCP] 工具 '{tool_name}' 调用成功 (来自 {result.get('server', 'unknown')})")
@@ -838,17 +799,25 @@ class TrueReActAgent:
 
     # ============== 主循环 ==============
 
-    async def run(self, query: str, image_urls: Optional[List[str]] = None, user_metadata: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    async def run(self, query: str, image_urls: Optional[List[str]] = None, user_metadata: Optional[Dict[str, Any]] = None) -> AsyncGenerator[Dict[str, Any], None]:
         """
-        运行ReAct循环
+        运行ReAct循环（流式版本）
 
         真正的ReAct流程：
         1. 模型思考并决定行动
         2. 执行工具获取观察结果
         3. 将观察结果反馈给模型
         4. 重复直到模型选择finish
+
+        每完成一步就立即yield，不等待所有步骤完成
         """
-        await self.initialize()
+        # 检查是否已初始化
+        if self.azure_service is None:
+            yield {
+                "type": "error",
+                "error": "ReAct Agent 未初始化，请先调用 initialize() 方法"
+            }
+            return
 
         # 设置当前用户ID（从 user_metadata 中提取）
         self.user_id = None
@@ -858,7 +827,11 @@ class TrueReActAgent:
         # 获取聊天历史（需要在构建系统提示词之前）
         self.chat_history = []
         if self.user_id:
-            self.chat_history = await self.fetch_chat_history(self.user_id, page=1, page_size=5)
+            try:
+                self.chat_history = await self.fetch_chat_history(self.user_id, page=1, page_size=5)
+            except Exception as e:
+                print(f"[ChatHistory] 获取历史失败: {str(e)}")
+                self.chat_history = []
 
         steps: List[ReActStep] = []
         image_urls = image_urls or []
@@ -873,20 +846,58 @@ class TrueReActAgent:
             print(f"[ReAct] 图像数量: {len(image_urls)}")
         print(f"{'='*60}")
 
-        # 打印系统提示词 (已注释，避免日志过大)
-        # print(f"\n{'='*80}")
-        # print(f"[SYSTEM PROMPT]")
-        # print(f"{'='*80}")
-        # print(f"{system_prompt}")
-        # print(f"{'='*80}\n")
+        # 打印系统提示词（确保完整输出到server.log）
+        print(f"\n{'='*80}")
+        print(f"[SYSTEM PROMPT]")
+        print(f"{'='*80}")
+        print(f"{system_prompt}")
+        print(f"{'='*80}\n")
 
         for iteration in range(1, self.max_iterations + 1):
-            print(f"\n--- 迭代 {iteration} ---")
+            print(f"\n--- 迭代 {iteration} ---", flush=True)
 
             # Step 1: 构建对话并调用模型
             messages = self._build_conversation(query, steps, image_urls, user_metadata)
-            print("message信息：\n")
-            print(json.dumps(messages, ensure_ascii=False, indent=2))
+            print("message信息：\n", flush=True)
+
+            # 将完整message信息写入调试文件
+            try:
+                with open('/home/libo/chatapi/debug_messages.log', 'a', encoding='utf-8') as f:
+                    f.write(f"\n{'='*80}\n")
+                    f.write(f"迭代 {iteration} - message信息\n")
+                    f.write(f"{'='*80}\n")
+                    f.write(json.dumps(messages, ensure_ascii=False, indent=2))
+                    f.write("\n\n")
+            except Exception as e:
+                print(f"写入message信息失败: {e}")
+
+            # 打印message信息到server.log（结构完整，content可截断）
+            try:
+                # 深度复制messages以避免修改原始数据
+                messages_to_print = json.loads(json.dumps(messages))
+
+                # 对content字段进行截断处理（保留结构）
+                for msg in messages_to_print:
+                    if 'content' in msg and isinstance(msg['content'], list):
+                        for content_item in msg['content']:
+                            if isinstance(content_item, dict) and 'text' in content_item:
+                                text = content_item['text']
+                                if isinstance(text, str) and len(text) > 2000:
+                                    content_item['text'] = text[:2000] + "...[内容已截断]"
+                            elif isinstance(content_item, dict) and 'image_url' in content_item:
+                                # 图像URL也进行截断
+                                image_url = content_item['image_url']
+                                if isinstance(image_url, dict) and 'url' in image_url:
+                                    url = image_url['url']
+                                    if isinstance(url, str) and len(url) > 100:
+                                        image_url['url'] = url[:100] + "...[URL已截断]"
+
+                # 打印处理后的messages（结构完整但内容可能截断）
+                print(json.dumps(messages_to_print, ensure_ascii=False, indent=2))
+                print(f"\n... [message的content内容可以截断但message的结构不能省略] ...\n")
+            except Exception as e:
+                print(f"打印message信息失败: {e}")
+
             model_output = await self._call_model(messages)
 
             thought = model_output.get("thought", "")
@@ -894,8 +905,8 @@ class TrueReActAgent:
             tool_name = action.get("tool", "finish")
             tool_args = action.get("args", {})
 
-            print(f"[THOUGHT]: {thought[:200]}...")
-            print(f"[ACTION]: {tool_name} -> {tool_args}")
+            print(f"[THOUGHT]: {thought[:200]}...", flush=True)
+            print(f"[ACTION]: {tool_name} -> {tool_args}", flush=True)
 
             # 记录思考和行动步骤
             action_step = ReActStep(
@@ -907,11 +918,42 @@ class TrueReActAgent:
             )
             steps.append(action_step)
 
+            # === 在step开始时立即yield start事件 ===
+            yield {
+                "iteration": iteration,
+                "type": "start",
+                "action": action_step.to_dict()
+            }
+
             # Step 2: 检查是否完成
             if tool_name == "finish":
                 final_answer = tool_args.get("answer", "")
                 print(f"[FINISH]: {final_answer[:200]}...")
-                break
+
+                # 为finish工具创建观察步骤（虽然内部工具不需要执行，但需要记录）
+                tool_result = {"success": True, "result": {"answer": final_answer}}
+                action_step.tool_result = tool_result
+
+                # 记录观察步骤
+                obs_step = ReActStep(
+                    iteration=iteration,
+                    step_type="observation",
+                    content=tool_result,
+                    tool_name=tool_name,
+                    tool_result=tool_result
+                )
+                steps.append(obs_step)
+
+                # 流式输出：最终答案
+                yield {
+                    "query": query,
+                    "answer": final_answer,
+                    "steps": [s.to_dict() for s in steps],
+                    "iterations": iteration,
+                    "success": True,
+                    "type": "final_answer"
+                }
+                return
 
             # Step 3: 执行工具
             tool_result = await self._execute_tool(tool_name, tool_args)
@@ -930,25 +972,33 @@ class TrueReActAgent:
             )
             steps.append(obs_step)
 
+            # === 工具执行结束时yield结果 ===
+            yield {
+                "iteration": iteration,
+                "type": "result",
+                "action": action_step.to_dict(),
+                "observation": obs_step.to_dict()
+            }
+
         else:
             # 达到最大迭代次数
             final_answer = "抱歉，处理超时，无法完成任务。"
 
-        print(f"\n{'='*60}")
-        print(f"[ReAct] 完成，共 {iteration} 次迭代")
-        print(f"[最终答案]: {final_answer}")
-        print(f"{'='*60}\n")
+            print(f"\n{'='*60}")
+            print(f"[ReAct] 完成，共 {iteration} 次迭代")
+            print(f"[最终答案]: {final_answer}")
+            print(f"{'='*60}\n")
 
-        # 保存聊天历史到数据库
-        await self._save_chat_history(query, final_answer, steps, image_urls)
-
-        return {
-            "query": query,
-            "answer": final_answer,
-            "steps": [s.to_dict() for s in steps],
-            "iterations": iteration,
-            "success": True
-        }
+            # 流式输出：超时结果
+            yield {
+                "query": query,
+                "answer": final_answer,
+                "steps": [s.to_dict() for s in steps],
+                "iterations": iteration,
+                "success": False,
+                "type": "final_answer"
+            }
+            return
 #接下来集成http接口 实现创建messages和获取历史的功能
 
 # 全局实例

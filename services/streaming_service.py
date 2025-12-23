@@ -107,7 +107,7 @@ class StreamingService:
 
     async def generate_step_by_step_stream(self, steps_data: list, code: int = 200, message: str = "成功") -> AsyncGenerator[str, None]:
         """
-        逐个输出步骤，每次输出一个完整的响应格式，包含递增的steps
+        逐个输出步骤，每次只输出当前步骤，不累积输出
 
         Args:
             steps_data: 步骤数据列表
@@ -115,25 +115,20 @@ class StreamingService:
             message: 响应消息
 
         Yields:
-            完整的 JSON 响应字符串，每次包含累积的steps
+            完整的 JSON 响应字符串，每次只包含当前步骤
         """
-        accumulated_steps = []  # 累积所有步骤
-
         for i, step in enumerate(steps_data):
-            # 将当前步骤添加到累积列表中
-            if isinstance(step, list):
-                accumulated_steps.extend(step)
-            else:
-                accumulated_steps.append(step)
+            # 每次只输出当前步骤
+            current_step = step if not isinstance(step, list) else step[0] if step else step
 
-            # 创建完整的响应格式，包含所有累积的步骤
+            # 创建完整的响应格式，只包含当前步骤
             response_data = {
                 "code": code,
                 "message": message,
                 "timestamp": datetime.utcnow().isoformat() + "Z" if i == 0 else None,
                 "requestId": self.request_id,
                 "data": {
-                    "steps": accumulated_steps
+                    "steps": [current_step] if not isinstance(current_step, list) else current_step
                 }
             }
 
