@@ -166,6 +166,8 @@ async def handle_react_chat(request: ChatRequest, request_id: str):
             print(f"{'='*60}\n")
 
             # 发送初始响应头（timestamp）
+            # 已注释：去掉最开始的空steps响应
+            """
             initial_response = {
                 "code": 200,
                 "message": "成功",
@@ -176,6 +178,7 @@ async def handle_react_chat(request: ChatRequest, request_id: str):
                 }
             }
             yield json.dumps(initial_response, ensure_ascii=False, separators=(',', ':')) + '\n'
+            """
 
             # ===== 真正的流式处理 =====
             # 运行ReAct循环，传递metadata（流式版本）

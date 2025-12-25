@@ -185,13 +185,22 @@ class MultiMCPClient:
                     formatted_result = client_instance._format_result(result)
                     extracted_data = client_instance.extract_response_data(formatted_result)
 
+                    # 检查是否包含错误状态码
+                    success = True
+                    error_message = None
+                    if isinstance(extracted_data, dict) and extracted_data.get("status") == 500:
+                        success = False
+                        error_message = extracted_data.get("message", "Internal Server Error")
+                        print(f"[MultiMCP ERROR] 工具 '{tool_name}' 返回 500 错误: {error_message}")
+
                     return {
-                        "success": True,
+                        "success": success,
                         "result": extracted_data,
                         "tool_name": tool_name,
                         "arguments": arguments,
                         "server": server_name,
-                        "raw_result": formatted_result
+                        "raw_result": formatted_result,
+                        "error": error_message
                     }
             else:
                 transport = StreamableHttpTransport(url=url)
@@ -206,13 +215,22 @@ class MultiMCPClient:
                     formatted_result = client_instance._format_result(result)
                     extracted_data = client_instance.extract_response_data(formatted_result)
 
+                    # 检查是否包含错误状态码
+                    success = True
+                    error_message = None
+                    if isinstance(extracted_data, dict) and extracted_data.get("status") == 500:
+                        success = False
+                        error_message = extracted_data.get("message", "Internal Server Error")
+                        print(f"[MultiMCP ERROR] 工具 '{tool_name}' 返回 500 错误: {error_message}")
+
                     return {
-                        "success": True,
+                        "success": success,
                         "result": extracted_data,
                         "tool_name": tool_name,
                         "arguments": arguments,
                         "server": server_name,
-                        "raw_result": formatted_result
+                        "raw_result": formatted_result,
+                        "error": error_message
                     }
 
         except Exception as e:

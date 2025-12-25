@@ -3,6 +3,7 @@ import aiohttp
 import json
 import base64
 import sys
+import os
 from typing import Dict, Any, List
 
 # 测试用的 base64 图像（1x1 像素的透明 PNG）
@@ -23,6 +24,35 @@ async def download_image_as_base64(url: str) -> str:
                 return base64.b64encode(image_data).decode('utf-8')
             else:
                 raise Exception(f"下载图片失败: {response.status}")
+
+def load_local_image_as_base64(file_path: str) -> tuple:
+    """
+    读取本地图片文件并转换为 base64 字符串
+
+    Args:
+        file_path: 图片文件路径
+
+    Returns:
+        tuple: (base64字符串, MIME类型)
+    """
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"图片文件不存在: {file_path}")
+
+    # 获取文件扩展名
+    ext = os.path.splitext(file_path)[1].lower()
+    mime_type = {
+        '.jpg': 'jpeg',
+        '.jpeg': 'jpeg',
+        '.png': 'png',
+        '.gif': 'gif',
+        '.bmp': 'bmp',
+        '.webp': 'webp'
+    }.get(ext, 'jpeg')
+
+    with open(file_path, 'rb') as f:
+        image_data = f.read()
+        base64_data = base64.b64encode(image_data).decode('utf-8')
+        return base64_data, mime_type
 
 def scale_coordinates(x: float, y: float, scale_factor: float = COORDINATE_SCALE_FACTOR) -> tuple:
     """
@@ -63,7 +93,7 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "查一下天有什么行程"}
+                        {"type": "input_text", "text": "周六要和朋友聚餐，记得提醒我订位  提前一天提醒我"}
                     ]
                 }
             ],
@@ -110,7 +140,7 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "提取图像文字并调用工具执"},
+                        {"type": "input_text", "text": "提取图像文字并根据文字调用工具执行"},
                         {"type": "input_image", "image_url": f"data:image/png;base64,{image_base64}"}
                     ]
                 }
@@ -469,6 +499,78 @@ class ChatAPITester:
 
         return await self._send_request(request_data)
 
+    async def test_custom_image(self, image_path: str = None, image_url: str = None, query_text: str = "请描述这张图片") -> Dict[str, Any]:
+        """
+        测试自定义图片（支持本地文件或URL）
+
+        Args:
+            image_path: 本地图片文件路径
+            image_url: 图片URL
+            query_text: 查询文本
+
+        Returns:
+            测试结果
+        """
+        print("\n=== 测试自定义图片 ===")
+
+        base64_image = None
+        mime_type = 'jpeg'
+
+        if image_path:
+            print(f"正在读取本地图片: {image_path}")
+            try:
+                base64_image, mime_type = load_local_image_as_base64(image_path)
+                print(f"✓ 图片读取成功 (MIME: image/{mime_type}, 大小: {len(base64_image)} 字符)")
+            except Exception as e:
+                print(f"❌ 读取本地图片失败: {str(e)}")
+                return {"error": str(e)}
+        elif image_url:
+            print(f"正在下载图片: {image_url}")
+            try:
+                base64_image = await download_image_as_base64(image_url)
+                print(f"✓ 图片下载成功 (大小: {len(base64_image)} 字符)")
+            except Exception as e:
+                print(f"❌ 下载图片失败: {str(e)}")
+                return {"error": str(e)}
+        else:
+            print("❌ 请提供 image_path 或 image_url 参数")
+            return {"error": "需要提供图片路径或URL"}
+
+        request_data = {
+            "user_id": "test_custom_image",
+            "query": [
+                {
+                    "role": "user",
+                    "content": [
+                        {"type": "input_text", "text": query_text},
+                        {"type": "input_image", "image_url": f"data:image/{mime_type};base64,{base64_image}"}
+                    ]
+                }
+            ],
+            "metadata": {
+                "user": {
+                    "id": "ac66c8b6-b138-4c67-8688-f165f46d730f",
+                    "username": "test_user_custom",
+                    "email": "test_custom@example.com",
+                    "phone": "13900139000",
+                    "city": "上海",
+                    "wechat": "test_wechat",
+                    "company": "新测试公司",
+                    "birthday": "1990-01-01T00:00:00",
+                    "industry": "互联网",
+                    "longitude": 116.397128,
+                    "latitude": 39.916527,
+                    "address": "北京市朝阳区望京街道望京SOHO塔3号楼",
+                    "country": "中国",
+                    "location_updated_at": "2025-12-18T09:50:53.615000",
+                    "created_at": "2025-12-18T09:50:53.442000",
+                    "updated_at": "2025-12-18T09:50:53.615000"
+                }
+            }
+        }
+
+        return await self._send_request(request_data)
+
     async def test_with_metadata(self, base64_image: str = None, use_real_image: bool = True) -> Dict[str, Any]:
         """测试带metadata的完整请求格式"""
         print("\n=== 测试带metadata的完整请求格式 ===")
@@ -581,10 +683,19 @@ async def main():
         #await tester.test_health_check()
 
         # 测试文本输入
-        #await tester.test_text_only()
+        await tester.test_text_only()
 
-        # 测试文本和图像混合输入（使用实际图片）
-        await tester.test_text_and_image()
+        # 测试自定义图片（本地图片）
+        # 请修改 CUSTOM_IMAGE_PATH 为您的图片路径
+
+        # CUSTOM_IMAGE_PATH = "/home/libo/chatapi/images/四点开会.png"  # <-- 修改为您的图片路径
+        # if os.path.exists(CUSTOM_IMAGE_PATH):
+        #     print(f"\n使用自定义本地图片: {CUSTOM_IMAGE_PATH}")
+        #     await tester.test_custom_image(image_path=CUSTOM_IMAGE_PATH, query_text="根据图像信息执行工具")#
+        # else:
+        #     print(f"\n自定义图片路径不存在: {CUSTOM_IMAGE_PATH}")
+        #     print("使用默认测试图片")
+        #     await tester.test_text_and_image()
 
         # 测试图片和坐标功能
         #await tester.test_image_with_coordinates()

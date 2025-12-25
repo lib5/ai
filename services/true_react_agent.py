@@ -413,8 +413,9 @@ class TrueReActAgent:
 {chr(10).join([f"{next_month}月{day:02d}日 = 星期{['一', '二', '三', '四', '五', '六', '日'][datetime(next_year, next_month, day).weekday()]}" for day in range(1, calendar.monthrange(next_year, next_month)[1] + 1)])}
 
 ## 使用说明
-- 所有日期计算基于当前时间：{current_date_str}
+- 日期计算基于当前时间：{current_date_str}
 - 查找某一天是星期几：直接查看上方对照表，如"12月22日 = 星期一"
+- 下周指紧接着当前周之后的那个完整周，即从下周一开始，到下周日结束
 """
 
         return calendar_info
@@ -918,13 +919,6 @@ class TrueReActAgent:
             )
             steps.append(action_step)
 
-            # === 在step开始时立即yield start事件 ===
-            yield {
-                "iteration": iteration,
-                "type": "start",
-                "action": action_step.to_dict()
-            }
-
             # Step 2: 检查是否完成
             if tool_name == "finish":
                 final_answer = tool_args.get("answer", "")
@@ -944,7 +938,7 @@ class TrueReActAgent:
                 )
                 steps.append(obs_step)
 
-                # 流式输出：最终答案
+                # === 特殊处理：finish工具不输出start事件，直接输出final_answer ===
                 yield {
                     "query": query,
                     "answer": final_answer,
@@ -954,6 +948,13 @@ class TrueReActAgent:
                     "type": "final_answer"
                 }
                 return
+
+            # === 对于非finish工具，在step开始时立即yield start事件 ===
+            yield {
+                "iteration": iteration,
+                "type": "start",
+                "action": action_step.to_dict()
+            }
 
             # Step 3: 执行工具
             tool_result = await self._execute_tool(tool_name, tool_args)
