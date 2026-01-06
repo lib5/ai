@@ -67,13 +67,14 @@ class TrueReActAgent:
     def __init__(self):
         self.azure_service = None
         self.tools = {}  # 工具注册表
-        self.max_iterations = 10
+        self.max_iterations = 20
         self.multi_mcp_client = None  # 多 MCP 客户端
         self.user_id = None  # 当前用户ID
         self.chat_history = []  # 聊天历史
 
     async def initialize(self):
         """初始化服务"""
+        # 使用Azure OpenAI服务（GPT-4.1模型）
         self.azure_service = AzureOpenAIService(
             endpoint=settings.azure_endpoint,
             api_key=settings.azure_api_key,
@@ -199,7 +200,7 @@ class TrueReActAgent:
             聊天消息列表
         """
         try:
-            url = f"{settings.chat_api_base_url}/api/v1/chat/history"
+            url = f"{settings.chat_api_base_url}/api/v1/chat/history_4_agent"
             request_data = {
                 "user_id": user_id,
                 "page": page,
@@ -330,34 +331,56 @@ class TrueReActAgent:
                 # 助手消息 - 从 steps 或 content 中提取答案
                 answer = ""
 
-                # 方式1: 从 steps 字典中提取 final_answer
+                # 方式1: 从 steps 字典的 assistant_answer 字段提取（新的保存格式）
                 steps = msg.get("steps", {})
+                if isinstance(steps, dict) and "assistant_answer" in steps:
+                    answer = steps.get("assistant_answer", "")
+                    if answer:
+                        history_lines.append(f"助手: {answer[:200]}")
+                        continue
+
+                # 方式2: 从 steps 字典中提取 final_answer（兼容旧格式）
                 if isinstance(steps, dict) and "final_answer" in steps:
                     answer = steps.get("final_answer", "")
+                    if answer:
+                        history_lines.append(f"助手: {answer[:200]}")
+                        continue
 
-                # 方式2: 从 content 中提取答案
-                if not answer:
-                    content = msg.get("content", [])
-                    if isinstance(content, str):
-                        try:
-                            content = json.loads(content)
-                        except:
-                            answer = content[:200]
-                    if isinstance(content, list):
-                        for item in content:
-                            if isinstance(item, dict) and item.get("type") == "output_text":
-                                answer = item.get("text", "")
-                                break
+                # 方式3: 从 content 中提取答案
+                content = msg.get("content", [])
+                if isinstance(content, str):
+                    try:
+                        content = json.loads(content)
+                    except:
+                        answer = content[:200]
+                        if answer:
+                            history_lines.append(f"助手: {answer[:200]}")
+                            continue
+                if isinstance(content, list):
+                    for item in content:
+                        if isinstance(item, dict) and item.get("type") == "output_text":
+                            answer = item.get("text", "")
+                            if answer:
+                                history_lines.append(f"助手: {answer[:200]}")
+                            break
 
-                # 方式3: 兼容旧格式 - steps 是列表
+                # 方式4: 兼容旧格式 - steps 是列表
                 if not answer and isinstance(steps, list):
                     for step in steps:
                         if isinstance(step, dict) and step.get("type") == "final_answer":
                             answer = step.get("content", "")
+                            if answer:
+                                history_lines.append(f"助手: {answer[:200]}")
                             break
 
-                if answer:
-                    history_lines.append(f"助手: {answer[:200]}")
+                # 方式5: 尝试从 msg 顶层直接提取可能的答案字段
+                if not answer:
+                    for key in ['answer', 'text', 'response', 'message']:
+                        if key in msg:
+                            answer = str(msg.get(key, ""))
+                            if answer:
+                                history_lines.append(f"助手: {answer[:200]}")
+                                break
 
         if not history_lines:
             return ""
@@ -397,8 +420,8 @@ class TrueReActAgent:
         month_names = ['', '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12']
 
         # 生成简化日历信息（只包含日期和星期）
-        calendar_info = f"""## 当前时间信息
-当前时间：{current_date_str}
+        calendar_info = f"""## 今天当前时间信息
+今天当前时间：{current_date_str}
 今天是星期{['一', '二', '三', '四', '五', '六', '日'][now.weekday()]}
 
 ## 日期星期对照表
@@ -412,10 +435,10 @@ class TrueReActAgent:
 ### {next_year}年{next_month}月（{month_names[next_month]}月）
 {chr(10).join([f"{next_month}月{day:02d}日 = 星期{['一', '二', '三', '四', '五', '六', '日'][datetime(next_year, next_month, day).weekday()]}" for day in range(1, calendar.monthrange(next_year, next_month)[1] + 1)])}
 
-## 使用说明
+## 请严格遵守我的时间计算定义
 - 日期计算基于当前时间：{current_date_str}
 - 查找某一天是星期几：直接查看上方对照表，如"12月22日 = 星期一"
-- 下周指紧接着当前周之后的那个完整周，即从下周一开始，到下周日结束
+- 下周’指的是从当前日期开始遇到的第一个周一开始到周日结束的完整周 下个月也是一样
 """
 
         return calendar_info
@@ -525,15 +548,13 @@ class TrueReActAgent:
 
         # 获取日历信息
         calendar_info = self._get_calendar_info()
-
+        n=10
         # 格式化聊天历史
-        chat_history_info = self._format_chat_history(self.chat_history)
-
+        chat_history_info = self._format_chat_history(self.chat_history,n*2)
 
         return f"""你是一个ReAct智能体。你需要通过"思考-行动-观察"循环来解决问题。
 
 {calendar_info}
-
 {user_info}
 
 ## 可用工具
@@ -550,17 +571,35 @@ class TrueReActAgent:
     }}
 }}
 
-## 重要规则
-1. 每次只能选择一个工具
+## 重要规则 严格遵守
+1. 每次迭代只能选择一个工具
 2. 当你认为已经可以回答问题时，使用 finish 工具并提供完整答案
 3. 如果工具执行失败，思考其他方案
 4. 不要重复使用相同的工具和参数
 5. thought 字段必须包含你的真实推理过程
-6. 你是智能小秘书 在thought中你需要以一个秘书的语气输出，你需要谄媚一点。
+6. 你是智能小秘书,名字叫做Moly 在thought中你需要以一个秘书的语气输出，你需要高情商、谄媚。
+7. 你必须主动思考，能站在我的角度预判问题、准备预案
+8. 对于图片信息，你要提取全部文字内容做判断
+9. 所以输出必须基于工具调用的结果 不能主观臆断
+10. 不确定是哪个日程或者人脉需要询问用户
 
+## 在调用工具前必须要满足以下全部要求
+1. schedules_create工具的参数"description":要求为 
+            "description": "日程详情 (可选) 要包含日程的大概内容 、日程的相关人员（没有就可以不加入）",
+            "type": "string"
+         
+2.工具的参数(如果有)start_time 和 end_time 必须同时设置（要么都填，要么都不填）,不能同时设置 start_time/end_time 和 full_day
+3. schedules_search 工具调用时 参数必须不能为空 至少要包含一个参数 如果有start_time参数必须设置end_time参数,并且默认为是start_time的当天的最后时刻
+4. 工具调用的参数必须为前文中可用function他们各自自己的参数。
+5 创建日程前需要查询是否已经创建该日程、日程是否有冲突
+6 完全一致的日程内容以及相同的时间两者同时满足才算是日程冲突,
+7  用户有修改日程的意思 优先考虑schedules_update工具
+
+## 最近{n}轮的历史对话消息，如果需要额外对话信息，需要使用聊天记录查询工具。
 {chat_history_info}
+严格要求 优先考虑最末尾的对话消息
 """
-
+  
     def _build_conversation(
         self,
         query: str,
@@ -617,7 +656,7 @@ class TrueReActAgent:
         try:
             response = await self.azure_service.chat_completion(
                 messages,
-                max_tokens=1000,
+                max_tokens=3000,
                 temperature=0.7
             )
 
@@ -826,10 +865,11 @@ class TrueReActAgent:
             self.user_id = user_metadata.get('id')
 
         # 获取聊天历史（需要在构建系统提示词之前）
+        # 设置较大的page_size以获取足够的历史消息，后续在_format_chat_history中限制数量
         self.chat_history = []
         if self.user_id:
             try:
-                self.chat_history = await self.fetch_chat_history(self.user_id, page=1, page_size=5)
+                self.chat_history = await self.fetch_chat_history(self.user_id, page=1, page_size=20)
             except Exception as e:
                 print(f"[ChatHistory] 获取历史失败: {str(e)}")
                 self.chat_history = []

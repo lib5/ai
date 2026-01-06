@@ -13,11 +13,16 @@ except ImportError:
 class Settings:
     """应用配置管理"""
 
-    # Azure OpenAI 配置
+    # Azure OpenAI 配置（GPT-4.1）
     azure_endpoint: str = os.getenv("AZURE_OPENAI_ENDPOINT", "")
     azure_api_key: str = os.getenv("AZURE_OPENAI_API_KEY", "")
     azure_api_version: str = os.getenv("AZURE_OPENAI_API_VERSION", "2024-02-15-preview")
     azure_deployment_name: str = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "gpt-4.1")
+
+    # OpenAI 配置（GPT-4.1 或 Gemini-3-Flash-Preview）
+    openai_api_key: str = os.getenv("OPENAI_API_KEY", "sk-hk69mLmsHF6FfIM8cPn2Zitfk0Jca6suzwIptZymPn6h1u6x")
+    openai_base_url: str = os.getenv("OPENAI_BASE_URL", "https://llm.onerouter.pro/v1")
+    openai_model: str = os.getenv("OPENAI_MODEL", "gpt-4.1")
 
     # MCP 配置
     mcp_server_url: str = os.getenv("MCP_SERVER_URL", "https://mcp.api-inference.modelscope.net/af62266fafca44/mcp")

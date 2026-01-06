@@ -4,7 +4,9 @@ import json
 import base64
 import sys
 import os
+import httpx
 from typing import Dict, Any, List
+from uuid import uuid4
 
 # 测试用的 base64 图像（1x1 像素的透明 PNG）
 TEST_IMAGE_BASE64 = """iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8BQDwAEhQGAhKmMIQAAAABJRU5ErkJggg=="""
@@ -83,6 +85,164 @@ class ChatAPITester:
         if self.session:
             await self.session.close()
 
+    async def save_conversation_to_history(
+        self,
+        request_data: Dict[str, Any],
+        response_data: Dict[str, Any]
+    ) -> str:
+        """
+        保存对话历史到数据库（使用 test_history_save.py 的逻辑）
+
+        Args:
+            request_data: 请求数据
+            response_data: 响应数据
+
+        Returns:
+            str: 保存的消息ID，失败返回空字符串
+        """
+        try:
+            # 提取用户ID（从request_data中获取）
+            user_id = request_data.get("user_id", "550e8400-e29b-41d4-a716-446655440000")
+
+            # 提取用户问题
+            user_query = ""
+            query_items = request_data.get("query", [])
+            for query_item in query_items:
+                for content_item in query_item.get("content", []):
+                    if content_item.get("type") == "input_text":
+                        user_query = content_item.get("text", "")
+
+            # 提取完整的steps数组
+            full_steps = response_data.get("data", {}).get("steps", [])
+
+            # 提取助手回答：从Finish步骤的present_content
+            assistant_answer = ""
+            if full_steps:
+                # 找到最后的Finish步骤
+                for step in reversed(full_steps):
+                    if step.get("tool_type") == "Finish":
+                        assistant_answer = step.get("present_content", "")
+                        break
+
+            # 如果没有Finish步骤，从steps中提取内容
+            if not assistant_answer:
+                if "answer" in response_data.get("data", {}):
+                    assistant_answer = response_data["data"]["answer"]
+                elif "final_answer" in response_data.get("data", {}):
+                    assistant_answer = response_data["data"]["final_answer"]
+
+            # 构建steps数据（保存完整的steps数组）
+            steps_data = {
+                "request_id": response_data.get("requestId", ""),
+                "steps_count": len(full_steps),
+                "full_steps": full_steps,  # 保存完整步骤数组
+                "assistant_answer": assistant_answer,  # 保存提取的助手回答
+                "test_time": "2025-12-26T12:00:00Z"
+            }
+
+            saved_message_ids = []
+
+            # 保存用户消息
+            user_message_id = await self._save_single_message(
+                user_id=user_id,
+                role="user",
+                content=user_query,
+                steps=steps_data,
+                intent_type="test"
+            )
+            if user_message_id:
+                saved_message_ids.append(f"User: {user_message_id}")
+            else:
+                print(f"⚠️  用户消息保存失败")
+
+            # 保存助手回答
+            if assistant_answer:
+                assistant_message_id = await self._save_single_message(
+                    user_id=user_id,
+                    role="assistant",
+                    content=assistant_answer,
+                    steps=steps_data,
+                    intent_type="test"
+                )
+                if assistant_message_id:
+                    saved_message_ids.append(f"Assistant: {assistant_message_id}")
+                else:
+                    print(f"⚠️  助手消息保存失败")
+            else:
+                print(f"⚠️  未找到助手回答")
+
+            if saved_message_ids:
+                print(f"✅ 对话历史已保存 ({', '.join(saved_message_ids)})")
+                return ", ".join(saved_message_ids)
+            else:
+                print(f"⚠️  对话历史保存失败")
+                return ""
+
+        except Exception as e:
+            print(f"❌ 保存对话历史失败 - {str(e)}")
+            import traceback
+            traceback.print_exc()
+            return ""
+
+    async def _save_single_message(
+        self,
+        user_id: str,
+        role: str,
+        content: str,
+        steps: dict,
+        intent_type: str = "chat"
+    ) -> str:
+        """
+        保存单条消息到历史数据库（使用 test_history_save.py 的逻辑）
+
+        Args:
+            user_id: 用户ID
+            role: 角色（user或assistant）
+            content: 消息内容
+            steps: 步骤数据
+            intent_type: 意图类型
+
+        Returns:
+            str: 消息ID，失败返回空字符串
+        """
+        try:
+            async with httpx.AsyncClient(timeout=30.0) as client:
+                # 准备请求数据（与 test_history_save.py 相同格式）
+                request_data = {
+                    "user_id": user_id,
+                    "message_type": "text",
+                    "role": role,
+                    "content": content,
+                    "intent_type": intent_type,
+                    "steps": steps
+                }
+
+                # 历史API地址
+                history_api_url = "http://192.168.106.108:8000/api/v1/chat/message"
+
+                # 发送 POST 请求
+                response = await client.post(
+                    history_api_url,
+                    json=request_data,
+                    headers={"Content-Type": "application/json"}
+                )
+
+                # 解析响应
+                if response.status_code == 200:
+                    response_data = response.json()
+                    if isinstance(response_data, dict) and "data" in response_data:
+                        message_data = response_data.get("data", {})
+                        message_id = message_data.get("id")
+                        return message_id
+                    else:
+                        return ""
+                else:
+                    return ""
+
+        except Exception as e:
+            print(f"   保存消息异常: {str(e)}")
+            return ""
+
     async def test_text_only(self) -> Dict[str, Any]:
         """测试纯文本输入 - 使用实际的 MCP 工具"""
         print("\n=== 测试纯文本输入 ===")
@@ -93,9 +253,10 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "周六要和朋友聚餐，记得提醒我订位  提前一天提醒我"}
+                        {"type": "input_text", "text": "我认识有姓曾的人吗"}
                     ]
                 }
+
             ],
             "metadata": {
                 "user":{
@@ -395,6 +556,13 @@ class ChatAPITester:
                         for key, value in step.items():
                             print(f"    {key}: {value}")
 
+                    # 保存对话历史到数据库
+                    print(f"\n💾 保存对话历史...")
+                    saved_ids = await self.save_conversation_to_history(
+                        request_data=request_data,
+                        response_data=final_result
+                    )
+
                     return final_result
                 else:
                     error_text = await response.text()
@@ -688,7 +856,7 @@ async def main():
         # 测试自定义图片（本地图片）
         # 请修改 CUSTOM_IMAGE_PATH 为您的图片路径
 
-        # CUSTOM_IMAGE_PATH = "/home/libo/chatapi/images/四点开会.png"  # <-- 修改为您的图片路径
+        # CUSTOM_IMAGE_PATH = "/home/libo/chatapi/images/查询日程日程冲突.png"  # <-- 修改为您的图片路径
         # if os.path.exists(CUSTOM_IMAGE_PATH):
         #     print(f"\n使用自定义本地图片: {CUSTOM_IMAGE_PATH}")
         #     await tester.test_custom_image(image_path=CUSTOM_IMAGE_PATH, query_text="根据图像信息执行工具")#
