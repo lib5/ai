@@ -6,6 +6,7 @@ import uuid
 import json
 import asyncio
 from datetime import datetime
+import time
 import base64
 import os
 
@@ -14,7 +15,7 @@ from services.streaming_service import StreamingService
 from services.true_react_agent import true_react_agent
 from config import settings
 
-app = FastAPI(title="Chat API with Azure OpenAI", version="1.0.0")
+app = FastAPI(title="Chat API with Gemini-3-Flash-Preview", version="1.0.0")
 
 # Note: CORS middleware removed due to compatibility issues
 # For production, consider using a reverse proxy for CORS
@@ -125,6 +126,8 @@ async def handle_react_chat(request: ChatRequest, request_id: str):
     async def stream_steps():
         """内部异步生成器，流式输出每个步骤"""
         try:
+            react_start_time = time.time()  # 记录ReAct循环开始时间
+            first_start_yielded = False  # 标记是否已发送第一个start
             # 提取查询文本和图像URL
             query_parts = []
             image_urls = []
@@ -182,6 +185,7 @@ async def handle_react_chat(request: ChatRequest, request_id: str):
 
             # ===== 真正的流式处理 =====
             # 运行ReAct循环，传递metadata（流式版本）
+           
             async for react_output in true_react_agent.run(query_text, image_urls, user_metadata):
                 output_type = react_output.get('type')
 
@@ -236,6 +240,13 @@ async def handle_react_chat(request: ChatRequest, request_id: str):
                             "steps": [start_step.model_dump()]
                         }
                     }
+                    # 记录第一个start的时间
+                    if not first_start_yielded:
+                        first_start_time = time.time()
+                        time_to_first_start = first_start_time - react_start_time
+                        with open('/home/libo/chatapi/server_time.log', 'a') as f:
+                            f.write(f"{datetime.now().isoformat()} | react_start: {react_start_time:.4f} | first_start_yield: {first_start_time:.4f} | time_to_first_start: {time_to_first_start:.4f}s\n")
+                        first_start_yielded = True
                     yield json.dumps(response_with_start, ensure_ascii=False, separators=(',', ':')) + '\n'
 
                 elif output_type == 'result':

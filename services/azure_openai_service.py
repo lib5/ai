@@ -46,7 +46,12 @@ class OpenAIService:
             "messages": messages,
             "max_tokens": max_tokens,
             "temperature": temperature,
-            "stream": stream
+            "stream": stream,
+            "extra_body": {
+                "reasoning": {
+                    "max_tokens": 1
+                }
+            }
         }
 
         async with aiohttp.ClientSession() as session:
@@ -86,11 +91,21 @@ class OpenAIService:
             "messages": messages,
             "max_tokens": max_tokens,
             "temperature": temperature,
-            "stream": True
+            "stream": True,
+            "extra_body": {
+                "reasoning": {
+                    "max_tokens": 1
+                }
+            }
         }
 
         async with aiohttp.ClientSession() as session:
             try:
+                # 记录请求开始时间
+                request_start_time = asyncio.get_event_loop().time()
+                first_chunk_time = None
+                chunk_count = 0
+
                 async with session.post(url, headers=self.headers, json=payload) as response:
                     if response.status == 200:
                         async for line in response.content:
@@ -101,6 +116,17 @@ class OpenAIService:
                                     break
                                 try:
                                     chunk = json.loads(data)
+
+                                    # 记录第一个chunk的时间
+                                    if first_chunk_time is None:
+                                        first_chunk_time = asyncio.get_event_loop().time()
+                                        time_to_first_output = (first_chunk_time - request_start_time) * 1000
+                                        print(f"\n{'='*80}")
+                                        print(f"⏱️  Gemini API 时间统计")
+                                        print(f"📥 请求 Gemini → 📤 首个输出: {time_to_first_output:.2f}ms")
+                                        print(f"{'='*80}\n")
+
+                                    chunk_count += 1
                                     yield chunk
                                 except json.JSONDecodeError:
                                     continue

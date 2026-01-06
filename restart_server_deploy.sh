@@ -8,7 +8,7 @@ sleep 1
 
 echo "=== 启动新服务器 ==="
 # 使用 unbuffer 或 PYTHONUNBUFFERED 来确保无缓冲输出
-PYTHONUNBUFFERED=1 python3 -u main.py > server_xjy.log 2>&1 &
+PYTHONUNBUFFERED=1 python3 -u main.py > server_deploy.log 2>&1 &
 echo "⏳ 等待服务器启动..."
 sleep 5
 
@@ -30,7 +30,7 @@ while [ $RETRY_COUNT -lt $MAX_RETRIES ]; do
 done
 
 echo "❌ 服务器启动失败，请检查日志:"
-echo "   tail -50 server_xjy.log"
+echo "   tail -50 server.log"
 echo ""
 echo "常见问题:"
 echo "  1. 端口被占用: lsof -i :8000"

@@ -26,8 +26,7 @@ async def get_test_session():
         from app.services.verification_code_service import verification_code_service
         
         # 生成测试手机号
-        # test_phone = f"138{''.join([str(uuid4().int % 10) for _ in range(8)])}"
-        test_phone = "15181922417"
+        test_phone = f"138{''.join([str(uuid4().int % 10) for _ in range(8)])}"
         test_code = "123456"
         
         # 设置验证码
@@ -70,7 +69,7 @@ async def test_chat_text_only(session_id: str):
     try:
         async with httpx.AsyncClient(timeout=120.0) as client:
             request_data = {
-                "content": "一片叶子在哪个城市？"
+                "content": "你好，请介绍一下你自己"
             }
             
             print(f"\n📤 发送请求:")
@@ -367,9 +366,7 @@ async def main():
     print("=" * 60)
     
     # 获取测试 session
-    # session_id, user_id = await get_test_session()
-    session_id = "72400430-be16-418a-87d6-6808baa63ecc"
-    user_id = "45a9a29c-396d-484d-b335-1c3a0892df4b"
+    session_id, user_id = await get_test_session()
     
     if not session_id or not user_id:
         print("\n⚠️  无法获取测试 session，请手动提供")
@@ -388,18 +385,18 @@ async def main():
         await test_chat_text_only(session_id)
         await asyncio.sleep(1)
         
-    #     await test_chat_with_shortcut(session_id)
-    #     await asyncio.sleep(1)
+        await test_chat_with_shortcut(session_id)
+        await asyncio.sleep(1)
     
-    # if user_id:
-    #     await test_chat_history(user_id)
-    #     await asyncio.sleep(1)
+    if user_id:
+        await test_chat_history(user_id)
+        await asyncio.sleep(1)
         
-    #     await test_chat_history_with_pagination(user_id)
-    #     await asyncio.sleep(1)
+        await test_chat_history_with_pagination(user_id)
+        await asyncio.sleep(1)
     
-    # if session_id and user_id:
-    #     await test_chat_and_history_flow(session_id, user_id)
+    if session_id and user_id:
+        await test_chat_and_history_flow(session_id, user_id)
     
     print("\n" + "=" * 60)
     print("✅ 所有测试完成")
