@@ -42,7 +42,43 @@ class Settings:
     app_port: int = int(os.getenv("APP_PORT", "8000"))
 
     # 模型选择配置
-    use_model: str = os.getenv("USE_MODEL", "gemini")  # "gemini" 或 "gpt4.1"
+    use_model: str = os.getenv("USE_MODEL", "doubao")  # "gemini"、"gpt4.1" 或 "doubao"
+
+    # ==============================================
+
+    # ==============================================
+
+    # 字节跳动豆包配置
+    doubao_api_key: str = os.getenv("DOUBAO_API_KEY", "c1f41437-c76b-4aed-af78-f02b14d6d518")
+    doubao_base_url: str = os.getenv("DOUBAO_BASE_URL", "https://ark.cn-beijing.volces.com/api/v3/")
+    doubao_model: str = os.getenv("DOUBAO_MODEL", "doubao-seed-1-8-251228")
+    doubao_timeout: int = int(os.getenv("DOUBAO_TIMEOUT", "30"))
+
+    # 阿里云百炼Qwen配置
+    qianwen_api_key: str = os.getenv("QWEN_API_KEY", "sk-141e3f6730b5449fb614e2888afd6c69")
+    qianwen_base_url: str = os.getenv("QWEN_BASE_URL", "https://dashscope.aliyuncs.com/compatible-mode/v1")
+    qianwen_model: str = os.getenv("QWEN_MODEL", "qwen3-vl-plus")
+    qianwen_timeout: int = int(os.getenv("QWEN_TIMEOUT", "30"))
+
+    # DeepSeek配置
+    deepseek_api_key: str = os.getenv("DEEPSEEK_API_KEY", "")
+    deepseek_base_url: str = os.getenv("DEEPSEEK_BASE_URL", "https://api.deepseek.com")
+    deepseek_model: str = os.getenv("DEEPSEEK_MODEL", "deepseek-chat")
+    deepseek_timeout: int = int(os.getenv("DEEPSEEK_TIMEOUT", "30"))
+
+    # OneRouter Gemini配置
+    onerouter_api_key: str = os.getenv("ONEROUTER_API_KEY", "")
+    onerouter_base_url: str = os.getenv("ONEROUTER_BASE_URL", "https://api.onerouter.com/v1")
+    onerouter_model: str = os.getenv("ONEROUTER_MODEL", "gemini-3-flash")
+    onerouter_timeout: int = int(os.getenv("ONEROUTER_TIMEOUT", "30"))
+
+    # ==============================================
+    # 速度测试通用配置
+    # ==============================================
+    speed_test_delay: float = float(os.getenv("SPEED_TEST_DELAY", "2.0"))
+    speed_test_timeout: int = int(os.getenv("SPEED_TEST_TIMEOUT", "30"))
+    speed_test_output_dir: str = os.getenv("SPEED_TEST_OUTPUT_DIR", ".")
+    speed_test_prompts_file: str = os.getenv("SPEED_TEST_PROMPTS_FILE", "benchmark_prompts_20.json")
 
     def validate(self):
         """验证必需的配置项"""

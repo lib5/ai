@@ -253,7 +253,7 @@ class ChatAPITester:
                 {
                     "role": "user",
                     "content": [
-                        {"type": "input_text", "text": "李斌他的生日是七月九号"}
+                        {"type": "input_text", "text": "新建人脉老徐，生日是8月8号"}
                     ]
                 }
 
@@ -856,7 +856,7 @@ async def main():
         # 测试自定义图片（本地图片）
         #请修改 CUSTOM_IMAGE_PATH 为您的图片路径
 
-        # CUSTOM_IMAGE_PATH = "/home/libo/chatapi/images/纯图片测试1.png"  # <-- 修改为您的图片路径
+        # CUSTOM_IMAGE_PATH = "/home/libo/chatapi/images/邮件链接.png"  # <-- 修改为您的图片路径
         # if os.path.exists(CUSTOM_IMAGE_PATH):
         #     print(f"\n使用自定义本地图片: {CUSTOM_IMAGE_PATH}")
         #     await tester.test_custom_image(image_path=CUSTOM_IMAGE_PATH, query_text="根据图像信息执行工具")#

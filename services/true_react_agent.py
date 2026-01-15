@@ -17,7 +17,7 @@ import time
 from typing import List, Dict, Any, Optional, AsyncGenerator
 from datetime import datetime, timedelta, timezone
 
-from services.azure_openai_service import OpenAIService, AzureOpenAIService
+from services.azure_openai_service import OpenAIService, AzureOpenAIService, DoubaoService
 from services.multi_mcp_client import MultiMCPClient
 from config import settings
 
@@ -72,7 +72,6 @@ class TrueReActAgent:
         self.tools = {}  # 工具注册表
         self.max_iterations = 20
         self.multi_mcp_client = None  # 多 MCP 客户端
-        self.user_id = None  # 当前用户ID
 
     async def initialize(self):
         """初始化服务"""
@@ -91,6 +90,14 @@ class TrueReActAgent:
                 api_key=settings.azure_api_key,
                 api_version=settings.azure_api_version,
                 deployment_name=settings.azure_deployment_name
+            )
+        elif settings.use_model.lower() == "doubao":
+            print(f"🤖 初始化模型: ByteDance Doubao ({settings.doubao_model})")
+            self.openai_service = DoubaoService(
+                api_key=settings.doubao_api_key,
+                base_url=settings.doubao_base_url,
+                model=settings.doubao_model,
+                timeout=settings.doubao_timeout
             )
         else:
             raise ValueError(f"不支持的模型类型: {settings.use_model}")
@@ -638,8 +645,8 @@ class TrueReActAgent:
 3. schedules_search 工具调用时 参数至少要包含一个以上的参数 如果有start_time参数必须设置end_time参数,并且end_time值默认是start_time的当天的最后时刻 ,不要使用工具描述中没有的参数
 5. schedules_search使用时参数一定不能为空,优先使用query以外的参数，如果选择了除query以外的参数 就不要再使用query参数了
 4. 工具调用的参数必须为前文中可用function他们各自自己的参数。
-5.  用户有修改日程的意思 优先考虑schedules_update工具
-6. 工具中的notes存储其他备注信息，如：兴趣、特点、重要事项等
+5. 用户有修改日程的意思 优先考虑schedules_update工具
+6. notes参数不能有生日
 
 严格要求
 1. 优先考虑最末尾的对话消息
@@ -670,8 +677,27 @@ class TrueReActAgent:
             for msg in recent_messages:
                 role = msg.get("role", "unknown")
                 if role == "user":
-                    # 用户消息 - content是列表，保持原始结构
+                    # 用户消息 - content是列表，需要转换格式
                     content = msg.get("content", [])
+                    # 转换 content 格式：将 input_text 转换为 text，input_image 转换为 image_url
+                    if isinstance(content, list):
+                        converted_content = []
+                        for item in content:
+                            if isinstance(item, dict):
+                                item_type = item.get("type")
+                                if item_type == "input_text":
+                                    converted_item = item.copy()
+                                    converted_item["type"] = "text"
+                                    converted_content.append(converted_item)
+                                elif item_type == "input_image":
+                                    converted_item = item.copy()
+                                    converted_item["type"] = "image_url"
+                                    converted_content.append(converted_item)
+                                else:
+                                    converted_content.append(item)
+                            else:
+                                converted_content.append(item)
+                        content = converted_content
                     messages.append({"role": "user", "content": content})
                 elif role == "assistant":
                     # 助手消息 - 从 steps 中提取答案
@@ -839,7 +865,7 @@ class TrueReActAgent:
             }
         }
 
-    async def _execute_tool(self, tool_name: str, args: Dict) -> Dict[str, Any]:
+    async def _execute_tool(self, tool_name: str, args: Dict, user_id: Optional[str] = None) -> Dict[str, Any]:
         """执行工具"""
         if tool_name not in self.tools:
             return {"success": False, "error": f"未知工具: {tool_name}"}
@@ -853,20 +879,21 @@ class TrueReActAgent:
 
         # 调用 MCP 工具
         try:
-            result = await self._tool_mcp_call_tool(tool_name, args)
+            result = await self._tool_mcp_call_tool(tool_name, args, user_id)
             return result
         except Exception as e:
             return {"success": False, "error": str(e)}
 
     # ============== 工具实现 ==============
 
-    async def _tool_mcp_call_tool(self, tool_name: str, arguments: Dict[str, Any]) -> Dict[str, Any]:
+    async def _tool_mcp_call_tool(self, tool_name: str, arguments: Dict[str, Any], user_id: Optional[str] = None) -> Dict[str, Any]:
         """
         调用 MCP 工具（使用多 MCP 客户端）
 
         Args:
             tool_name: MCP 工具名称
             arguments: 工具参数
+            user_id: 当前用户ID（避免实例变量污染）
 
         Returns:
             工具执行结果
@@ -892,9 +919,9 @@ class TrueReActAgent:
                 if param_name not in final_arguments:
                     # 根据参数名设置默认值
                     if param_name == 'user_id':
-                        # 从当前用户ID获取
-                        if self.user_id:
-                            final_arguments[param_name] = self.user_id
+                        # 从传入的 user_id 获取
+                        if user_id:
+                            final_arguments[param_name] = user_id
                     elif param_name == 'id':
                         # ID 参数通常需要生成或从其他来源获取，这里暂不自动设置
                         pass
@@ -954,18 +981,18 @@ class TrueReActAgent:
             return
 
         # 设置当前用户ID（从 user_metadata 中提取）
-        self.user_id = None
+        current_user_id = None
         if user_metadata and isinstance(user_metadata, dict):
-            self.user_id = user_metadata.get('id')
+            current_user_id = user_metadata.get('id')
 
         # ========== 聊天历史处理 ==========
         chat_history_start_time = time.time()
         # 获取聊天历史（需要在构建对话之前）
         # 设置较大的page_size以获取足够的历史消息
         chat_history = []
-        if self.user_id:
+        if current_user_id:
             try:
-                chat_history = await self.fetch_chat_history(self.user_id, page=1, page_size=20)
+                chat_history = await self.fetch_chat_history(current_user_id, page=1, page_size=20)
             except Exception as e:
                 print(f"[ChatHistory] 获取历史失败: {str(e)}")
                 chat_history = []
@@ -1097,7 +1124,7 @@ class TrueReActAgent:
                 # 写入时间统计日志
                 self._write_time_log({
                     "timestamp": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
-                    "user_id": self.user_id or "unknown",
+                    "user_id": current_user_id or "unknown",
                     "query": query[:100] + "..." if len(query) > 100 else query,
                     "iterations": iteration,
                     "chat_history_time_ms": round(chat_history_time, 2),
@@ -1131,7 +1158,7 @@ class TrueReActAgent:
             # Step 3: 执行工具
             # ========== 工具执行 ==========
             tool_execution_start_time = time.time()
-            tool_result = await self._execute_tool(tool_name, tool_args)
+            tool_result = await self._execute_tool(tool_name, tool_args, current_user_id)
             tool_execution_end_time = time.time()
             tool_execution_duration = (tool_execution_end_time - tool_execution_start_time) * 1000
             tool_execution_times.append(tool_execution_duration)
@@ -1178,7 +1205,7 @@ class TrueReActAgent:
             # 写入时间统计日志
             self._write_time_log({
                 "timestamp": datetime.now(timezone.utc).isoformat().replace('+00:00', 'Z'),
-                "user_id": self.user_id or "unknown",
+                "user_id": current_user_id or "unknown",
                 "query": query[:100] + "..." if len(query) > 100 else query,
                 "iterations": iteration,
                 "chat_history_time_ms": round(chat_history_time, 2),
