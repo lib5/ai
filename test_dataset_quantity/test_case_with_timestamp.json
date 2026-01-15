@@ -1,0 +1,56 @@
+{
+  "id": "TEST_SINGLE_CASE",
+  "user_id": "user_20260112_194748_087",
+  "name": "创建联系人-老徐",
+  "description": "测试创建联系人老徐，生日为8月8号",
+  "mode": "single_turn",
+  "conversation": {
+    "turns": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "context": {
+          "requires_context": false,
+          "depends_on": []
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "老徐",
+                "birthday": "2026-08-08"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": "联系人创建成功"
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建联系人老徐，生日为2026-08-08"
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "metadata": {
+    "conversation_type": "single_turn",
+    "turns": 1,
+    "context_complexity": "low",
+    "required_tools": [
+      "contacts_create"
+    ]
+  }
+}

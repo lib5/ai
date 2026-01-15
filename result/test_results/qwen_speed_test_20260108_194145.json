@@ -1,0 +1,861 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T19:41:45.426622",
+    "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "detailed_results": [
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 1,
+      "prompt_type": "text",
+      "response_time_ms": 5158.6785316467285,
+      "input_tokens": 4427,
+      "output_tokens": 58,
+      "tokens_per_second": 11.243189441673838,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:38:54.091056",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在查询您今天的日程安排...\",\n    \"action\": {\n        \"tool\": \"schedules_search\",\n        \"args\": {\n            \"start_time\": \"2026-01-07T00:00:00\",\n            \"end_time\": \"2026-01-07T23:59:59\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5214,
+          "completion_tokens": 92,
+          "total_tokens": 5306,
+          "prompt_tokens_details": {
+            "text_tokens": 5214
+          },
+          "completion_tokens_details": {
+            "text_tokens": 92
+          }
+        },
+        "created": 1767872334,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-8e942341-4fed-9566-8d49-661023330612"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 2,
+      "prompt_type": "text",
+      "response_time_ms": 3350.87251663208,
+      "input_tokens": 4379,
+      "output_tokens": 55,
+      "tokens_per_second": 16.413635471659127,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:00.448206",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建新联系人“老徐”，生日设为8月8日。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"老徐\",\n            \"birthday\": \"2026-08-08\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5094,
+          "completion_tokens": 73,
+          "total_tokens": 5167,
+          "prompt_tokens_details": {
+            "text_tokens": 5094
+          },
+          "completion_tokens_details": {
+            "text_tokens": 73
+          }
+        },
+        "created": 1767872340,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-4f90a6cc-a8e4-95a3-84c6-7eda3cae6191"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 3,
+      "prompt_type": "text",
+      "response_time_ms": 2672.2466945648193,
+      "input_tokens": 4459,
+      "output_tokens": 43,
+      "tokens_per_second": 16.091328726295846,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:06.127412",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您更新梅琳达的生日信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"梅琳达\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5184,
+          "completion_tokens": 50,
+          "total_tokens": 5234,
+          "prompt_tokens_details": {
+            "text_tokens": 5184
+          },
+          "completion_tokens_details": {
+            "text_tokens": 50
+          }
+        },
+        "created": 1767872346,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-baa3fa6a-bae9-9946-b9da-9df974c72cf6"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 4,
+      "prompt_type": "text",
+      "response_time_ms": 2508.3327293395996,
+      "input_tokens": 4383,
+      "output_tokens": 41,
+      "tokens_per_second": 16.345518886082782,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:11.640607",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"AAA的生日是9月1日。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"AAA的生日是9月1日。\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5095,
+          "completion_tokens": 54,
+          "total_tokens": 5149,
+          "prompt_tokens_details": {
+            "text_tokens": 5095
+          },
+          "completion_tokens_details": {
+            "text_tokens": 54
+          }
+        },
+        "created": 1767872352,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-c54d0979-385b-9882-adae-da37d0d3e8d5"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 5,
+      "prompt_type": "text",
+      "response_time_ms": 3789.1499996185303,
+      "input_tokens": 4378,
+      "output_tokens": 54,
+      "tokens_per_second": 14.251217292911711,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:18.437386",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已成功为您创建联系人“AAA”，生日为9月1日。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"AAA\",\n            \"birthday\": \"2026-09-01\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5094,
+          "completion_tokens": 70,
+          "total_tokens": 5164,
+          "prompt_tokens_details": {
+            "text_tokens": 5094
+          },
+          "completion_tokens_details": {
+            "text_tokens": 70
+          }
+        },
+        "created": 1767872358,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-a6ce9f55-96ed-9002-bb0c-b2a7d5388ff0"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 6,
+      "prompt_type": "text",
+      "response_time_ms": 4063.3909702301025,
+      "input_tokens": 4403,
+      "output_tokens": 58,
+      "tokens_per_second": 14.273792609406613,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:25.508286",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您更新联系人覃睿的性别为男性。\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"id\": \"c7f8e3b2-1a4d-4c9f-8e2a-5b6d9a1c7e8f\", \n            \"gender\": \"male\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5101,
+          "completion_tokens": 93,
+          "total_tokens": 5194,
+          "prompt_tokens_details": {
+            "text_tokens": 5101
+          },
+          "completion_tokens_details": {
+            "text_tokens": 93
+          }
+        },
+        "created": 1767872365,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-b017f018-81d1-9c41-86ad-99e525fb017d"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 7,
+      "prompt_type": "text",
+      "response_time_ms": 3962.299585342407,
+      "input_tokens": 4410,
+      "output_tokens": 62,
+      "tokens_per_second": 15.64747911272393,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:32.476374",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您更新联系人覃睿的职位为产品负责人。\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"id\": \"c7f8e1a2-3b4d-4e5f-8g9h-0i1j2k3l4m5n\", \n            \"position\": \"产品负责人\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5112,
+          "completion_tokens": 95,
+          "total_tokens": 5207,
+          "prompt_tokens_details": {
+            "text_tokens": 5112
+          },
+          "completion_tokens_details": {
+            "text_tokens": 95
+          }
+        },
+        "created": 1767872372,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-8b21a849-c1fd-9853-b8fb-c23783912fe8"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 8,
+      "prompt_type": "text",
+      "response_time_ms": 4221.270322799683,
+      "input_tokens": 4503,
+      "output_tokens": 121,
+      "tokens_per_second": 28.66435711223272,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:39.704503",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建人脉：嘉华集团，职位董事长，联系方式已保存。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"嘉华集团\",\n            \"company\": \"嘉华集团\",\n            \"position\": \"董事长\",\n            \"phone\": \"13800138013\",\n            \"email\": \"zhangsan@gmail.com\",\n            \"address\": \"北京市海淀区\",\n            \"notes\": \"\",\n            \"relationship_type\": \"other\",\n            \"gender\": \"other\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5237,
+          "completion_tokens": 128,
+          "total_tokens": 5365,
+          "prompt_tokens_details": {
+            "text_tokens": 5237
+          },
+          "completion_tokens_details": {
+            "text_tokens": 128
+          }
+        },
+        "created": 1767872380,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-9a0a8679-6c57-9e60-953e-b97327bf6383"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 9,
+      "prompt_type": "text",
+      "response_time_ms": 4463.974475860596,
+      "input_tokens": 4446,
+      "output_tokens": 57,
+      "tokens_per_second": 12.768890213918876,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:47.174968",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已成功将梅琳达的生日修改为10月3日。\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"id\": \"contact_id_placeholder\", \n            \"birthday\": \"2026-10-03\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5174,
+          "completion_tokens": 73,
+          "total_tokens": 5247,
+          "prompt_tokens_details": {
+            "text_tokens": 5174
+          },
+          "completion_tokens_details": {
+            "text_tokens": 73
+          }
+        },
+        "created": 1767872387,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-41a90fd9-8440-996a-889b-c52a6e38c90d"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 10,
+      "prompt_type": "text",
+      "response_time_ms": 2583.110570907593,
+      "input_tokens": 4526,
+      "output_tokens": 41,
+      "tokens_per_second": 15.872336423289221,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:39:52.764784",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在查找李博的生日信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"李博\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 5442,
+          "completion_tokens": 47,
+          "total_tokens": 5489,
+          "prompt_tokens_details": {
+            "text_tokens": 5442
+          },
+          "completion_tokens_details": {
+            "text_tokens": 47
+          }
+        },
+        "created": 1767872393,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-6a92af26-e327-9803-af26-564ba8f4820f"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 11,
+      "prompt_type": "image",
+      "response_time_ms": 4544.249773025513,
+      "input_tokens": 87107,
+      "output_tokens": 96,
+      "tokens_per_second": 21.12559933871862,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:40:00.354360",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建新联系人Rain，背景信息已记录。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"Rain\",\n            \"company\": \"BISHENG\",\n            \"position\": \"计算机硕士\",\n            \"notes\": \"就职于一家做智能体开发的公司，国内环境部署过，已在使用BISHENG产品\",\n            \"relationship_type\": \"client\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 7074,
+          "completion_tokens": 104,
+          "total_tokens": 7178,
+          "prompt_tokens_details": {
+            "image_tokens": 1858,
+            "text_tokens": 5216
+          },
+          "completion_tokens_details": {
+            "text_tokens": 104
+          }
+        },
+        "created": 1767872400,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-019cf498-14a2-9cbc-a469-f5990b6ced29"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 12,
+      "prompt_type": "image",
+      "response_time_ms": 4051.3663291931152,
+      "input_tokens": 122308,
+      "output_tokens": 61,
+      "tokens_per_second": 15.05664880523134,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:40:07.470598",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建联系人刘紫晔，并备注其身份为“董老师电话沟通对象”。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"刘紫晔\",\n            \"notes\": \"董老师电话沟通对象\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 8910,
+          "completion_tokens": 72,
+          "total_tokens": 8982,
+          "prompt_tokens_details": {
+            "image_tokens": 3716,
+            "text_tokens": 5194
+          },
+          "completion_tokens_details": {
+            "text_tokens": 72
+          }
+        },
+        "created": 1767872407,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-d3ac33e7-05f9-9e8b-a81d-d4c0fdecbcab"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 13,
+      "prompt_type": "image",
+      "response_time_ms": 8664.57748413086,
+      "input_tokens": 321144,
+      "output_tokens": 65,
+      "tokens_per_second": 7.501808382353006,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:40:19.230072",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您将今天的所有日程成功迁移至明天（1月7日），共6项活动安排完毕。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"已为您将今天的所有日程成功迁移至明天（1月7日），共6项活动安排完毕。\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 10764,
+          "completion_tokens": 84,
+          "total_tokens": 10848,
+          "prompt_tokens_details": {
+            "image_tokens": 5574,
+            "text_tokens": 5190
+          },
+          "completion_tokens_details": {
+            "text_tokens": 84
+          }
+        },
+        "created": 1767872419,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-6a1222ad-7897-97a6-bc6b-22ba6e543fd0"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 14,
+      "prompt_type": "image",
+      "response_time_ms": 7738.110542297363,
+      "input_tokens": 419057,
+      "output_tokens": 130,
+      "tokens_per_second": 16.799966773465655,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:40:30.109094",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建联系人冯磊...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"冯磊\",\n            \"company\": \"金科创新社 FintechInChina\",\n            \"position\": \"运营负责人\",\n            \"phone\": \"15712971843\",\n            \"email\": \"\",\n            \"address\": \"\",\n            \"notes\": \"数字金融垂直媒体，负责生态和市场\",\n            \"relationship_type\": \"media\",\n            \"birthday\": \"\",\n            \"gender\": \"\",\n            \"industry\": \"\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 12602,
+          "completion_tokens": 135,
+          "total_tokens": 12737,
+          "prompt_tokens_details": {
+            "image_tokens": 7432,
+            "text_tokens": 5170
+          },
+          "completion_tokens_details": {
+            "text_tokens": 135
+          }
+        },
+        "created": 1767872430,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-67749a11-64e5-97f4-9bde-cdbfa7455552"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 15,
+      "prompt_type": "image",
+      "response_time_ms": 6588.831663131714,
+      "input_tokens": 577830,
+      "output_tokens": 96,
+      "tokens_per_second": 14.570109680776179,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:40:39.894096",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建王磊的联系人信息及合作洽谈日程。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"王磊\",\n            \"company\": \"魔珐科技\",\n            \"position\": \"开发者关系负责人\",\n            \"notes\": \"希望与毕昇社区合作推广具身数字人应用，已发送公司介绍PDF\",\n            \"relationship_type\": \"partner\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 16280,
+          "completion_tokens": 104,
+          "total_tokens": 16384,
+          "prompt_tokens_details": {
+            "image_tokens": 11148,
+            "text_tokens": 5132
+          },
+          "completion_tokens_details": {
+            "text_tokens": 104
+          }
+        },
+        "created": 1767872440,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-1ffccacb-8f59-97d3-8f8b-863dd21f5e94"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 16,
+      "prompt_type": "image",
+      "response_time_ms": 7050.226449966431,
+      "input_tokens": 131961,
+      "output_tokens": 108,
+      "tokens_per_second": 15.318656892292337,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:40:50.016945",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建与孙永印在望京国际商业中心F座2区312室的会面日程，时间为明天下午2点。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"与孙永印会面\",\n            \"start_time\": \"2026-01-09T14:00:00\",\n            \"end_time\": \"2026-01-09T15:00:00\",\n            \"location\": \"望京国际商业中心F座2区312\",\n            \"description\": \"与孙永印会面，确认具体事宜。\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 8919,
+          "completion_tokens": 164,
+          "total_tokens": 9083,
+          "prompt_tokens_details": {
+            "image_tokens": 3716,
+            "text_tokens": 5203
+          },
+          "completion_tokens_details": {
+            "text_tokens": 164
+          }
+        },
+        "created": 1767872450,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-c322189f-f06f-9698-abb4-1681598031b5"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 17,
+      "prompt_type": "image",
+      "response_time_ms": 9185.543298721313,
+      "input_tokens": 187790,
+      "output_tokens": 117,
+      "tokens_per_second": 12.737406617667041,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:41:02.301516",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建明天（1月9日）14:15-15:45 知识平台需求沟通会的日程。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"知识平台需求沟通会\",\n            \"start_time\": \"2026-01-09T14:15:00\",\n            \"end_time\": \"2026-01-09T15:45:00\",\n            \"location\": \"现场\",\n            \"description\": \"参加知识平台的需求沟通会。相关人员：张增普、黄宜亮、湛雨桐。\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 8967,
+          "completion_tokens": 166,
+          "total_tokens": 9133,
+          "prompt_tokens_details": {
+            "image_tokens": 3716,
+            "text_tokens": 5251
+          },
+          "completion_tokens_details": {
+            "text_tokens": 166
+          }
+        },
+        "created": 1767872462,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-f8c5b564-7f62-961b-8f99-1642fe602f07"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 18,
+      "prompt_type": "image",
+      "response_time_ms": 14073.925733566284,
+      "input_tokens": 254253,
+      "output_tokens": 183,
+      "tokens_per_second": 13.002768627913488,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:41:19.488914",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建董江涵的会议日程，时间为2025年12月12日12:30-13:15，会议链接及拨号方式已记录。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"董江涵的会议\",\n            \"start_time\": \"2025-12-12T12:30:00\",\n            \"end_time\": \"2025-12-12T13:15:00\",\n            \"description\": \"主题：董江涵的会议。预定人：董江涵。会议ID：984223968。来宾密码：486364。会议链接：https://meeting.huaweicloud.com:36443/#/j/984223968/YhJ0E47XJHNZzoKBSdrF3wYKQApK9djKc。手机拨号入会：拨打 021-53290005(中文)，按照语音提示，输入会议ID: 984223968和来宾密码: 486364，7#静音8#解除静音。相关人员：董江涵。\",\n            \"location\": \"线上会议\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 10831,
+          "completion_tokens": 324,
+          "total_tokens": 11155,
+          "prompt_tokens_details": {
+            "image_tokens": 5574,
+            "text_tokens": 5257
+          },
+          "completion_tokens_details": {
+            "text_tokens": 324
+          }
+        },
+        "created": 1767872479,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-17df8e2f-4e2b-953a-94b6-e25498840820"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 19,
+      "prompt_type": "image",
+      "response_time_ms": 7322.848796844482,
+      "input_tokens": 305126,
+      "output_tokens": 107,
+      "tokens_per_second": 14.611799720090874,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:41:29.943340",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建周四上午9:30与曾总在上海绿地外滩中心T3的会面日程。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"与曾总会面\",\n            \"start_time\": \"2026-01-08T09:30:00\",\n            \"end_time\": \"2026-01-08T10:30:00\",\n            \"location\": \"绿地外滩中心 T3 上海市黄浦区会馆街51号\",\n            \"description\": \"与曾总会面聊聊。相关人员：曾总\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 12845,
+          "completion_tokens": 159,
+          "total_tokens": 13004,
+          "prompt_tokens_details": {
+            "image_tokens": 7432,
+            "text_tokens": 5413
+          },
+          "completion_tokens_details": {
+            "text_tokens": 159
+          }
+        },
+        "created": 1767872490,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-44238be8-7a66-9c16-85d1-718270e8a352"
+      }
+    },
+    {
+      "model_name": "Alibaba-Qwen-qwen3-vl-plus",
+      "prompt_id": 20,
+      "prompt_type": "image",
+      "response_time_ms": 9322.08776473999,
+      "input_tokens": 382144,
+      "output_tokens": 133,
+      "tokens_per_second": 14.267190285749216,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:41:42.420922",
+      "raw_response": {
+        "choices": [
+          {
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建日程：ui设计师实习生--沙澍的面试会议，时间2026年1月8日11:00-12:00。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"ui设计师实习生--沙澍的面试会议\",\n            \"description\": \"会议主题：ui设计师实习生--沙澍的面试会议，参会人员：沙澍\",\n            \"start_time\": \"2026-01-08T11:00:00\",\n            \"end_time\": \"2026-01-08T12:00:00\",\n            \"location\": \"https://meeting.tencent.com/dm/e9xQIKL6SDA6\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "reasoning_content": "",
+              "role": "assistant"
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null
+          }
+        ],
+        "object": "chat.completion",
+        "usage": {
+          "prompt_tokens": 14543,
+          "completion_tokens": 191,
+          "total_tokens": 14734,
+          "prompt_tokens_details": {
+            "image_tokens": 9290,
+            "text_tokens": 5253
+          },
+          "completion_tokens_details": {
+            "text_tokens": 191
+          }
+        },
+        "created": 1767872502,
+        "system_fingerprint": null,
+        "model": "qwen3-vl-plus",
+        "id": "chatcmpl-fe111654-169e-9c39-8580-9198bab715d1"
+      }
+    }
+  ]
+}

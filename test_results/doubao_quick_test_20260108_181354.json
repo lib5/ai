@@ -1,0 +1,24 @@
+{
+  "test_time": "20260108_181354",
+  "model": "ByteDance-Doubao-doubao-seed-1-6-251015",
+  "results": [
+    {
+      "success": true,
+      "type": "text",
+      "question": "我今天有哪些安排",
+      "response_time_ms": 4799.347162246704,
+      "output_tokens": 58,
+      "tokens_per_second": 12.084976985254935,
+      "response_preview": "{\n    \"show_content\": \"正在查询您今天的日程安排\",\n    \"action\": {\n        \"tool\": \"schedules_search\",\n        \"a..."
+    },
+    {
+      "success": true,
+      "type": "image",
+      "question": "[图片: 1张]",
+      "response_time_ms": 7224.64394569397,
+      "output_tokens": 97,
+      "tokens_per_second": 13.426267194498063,
+      "response_preview": "{\n    \"show_content\": \"已为您创建联系人Rain，信息包括：称呼Rain，公司为做智能体开发的公司，职位未提供，备注为计算机硕士、熟悉国内环境部署及Bisheng私有化部署。\",..."
+    }
+  ]
+}

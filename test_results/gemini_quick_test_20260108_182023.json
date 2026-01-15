@@ -1,0 +1,37 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T18:20:23.659623",
+    "model_name": "Google-Gemini-gemini-3-flash-preview",
+    "total_results": 2,
+    "successful_results": 2,
+    "failed_results": 0
+  },
+  "detailed_results": [
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 1,
+      "prompt_type": "text",
+      "response_time_ms": 13768.948554992676,
+      "input_tokens": 0,
+      "output_tokens": 66,
+      "tokens_per_second": 4.79339433482509,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T18:20:13.644942",
+      "raw_response": null
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 11,
+      "prompt_type": "image",
+      "response_time_ms": 8011.03663444519,
+      "input_tokens": 0,
+      "output_tokens": 42,
+      "tokens_per_second": 5.242767186884639,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T18:20:22.657378",
+      "raw_response": null
+    }
+  ]
+}

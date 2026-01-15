@@ -1,0 +1,12 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T18:15:42.943223",
+    "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+    "total_results": 0,
+    "successful_results": 0,
+    "failed_results": 0
+  },
+  "statistics": {
+    "error": "模型 ByteDance-Doubao-doubao-seed-1-6-251015 没有成功的测试结果"
+  }
+}

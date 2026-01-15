@@ -1,0 +1,24 @@
+{
+  "test_time": "20260108_174609",
+  "model": "ByteDance-Doubao-doubao-seed-1-6-251015",
+  "results": [
+    {
+      "success": true,
+      "type": "text",
+      "question": "我今天有哪些安排",
+      "response_time_ms": 4985.572338104248,
+      "output_tokens": 58,
+      "tokens_per_second": 11.633569040150435,
+      "response_preview": "{\n    \"show_content\": \"正在查询您今天的日程安排...\",\n    \"action\": {\n        \"tool\": \"schedules_search\",\n       ..."
+    },
+    {
+      "success": true,
+      "type": "image",
+      "question": "[图片: 1张]",
+      "response_time_ms": 4841.363191604614,
+      "output_tokens": 81,
+      "tokens_per_second": 16.730824933866092,
+      "response_preview": "{\n    \"show_content\": \"已为您创建联系人Rain，职位为计算机硕士，公司为智能体开发公司。\",\n    \"action\": {\n        \"tool\": \"contacts..."
+    }
+  ]
+}

@@ -1,0 +1,3534 @@
+[
+  {
+    "id": "MULTI_TURN_000",
+    "user_id": "user_20260113_152922_311",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人江涵 生日是2000年2月1日 手机号12212345678 喜欢打网球"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "江涵",
+                  "phone": "12212345678",
+                  "birthday": "2000-02-01",
+                  "notes": "喜欢打网球"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": null,
+                    "name": "江涵",
+                    "company": null,
+                    "position": null,
+                    "phone": "12212345678",
+                    "email": null,
+                    "address": null,
+                    "notes": "喜欢打网球",
+                    "relationship_type": null,
+                    "birthday": "2000-02-01",
+                    "gender": null,
+                    "industry": null
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建联系人江涵，包含信息：生日2000年2月1日，手机号12212345678，备注喜欢打网球"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "江涵过生日我送什么礼物好"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "江涵"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "contact_001",
+                        "name": "江涵",
+                        "company": null,
+                        "position": null,
+                        "phone": "12212345678",
+                        "email": null,
+                        "address": null,
+                        "notes": "喜欢打网球",
+                        "relationship_type": null,
+                        "birthday": "2000-02-01",
+                        "gender": null,
+                        "industry": null
+                      }
+                    ],
+                    "total": 1
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "江涵的生日是2000-02-01，根据记录他喜欢打网球，你可以考虑送他网球相关的礼物，比如专业网球拍、网球装备或者网球课程等。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_001",
+    "user_id": "user_20260113_152947_143",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人江涵 生日是2000年2月1日 手机号12212345678 喜欢打网球"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "江涵",
+                  "birthday": "2000-02-01",
+                  "phone": "12212345678",
+                  "notes": "喜欢打网球"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "江涵",
+                    "company": null,
+                    "position": null,
+                    "phone": "12212345678",
+                    "email": null,
+                    "address": null,
+                    "notes": "喜欢打网球",
+                    "relationship_type": null,
+                    "birthday": "2000-02-01",
+                    "gender": null,
+                    "industry": null,
+                    "created_at": "2026-01-13T10:00:00Z",
+                    "updated_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功为您创建联系人江涵，生日为2000年2月1日，联系电话为12212345678，备注信息为喜欢打网球。联系人ID：contact_123456"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "江涵的生日是哪一天、手机号是多少"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "江涵"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "contact_001",
+                        "name": "江涵",
+                        "company": null,
+                        "position": null,
+                        "phone": "12212345678",
+                        "email": null,
+                        "address": null,
+                        "notes": "喜欢打网球",
+                        "relationship_type": null,
+                        "birthday": "2000-02-01",
+                        "gender": null,
+                        "industry": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "江涵的生日是2000年02月01日，手机号码是12212345678。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_002",
+    "user_id": "user_20260113_153015_353",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人江涵 生日是2000年2月1日 手机号12212345678 喜欢打网球"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "江涵",
+                  "birthday": "2000-02-01",
+                  "phone": "12212345678",
+                  "notes": "喜欢打网球"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "江涵",
+                    "company": null,
+                    "position": null,
+                    "phone": "12212345678",
+                    "email": null,
+                    "address": null,
+                    "notes": "喜欢打网球",
+                    "relationship_type": null,
+                    "birthday": "2000-02-01",
+                    "gender": null,
+                    "industry": null
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建联系人江涵，生日为2000年2月1日，手机号12212345678，备注信息为喜欢打网球。联系人ID：contact_123456"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "江涵过生日我送什么礼物好"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "江涵"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": null,
+                        "name": "江涵",
+                        "company": null,
+                        "position": null,
+                        "phone": "12212345678",
+                        "email": null,
+                        "address": null,
+                        "notes": "喜欢打网球",
+                        "relationship_type": null,
+                        "birthday": "2000-02-01",
+                        "gender": null,
+                        "industry": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "根据江涵的个人信息，她喜欢打网球，建议可以送她网球相关的礼物，比如网球拍、网球或者网球运动装备。她的生日是2000-02-01，你可以提前准备哦！"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_003",
+    "user_id": "user_20260113_153039_366",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人李璐 他从事服务器相关行业 手机号是15678906767"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "李璐",
+                  "phone": "15678906767",
+                  "industry": "服务器相关行业"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": null,
+                    "name": "李璐",
+                    "company": null,
+                    "position": null,
+                    "phone": "15678906767",
+                    "email": null,
+                    "address": null,
+                    "notes": null,
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": "服务器相关行业"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建联系人李璐，行业为服务器相关行业，手机号为15678906767"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "我前几天认识的那个卖服务器算力的人的手机号是多少"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "context_search": "卖服务器算力"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "contact_123",
+                        "name": "李璐",
+                        "company": null,
+                        "position": null,
+                        "phone": "15678906767",
+                        "email": null,
+                        "address": null,
+                        "notes": "卖服务器算力",
+                        "relationship_type": null,
+                        "birthday": null,
+                        "gender": null,
+                        "industry": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "你前几天认识的卖服务器算力的联系人是李璐，她的手机号是15678906767"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_004",
+    "user_id": "user_20260113_153105_126",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人李璐 他从事服务器相关行业 手机号是15678906767 ，总是和他一起吃肯德基"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "李璐",
+                  "phone": "15678906767",
+                  "industry": "服务器相关行业",
+                  "notes": "总是和他一起吃肯德基"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "李璐",
+                    "company": null,
+                    "position": null,
+                    "phone": "15678906767",
+                    "email": null,
+                    "address": null,
+                    "notes": "总是和他一起吃肯德基",
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": "服务器相关行业",
+                    "created_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功为您创建联系人李璐，行业为服务器相关行业，手机号为15678906767，备注信息为'总是和他一起吃肯德基'"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "有没有姓李的联系人"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "李"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "contact_123",
+                        "name": "李璐",
+                        "company": null,
+                        "position": null,
+                        "phone": "15678906767",
+                        "email": null,
+                        "address": null,
+                        "notes": "总是和他一起吃肯德基",
+                        "relationship_type": null,
+                        "birthday": null,
+                        "gender": null,
+                        "industry": null
+                      }
+                    ],
+                    "total": 1
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你找到姓李的联系人：李璐，联系电话：15678906767，备注：总是和他一起吃肯德基"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_005",
+    "user_id": "user_20260113_153130_239",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人李璐 他从事服务器相关行业 手机号是15678906767 ，创建联系人李涵。"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "finish",
+                "expected_response": "无法生成第 1 轮的测试用例"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "李璐爱吃肯德基吗"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "李璐"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": null,
+                        "name": "李璐",
+                        "company": null,
+                        "position": null,
+                        "phone": null,
+                        "email": null,
+                        "address": null,
+                        "notes": "喜欢吃肯德基",
+                        "relationship_type": null,
+                        "birthday": null,
+                        "gender": null,
+                        "industry": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "根据联系人信息，李璐喜欢吃肯德基。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_006",
+    "user_id": "user_20260113_153155_855",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人江涵 生日是2000年2月1日 手机号12212345678 喜欢打网球"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "江涵",
+                  "birthday": "2000-02-01",
+                  "phone": "12212345678",
+                  "notes": "喜欢打网球"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "江涵",
+                    "company": null,
+                    "position": null,
+                    "phone": "12212345678",
+                    "email": null,
+                    "address": null,
+                    "notes": "喜欢打网球",
+                    "relationship_type": null,
+                    "birthday": "2000-02-01",
+                    "gender": null,
+                    "industry": null
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建联系人江涵，生日为2000年2月1日，手机号为12212345678，备注为喜欢打网球。联系人ID：contact_123456"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "下个月谁过生日"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "context_search": "birthday:2026-02"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "contact_001",
+                        "name": "江涵",
+                        "company": null,
+                        "position": null,
+                        "phone": "12212345678",
+                        "email": null,
+                        "address": null,
+                        "notes": "喜欢打网球",
+                        "relationship_type": null,
+                        "birthday": "2000-02-01",
+                        "gender": null,
+                        "industry": null
+                      }
+                    ],
+                    "total": 1
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "下个月过生日的联系人是江涵，生日是2000年02月01日。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_007",
+    "user_id": "user_20260113_153224_291",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人陈may"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "陈may"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": null,
+                    "name": "陈may",
+                    "company": null,
+                    "position": null,
+                    "phone": null,
+                    "email": null,
+                    "address": null,
+                    "notes": null,
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": null
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建联系人陈may"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/修改人脉.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "陈may"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "123456",
+                        "name": "陈may",
+                        "company": null,
+                        "position": null,
+                        "phone": null,
+                        "email": null,
+                        "address": null,
+                        "notes": null,
+                        "relationship_type": null,
+                        "birthday": null,
+                        "gender": null,
+                        "industry": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "contacts_update",
+                "parameters": {
+                  "id": "123456",
+                  "company": "字节跳动",
+                  "position": "产品经理",
+                  "phone": "13800000000",
+                  "email": "may.chen@bytedance.com",
+                  "address": "北京市海淀区",
+                  "notes": "重要客户",
+                  "relationship_type": "商务合作",
+                  "birthday": "1990-05-15",
+                  "gender": "女",
+                  "industry": "互联网"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "123456",
+                    "name": "陈may",
+                    "company": "字节跳动",
+                    "position": "产品经理",
+                    "phone": "13800000000",
+                    "email": "may.chen@bytedance.com",
+                    "address": "北京市海淀区",
+                    "notes": "重要客户",
+                    "relationship_type": "商务合作",
+                    "birthday": "1990-05-15",
+                    "gender": "女",
+                    "industry": "互联网"
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已成功更新联系人陈may的信息：\n公司：字节跳动\n职位：产品经理\n电话：13800000000\n邮箱：may.chen@bytedance.com\n地址：北京市海淀区\n备注：重要客户\n关系类型：商务合作\n生日：1990-05-15\n性别：女\n行业：互联网"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_update",
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_008",
+    "user_id": "user_20260113_153249_434",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人江涵 生日是2000年2月1日 手机号12212345678 喜欢打网球"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "江涵",
+                  "birthday": "2000-02-01",
+                  "phone": "12212345678",
+                  "notes": "喜欢打网球"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_167890",
+                    "name": "江涵",
+                    "company": null,
+                    "position": null,
+                    "phone": "12212345678",
+                    "email": null,
+                    "address": null,
+                    "notes": "喜欢打网球",
+                    "relationship_type": null,
+                    "birthday": "2000-02-01",
+                    "gender": null,
+                    "industry": null,
+                    "created_at": "2026-01-13T10:30:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功为您创建联系人江涵。联系人信息如下：\n姓名：江涵\n生日：2000年2月1日\n手机号：12212345678\n备注：喜欢打网球\n联系人ID：contact_167890"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "把江涵的电话改成13800138111"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "江涵"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "contact_123",
+                      "name": "江涵",
+                      "birthday": "2000-02-01",
+                      "phone": "12212345678",
+                      "notes": "喜欢打网球",
+                      "company": null,
+                      "position": null,
+                      "email": null,
+                      "address": null,
+                      "relationship_type": null,
+                      "gender": null,
+                      "industry": null
+                    }
+                  ]
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "contacts_update",
+                "parameters": {
+                  "id": "contact_123",
+                  "phone": "13800138111"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123",
+                    "name": "江涵",
+                    "birthday": "2000-02-01",
+                    "phone": "13800138111",
+                    "notes": "喜欢打网球",
+                    "company": null,
+                    "position": null,
+                    "email": null,
+                    "address": null,
+                    "relationship_type": null,
+                    "gender": null,
+                    "industry": null
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已成功将江涵的电话号码更新为13800138111"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_update",
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_009",
+    "user_id": "user_20260113_153320_111",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人李璐 他从事服务器相关行业 手机号是15678906767"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "李璐",
+                  "phone": "15678906767",
+                  "industry": "服务器相关行业"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": null,
+                    "name": "李璐",
+                    "company": null,
+                    "position": null,
+                    "phone": "15678906767",
+                    "email": null,
+                    "address": null,
+                    "notes": null,
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": "服务器相关行业"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功为您创建联系人李璐，行业为服务器相关行业，手机号为15678906767。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "帮我把李璐生日改成10月1日"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "finish",
+                "expected_response": "无法生成第 2 轮的测试用例"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_010",
+    "user_id": "user_20260113_153344_121",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人李璐 他从事服务器相关行业 手机号是15678906767"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "李璐",
+                  "phone": "15678906767",
+                  "industry": "服务器相关行业"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": null,
+                    "name": "李璐",
+                    "company": null,
+                    "position": null,
+                    "phone": "15678906767",
+                    "email": null,
+                    "address": null,
+                    "notes": null,
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": "服务器相关行业"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建联系人李璐，行业为服务器相关行业，手机号为15678906767"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "给李璐添加备注：重要客户"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "finish",
+                "expected_response": "无法生成第 2 轮的测试用例"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_011",
+    "user_id": "user_20260113_153410_780",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建联系人李璐 他从事服务器相关行业 手机号是15678906767"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "李璐",
+                  "phone": "15678906767",
+                  "industry": "服务器相关行业"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": null,
+                    "name": "李璐",
+                    "company": null,
+                    "position": null,
+                    "phone": "15678906767",
+                    "email": null,
+                    "address": null,
+                    "notes": null,
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": "服务器相关行业"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功为您创建联系人李璐，行业为服务器相关行业，手机号为15678906767。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "删除联系人李璐"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "李璐"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "123456",
+                        "name": "李璐",
+                        "company": null,
+                        "position": null,
+                        "phone": "15678906767",
+                        "email": null,
+                        "address": null,
+                        "notes": null,
+                        "relationship_type": null,
+                        "birthday": null,
+                        "gender": null,
+                        "industry": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "contacts_delete",
+                "parameters": {
+                  "id": "123456"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "message": "联系人已成功删除"
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已成功删除联系人李璐"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_create",
+        "contacts_search",
+        "contacts_delete"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_012",
+    "user_id": "user_20260113_153432_972",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "请帮我创建一个人脉,标题为:嘉华集团,描述为:这是一个测试人脉,公司为:嘉华集团,职位为:董事长,电话为:13800138013,邮箱为:zhangsan@gmail.com,微信为:zhangsan"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "嘉华集团",
+                  "company": "嘉华集团",
+                  "position": "董事长",
+                  "phone": "13800138013",
+                  "email": "zhangsan@gmail.com",
+                  "notes": "微信: zhangsan; 描述: 这是一个测试人脉"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "嘉华集团",
+                    "company": "嘉华集团",
+                    "position": "董事长",
+                    "phone": "13800138013",
+                    "email": "zhangsan@gmail.com",
+                    "notes": "微信: zhangsan; 描述: 这是一个测试人脉",
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": null,
+                    "address": null,
+                    "created_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功为您创建人脉：\n姓名：嘉华集团\n公司：嘉华集团\n职位：董事长\n电话：13800138013\n邮箱：zhangsan@gmail.com\n微信：zhangsan\n描述：这是一个测试人脉\n人脉ID：contact_123456"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "已经和嘉华集团关系终止"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "company": "嘉华集团"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contacts": [
+                      {
+                        "id": "CONTACT_001",
+                        "name": null,
+                        "company": "嘉华集团",
+                        "position": "董事长",
+                        "phone": "13800138013",
+                        "email": "zhangsan@gmail.com",
+                        "address": null,
+                        "notes": "微信: zhangsan; 描述: 这是一个测试人脉",
+                        "relationship_type": null,
+                        "birthday": null,
+                        "gender": null,
+                        "industry": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "contacts_update",
+                "parameters": {
+                  "id": "CONTACT_001",
+                  "notes": "微信: zhangsan; 描述: 这是一个测试人脉; 关系状态: 已终止"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "CONTACT_001",
+                    "name": null,
+                    "company": "嘉华集团",
+                    "position": "董事长",
+                    "phone": "13800138013",
+                    "email": "zhangsan@gmail.com",
+                    "address": null,
+                    "notes": "微信: zhangsan; 描述: 这是一个测试人脉; 关系状态: 已终止",
+                    "relationship_type": null,
+                    "birthday": null,
+                    "gender": null,
+                    "industry": null
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已为您更新嘉华集团联系人的备注信息，添加了'关系状态: 已终止'的标记。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "contacts_update",
+        "contacts_create",
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_013",
+    "user_id": "user_20260113_153504_970",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建下午六点的日程 去和江涵打网球"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵打网球",
+                  "description": "与江涵打网球，相关人员：江涵",
+                  "start_time": "2026-01-13T18:00:00",
+                  "end_time": "2026-01-13T19:00:00",
+                  "full_day": false
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "sc_123456",
+                    "title": "与江涵打网球",
+                    "description": "与江涵打网球，相关人员：江涵",
+                    "start_time": "2026-01-13T18:00:00",
+                    "end_time": "2026-01-13T19:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建2026-01-13下午6点与江涵打网球的日程，日程ID：sc_123456"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "晚上七点之前有安排吗？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-13T00:00:00",
+                  "end_time": "2026-01-13T19:00:00"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_123",
+                        "title": "与江涵打网球",
+                        "description": "与江涵打网球，相关人员：江涵",
+                        "start_time": "2026-01-13T18:00:00",
+                        "end_time": "2026-01-13T19:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "你在晚上七点前有一个安排：18:00-19:00与江涵打网球。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_014",
+    "user_id": "user_20260113_153531_279",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "明天晚上八点 和江涵吃火锅"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵吃火锅",
+                  "description": "与江涵一起吃火锅，相关人员：江涵",
+                  "start_time": "2026-01-14 20:00:00",
+                  "end_time": "2026-01-14 21:30:00",
+                  "full_day": false,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": null
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "sc_123456",
+                    "title": "与江涵吃火锅",
+                    "description": "与江涵一起吃火锅，相关人员：江涵",
+                    "start_time": "2026-01-14 20:00:00",
+                    "end_time": "2026-01-14 21:30:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null,
+                    "created_at": "2026-01-13T12:00:00Z",
+                    "updated_at": "2026-01-13T12:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建明天晚上八点与江涵吃火锅的日程，日程ID：sc_123456"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "明天下午有没有安排？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-14 12:00:00",
+                  "end_time": "2026-01-14 18:00:00"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_1",
+                        "title": "与江涵吃火锅",
+                        "description": "与江涵一起吃火锅，相关人员：江涵",
+                        "start_time": "2026-01-14 20:00:00",
+                        "end_time": "2026-01-14 21:30:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "明天下午没有安排。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_015",
+    "user_id": "user_20260113_153557_074",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "下周五与李总商讨方案细节"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与李总商讨方案细节",
+                  "description": "与李总商讨方案细节，相关人员：李总",
+                  "start_time": "2026-01-24 09:00:00",
+                  "end_time": "2026-01-24 10:00:00",
+                  "full_day": false,
+                  "reminder_time": "2026-01-24 08:30:00",
+                  "location": null,
+                  "category": "商务会议"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与李总商讨方案细节",
+                    "description": "与李总商讨方案细节，相关人员：李总",
+                    "start_time": "2026-01-24 09:00:00",
+                    "end_time": "2026-01-24 10:00:00",
+                    "full_day": false,
+                    "reminder_time": "2026-01-24 08:30:00",
+                    "location": null,
+                    "category": "商务会议",
+                    "created_at": "2026-01-13 10:00:00",
+                    "updated_at": "2026-01-13 10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建下周五（2026-01-24）与李总商讨方案细节的日程，时间为09:00-10:00，将在会议开始前30分钟提醒您。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "下周有没有和李总的安排？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "description": "李总",
+                  "start_time": "2026-01-20 00:00:00",
+                  "end_time": "2026-01-26 23:59:59"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "SCHEDULE_001",
+                        "title": "与李总商讨方案细节",
+                        "description": "与李总商讨方案细节，相关人员：李总",
+                        "start_time": "2026-01-24 09:00:00",
+                        "end_time": "2026-01-24 10:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": "商务会议"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "下周有与李总的安排：2026年1月24日09:00-10:00，与李总商讨方案细节。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_016",
+    "user_id": "user_20260113_153620_448",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "周三中午要和江涵吃肯德基"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵吃肯德基",
+                  "description": "与江涵在肯德基共进午餐",
+                  "start_time": "2026-01-14T12:00:00",
+                  "end_time": "2026-01-14T13:00:00",
+                  "location": "肯德基",
+                  "category": "餐饮"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与江涵吃肯德基",
+                    "description": "与江涵在肯德基共进午餐",
+                    "start_time": "2026-01-14T12:00:00",
+                    "end_time": "2026-01-14T13:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": "肯德基",
+                    "category": "餐饮",
+                    "created_at": "2026-01-13T00:00:00",
+                    "updated_at": "2026-01-13T00:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建周三中午12:00-13:00与江涵在肯德基的用餐日程。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "客户说周三下午来拜访，我那会儿有空吗？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-14T12:00:00",
+                  "end_time": "2026-01-14T18:00:00"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": null,
+                        "title": "与江涵吃肯德基",
+                        "description": "与江涵在肯德基共进午餐",
+                        "start_time": "2026-01-14T12:00:00",
+                        "end_time": "2026-01-14T13:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": "肯德基",
+                        "category": "餐饮",
+                        "created_at": null,
+                        "updated_at": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "根据您的日程安排，周三下午12:00-13:00有与江涵在肯德基共进午餐的安排，其他时间暂时没有安排。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_017",
+    "user_id": "user_20260113_153645_130",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "下周五与李总商讨方案细节"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与李总商讨方案细节",
+                  "description": "与李总商讨方案细节，相关人员：李总",
+                  "start_time": "2026-01-24 09:00:00",
+                  "end_time": "2026-01-24 10:00:00",
+                  "full_day": false,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": null
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_123456",
+                    "title": "与李总商讨方案细节",
+                    "description": "与李总商讨方案细节，相关人员：李总",
+                    "start_time": "2026-01-24T09:00:00Z",
+                    "end_time": "2026-01-24T10:00:00Z",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null,
+                    "created_at": "2026-01-13T12:00:00Z",
+                    "updated_at": "2026-01-13T12:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建下周五（2026年1月24日）与李总商讨方案细节的日程，时间为09:00-10:00。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "下周什么时候比较空？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-19T00:00:00Z",
+                  "end_time": "2026-01-25T23:59:59Z"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_123",
+                        "title": "与李总商讨方案细节",
+                        "description": "与李总商讨方案细节，相关人员：李总",
+                        "start_time": "2026-01-24T09:00:00Z",
+                        "end_time": "2026-01-24T10:00:00Z",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "根据您的日程安排，下周（2026年1月19日至1月25日）的空闲时间如下：\n- 1月19日（星期一）：全天\n- 1月20日（星期二）：全天\n- 1月21日（星期三）：全天\n- 1月22日（星期四）：全天\n- 1月23日（星期五）：全天\n- 1月24日（星期六）：除09:00-10:00与李总商讨方案细节外，其余时间\n- 1月25日（星期日）：全天"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_018",
+    "user_id": "user_20260113_153714_574",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "今天晚上八点 和江涵吃火锅"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵吃火锅",
+                  "description": "与江涵一起吃火锅",
+                  "start_time": "2026-01-13 20:00:00",
+                  "end_time": "2026-01-13 22:00:00",
+                  "full_day": false
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与江涵吃火锅",
+                    "description": "与江涵一起吃火锅",
+                    "start_time": "2026-01-13 20:00:00",
+                    "end_time": "2026-01-13 22:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null,
+                    "created_at": "2026-01-13T10:30:00Z",
+                    "updated_at": "2026-01-13T10:30:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建今天晚上八点与江涵吃火锅的日程，日程ID为schedule_123456。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "今天后面还有事情吗？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-13T12:00:00",
+                  "end_time": "2026-01-13T23:59:59"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "sc_123456",
+                        "title": "与江涵吃火锅",
+                        "description": "与江涵一起吃火锅",
+                        "start_time": "2026-01-13T20:00:00",
+                        "end_time": "2026-01-13T22:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "今天下午和晚上您有一个日程安排：\n\n【与江涵吃火锅】\n时间：2026-01-13 20:00-22:00\n内容：与江涵一起吃火锅"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_019",
+    "user_id": "user_20260113_153743_146",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "后天中午要参加产品例会"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "产品例会",
+                  "description": "参加产品例会",
+                  "start_time": "2026-01-15T12:00:00",
+                  "end_time": "2026-01-15T13:00:00",
+                  "full_day": false
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "sc_123456",
+                    "title": "产品例会",
+                    "description": "参加产品例会",
+                    "start_time": "2026-01-15T12:00:00",
+                    "end_time": "2026-01-15T13:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null,
+                    "created_at": "2026-01-13T10:00:00",
+                    "updated_at": "2026-01-13T10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建后天中午的产品例会日程，时间为2026-01-15 12:00至13:00。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "产品例会安排了吗？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "title": "产品例会"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_123",
+                        "title": "产品例会",
+                        "description": "参加产品例会",
+                        "start_time": "2026-01-15T12:00:00",
+                        "end_time": "2026-01-15T13:00:00",
+                        "full_day": null,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您查询到产品例会安排：\n标题：产品例会\n时间：2026-01-15 12:00-13:00\n内容：参加产品例会"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_020",
+    "user_id": "user_20260113_153815_875",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "明天下午六点 和江涵开会"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵开会",
+                  "description": "与江涵开会，讨论相关事宜",
+                  "start_time": "2026-01-14T18:00:00",
+                  "end_time": "2026-01-14T19:00:00",
+                  "full_day": false
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_123456",
+                    "title": "与江涵开会",
+                    "description": "与江涵开会，讨论相关事宜",
+                    "start_time": "2026-01-14T18:00:00",
+                    "end_time": "2026-01-14T19:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建明天下午六点与江涵的会议日程，日程ID为SCHEDULE_123456"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "明天下午和江涵的会议几点？"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "title": "与江涵开会",
+                  "start_time": "2026-01-14T00:00:00",
+                  "end_time": "2026-01-14T23:59:59"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_12345",
+                        "title": "与江涵开会",
+                        "description": "与江涵开会，讨论相关事宜",
+                        "start_time": "2026-01-14T18:00:00",
+                        "end_time": "2026-01-14T19:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "明天下午与江涵的会议时间是18:00-19:00。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_021",
+    "user_id": "user_20260113_153841_317",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "周三中午要和江涵吃肯德基"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵吃肯德基",
+                  "description": "周三中午与江涵在肯德基用餐",
+                  "start_time": "2026-01-14T12:00:00",
+                  "end_time": "2026-01-14T13:00:00",
+                  "full_day": false,
+                  "location": "肯德基"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "sc_123456",
+                    "title": "与江涵吃肯德基",
+                    "description": "周三中午与江涵在肯德基用餐",
+                    "start_time": "2026-01-14T12:00:00",
+                    "end_time": "2026-01-14T13:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": "肯德基",
+                    "category": null,
+                    "created_at": "2026-01-13T00:00:00",
+                    "updated_at": "2026-01-13T00:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建周三中午与江涵吃肯德基的日程，时间为2026-01-14 12:00至13:00，地点在肯德基。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/查询日程日程冲突.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-14T12:00:00",
+                  "end_time": "2026-01-14T18:00:00"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_123",
+                        "title": "与江涵吃肯德基",
+                        "description": "周三中午与江涵在肯德基用餐",
+                        "start_time": "2026-01-14T12:00:00",
+                        "end_time": "2026-01-14T13:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": "肯德基",
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已查询到您在2026-01-14 12:00-13:00有一个与江涵吃肯德基的日程，可能会出现冲突。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_022",
+    "user_id": "user_20260113_153910_027",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "今天晚上八点和江涵在202会议室开会"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵开会",
+                  "description": "与江涵在202会议室开会",
+                  "start_time": "2026-01-13T20:00:00",
+                  "end_time": "2026-01-13T21:00:00",
+                  "location": "202会议室",
+                  "category": "会议"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与江涵开会",
+                    "description": "与江涵在202会议室开会",
+                    "start_time": "2026-01-13T20:00:00",
+                    "end_time": "2026-01-13T21:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": "202会议室",
+                    "category": "会议",
+                    "created_at": "2026-01-13T10:00:00",
+                    "updated_at": "2026-01-13T10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建今天下午八点与江涵在202会议室开会的日程，日程ID为schedule_123456。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "晚上的会议地点改为302会议室"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "title": "与江涵开会",
+                  "start_time": "2026-01-13T12:00:00",
+                  "end_time": "2026-01-13T23:59:59"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_123456",
+                        "title": "与江涵开会",
+                        "description": "与江涵在202会议室开会",
+                        "start_time": "2026-01-13T20:00:00",
+                        "end_time": "2026-01-13T21:00:00",
+                        "location": "202会议室",
+                        "category": "meeting",
+                        "reminder_time": null,
+                        "full_day": false
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "schedules_update",
+                "parameters": {
+                  "id": "schedule_123456",
+                  "location": "302会议室"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与江涵开会",
+                    "description": "与江涵在202会议室开会",
+                    "start_time": "2026-01-13T20:00:00",
+                    "end_time": "2026-01-13T21:00:00",
+                    "location": "302会议室",
+                    "category": "会议",
+                    "reminder_time": null,
+                    "full_day": false
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已将今天下午与江涵开会的地点从202会议室更改为302会议室。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_update",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_023",
+    "user_id": "user_20260113_153943_198",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "下周四早上九点和江涵讨论产品"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵讨论产品",
+                  "description": "与江涵讨论产品相关事宜",
+                  "start_time": "2026-01-22T09:00:00",
+                  "end_time": "2026-01-22T10:00:00",
+                  "reminder_time": null,
+                  "location": null,
+                  "category": null
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "sc_123456",
+                    "title": "与江涵讨论产品",
+                    "description": "与江涵讨论产品相关事宜",
+                    "start_time": "2026-01-22T09:00:00",
+                    "end_time": "2026-01-22T10:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null,
+                    "created_at": "2026-01-13T10:00:00",
+                    "updated_at": "2026-01-13T10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建下周四（2026-01-22）与江涵讨论产品的日程，时间为09:00-10:00。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "把下周四的会议改到这周四"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "title": "与江涵讨论产品"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "SCHEDULE_001",
+                        "title": "与江涵讨论产品",
+                        "description": "与江涵讨论产品相关事宜",
+                        "start_time": "2026-01-22T09:00:00",
+                        "end_time": "2026-01-22T10:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null,
+                        "created_at": null,
+                        "updated_at": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "schedules_update",
+                "parameters": {
+                  "id": "SCHEDULE_001",
+                  "start_time": "2026-01-15T09:00:00",
+                  "end_time": "2026-01-15T10:00:00"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_001",
+                    "title": "与江涵讨论产品",
+                    "description": "与江涵讨论产品相关事宜",
+                    "start_time": "2026-01-15T09:00:00",
+                    "end_time": "2026-01-15T10:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null,
+                    "created_at": null,
+                    "updated_at": "2026-01-13T10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已将下周四（2026-01-22）的会议改到这周四（2026-01-15），会议时间为09:00-10:00。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_update",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_024",
+    "user_id": "user_20260113_154019_109",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "明天晚上八点 和江涵吃火锅"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵吃火锅",
+                  "description": "与江涵一起吃火锅，相关人员：江涵",
+                  "start_time": "2026-01-14 20:00:00",
+                  "end_time": "2026-01-14 21:30:00"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_001",
+                    "title": "与江涵吃火锅",
+                    "description": "与江涵一起吃火锅，相关人员：江涵",
+                    "start_time": "2026-01-14 20:00:00",
+                    "end_time": "2026-01-14 21:30:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null,
+                    "created_at": "2026-01-13T10:00:00Z",
+                    "updated_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建明天晚上八点与江涵吃火锅的日程。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "把明天的日程挪到后天"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-14",
+                  "end_time": "2026-01-14"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "SCHEDULE_001",
+                        "title": "与江涵吃火锅",
+                        "description": "与江涵一起吃火锅，相关人员：江涵",
+                        "start_time": "2026-01-14 20:00:00",
+                        "end_time": "2026-01-14 21:30:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "schedules_update",
+                "parameters": {
+                  "id": "SCHEDULE_001",
+                  "start_time": "2026-01-15 20:00:00",
+                  "end_time": "2026-01-15 21:30:00"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_001",
+                    "title": "与江涵吃火锅",
+                    "description": "与江涵一起吃火锅，相关人员：江涵",
+                    "start_time": "2026-01-15 20:00:00",
+                    "end_time": "2026-01-15 21:30:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": null
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已将明天（2026-01-14）的日程“与江涵吃火锅”调整到后天（2026-01-15），时间保持不变。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_update",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "MULTI_TURN_025",
+    "user_id": "user_20260113_154050_229",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "后天中午要参加产品例会、后天下午六点和江涵打球"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "产品例会",
+                  "description": "参加产品例会，相关人员：团队成员",
+                  "start_time": "2026-01-15T12:00:00",
+                  "end_time": "2026-01-15T13:00:00",
+                  "category": "meeting"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_12345",
+                    "title": "产品例会",
+                    "description": "参加产品例会，相关人员：团队成员",
+                    "start_time": "2026-01-15T12:00:00",
+                    "end_time": "2026-01-15T13:00:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": "meeting"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵打球",
+                  "description": "和江涵一起打球，相关人员：江涵",
+                  "start_time": "2026-01-15T18:00:00",
+                  "end_time": "2026-01-15T19:30:00",
+                  "category": "personal"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_12346",
+                    "title": "与江涵打球",
+                    "description": "和江涵一起打球，相关人员：江涵",
+                    "start_time": "2026-01-15T18:00:00",
+                    "end_time": "2026-01-15T19:30:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "category": "personal"
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已成功为您创建两个日程：\n1. 产品例会（meeting）- 2026-01-15 12:00至13:00\n2. 与江涵打球（personal）- 2026-01-15 18:00至19:30\n您可以随时查看或修改这些日程安排。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "取消后天的全部会议"
+          },
+          "context": {
+            "requires_context": true,
+            "depends_on": ["turn_1"]
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "start_time": "2026-01-15T00:00:00",
+                  "end_time": "2026-01-15T23:59:59",
+                  "category": "meeting"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "schedule_12345",
+                        "title": "产品例会",
+                        "description": "参加产品例会，相关人员：团队成员",
+                        "start_time": "2026-01-15T12:00:00",
+                        "end_time": "2026-01-15T13:00:00",
+                        "full_day": false,
+                        "reminder_time": null,
+                        "location": null,
+                        "category": "meeting"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "schedules_delete",
+                "parameters": {
+                  "id": "schedule_12345"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "message": "日程已成功删除"
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已为您取消后天（2026-01-15）的全部会议：产品例会。\n注意：与江涵打球属于personal类别，未被取消。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": ["schedules_create", "schedules_search", "schedules_delete"]
+    }
+  },
+  {
+    "id": "MULTI_TURN_026",
+    "user_id": "user_20260113_154124_925",
+    "name": "多轮对话测试用例 - 2 轮",
+    "description": "多轮对话测试，包含 2 个轮次的交互",
+    "mode": "multi_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "这周六中午和李博吃肯德基"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与李博吃肯德基",
+                  "description": "与李博一起吃肯德基",
+                  "start_time": "2026-01-17 12:00:00",
+                  "end_time": "2026-01-17 13:30:00"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_12345",
+                    "title": "与李博吃肯德基",
+                    "description": "与李博一起吃肯德基",
+                    "start_time": "2026-01-17 12:00:00",
+                    "end_time": "2026-01-17 13:30:00",
+                    "full_day": false,
+                    "reminder_time": null,
+                    "location": null,
+                    "created_at": "2026-01-13T10:00:00Z",
+                    "updated_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建周六（2026-01-17）与李博吃肯德基的日程，时间为12:00-13:30。"
+              }
+            ]
+          }
+        },
+        {
+          "turn_id": 2,
+          "user_input": {
+            "type": "text",
+            "content": "和李博吃肯德基的聚餐取消了"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_search",
+                "parameters": {
+                  "title": "与李博吃肯德基",
+                  "description": "与李博一起吃肯德基"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "schedules": [
+                      {
+                        "id": "SCHEDULE_12345",
+                        "title": "与李博吃肯德基",
+                        "description": "与李博一起吃肯德基",
+                        "start_time": "2026-01-17 12:00:00",
+                        "end_time": "2026-01-17 13:30:00",
+                        "reminder_time": null,
+                        "location": null,
+                        "category": "餐饮",
+                        "created_at": null,
+                        "updated_at": null
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "schedules_delete",
+                "parameters": {
+                  "id": "SCHEDULE_12345"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "message": "日程已成功删除"
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已为你取消与李博吃肯德基的聚餐日程"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "multi_turn",
+      "turns": 2,
+      "context_complexity": "high",
+      "required_tools": [
+        "schedules_search",
+        "schedules_delete",
+        "schedules_create"
+      ]
+    }
+  }
+]

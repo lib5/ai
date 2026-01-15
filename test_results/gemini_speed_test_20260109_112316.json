@@ -1,0 +1,980 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-09T11:23:16.472541",
+    "model_name": "Google-Gemini-gemini-3-flash-preview",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "detailed_results": [
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 1,
+      "prompt_type": "text",
+      "response_time_ms": 3204.6124935150146,
+      "input_tokens": 4427,
+      "output_tokens": 58,
+      "tokens_per_second": 18.098912151585,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:20:34.183803",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在查询您今天的日程安排...\",\n    \"action\": {\n        \"tool\": \"schedules_search\",\n        \"args\": {\n            \"start_time\": \"2026-01-07T00:00:00\",\n            \"end_time\": \"2026-01-07T23:59:59\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CvsDAY89a1+xqWT4G/BHe0amkl+5TSFe/pVrZZy+UItrkdiTyuYfR11HWdcDgBA+Ex3voMUDLEBfIIdMD7sLJ0yZgk1wlSseSWrLnbOw5/ATVCvsN4Tf8otk5qrfskCz3VSaawC+BqSI51ZYts2dwDGHPnqxIMEDWQ4zSBzDTgWcVZE9Wmn7SjeofcUjA5hy842znxhSBfMsnWE9bYUFwtGXcmvA0oPRu3wqu/ad/4xYvoxhiUEWF4E2OuWVxMI1pQJJ6IOdzoDQLd+naGL/C3TdmBp8QemdzKsYUty/l27UzhoblgaXKG0s7n8Wtx7RWrZXlV0XVhZgk3Kn4oLRTKsdcfY+cGCH8mlSi1KkWpi9aNOVY2NpuY7vsJigM7gqN+jKbMMBGP1XaLBdFnrbHpVjcKcFOcZpFWx34QcnFQ6Bl3ldfJk3P2VHNzgg1/0uC6IIEvDeTobgL2UDJ4biXW/b1Clbb0Bql/PCSn5XVb6GKbNd79dRY+VMHc7BNQtHG+FNwkU+KCwsxzvyGJsIXEDPUTri2I5AA0Pghu2HNNG0ya0sL+4GWrDqhkZR/kRgQhCs4Sv+fTyT/VFT/RGgP5b6iD/q8q/r7ekySQ1MTh99f/DrUyxn8zYYMorGp7XIGY+PUgYK/QTZTAzFIaCdbFwP8TQpZbLqBtJNPA16"
+            }
+          }
+        ],
+        "created": 1767928834,
+        "id": "chatcmpl-20260109032031802043627eNJcRLJB",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "15a844c9c5fc4f168094914fd5715bad",
+        "usage": {
+          "completion_tokens": 283,
+          "completion_tokens_details": {
+            "reasoning_tokens": 180
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5363,
+          "prompt_tokens_details": {
+            "cached_tokens": 4044,
+            "text_tokens": 5363
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5646,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 2,
+      "prompt_type": "text",
+      "response_time_ms": 4668.97177696228,
+      "input_tokens": 4379,
+      "output_tokens": 38,
+      "tokens_per_second": 8.138836946391546,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:20:40.856418",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\"show_content\": \"正在为您创建联系人老徐，并设置生日为8月8日。\", \"action\": {\"tool\": \"contacts_create\", \"args\": {\"name\": \"老徐\", \"birthday\": \"2026-08-08\"}}}",
+              "role": "assistant",
+              "thought_signature": "CoQHAY89a192BrbgIwQOaTeOdv32ZFBUqYdXnv+cWIA3qUAwP46BWldOpMAbV3b98zNR3NUpgk+EAoque0cndNtT60WRfshQmAKWuFaMa1xvsJr0u4LmkgpobIIO2ueBuaob33s+HnsnUGMtfvEr50SC9JvGmBUVadQ9QVDy3fQ7XhYFLo8i/b8YEtcZ0N+HhTO2fNy7+D7+J2XSk+uCXLfKu8yD1RvBtgkA+ilp4HVlE0+pA97CAcxsNs6OKEkaXULXw/x/Vm2im5HA9TVUfjmNXHCKrba4q7UO9b4o4uXubZveGl1i3lbTxUvzrsSUC8bkGqTdojZPrBmppuBVhmuGqU/uY0xh5y/ahfVAXcMixZ2bqMpC6XdeP0RUCIwOcenHQ1T/80sqGEieOUjJgMSb+bpT+YX5PUXpHiZmkuxqdKnhWqgT5aoxgjjjqaA0bqB7Wm2ESLQy9CohIbPQjU1fVS7XVurmKmspUdVmilWfiBPSip54c0c3lgbCQWX4EANp/R0w5pj8TmkWRo5glzFGJ4Xqj1VSvqurbMMIJI53YtSSaY09zZ9TknKuzI7GElMsf77wScl1QvGpaTxiUXGoDK54mw/ap4c1NzxKUpWClEkJuv4GSxbUZmmKLh8tsXioQjs6yq1arwhMTQtszOFPyBfSgk66PI+K55VN2Rs8mrh/eS/s8ryqK1PQE5N5Y+iN+DV87jxbSM/6LUDAzPi1d2g1vIrF17yzSWx47dKyTE4EfBUd3a9T9eqn4/2+gh/0o+A63DguIo+uH5oyOBZ/l/mXVofJfZ/kAJoJoQy6mPAEF6gFTn9eeW/5EyZTSECll9q00tH8k62qxWR9E3A0FQRgT4Sevpszkkx5YCOO9zkiAuniMsxlkbYmySgDyEomtKK1SwWtntKTG+FtYCJcK8iiQllBjUwi6V4Hx4GtJDwt2C0Fx0uQB+ihVeUOTCXGao5KAe3/U9V5gJyO6sdRToWJ5wi7e1dZbK9DOJaY8XeH1z3ZnpxhbCUYXK7t45nsqXXeZc7ENZOKelkYyi9/2N0jREQqV1KYCxwpppTG5V2qzOuQSJsr4qe2j1ir3LR1SPhsGxmGsMldO7OB3BnEXmnJG8mH8zi+Ii9iH4RVootea9lPbZekT2k93V+re/9GBjoJs4Z665AS1fMBiAOnUKLVFB2J/03Vvd1yTu4EQhn4CQMI"
+            }
+          }
+        ],
+        "created": 1767928840,
+        "id": "chatcmpl-20260109032036975057117FX5Ybzzn",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "9dc10ba79b1f4977a68493de0201775f",
+        "usage": {
+          "completion_tokens": 330,
+          "completion_tokens_details": {
+            "reasoning_tokens": 270
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5254,
+          "prompt_tokens_details": {
+            "text_tokens": 5254
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5584,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 3,
+      "prompt_type": "text",
+      "response_time_ms": 2872.107982635498,
+      "input_tokens": 4459,
+      "output_tokens": 42,
+      "tokens_per_second": 14.623405614944897,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:20:45.733784",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在查找梅琳达的联系人信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"梅琳达\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CpoCAY89a1+ivC7jp1qqleW95cLtjpOHWJEacedYlqydXQmR5nbL8Bd5vSpBW5k/lcGuLtni1uzTXFe7yEBkXPfmwgOHYi99GbFlgAH8r4BNIyKUBbn+WtilgdIQ0rUszsn2BVQMhpbnZqP4wKJPW/GP8NoX1f19mEHDkhBSXR0NXwSuetFQHRmgKTO1y9kIkRZqRMsjiQiEY7ihWXSij4EbrQUdm2kTpKm0HtvPtVNGFvNNGl81GpYp8lVcr2jZJzMH+IB1/XsEiQOPVjjDbrC53iVA6sAHQAVLR7xkMhMSUemHTKDUZrJWTovDCjSIW56pHJjq1yRKdT/cmjV/k3JuSmUvEPN5QGGjZDU+8q6evJVQLoc7POnFSWZ2"
+            }
+          }
+        ],
+        "created": 1767928845,
+        "id": "chatcmpl-20260109032043657180043Lebxf0Jp",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "d64c5c000a2b485e8daff7f6784826ae",
+        "usage": {
+          "completion_tokens": 121,
+          "completion_tokens_details": {
+            "reasoning_tokens": 62
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5352,
+          "prompt_tokens_details": {
+            "cached_tokens": 4037,
+            "text_tokens": 5352
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5473,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 4,
+      "prompt_type": "text",
+      "response_time_ms": 2871.31404876709,
+      "input_tokens": 4383,
+      "output_tokens": 41,
+      "tokens_per_second": 14.279176468908004,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:20:50.611133",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您查询联系人AAA的信息。\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"AAA\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CokEAY89a1/igwWd0j7YSWfHemNG0BCchHhcCH82qVv2z26yoLYIl6+6+0hWdSmGiwgVXc5KhXLa13jW5oPovIAe5TdctfNSDQeoeJH19vfF7OdG4gpeGzN4v4Ti+2IOjJlbrhUPBlLnK4aJbwQIqszsdokHQbTKfkjVooTb5/19pBt3dQECX+dbGA4iVdsd7hUDmgp8efY/IDBFcrPeiSl7EpSm/znrufstMfzu2tysd3Vjb2jD+7vrv7bvUPReLMwvIc+S7ll1nKtwqZBAEbFEEtLBjdHfXw5GD7OIjhgTP6Gtouid+zFWSKL4rjSyjsG+Y0ts/GqfgyiT53It4FTKI3Csup6nc1nIcDh8tnnl9hq4A9B8xt8TwdXXl4pmdmXfyRMKpNViKEC63b63ZQeYPi4GUZnNiUz7mBheWxdIhAVTpA/26tWJLD2+pK/LoLc9+6gVo2i+VyLW9ABhn9doWbT/VioZSaTRaAx5ViyhdnAp/eGtITW+bn7KdDTH2IzsRTx53Jjp2eGSFEKrPc6tDyiYFp1o+crruNDUrJ8Zlk2vAvuxXlL034xZuCYCT30NHPnl8StqjbVj698Vb8l/Ur4gJC/MD1Nn8NBjxKe7G8u3dbOe+V3vSdOmaXHjlBAoVQkBt+J3PHrFbTaMtfNTB0IzUQA3OZULmJdfp2HjyhoX2cgDrh3Dv/M="
+            }
+          }
+        ],
+        "created": 1767928850,
+        "id": "chatcmpl-20260109032048530195463txqqoULc",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "cbc48792de994d12b30bd0ab8efdf239",
+        "usage": {
+          "completion_tokens": 175,
+          "completion_tokens_details": {
+            "reasoning_tokens": 120
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5252,
+          "prompt_tokens_details": {
+            "text_tokens": 5252
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5427,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 5,
+      "prompt_type": "text",
+      "response_time_ms": 3673.1507778167725,
+      "input_tokens": 4378,
+      "output_tokens": 54,
+      "tokens_per_second": 14.701275081361137,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:20:56.290455",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建联系人AAA，生日设定为9月1日。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"AAA\",\n            \"birthday\": \"2026-09-01\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CvsEAY89a18RvlZFAGona+KudUeYMo5FA48COS9ImiuPfEZCtNC68dkrtq46RvDD87oO5YAVUNgayhT15HUikQcvEgPX31m+doBUqPsl99vEQqq2j7PwxrZNA5dpRaKKfBMAGr3T/p7Tr6XjSnq/TEJzIpkQg4x+kqHGNlnRr/ZHzUFgGeCn4trki7pM5mOSoutqTBiYnSOawyz0jeI6jzVZqw6pCxnqc6fRAZCSqDuPJxnixHctFsaTiSl+fWtzRn8/wJCvm/YJ1iF5/ZToabnJzvEGrI+mYSPc5RZX14obzTYIhzhDkedOihXG/ZtzTQb29nDMY51uiKDA+vJhEXHERVusb0PI2Ur4KaPmZUvAg8HtRRGBG2r3OqQaXRSI4mz8BdMoM31ZFiIUhcKBNkLItFYqNHs7QLtyBjKiCGi5/tgXiKxL7Tk/bgw45iWyF7nllMfDCyKNyG0bT08MDIIEzQUNCGfEilmBF/KFulw7nEC4I2Y80XxR8lyPfvaTHo6uDziOcT6CDOixcINc0qspUEIoncr13XtCT8M4bXoIKoM2nGqpK3WQH83rEExKPhXF/88IMcyS4Owv1fEKoc/KDHWQ4tLwQQ7OTNVHR9t+tZJenabETBNvucW16tM3VIm3NZtdOi2YMmSXRgtKC3nuA+vNg7MYVl8jPd9Q42/aK8ycdlg2f5MqLSD9RxVi+NQ51Lq+Ty2Ruq7G6fAOAIqOYSjreD9i3mflEevRTjk1iX+6OROH3Uv5qr+0B58DIee2KHhD0L7s/FJ473GH1xzenuDUZ+eZL94AbXSh+IAy4ONcyIJbiPs2TV5nPSXJpknMGxMHuufWId/r6nU="
+            }
+          }
+        ],
+        "created": 1767928856,
+        "id": "chatcmpl-202601090320534091715503Ojog2tw",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "c14ba4768b6a49e5a82d4d3092974054",
+        "usage": {
+          "completion_tokens": 283,
+          "completion_tokens_details": {
+            "reasoning_tokens": 204
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5251,
+          "prompt_tokens_details": {
+            "text_tokens": 5251
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5534,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 6,
+      "prompt_type": "text",
+      "response_time_ms": 3164.9301052093506,
+      "input_tokens": 4403,
+      "output_tokens": 27,
+      "tokens_per_second": 8.530994082794772,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:01.459211",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\"show_content\": \"正在为您查询覃睿的信息...\", \"action\": {\"tool\": \"contacts_search\", \"args\": {\"name\": \"覃睿\"}}}",
+              "role": "assistant",
+              "thought_signature": "CpoEAY89a1+3X4NqepaUy54Rh9x+8cqh1PsBoGh1+r5e4+pE2wrctNilMCZ4P5/TZNjEWx9AfJSpx1D3URY0pnoNe94Q9FULXqzkaTRHGZyXdMX1IaiR0yBOwOR6IuLyjEEO23W4WK6PCOMolvhJMWsKiaGG7sfceK7EyHJ69aTtpw9udcDTZHEP8zW0ZOsFhhOyAdkrZgrpT4J6w/X3AEnWqkMT5CnO8+xx1uCaVN9xI0vJsa+EUqOJ2+CimRnWLCgRiXOGfDhqwyLaZ3y1+4YV51AV52euEQsFTADdwoTFSMd3Ko7zWVz48WJdvcNO4DAomSPLHlefAmqf0qONvd/pq6Y12QC1/jzAZy8k15PCDd0uAyCo1nYhdOU6UUwvzCDlEG+wj8EpJCvi1MUEFDmFXtvncM530Vvdn6sh3kQ6fG80m56aI7xPxit4Zgw3hz6PISzHKwYwglkBZPbnQHcySucyziAaFpTjTQw8O2JA86UGUf8IhxABBGJdbUVX9/JWQHqSkWKobpkSrB+squYjRdc1IH47ICzQ/dJfHfzox2cNQwnR/ADR1CbdUhIAFxEgmBUY4ZswbbrjNHT6Ay7W7Cgm0Ij0HhUHaWEgiK/sliif3wP14fcyh42LXi/qayA7YqUgQmPsKihZoJTCJuvVox63EoitR6OVAThHNN+OhimDw2HlVKmVHtTDijns2y9jbm3nLWsldYj2gQ=="
+            }
+          }
+        ],
+        "created": 1767928861,
+        "id": "chatcmpl-202601090320591059028884PPoVURE",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "78d8dfd2e0f14de79f29c0f2b384d74c",
+        "usage": {
+          "completion_tokens": 164,
+          "completion_tokens_details": {
+            "reasoning_tokens": 129
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5267,
+          "prompt_tokens_details": {
+            "cached_tokens": 4036,
+            "text_tokens": 5267
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5431,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 7,
+      "prompt_type": "text",
+      "response_time_ms": 3014.707088470459,
+      "input_tokens": 4410,
+      "output_tokens": 42,
+      "tokens_per_second": 13.931701743305718,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:06.484663",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您查找联系人覃睿的信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"覃睿\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CtYCAY89a1+G9cf0aRdU+SKHS5YNcymsREs/Wnz8Z3lhyBMjygqtzziiQ040MkgjBqxMYkqv5z9Tj6/uAhVKCzgNNzFkiOdB4G/+3qn9DWkq95VyP9IkWhimdw72HjMJMgZWXNTaPG9T+veIu40PMnbMbitvfFsUkn3sjbisiV37pg5XF4m9i7Zv9mSkYaFfRrQUu9xQrK94lVz52O7gXgWYn3lbEVDPM3Re8Bpy5E908tQ6f08lCQwIVcRG3JnYoCxJ5ma0K0ckqqJOaYZdHf2aFcldNZPmO2mAqaQU3Kl/aYVHubzFaTQu3ZuvMYDVNpnlxwskWvGORp6cCrwdLSRMBnbjicR7mZoUuiBP8OoQeiRSXpVB7c+ACwLwNXgauLKGzeOaIDhtsvjcuPcUALO6/b9lOyKlE5f3rEUh4BlTRnQCK3aJSDTyCtG1hRh1JKPj8N3YRnUh"
+            }
+          }
+        ],
+        "created": 1767928866,
+        "id": "chatcmpl-20260109032104266264127GcpXJ4Us",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "8f7d6334437a4b919051cea246589f79",
+        "usage": {
+          "completion_tokens": 141,
+          "completion_tokens_details": {
+            "reasoning_tokens": 84
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5279,
+          "prompt_tokens_details": {
+            "cached_tokens": 4036,
+            "text_tokens": 5279
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5420,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 8,
+      "prompt_type": "text",
+      "response_time_ms": 4903.355121612549,
+      "input_tokens": 4503,
+      "output_tokens": 107,
+      "tokens_per_second": 21.821792904286177,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:13.393890",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建联系人：嘉华集团（董事长）...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"嘉华集团\",\n            \"company\": \"嘉华集团\",\n            \"position\": \"董事长\",\n            \"phone\": \"13800138013\",\n            \"email\": \"zhangsan@gmail.com\",\n            \"address\": \"北京市海淀区\",\n            \"notes\": \"这是一个测试人脉。微信：zhangsan\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CtEHAY89a1/aS7VrHS00gvT9dAFSWtgb00DboNY1LicsNOCvp/C1KwRTooPkxLusixQ9lq8xqS+rR1Yh5AggqjM/9K4RIVfj40w9E3TxM60+k5a/YAeWKUh41r4rfwwv2vRfy4H2a/hXJBCZ826Bg+XBVU0kRqF8USYVe5rlDnR+ZW22xWnnHRYzJ0SW6mzWwFpi6sgbJSZOmAzofWfVNS95Dpx7oumbcz5B5kyea3m5BydJfE4bY2OwoR44DrJbO+8NR2o6fEUrHCeEu/5k7CrITabyJUTmhDopYf+nFcVw4Yln3ZS5R6zu89kag5yigKlqJlAwopBABlNTGgWdiwnwhtiKbI2vGJINxnv5+Mneq14nMCq2Y3y1AhDepSqkLXTv1ZJ+tkTxg56Crah4napdp8rkboQaotooBfCTEPJVQzrKPSwcnJvet9NNIdGc35Mjh1ERAe6H1NaFCbOLnqAkoXDdN68LCX20QYnhk6uvMKY5XgqCKMW8ZUIkWKJHq9HtS55RPhoh39EdwXtRhCZzAGGBTjq3dPBjKK/EH1FBj78OCivaOd++ivHZJ6S2i22WGh0aHE4fvJNS47W9sLF3hustRR9xGg4rRz7gckS91ssJoYrG42pWundo/ghHtBBZpHFe8w4NrfEQYa2xQ2Fb30ZeFNvTG2AXB9nNGITRSv3Aa7fax7MHVwJZmgIeerGtP/YDnsM/zrdl5oe03IZDdAYUEZrk738LMUkuVNR6kaQlhPppLMdn+tYax74YYDDUQjTNPLAySv8kl/TlOPok+LK8iQw3soNkU2QefWpctGbUsyTgU9Ed+OqKjEaOFeX0D1AcmVgw4ocBs0gMA9Ty0XjIfy+Wy45f8HT08BIj7sMwOPPKpR+o5yIJFt6uYsjUuNYEas8ppAT9ILQV2ZDoff+ohCgiz41tWBrUpMAiYDQpPA95ETUuHTsdJAuCW+UkEYrzGqVpbu5F5tfZwPzSwaPjDJKqJQ2S6JXEzQ+nR25uLuZO66fdruiRxLov+FUAep/wBS3e//CyIxExpLOyfZfr8QI/WRnYu/dlxH83wmb/MVnId6xigoRb8mhcdcl2jZkk7uXdrtH9y0/ddGPAmk2Ir4y2YHUD0EaV9c4FPYmm3nGxIm/IH1lZrRBayc1rgM1fokKNVjpMe5KLUm+g6R+xlrR1+4NlAK+QBY+hJzAbRDL1PaimaTh/VmskP6mxEsCuZbpLHU8eE+mjBuQicurVmW0ALL+3SHnQAYsgm9kamMMDcq7fy6vhYBVcyHnmPdYT3n8++qnzcmtvQhcKrsY="
+            }
+          }
+        ],
+        "created": 1767928873,
+        "id": "chatcmpl-20260109032109238713733bzhKVh9S",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "dfa0dbe7ebf44c66aecec905c68e9550",
+        "usage": {
+          "completion_tokens": 408,
+          "completion_tokens_details": {
+            "reasoning_tokens": 270
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5405,
+          "prompt_tokens_details": {
+            "cached_tokens": 4037,
+            "text_tokens": 5405
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5813,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 9,
+      "prompt_type": "text",
+      "response_time_ms": 3504.2924880981445,
+      "input_tokens": 4446,
+      "output_tokens": 43,
+      "tokens_per_second": 12.270665233008856,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:18.903885",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您查找梅琳达的联系人信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"梅琳达\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CtkHAY89a19C1W8dRG/520dR5BgQdI0FHud2/v+xyGg09hMoLmA+iBh601SicJkJEh5J/cb/nMCgf4CA/W9A3/8kfhlQlLls8bcSGKeh10Yk1HglSsZVO7K4tDztmW7Bo37djWm6vpBIHP243DRXFbXkU1xX2/4UVXK+qzZ7XRg78t5i2+zddhBw/jV+XLPV4ANcz8ga1wd0XGZsliqqdUSVD3wbn3wR5ZXU3MGoQ0z/BYboCsFsNkS3MBlckTg4L27G9Q4avOefeOlZZY82dFD453hIJRj/+VhFVgdwd85n7nJr1/C7pxpZtkaF/4JLPIvY6TOOOOLTOoerm60ypCD4umrcNCO4TRFHfvpNV2/eq3GvhK6ljxJFBibsFz4Q8lD0M5DTjey5g2guDDJK7QSjQRyoCXIEErraE+bwFXJGD7UgbjJfSDI6L9Fu/rMVNDea1fU+PqtdWDfxDX+LbVdohdR1GsHQpwHm49Y61NBYhzBpN1rdgZF+o/wmX1ChLgDlXXWfslmua0cyri4uC4MDGTw5Lm+T53HixPzvB9RuRAXi+slGNGqVdvRbXU9DIzLxrEoAxQUduhq7hb1BZmvVbf0VLYBnkXurJEl1teC/lMHWy3E+sOH+rt2yxm7JgGYPSphoP+YUNcEEGgc+kEKfi8JO+EHMG1KOZRJRYH8+to5fZ1e50a5a4xtcWnpNpe3qD2Dc/UCdlGEAhGqVom+9u3NoR2me0bi/jQdfWwOxj72+DKfA9q0ONsZEdNsLT5nlbmFg5AmurDkaCru/uNpMutcYorqoRR/gy7hsPotK2nbcK9gYH6z95LWyZ8BM6JX3JBfUsNJcCNfKRhEe6RZmORoVdbGlsdX8tkwSdV1NTy0lLXLwwXqJjz/wWlFTw6IyE8aCP69Ml+VmbgYvaHk7klkAXuA0FLiNdnJZBqrczCFePsSqj3yR6cNmfT494LJCKMUxOBtloqKc0OmU0Cd9ZoH+uCHFZes77zhPEgbxszquF3+wd0E0X/XekkY5AFvP3GnWljtvyDQe1ZnoFaEAat4pR3tlpCqMnEMV8tUWZf6DGPi7dLhJdFKMavT/NYgy0+NK6og0KILMY+2bsMb9yINNHBnNUFUE18y90Mamb/mhGGKWkduuK6djhhmGY/aVaKTYy3+h4qLwavNT8JCRA4d16YkI5u/AuOLw++12g1cT8yq9uPP8v5iSc03/ncxzSdSZY1tEvIyOHOmgRZDbKV+g+R6wlHmykeddC4EtVuUlm90mmQpHyaMP+xQCV1eNEDCzUZ3bMVVHfy36QyE/DkDBUQ1tbaV13A=="
+            }
+          }
+        ],
+        "created": 1767928878,
+        "id": "chatcmpl-20260109032116204927000T62VRIaL",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "ab280b2a9f944ff99150dd00d34f9bb2",
+        "usage": {
+          "completion_tokens": 316,
+          "completion_tokens_details": {
+            "reasoning_tokens": 256
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5340,
+          "prompt_tokens_details": {
+            "cached_tokens": 4037,
+            "text_tokens": 5340
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5656,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 10,
+      "prompt_type": "text",
+      "response_time_ms": 2726.7069816589355,
+      "input_tokens": 4526,
+      "output_tokens": 28,
+      "tokens_per_second": 10.268796826479951,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:23.637053",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\"show_content\": \"正在为您查询李博的生日信息...\", \"action\": {\"tool\": \"contacts_search\", \"args\": {\"name\": \"李博\"}}}",
+              "role": "assistant",
+              "thought_signature": "CqECAY89a1/6APwVt5Sobe5tGJyalhv/ft+YCtjVDFZZbJqcSRJfZta7syKlPEVGCXH+fc4ZJe2dEpq/LqexdeQEMyJP5GkNd2lLcfU4vX9pVhjw88q4AcleZYkiB9Ov05aRVP8cTyjqn5AC0qrO9eg6A7BwWjw1Vx40HxDO4sQDx8kAvbNUyRZcwVYdIQMRT5GM2dMA5ZKC2osRraJLzqVIfiBGLNQ9G5PZiaWKjpcCBCF2NvSoCbgsDsrtRiIgkZ41SxNcC09bL1ZxbC7r7OnXpqCAmPBHikkzSiPBThMJKAsKVx5llvVxoe7h7L84ulsYkLgMKhwVzwZoHayeVPRv+Lez/jxxsgW4k3RYOGQIoUw2265j3/iYzLiEn1XWkZcwmw=="
+            }
+          }
+        ],
+        "created": 1767928883,
+        "id": "chatcmpl-20260109032121692994312nyZhOpwb",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "2bc3e4b1085348eeb13ae1e9a6f6153d",
+        "usage": {
+          "completion_tokens": 105,
+          "completion_tokens_details": {
+            "reasoning_tokens": 68
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 5599,
+          "prompt_tokens_details": {
+            "cached_tokens": 4046,
+            "text_tokens": 5599
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 5704,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 11,
+      "prompt_type": "image",
+      "response_time_ms": 6931.210279464722,
+      "input_tokens": 87107,
+      "output_tokens": 42,
+      "tokens_per_second": 6.059547799961358,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:32.617144",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您查询联系人覃睿的信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"覃睿\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "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"
+            }
+          }
+        ],
+        "created": 1767928892,
+        "id": "chatcmpl-202601090321272435846685uyasho0",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "a13a129141a042b3848b0150245e135d",
+        "usage": {
+          "completion_tokens": 532,
+          "completion_tokens_details": {
+            "reasoning_tokens": 476
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 6440,
+          "prompt_tokens_details": {
+            "text_tokens": 5362
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 6972,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 12,
+      "prompt_type": "image",
+      "response_time_ms": 5524.399280548096,
+      "input_tokens": 122308,
+      "output_tokens": 43,
+      "tokens_per_second": 7.783651726877681,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:40.202656",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您查询联系人刘紫晔的信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"刘紫晔\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CuYHAY89a18H0IPAj8wJehjEY4HYbbhnmDZswJsrk7tdUFgH6nquJSncGPt8Xo//pdbdAH5wvNFfqH0XFUmHh8poTi4Bkws6WXRsdX2himHWhEAI0l0wx145FTp845iHW4KENjzMAjPb4xJ+2EKF89cT3o+I69+7pSiieKetd3aLHVqobc0Z63q8gDQGdioyTbE6SFF73TAHoU3pNAlBU2QD6WfdUKgO29YuhFa6crimxeJBDRHcCzi1ae2g0DZc1jSMPXFcWdfDjiNLrc1OPPbVfw9rnqQ5qlzZhbikGc5z1co4xvhcXYROQoR7XxKqtZ9ZIzNHnl7Up2pb+Hc/EgEUlFHkRRWk65l52HQHFmjLhRezHVfu3VZPVJy2Nx6C18Z0tkEvg9bQaK1UGseog7GzCS0RG1G/vV3CqQu0c2If8DoXAAEm6GO37/LLCKGYwAkcLqEvUV6KzjP8sPn/B/bcI5qPDx6Z1tU/YgE5uI0DwI4vWx732ThUS1Y8/QlqFVY4W4bh2cb2jkOWvXMs/FvDv4niwZRYNkoUYKLsJ36T/7Ja78lws1DxudflsD9ok6aXGzGCbITLFsBL9CoHMZ0Lz+ysIB/0gzUdW+mxceBA+Fmd5KpMpUc1VuMZeIfnvgfAj6cJBFA+cedGfznfr9keugFU7BaGBQV1lsp6iz0OMvL/Bl7WzqmlB8W8Fj1z91DZhHNDbQJ5+y7WoAZtsMs57znRqBY4rc1gD+qAQIdEvUu40f9a3buI9DQpYd1+A9oimXSAqQnvUWd64G2tDZNLPIg9Z+mjof+wKfzkfGNxLUunVGkvLayCQB+p8k9Q/TlBem8LlBYE56txe5Xuv38SiboZ/ZmSyLR9AxEVLAvOgCM+c4PkugAQ3GpuoAN4LCftWxy6HZOvddIn0PBetwR4wM0L4QmI3jEfLmKA7XvMVNvVrABhy/M3TatqwAj3iRcIZ5Oja92FOIPyZZULajl42yNyvYO72y5a/Ycf2jC0lk/IsreMS4suA8UNBG0WBzAGqTWoiy9ZyAPjFM6z50lCCooJ15dLbx6UT/EaI9OuwTVIwhcPh5dacvt/Sh77XjxEzTJibhRbqhESD6AajrtpqTErgOYCFn2Iccanh7ipJsWk9y6BgMTBXT+putWiPezIcJJcvWtubcuhk5NpH9aQfFOP2vLkeNsdtjXmBB75/qi9SlLjedvSwU8QaJbpFTdJ2UXzUccAyTEJ3FTOAfAVlsYae06qydJPLdGHhxNg2umkxHZFy3okb1s2ddKWED3UwjQNm9k27dM3YGKUuKBBLrwsq8RaB4Zj7umNe0ZIPd7Rt/Ce+Dk="
+            }
+          }
+        ],
+        "created": 1767928900,
+        "id": "chatcmpl-20260109032136290269058ySLHy9Ry",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "736a7e810d53413a9e915b4068703d24",
+        "usage": {
+          "completion_tokens": 313,
+          "completion_tokens_details": {
+            "reasoning_tokens": 255
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 7504,
+          "prompt_tokens_details": {
+            "cached_tokens": 4056,
+            "text_tokens": 5348
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 7817,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 13,
+      "prompt_type": "image",
+      "response_time_ms": 11068.116188049316,
+      "input_tokens": 321144,
+      "output_tokens": 47,
+      "tokens_per_second": 4.246431750576287,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:21:53.407411",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\"show_content\": \"正在为您同步截图中的联系人信息，首先为您创建联系人 ZhaoJXii。\", \"action\": {\"tool\": \"contacts_create\", \"args\": {\"name\": \"ZhaoJXii\", \"company\": \"毕昇\", \"notes\": \"MCP配置\"}}}",
+              "role": "assistant",
+              "thought_signature": "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"
+            }
+          }
+        ],
+        "created": 1767928913,
+        "id": "chatcmpl-202601090321443983103553O1qAFsy",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "f06266541c6a4d15ad7a25179de60840",
+        "usage": {
+          "completion_tokens": 872,
+          "completion_tokens_details": {
+            "reasoning_tokens": 812
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 8578,
+          "prompt_tokens_details": {
+            "text_tokens": 5344
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 9450,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 14,
+      "prompt_type": "image",
+      "response_time_ms": 5534.39736366272,
+      "input_tokens": 419057,
+      "output_tokens": 99,
+      "tokens_per_second": 17.888126474258222,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:22:01.108635",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建联系人冯磊的信息...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"冯磊\",\n            \"company\": \"金科创新社\",\n            \"position\": \"运营负责人\",\n            \"phone\": \"15712971843\",\n            \"industry\": \"数字金融垂直媒体\",\n            \"notes\": \"想加入 BISHENG 社群，通过官网扫码看到联系方式。\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "Cv4GAY89a189e1TkgnJ/b49OJFTjKLVO7d9gL230RzVbA5i6NPpKgW3A1uJKdnitiDbTIbimX6rl/PwmJ1AxR/K5SwQniOWVtZZZB9ypRUIhhqtIirFfpgY82C7knxLj6I7W+d/cT+5SAIZbI2ItBitApYhnz0pQJWOa+GtLBvuuN2HVesXkrSbD/F8xDV9oy6k2LfMDmT8VpP+RuJzfVgb6XcNTHUj7W7/PHQFlIvXXRLfzFX9GfL5unw44QsP3hd2TO3YxnyJca/BKfLXgg5NZBKDmZEjZbvm6pvszMJwdoOw8X8U0LRr3IDrVoYe919dIeh6yaD67qTTfGRpNsm0cNE2u1RSUwlwMyOshoAbKPK7/gma62VHL5u891mKZKqKO2o64tu4p0zcryWLYWsrA5rLC9yGSVMCdbAWl4hex1Vus0i0m7mMGA92J7+iuAb78EX3IZcBUSGQCfmlEGuKfynCuHNB88l0RewVRSYci4hlhH/XhHIElVZNWKT/CSEr9LwADk2ZcLFiS12pmGHPt64AWsyUyCyf1AAZ7zvX7zWkiXKuwnyzCHJD9r7QoT6qepfvo9FFIIYhj1Xdn0eNyhd3bD3kNpQURrSyVD68EdJwQEFjr/9IU/hoenLRB4PEjcjC8trCrv9qf5eZSSs6/RfBtU8QnQK4fDWW16W/NTYFYnq+GC1tMb7KclTyw61/mMIGapt+qe01DdWvgCSmEa1pTC553NU2iJPEFl14xXU8w4GV8NlexR1lzeUj6Sngtbr6C3xbcmzFOUA2v1Zdq4dJH0z79uTnlWmizi7AfKJHJU2XJLyZzbgv4rl+5YODPRBreoDfxbYS3xIyBKDLST9Bk1DQr0Yrun1have5GorRpLFkkkrzKAHoo7+rf2sybfJ4CP3M66wcVWspEJ20oPdpnsj6TlGI4QJon5xa8Q/H+UxoA95H4r3gdut+RCEpy/sFsJ/EE9IeIZC09ZbD6Pm1hEeHVP3evrJfZ4Py9KY/s+yMA7blNGI7nNq0TH2B94BwkuaqQq8CIxHxlPCtRsmZV1CnHA3QROzI3mfvHZDT2nukrKokbGARqPxm2YeewlIREOTS4beE8cL1udazGoaNXWTcxpYFtO+EF9ZMR9dP/bWngMON3i2ci6QdX6ZSN//SqudFpUkgx8c8dFxn3gdt3H9yozXQEeqZbXV/q"
+            }
+          }
+        ],
+        "created": 1767928920,
+        "id": "chatcmpl-20260109032157632668965OWDYzMvI",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "2a3b754e1a7344999c1e14812b587a02",
+        "usage": {
+          "completion_tokens": 388,
+          "completion_tokens_details": {
+            "reasoning_tokens": 261
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 9644,
+          "prompt_tokens_details": {
+            "cached_tokens": 8135,
+            "text_tokens": 5332
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 10032,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 15,
+      "prompt_type": "image",
+      "response_time_ms": 8541.325569152832,
+      "input_tokens": 577830,
+      "output_tokens": 97,
+      "tokens_per_second": 11.35655106630257,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:22:11.854600",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您保存王磊的联系人信息...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"王磊\",\n            \"company\": \"魔法科技\",\n            \"position\": \"开发者关系负责人\",\n            \"notes\": \"希望和毕昇社区合作推广具身数字人应用。公司网站：https://xingyun3d.com/\",\n            \"relationship_type\": \"partner\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "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"
+            }
+          }
+        ],
+        "created": 1767928931,
+        "id": "chatcmpl-20260109032205654224532cg12LK9k",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "f7d9f3e875cb4a96a92f52f4b723061e",
+        "usage": {
+          "completion_tokens": 627,
+          "completion_tokens_details": {
+            "reasoning_tokens": 510
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 11768,
+          "prompt_tokens_details": {
+            "text_tokens": 5300
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 12395,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 16,
+      "prompt_type": "image",
+      "response_time_ms": 8794.87419128418,
+      "input_tokens": 131961,
+      "output_tokens": 43,
+      "tokens_per_second": 4.88921149578393,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:22:22.718734",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您查询联系人孙永印的信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"孙永印\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "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"
+            }
+          }
+        ],
+        "created": 1767928942,
+        "id": "chatcmpl-20260109032215538490131zscOGp68",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "842eb6d962b546cca66290e842bcc237",
+        "usage": {
+          "completion_tokens": 642,
+          "completion_tokens_details": {
+            "reasoning_tokens": 584
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 7524,
+          "prompt_tokens_details": {
+            "text_tokens": 5368
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 8166,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 17,
+      "prompt_type": "image",
+      "response_time_ms": 9315.10615348816,
+      "input_tokens": 187790,
+      "output_tokens": 132,
+      "tokens_per_second": 14.170530944574468,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:22:34.110702",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建知识平台需求沟通会的日程...\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"知识平台需求沟通会\",\n            \"start_time\": \"2025-12-09T14:15:00\",\n            \"end_time\": \"2025-12-09T15:45:00\",\n            \"location\": \"腾讯会议：880-874-890\",\n            \"description\": \"知识平台的需求沟通会，由么爽预定。相关人员：么爽、若缇、张增普、黄宜亮。会议链接：https://meeting.tencent.com/dm/87bdHKnQl0dx\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "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"
+            }
+          }
+        ],
+        "created": 1767928953,
+        "id": "chatcmpl-202601090322266111593729ZxsLZxh",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "14ebaba2bdb24ad58142c9be4565821f",
+        "usage": {
+          "completion_tokens": 912,
+          "completion_tokens_details": {
+            "reasoning_tokens": 709
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 7574,
+          "prompt_tokens_details": {
+            "text_tokens": 5418
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 8486,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 18,
+      "prompt_type": "image",
+      "response_time_ms": 7347.072601318359,
+      "input_tokens": 254253,
+      "output_tokens": 42,
+      "tokens_per_second": 5.716562538454229,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:22:43.567932",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在查询联系人董江涵的信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"江涵\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CuwGAY89a19HMTaoU+BdhtEac6yCex6LK9H2ien70mjjIXa24DNI9FnnMHHlc9rFmK8ETHtehgg+SfoAmus8ziGHq0+713rSy16qjXfKoFngUWPF2BORTDUybgEBRuTpXuu4wGt6ow2aGhDN1yJOrHkLPfP+C5ETLCTuIpUD+kgGP1GDvpdqt0JkinY/siCPiWM4Y8IoQpx49VcYoUtMLMMUH5R7rByacpd63hHZwQL8ORi2t/eDQCxlFiAnig2hr2qipykCrP5nV4cLl5cQCOfRHSwgJ0GcgAHdyCgvUZNRV5ZqoYPkYbjJ6Ur4SNK1wQw29cz74g3FiTzYOhmxowBGBiVZgapTgsLXSlpxGgMp8rJ94sEJMcCNY1D9rzP42uPf5tKm/TUT4gK0YkC563/cCwzIsaJ6H64RCh01PJpWDw/Kw5iuV1byG7ThxuRLQ47byYBW8MPpQlB3OgZg/p04K1c0toFVnqZcd778SL89pmTO2lbpyfQJG0kwSltchrFmCQjkv4BvPIfqqWesF8MTchSyouq06IPLsE4b3XJ+W3R+xPeYqorgwIkZcYqCenbdJkg1ti57rq2FcrI0rV01Df2usu12/1T6PxtQQcykg4Djd0jJEuM1NOFzUgaTB8lbowMsj/IhMs4O1mFAO3oI+E8Nhe61NVLxRVMoyLqnrWBZA2qdkRhBZXI7azdVd3BHWMmNe0EAQ4r8M9PCVrGTavROsE+alnMW7vf/SXDaM4A+KNos7AOV/7RZxxQFsc8J9qd4xG2QzkmfZ+OWmNtPK90zikCDg33ks+V1zjKxinuY6I0wvEc0MydhOjNKP3694uufq8HahLo2DFnL58rItEXfu3ytl60ZyPddrB6DgKbQyyYAB9TMZMUtsAxvvYn2pvOTOniE02QvKwFWyv+aNnHTx49mybKePebcX0e2SIllpZfx02UsAAGEYWe5rUf4Dn8NGloInoENONdCGMqM3u5oLgwZRSpEDpmVtbpS0V2lTpWQ1F+4CImvIrvusYxjD8RljOv+h+dAGzpeuNpLfL4cCtc7xmxkRxtN6DUMEzBxsorhLaRLtTcL4IbtqhoL94+kx6qtv9LKrj1GVnW1TOXMLUCvA/NjMG/anykbjjf95RQScQmrvmbMtVxN71V77qsd3So+sq0Y8vKG"
+            }
+          }
+        ],
+        "created": 1767928963,
+        "id": "chatcmpl-2026010903223874965538h0U9WOjw",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "e1392fa79aa143efb1b88e1d7e01e790",
+        "usage": {
+          "completion_tokens": 374,
+          "completion_tokens_details": {
+            "reasoning_tokens": 318
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 8656,
+          "prompt_tokens_details": {
+            "text_tokens": 5422
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 9030,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 19,
+      "prompt_type": "image",
+      "response_time_ms": 18541.76115989685,
+      "input_tokens": 305126,
+      "output_tokens": 117,
+      "tokens_per_second": 6.310080201715363,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:23:04.235906",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建与曾总见面的日程安排...\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"与曾总见面会谈\",\n            \"start_time\": \"2026-01-15T09:30:00\",\n            \"end_time\": \"2026-01-15T10:30:00\",\n            \"location\": \"绿地外滩中心 T3（上海市黄浦区会馆街 51 号）\",\n            \"description\": \"曾总在上海，见面聊聊。相关人员：曾总、张健、洪老师。\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "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"
+            }
+          }
+        ],
+        "created": 1767928984,
+        "id": "chatcmpl-20260109032247737416135Yue4EFge",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "aea398567f094d12a8fa46075990c497",
+        "usage": {
+          "completion_tokens": 1858,
+          "completion_tokens_details": {
+            "reasoning_tokens": 1675
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 9896,
+          "prompt_tokens_details": {
+            "text_tokens": 5584
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 11754,
+          "ttft": 0
+        }
+      }
+    },
+    {
+      "model_name": "Google-Gemini-gemini-3-flash-preview",
+      "prompt_id": 20,
+      "prompt_type": "image",
+      "response_time_ms": 8085.356712341309,
+      "input_tokens": 382144,
+      "output_tokens": 111,
+      "tokens_per_second": 13.728522308802043,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T11:23:14.469565",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建面试日程...\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"ui 设计师实习生--沙澍的面试会议\",\n            \"description\": \"面试人员：沙澍；腾讯会议号：534-788-066；会议链接：https://meeting.tencent.com/dm/e9xQIKL6SDA6\",\n            \"start_time\": \"2026-01-08T11:00:00\",\n            \"end_time\": \"2026-01-08T12:00:00\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "role": "assistant",
+              "thought_signature": "CsAHAY89a1/ETU0S1kr7FSkVXDrjwj3LfXIZegmKzAMJ9faA577jfyOqOhiTrm1iLPuBiirDGWpD4dDJJ39c0In2SY0KkCm4gScAG5NcBEZpIAyqbHgwWVu0FN84F0wK4grvucI40VjN42gnDM+ZQv8nHMNrSu4ckmk+88yQmBX9mw2oMkpZFtY0Oso8am/2iuOSRfwupnRoJEW0XXI0zzc1pM/yjYPv10Dnb0sylROlWgHMD5GuMJDDrMNlgBvU4TTcfspis2RqloRekivZNXbL6/cMlKoTC56i3IBxwrc0EButxndh9sujGIMmA72rkoJz5U5kE6DpRm0X6BFY/auQkUWxmQugTTVKK3vewr0KeyFFFA9bLIzhDCBX90t/1V4olV/k9hEB9UssaEbGsm65YYDjan58HbnTXUJumqKDLMHpyoaUjVBA3VudgHOl2qkdqHh7ORD4TFlNiiFM8dsa8yG4qD1QEKzKDaDaRT6aUMiccLW3TVYpE0uJ7IOJM1XsYphJlMXOj/MPHFOGHQOfoJWn2WgTAg2Eqs8S4uCjrWgZiyut6A6Mq2W6vIGFW+V0/VsQz0U1G6Pg7PQLi1RiitWqYhLmprPPPZpnO3pFpwuH2QCTjy0W+W8i2OSgil3eLtmfNYVb3pw38GkKsEJ8otCR2ISqtlKfCSn9K2Bwz9oktwqRZoe9YiX21WYK75OqbMPFVr/mcnLqOwffuENlZktFoTiWwQjpIC5VvAh5YZh1wd+QZoovnOSeyyp/dGv/GAar8JEjp5dRROSsshW5QvEv5EV/2qfNcEmG82OvgM0Yn5MGmUloY+eMYcAg33MmAACSr4/N/pWyn4yu8DQKVSdrzNrpUFl0pOPyBTimfdhIDoz/3rkdx6FXLNMGa0GTj7xJ/UwEm5x0V7Ydjtn+XMuT0YizZp9adk8uBx1cCRdsO2OKCOnl/SEGBze+V6lLp6cLdn3Mp4rTcq+LmriqKt70+KZZiq0O25uNQ/ulM52cah/Rfzs359aR7xUz8Nv9Yva7gnjiTkO/UVvcnvwOECIqexEPTYJ7E5iVimqFjN66C7Tw6pCDnhO+ky6uNo33BmzTa6yWrRi8C8eEmh8lp9arQuhXOZRHKSF+myg6fr/SJL+Dp+UihPszvxfFizADmJZH23aK5M8brlGjyGkuRF7MoIIRtI2M6hzYQPw0tkRfii9Ruwjwt6IQs23CXItOUPtW19nLVJyD8tnMhF0S80uG+j/oRa8W5tKbvPXy1ffmBYuVtS4kj6jk6JVF++Qo"
+            }
+          }
+        ],
+        "created": 1767928994,
+        "id": "chatcmpl-20260109032308481338473fTzojTwf",
+        "model": "gemini-3-flash-preview",
+        "object": "chat.completion",
+        "request_id": "a8f678d69d314ad19126c6cb8aaf0548",
+        "usage": {
+          "completion_tokens": 518,
+          "completion_tokens_details": {
+            "reasoning_tokens": 340
+          },
+          "input_tokens": 0,
+          "output_tokens": 0,
+          "prompt_tokens": 10811,
+          "prompt_tokens_details": {
+            "text_tokens": 5421
+          },
+          "server_tool_use": {
+            "web_search_requests": ""
+          },
+          "total_tokens": 11329,
+          "ttft": 0
+        }
+      }
+    }
+  ]
+}

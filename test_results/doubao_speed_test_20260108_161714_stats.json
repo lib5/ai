@@ -1,0 +1,39 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T16:17:14.141856",
+    "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+    "total_results": 10,
+    "successful_results": 10,
+    "failed_results": 0
+  },
+  "statistics": {
+    "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+    "total_tests": 10,
+    "successful_tests": 10,
+    "failed_tests": 0,
+    "response_time_ms": {
+      "mean": 8332.25,
+      "median": 5842.36,
+      "min": 4602.56,
+      "max": 26607.59,
+      "p80": 8000.65,
+      "p90": 13006.58,
+      "p99": 25247.49
+    },
+    "output_tokens": {
+      "mean": 54.7,
+      "median": 55.5,
+      "min": 50,
+      "max": 59
+    },
+    "tokens_per_second": {
+      "mean": 8.56,
+      "median": 9.42,
+      "min": 2.22,
+      "max": 11.82,
+      "p80": 11.01,
+      "p90": 11.63,
+      "p99": 11.8
+    }
+  }
+}

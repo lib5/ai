@@ -1,0 +1,24 @@
+{
+  "test_time": "20260108_175207",
+  "model": "Google-Gemini-gemini-3-flash-preview",
+  "results": [
+    {
+      "success": true,
+      "type": "text",
+      "question": "我今天有哪些安排",
+      "response_time_ms": 5438.086271286011,
+      "output_tokens": 54,
+      "tokens_per_second": 9.929963833992277,
+      "response_preview": "```json\n{\n  \"show_content\": \"正在为您查询今天的日程安排...\",\n  \"action\": {\n    \"tool\": \"schedules_search\",\n    \"a..."
+    },
+    {
+      "success": true,
+      "type": "image",
+      "question": "[图片: 1张]",
+      "response_time_ms": 9113.634824752808,
+      "output_tokens": 41,
+      "tokens_per_second": 4.498753876844309,
+      "response_preview": "{\n    \"show_content\": \"正在搜索联系人覃睿的信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        ..."
+    }
+  ]
+}

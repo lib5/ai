@@ -1,0 +1,102 @@
+[
+  {
+    "id": 1,
+    "query": "我今天有哪些安排",
+    "type": "text"
+  },
+  {
+    "id": 2,
+    "query": "新建人脉老徐，生日是8月8号",
+    "type": "text"
+  },
+  {
+    "id": 3,
+    "query": "帮我把梅琳达生日改成10月1日",
+    "type": "text"
+  },
+  {
+    "id": 4,
+    "query": "AAA生日是多少号",
+    "type": "text"
+  },
+  {
+    "id": 5,
+    "query": "创建联系人AAA，生日是9月1日",
+    "type": "text"
+  },
+  {
+    "id": 6,
+    "query": "覃睿是男生",
+    "type": "text"
+  },
+  {
+    "id": 7,
+    "query": "他在互联网公司当产品负责人",
+    "type": "text"
+  },
+  {
+    "id": 8,
+    "query": "请帮我创建一个人脉,标题为:嘉华集团,描述为:这是一个测试人脉,公司为:嘉华集团,职位为:董事长,电...",
+    "type": "text"
+  },
+  {
+    "id": 9,
+    "query": "梅琳达生日改为10月3日",
+    "type": "text"
+  },
+  {
+    "id": 10,
+    "query": "李博的生日是哪天",
+    "type": "text"
+  },
+  {
+    "id": 11,
+    "query": "http://110.16.193.170:59100/yuan/images/9124a44f-1b8b-4a26-a002-f6c8c0582105.jpg",
+    "type": "image"
+  },
+  {
+    "id": 12,
+    "query": "http://110.16.193.170:59100/yuan/images/bda86d5f-1d85-4d6d-add8-e31fffb66b42.jpg",
+    "type": "image"
+  },
+  {
+    "id": 13,
+    "query": "http://110.16.193.170:59100/yuan/images/1718fcd5-ff27-4c93-92e5-f4404cb15be3.jpg",
+    "type": "image"
+  },
+  {
+    "id": 14,
+    "query": "http://110.16.193.170:59100/yuan/images/4fc237dd-1748-4e58-ac6f-0d9bdc46e9e1.jpg",
+    "type": "image"
+  },
+  {
+    "id": 15,
+    "query": "http://110.16.193.170:59100/yuan/images/a9dc4342-f448-4c61-8af8-37520c476715.jpg",
+    "type": "image"
+  },
+  {
+    "id": 16,
+    "query": "http://110.16.193.170:59100/yuan/images/1012cd66-3746-43ec-9f68-6c8f5da0a327.jpg",
+    "type": "image"
+  },
+  {
+    "id": 17,
+    "query": "http://110.16.193.170:59100/yuan/images/bd9ab47b-bc54-4c54-9243-d9d9875b6259.jpg",
+    "type": "image"
+  },
+  {
+    "id": 18,
+    "query": "http://110.16.193.170:59100/yuan/images/a359b005-72b5-4c07-a273-1df5956ecdb4.jpg",
+    "type": "image"
+  },
+  {
+    "id": 19,
+    "query": "http://110.16.193.170:59100/yuan/images/3b943853-4f1c-4a0c-b186-93df4d2a17e6.jpg",
+    "type": "image"
+  },
+  {
+    "id": 20,
+    "query": "http://110.16.193.170:59100/yuan/images/6ea1150b-1e24-4bc4-b58a-dd4e5d153cdb.jpg",
+    "type": "image"
+  }
+]

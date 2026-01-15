@@ -1,0 +1,803 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-09T10:50:01.898576",
+    "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+    "total_results": 20,
+    "successful_results": 19,
+    "failed_results": 1
+  },
+  "detailed_results": [
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 1,
+      "prompt_type": "text",
+      "response_time_ms": 4245.7451820373535,
+      "input_tokens": 4427,
+      "output_tokens": 58,
+      "tokens_per_second": 13.660735044906358,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:47:38.073892",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在查询您今天的日程安排...\",\n    \"action\": {\n        \"tool\": \"schedules_search\",\n        \"args\": {\n            \"start_time\": \"2026-01-07T00:00:00\",\n            \"end_time\": \"2026-01-07T23:59:59\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926858,
+        "id": "0217679268540009714bbc3c9fecc3b13ecab02ed7b1a8cf95038",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 101,
+          "prompt_tokens": 5342,
+          "total_tokens": 5443,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 2,
+      "prompt_type": "text",
+      "response_time_ms": 3612.028121948242,
+      "input_tokens": 4379,
+      "output_tokens": 49,
+      "tokens_per_second": 13.565785853729889,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:47:43.691967",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在创建联系人老徐...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"老徐\",\n            \"birthday\": \"2026-08-08\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926863,
+        "id": "021767926860190af079c8b3daea2503bdca6879dc89b1fe859b1",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 70,
+          "prompt_tokens": 5228,
+          "total_tokens": 5298,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 3,
+      "prompt_type": "text",
+      "response_time_ms": 2783.724069595337,
+      "input_tokens": 4459,
+      "output_tokens": 48,
+      "tokens_per_second": 17.24308832339753,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:47:48.482234",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在更新梅琳达的生日信息...\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"id\": \"\",\n            \"birthday\": \"10月1日\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926868,
+        "id": "021767926865807a84d6d461ce08db402646c54f49c535156b164",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 5329,
+          "total_tokens": 5393,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 4,
+      "prompt_type": "text",
+      "response_time_ms": 2766.571044921875,
+      "input_tokens": 4383,
+      "output_tokens": 42,
+      "tokens_per_second": 15.18124758700568,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:47:53.255566",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在查询联系人AAA的生日信息...\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"AAA\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926873,
+        "id": "0217679268706121dbc814c9dc8018c06167dca2e3bb8eb515584",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 54,
+          "prompt_tokens": 5233,
+          "total_tokens": 5287,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 5,
+      "prompt_type": "text",
+      "response_time_ms": 2296.876907348633,
+      "input_tokens": 4378,
+      "output_tokens": 50,
+      "tokens_per_second": 21.768689406049536,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:47:57.558703",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建联系人AAA...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"AAA\",\n            \"birthday\": \"2026-09-01\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926877,
+        "id": "021767926875388e90bb41e29889bfd3490746bb2652e40d61d81",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 70,
+          "prompt_tokens": 5227,
+          "total_tokens": 5297,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 6,
+      "prompt_type": "text",
+      "response_time_ms": 2688.8606548309326,
+      "input_tokens": 4403,
+      "output_tokens": 59,
+      "tokens_per_second": 21.942379161224977,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:02.254106",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在更新联系人覃睿的性别信息...\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"id\": \"需先通过contacts_search获取覃睿的contact_id\",\n            \"gender\": \"male\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926882,
+        "id": "021767926879687ae767af4c69fa8400a91dada77a1314d3b3b3f",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 73,
+          "prompt_tokens": 5247,
+          "total_tokens": 5320,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 7,
+      "prompt_type": "text",
+      "response_time_ms": 3224.8644828796387,
+      "input_tokens": 4410,
+      "output_tokens": 67,
+      "tokens_per_second": 20.776066825658496,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:07.487535",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在更新联系人覃睿的职位信息...\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"id\": \"需先通过contacts_search获取覃睿的ID\",\n            \"position\": \"产品负责人\",\n            \"industry\": \"互联网\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926887,
+        "id": "021767926884374649f4507e5505b181d56acee99f33e5aaad631",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 81,
+          "prompt_tokens": 5259,
+          "total_tokens": 5340,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 8,
+      "prompt_type": "text",
+      "response_time_ms": 4602.410793304443,
+      "input_tokens": 4503,
+      "output_tokens": 97,
+      "tokens_per_second": 21.07591094239457,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:14.095007",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在创建联系人...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"嘉华集团\",\n            \"company\": \"嘉华集团\",\n            \"position\": \"董事长\",\n            \"phone\": \"13800138013\",\n            \"email\": \"zhangsan@gmail.com\",\n            \"address\": \"北京市海淀区\",\n            \"notes\": \"这是一个测试人脉\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926894,
+        "id": "021767926889623efbbaf1e4382fe9087cb4ac5bb5b3b64c054f1",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 121,
+          "prompt_tokens": 5383,
+          "total_tokens": 5504,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 9,
+      "prompt_type": "text",
+      "response_time_ms": 2871.614694595337,
+      "input_tokens": 4446,
+      "output_tokens": 60,
+      "tokens_per_second": 20.894168048703033,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:18.972309",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您更新梅琳达的生日信息。\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"id\": \"需要先通过contacts_search获取梅琳达的ID\",\n            \"birthday\": \"1970-10-03\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926898,
+        "id": "021767926896207013359aa4be1d50f017ce693675296f1a58dfe",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 82,
+          "prompt_tokens": 5317,
+          "total_tokens": 5399,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 10,
+      "prompt_type": "text",
+      "response_time_ms": 2492.7730560302734,
+      "input_tokens": 4526,
+      "output_tokens": 51,
+      "tokens_per_second": 20.459142831564943,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:23.471932",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请问您是否记得李博生日的具体日期？\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"需要您提供李博生日的具体日期才能完成任务。\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926903,
+        "id": "021767926901103ff0e10ef3dc4fa8284497cad29aae4035699e8",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 68,
+          "prompt_tokens": 5571,
+          "total_tokens": 5639,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 11,
+      "prompt_type": "image",
+      "response_time_ms": 3212.1753692626953,
+      "input_tokens": 87107,
+      "output_tokens": 58,
+      "tokens_per_second": 18.056299340005523,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:28.731507",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请问您需要为联系人Rain补充哪些信息？\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"已识别到新联系人Rain，需要您补充其姓名、公司、职位等信息以创建联系人。\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926908,
+        "id": "0217679269056460fdb3532fae02c0fdd101b38c97f4b515157b2",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 76,
+          "prompt_tokens": 6665,
+          "total_tokens": 6741,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 12,
+      "prompt_type": "image",
+      "response_time_ms": 3671.4255809783936,
+      "input_tokens": 122308,
+      "output_tokens": 68,
+      "tokens_per_second": 18.521415864264576,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:34.465821",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建联系人刘紫晔，备注信息：与董老师电话沟通后请求拉群并准备材料\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"刘紫晔\",\n            \"notes\": \"与董老师电话沟通后请求拉群并准备材料\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926914,
+        "id": "021767926910927a2bd775fb99c5b6935942e64060e78fa804486",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 91,
+          "prompt_tokens": 7963,
+          "total_tokens": 8054,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 13,
+      "prompt_type": "image",
+      "response_time_ms": 3022.217035293579,
+      "input_tokens": 321144,
+      "output_tokens": 49,
+      "tokens_per_second": 16.213263120343747,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:39.619470",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请问您需要将哪位联系人添加到通讯录？\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供需要添加的联系人姓名或信息。\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926919,
+        "id": "021767926916728ec7c419e696e48af9ca70b0dd67f0207d2cbbe",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 64,
+          "prompt_tokens": 9273,
+          "total_tokens": 9337,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 14,
+      "prompt_type": "image",
+      "response_time_ms": 4036.2179279327393,
+      "input_tokens": 419057,
+      "output_tokens": 80,
+      "tokens_per_second": 19.82053532004755,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:45.826646",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建联系人冯磊\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"冯磊\",\n            \"company\": \"金科创新社 FintechInChina\",\n            \"position\": \"运营负责人\",\n            \"phone\": \"15712971843\",\n            \"industry\": \"数字金融\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926925,
+        "id": "02176792692192123598992204e5a1158495687fb0fcdbd4539ae",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 104,
+          "prompt_tokens": 10574,
+          "total_tokens": 10678,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 15,
+      "prompt_type": "image",
+      "response_time_ms": 3761.0371112823486,
+      "input_tokens": 577830,
+      "output_tokens": 76,
+      "tokens_per_second": 20.207192258756344,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:51.798248",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"正在为您创建王磊的联系人信息\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"王磊\",\n            \"company\": \"魔珐科技\",\n            \"position\": \"开发者关系负责人\",\n            \"notes\": \"希望与毕昇社区合作推广具身数字人应用\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926931,
+        "id": "021767926928160116859cd62eaf528cacfdb93c80a22d678122e",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 95,
+          "prompt_tokens": 13170,
+          "total_tokens": 13265,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 16,
+      "prompt_type": "image",
+      "response_time_ms": 3609.143018722534,
+      "input_tokens": 131961,
+      "output_tokens": 55,
+      "tokens_per_second": 15.239074681908116,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:48:57.479605",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请明确需要执行的操作，例如创建日程、搜索联系人等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"需要您明确具体操作指令，以便我执行相应工具。\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926937,
+        "id": "0217679269339835915fedfb2d82554863c3fe578618fa25ac00a",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 72,
+          "prompt_tokens": 7974,
+          "total_tokens": 8046,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 17,
+      "prompt_type": "image",
+      "response_time_ms": 8219.002962112427,
+      "input_tokens": 187790,
+      "output_tokens": 187,
+      "tokens_per_second": 22.752151430291946,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:49:07.795481",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建日程：\\n- **标题**：知识平台需求沟通会\\n- **时间**：2025年12月09日 14:15-15:45\\n- **地点**：腾讯会议（链接：https://meeting.tencent.com/dm/87bdHKnQl0dx，会议号：880-874-890）\\n- **详情**：现场参加知识平台需求沟通会。相关人员：湛雨桐、张增普、黄宜亮。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"知识平台需求沟通会\",\n            \"description\": \"现场参加知识平台需求沟通会。相关人员：湛雨桐、张增普、黄宜亮。\",\n            \"start_time\": \"2025-12-09T14:15:00\",\n            \"end_time\": \"2025-12-09T15:45:00\",\n            \"location\": \"腾讯会议（链接：https://meeting.tencent.com/dm/87bdHKnQl0dx，会议号：880-874-890）\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926947,
+        "id": "021767926939691eff6165463a2ce5f140dae355499e179d1a8b7",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 311,
+          "prompt_tokens": 8022,
+          "total_tokens": 8333,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 18,
+      "prompt_type": "image",
+      "response_time_ms": 7279.452800750732,
+      "input_tokens": 254253,
+      "output_tokens": 130,
+      "tokens_per_second": 17.858485185396496,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:49:17.187234",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建董江涵的会议日程\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"董江涵的会议\",\n            \"description\": \"董江涵预定的会议，会议ID：984223968，来宾密码：486364，相关人员：董江涵\",\n            \"start_time\": \"2025-12-12T12:30:00\",\n            \"end_time\": \"2025-12-12T13:15:00\",\n            \"location\": \"https://meeting.huaweicloud.com:36443/#/j/984223968/YhJ0E47XJHNzZoKBSdrF3wYKQApK9djKc\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926957,
+        "id": "021767926950041586ec96c526882919017714fdd6e6a277ee1e5",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 226,
+          "prompt_tokens": 9344,
+          "total_tokens": 9570,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 19,
+      "prompt_type": "image",
+      "response_time_ms": 7970.015287399292,
+      "input_tokens": 305126,
+      "output_tokens": 126,
+      "tokens_per_second": 15.809254494054459,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-09T10:49:27.295099",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"已为您创建周四（1月9日）上午9:30在绿地外滩中心T3与曾总、张健的会面日程。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"与曾总、张健会面\",\n            \"description\": \"周四上午与曾总、张健会面聊聊，相关人员：曾总、张健\",\n            \"start_time\": \"2026-01-09T09:30:00\",\n            \"end_time\": \"2026-01-09T10:30:00\",\n            \"location\": \"绿地外滩中心T3（上海市黄浦区会馆街51号）\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767926967,
+        "id": "0217679269594596a0b6f9037ae98ed8c3a7859aa85dfee8be21b",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 195,
+          "prompt_tokens": 10818,
+          "total_tokens": 11013,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 0
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 20,
+      "prompt_type": "image",
+      "response_time_ms": 30424.61061477661,
+      "input_tokens": 382144,
+      "output_tokens": 0,
+      "tokens_per_second": 0,
+      "success": false,
+      "error_message": "",
+      "timestamp": "2026-01-09T10:49:59.894065",
+      "raw_response": null
+    }
+  ]
+}

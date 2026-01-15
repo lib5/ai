@@ -1,0 +1,107 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T18:55:24.755692",
+    "model_name": "Google-Gemini-gemini-3-flash-preview",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "statistics": {
+    "model_name": "Google-Gemini-gemini-3-flash-preview",
+    "total_tests": 20,
+    "successful_tests": 20,
+    "failed_tests": 0,
+    "response_time_ms": {
+      "mean": 8651.81,
+      "median": 7994.61,
+      "min": 3343.77,
+      "max": 19382.19,
+      "p80": 11950.77,
+      "p90": 12771.85,
+      "p99": 18737.59
+    },
+    "output_tokens": {
+      "mean": 75.45,
+      "median": 58.0,
+      "min": 41,
+      "max": 132
+    },
+    "tokens_per_second": {
+      "mean": 9.49,
+      "median": 9.71,
+      "min": 4.87,
+      "max": 15.7,
+      "p80": 11.91,
+      "p90": 12.71,
+      "p99": 15.16
+    },
+    "text_type": {
+      "count": 10,
+      "response_time_ms": {
+        "mean": 5434.41,
+        "median": 4824.87,
+        "min": 3343.77,
+        "max": 11836.07,
+        "p80": 6759.61,
+        "p90": 7442.32,
+        "p99": 11396.7
+      },
+      "output_tokens": {
+        "mean": 53,
+        "median": 43.0,
+        "min": 42,
+        "max": 103
+      },
+      "tokens_per_second": {
+        "mean": 10.4,
+        "median": 11.19,
+        "min": 6.18,
+        "max": 12.86,
+        "p80": 12.49,
+        "p90": 12.71,
+        "p99": 12.84
+      }
+    },
+    "image_type": {
+      "count": 10,
+      "response_time_ms": {
+        "mean": 11869.21,
+        "median": 11465.17,
+        "min": 7581.38,
+        "max": 19382.19,
+        "p80": 13129.37,
+        "p90": 16328.82,
+        "p99": 19076.85
+      },
+      "output_tokens": {
+        "mean": 97.9,
+        "median": 107.0,
+        "min": 41,
+        "max": 132
+      },
+      "tokens_per_second": {
+        "mean": 8.57,
+        "median": 8.9,
+        "min": 4.87,
+        "max": 15.7,
+        "p80": 10.14,
+        "p90": 10.93,
+        "p99": 15.22
+      }
+    },
+    "image_vs_text_comparison": {
+      "response_time": {
+        "text_mean_ms": 5434.41,
+        "image_mean_ms": 11869.21,
+        "image_vs_text_diff_pct": 118.41,
+        "analysis": "图片比文本慢"
+      },
+      "tokens_per_second": {
+        "text_mean": 10.4,
+        "image_mean": 8.57,
+        "text_vs_image_diff_pct": 21.37,
+        "analysis": "文本比图片快"
+      }
+    }
+  }
+}

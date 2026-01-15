@@ -1,0 +1,103 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-15T14:51:39.366054",
+    "model_name": "ByteDance-Doubao-doubao-seed-1-8-251228",
+    "test_type": "stream_ttft_test",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "statistics": {
+    "model_name": "ByteDance-Doubao-doubao-seed-1-8-251228",
+    "total_tests": 20,
+    "successful_tests": 20,
+    "failed_tests": 0,
+    "ttft_ms": {
+      "mean": 1635.43,
+      "median": 1484.83,
+      "min": 903.62,
+      "max": 2436.32,
+      "p80": 2246.56,
+      "p90": 2332.85,
+      "p99": 2426.47
+    },
+    "total_response_time_ms": {
+      "mean": 4493.88,
+      "median": 4417.28,
+      "min": 2566.61,
+      "max": 7563.75,
+      "p80": 5609.79,
+      "p90": 6990.56,
+      "p99": 7494.52
+    },
+    "tokens_per_second": {
+      "mean": 4.52,
+      "median": 4.52,
+      "min": 3.06,
+      "max": 5.59,
+      "p80": 5.37,
+      "p90": 5.42,
+      "p99": 5.56
+    },
+    "total_tokens": {
+      "mean": 19.35,
+      "median": 18.5,
+      "min": 14,
+      "max": 26
+    },
+    "text_type": {
+      "count": 10,
+      "ttft_ms": {
+        "mean": 1134.2,
+        "median": 1156.88,
+        "min": 903.62,
+        "max": 1479.31
+      },
+      "total_response_time_ms": {
+        "mean": 3287.51,
+        "median": 3160.94,
+        "min": 2566.61,
+        "max": 4796.68
+      },
+      "tokens_per_second": {
+        "mean": 5.07,
+        "median": 5.3,
+        "min": 4.29,
+        "max": 5.59
+      },
+      "total_tokens": {
+        "mean": 16.6,
+        "median": 16.0,
+        "min": 14,
+        "max": 26
+      }
+    },
+    "image_type": {
+      "count": 10,
+      "ttft_ms": {
+        "mean": 2136.66,
+        "median": 2175.53,
+        "min": 1490.34,
+        "max": 2436.32
+      },
+      "total_response_time_ms": {
+        "mean": 5700.24,
+        "median": 5175.68,
+        "min": 4262.77,
+        "max": 7563.75
+      },
+      "tokens_per_second": {
+        "mean": 3.97,
+        "median": 3.99,
+        "min": 3.06,
+        "max": 4.81
+      },
+      "total_tokens": {
+        "mean": 22.1,
+        "median": 22.0,
+        "min": 18,
+        "max": 26
+      }
+    }
+  }
+}

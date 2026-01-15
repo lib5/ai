@@ -1,0 +1,24 @@
+{
+  "test_time": "20260108_175142",
+  "model": "ByteDance-Doubao-doubao-seed-1-6-251015",
+  "results": [
+    {
+      "success": true,
+      "type": "text",
+      "question": "我今天有哪些安排",
+      "response_time_ms": 4129.296541213989,
+      "output_tokens": 59,
+      "tokens_per_second": 14.288147971725552,
+      "response_preview": "{\n    \"show_content\": \"正在为您查询今天的日程安排...\",\n    \"action\": {\n        \"tool\": \"schedules_search\",\n      ..."
+    },
+    {
+      "success": true,
+      "type": "image",
+      "question": "[图片: 1张]",
+      "response_time_ms": 5737.619876861572,
+      "output_tokens": 40,
+      "tokens_per_second": 6.971531899718608,
+      "response_preview": "{\n    \"show_content\": \"请提供联系人Rain的姓名、电话、公司等信息，以便创建联系人。\",\n    \"action\": {\n        \"tool\": \"contacts_c..."
+    }
+  ]
+}

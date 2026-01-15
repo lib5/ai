@@ -1,0 +1,215 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "test_user_000_20260113_193654_828",
+    "execution_result": {
+      "status": "success",
+      "chunks_count": 7,
+      "raw_data": [
+        {
+          "type": "task_id",
+          "task_id": "b02d8ba6-48e6-45f6-8b0f-db4f178ce0ce"
+        },
+        {
+          "role": "assistant",
+          "type": "tool",
+          "content": {
+            "name": "contacts_create",
+            "name_cn": "创建联系人",
+            "arguments": "{\"name\": \"老徐\", \"birthday\": \"1970-08-08\"}",
+            "status": "start"
+          },
+          "message_id": "fe07099a-343a-49ab-8d0c-b1ff03fc3878",
+          "timestamp": 1768304001695
+        },
+        {
+          "role": "assistant",
+          "type": "markdown",
+          "content": "正在创建联系人老徐...",
+          "message_id": "fe07099a-343a-49ab-8d0c-b1ff03fc3878",
+          "timestamp": 1768304001696
+        },
+        {
+          "role": "assistant",
+          "type": "tool",
+          "content": {
+            "name": "contacts_create",
+            "name_cn": "创建联系人",
+            "arguments": "{\"name\": \"老徐\", \"birthday\": \"1970-08-08\"}",
+            "status": "success",
+            "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"883083c1-b775-40ed-b407-b49270636f80\",\n    \"name\": \"老徐\",\n    \"company\": null,\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"老徐，生于1970年8月8日，资料简单，仅知其生日信息。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-13T19:33:22.895596\",\n    \"birthday\": \"1970-08-08\",\n    \"gender\": null,\n    \"industry\": null\n  }\n}"
+          },
+          "message_id": "fe07099a-343a-49ab-8d0c-b1ff03fc3878",
+          "timestamp": 1768304003006
+        },
+        {
+          "role": "assistant",
+          "type": "card",
+          "content": {
+            "card_type": "contact",
+            "data": {
+              "name": "老徐",
+              "company": null,
+              "position": null,
+              "phone": null,
+              "email": null,
+              "wechat": null,
+              "address": null,
+              "notes": null,
+              "relationship_type": null,
+              "industry": null,
+              "birthday": "1970-08-08",
+              "gender": null
+            },
+            "actions": [
+              "confirm",
+              "modify",
+              "change_type",
+              "cancel"
+            ],
+            "card_id": "883083c1-b775-40ed-b407-b49270636f80",
+            "id": "883083c1-b775-40ed-b407-b49270636f80"
+          },
+          "message_id": "fe07099a-343a-49ab-8d0c-b1ff03fc3878",
+          "timestamp": 1768304003009
+        },
+        {
+          "role": "assistant",
+          "type": "markdown",
+          "content": "",
+          "message_id": "fe07099a-343a-49ab-8d0c-b1ff03fc3878",
+          "timestamp": 1768304005632
+        },
+        {
+          "role": "assistant",
+          "type": "markdown",
+          "content": "处理完成",
+          "message_id": "fe07099a-343a-49ab-8d0c-b1ff03fc3878",
+          "timestamp": 1768304005806
+        }
+      ],
+      "response_analysis": {
+        "has_tool_call": true,
+        "has_finish": true,
+        "response_types": [
+          "task_id",
+          "tool",
+          "markdown",
+          "tool",
+          "card",
+          "markdown",
+          "markdown"
+        ]
+      }
+    },
+    "expected_behavior": {
+      "steps": [
+        {
+          "step": 1,
+          "type": "tool_call",
+          "tool_name": "contacts_create",
+          "parameters": {
+            "name": "老徐",
+            "birthday": "08-08"
+          }
+        },
+        {
+          "step": 2,
+          "type": "tool_result",
+          "result": {
+            "success": true,
+            "data": {
+              "id": "contact_123456",
+              "name": "老徐",
+              "birthday": "08-08",
+              "created_at": "2025-12-01T10:00:00Z"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "type": "finish",
+          "expected_response": "已成功创建联系人：老徐，生日：08-08"
+        }
+      ]
+    },
+    "timestamp": "2026-01-13T19:37:01.647195"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "original_user_id": "user_20260113_115822_321",
+    "execution_user_id": "test_user_001_20260113_193701_647",
+    "execution_result": {
+      "status": "incomplete",
+      "chunks_count": 3,
+      "raw_data": [
+        {
+          "type": "task_id",
+          "task_id": "79544464-c854-4666-b4be-4d7dc49bb197"
+        },
+        {
+          "role": "assistant",
+          "type": "markdown",
+          "content": "",
+          "message_id": "cdd0eb0d-5310-4f3b-8c17-c5effb178b67",
+          "timestamp": 1768304009441
+        },
+        {
+          "role": "assistant",
+          "type": "markdown",
+          "content": "处理完成",
+          "message_id": "cdd0eb0d-5310-4f3b-8c17-c5effb178b67",
+          "timestamp": 1768304009537
+        }
+      ],
+      "response_analysis": {
+        "has_tool_call": false,
+        "has_finish": true,
+        "response_types": [
+          "task_id",
+          "markdown",
+          "markdown"
+        ]
+      }
+    },
+    "expected_behavior": {
+      "steps": [
+        {
+          "step": 1,
+          "type": "tool_call",
+          "tool_name": "schedules_create",
+          "parameters": {
+            "title": "中石油华北&BISHENG交流",
+            "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+            "start_time": "2025-06-09T16:00:00",
+            "end_time": "2025-06-09T16:30:00",
+            "category": "meeting"
+          }
+        },
+        {
+          "step": 2,
+          "type": "tool_result",
+          "result": {
+            "success": true,
+            "data": {
+              "id": "SCHEDULE_12345",
+              "title": "中石油华北&BISHENG交流",
+              "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+              "start_time": "2025-06-09T16:00:00",
+              "end_time": "2025-06-09T16:30:00",
+              "category": "meeting",
+              "created_at": "2025-06-09 19:24:00"
+            }
+          }
+        },
+        {
+          "step": 3,
+          "type": "finish",
+          "expected_response": "已为你创建中石油华北&BISHENG交流的日程，时间为2025-06-09 16:00-16:30，参与人员包括贾盛楠、袁宏、贺老师。"
+        }
+      ]
+    },
+    "timestamp": "2026-01-13T19:37:05.376750"
+  }
+]

@@ -1,0 +1,1225 @@
+[
+  {
+    "id": "TEST_EXCEL_000",
+    "user_id": "user_20260113_144146_968",
+    "name": "创建联系人测试用例",
+    "description": "测试用户创建名为老徐、生日8月8号的联系人",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "新建人脉老徐，生日是8月8号"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "老徐",
+                  "birthday": "08-08"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contact_id": "1001",
+                    "name": "老徐",
+                    "birthday": "08-08",
+                    "created_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建联系人：老徐，生日8月8号"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_001",
+    "user_id": "user_20260113_144156_001",
+    "name": "创建报告生成细节讨论日程",
+    "description": "根据聊天记录创建报告生成细节讨论的日程",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/四点开会.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "chat_messages_search",
+                "parameters": {
+                  "query": "报告生成细节讨论",
+                  "start_time": "2025-06-06 00:00:00",
+                  "end_time": "2025-06-09 23:59:59"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "messages": [
+                      {
+                        "sender": "贾盛楠",
+                        "content": "周一或周二下午四点吧，咱们线上对一下报告生成的具体细节",
+                        "timestamp": "2025-06-06 19:37:00"
+                      },
+                      {
+                        "sender": "袁宏",
+                        "content": "今天4点还是周二",
+                        "timestamp": "2025-06-09 15:54:00"
+                      },
+                      {
+                        "sender": "狗儿要听狗儿歌",
+                        "content": "四点",
+                        "timestamp": "2025-06-09 15:54:00"
+                      }
+                    ]
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "报告生成细节讨论",
+                  "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、狗儿要听狗儿歌等",
+                  "start_time": "2025-06-10 16:00:00",
+                  "end_time": "2025-06-10 17:00:00",
+                  "location": "线上会议",
+                  "category": "工作"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_12345",
+                    "title": "报告生成细节讨论",
+                    "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、狗儿要听狗儿歌等",
+                    "start_time": "2025-06-10 16:00:00",
+                    "end_time": "2025-06-10 17:00:00",
+                    "location": "线上会议",
+                    "category": "工作",
+                    "created_at": "2025-06-09 19:24:00"
+                  }
+                }
+              },
+              {
+                "step": 5,
+                "type": "finish",
+                "expected_response": "已为您创建报告生成细节讨论的日程，时间为2025-06-10 16:00-17:00，参与人员包括贾盛楠、袁宏、狗儿要听狗儿歌等。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "medium",
+      "required_tools": [
+        "chat_messages_search",
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_002",
+    "user_id": "user_20260113_144217_236",
+    "name": "创建联系人-林毅杰",
+    "description": "根据用户提供的名片信息创建联系人",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/添加名片.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "林毅杰",
+                  "company": "上海国方创新基金管理有限公司",
+                  "position": "运营总监",
+                  "phone": "021-60315198",
+                  "mobile": "13855558800",
+                  "email": "linyijie@growth-fh.cn",
+                  "address": "上海市静安区南京西路111号15楼 200041"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "林毅杰",
+                    "company": "上海国方创新基金管理有限公司",
+                    "position": "运营总监",
+                    "phone": "021-60315198",
+                    "mobile": "13855558800",
+                    "email": "linyijie@growth-fh.cn",
+                    "address": "上海市静安区南京西路111号15楼 200041",
+                    "created_at": "2025-12-01T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建联系人林毅杰，职位是运营总监，所属公司为上海国方创新基金管理有限公司。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_003",
+    "user_id": "user_20260113_144234_083",
+    "name": "创建联系人测试用例",
+    "description": "测试创建联系人功能，包含姓名、公司、职位、行业和地址信息",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "创建王权富贵 道家公司老总，金融行业 住在北京"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "王权富贵",
+                  "company": "道家公司",
+                  "position": "老总",
+                  "industry": "金融",
+                  "address": "北京"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "王权富贵",
+                    "company": "道家公司",
+                    "position": "老总",
+                    "industry": "金融",
+                    "address": "北京",
+                    "created_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建联系人：王权富贵，道家公司老总，金融行业，住在北京。联系人ID：contact_123456"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_004",
+    "user_id": "user_20260113_144245_166",
+    "name": "创建人脉测试用例",
+    "description": "测试创建人脉功能，包含姓名、公司、职位、电话、邮箱、微信等信息",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "请帮我创建一个人脉,标题为:嘉华集团,描述为:这是一个测试人脉,公司为:嘉华集团,职位为:董事长,电话为:13800138013,邮箱为:zhangsan@gmail.com,微信为:zhangsan"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "嘉华集团",
+                  "company": "嘉华集团",
+                  "position": "董事长",
+                  "phone": "13800138013",
+                  "email": "zhangsan@gmail.com",
+                  "notes": "这是一个测试人脉，微信:zhangsan"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "嘉华集团",
+                    "company": "嘉华集团",
+                    "position": "董事长",
+                    "phone": "13800138013",
+                    "email": "zhangsan@gmail.com",
+                    "notes": "这是一个测试人脉，微信:zhangsan",
+                    "created_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功创建人脉：嘉华集团（董事长），联系电话：13800138013，邮箱：zhangsan@gmail.com，微信：zhangsan。人脉ID：contact_123456"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_005",
+    "user_id": "user_20260113_144253_795",
+    "name": "新建联系人王五测试用例",
+    "description": "测试创建包含姓名、生日和职位信息的联系人",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "新建人脉：王五，生日5月20日，职位CTO"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "王五",
+                  "position": "CTO",
+                  "birthday": "05-20"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "王五",
+                    "position": "CTO",
+                    "birthday": "05-20",
+                    "created_at": "2026-01-13T10:30:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功为您创建联系人王五，职位CTO，生日5月20日。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_006",
+    "user_id": "user_20260113_144304_188",
+    "name": "添加客户张经理测试用例",
+    "description": "测试添加客户张经理的联系人信息",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "添加客户张经理，手机13900139000，公司阿里云"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "张经理",
+                  "company": "阿里云",
+                  "phone": "13900139000",
+                  "relationship_type": "客户"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "张经理",
+                    "company": "阿里云",
+                    "phone": "13900139000",
+                    "relationship_type": "客户",
+                    "created_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已成功添加客户张经理的联系人信息，联系电话：13900139000，公司：阿里云"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_007",
+    "user_id": "user_20260113_144315_259",
+    "name": "从聊天记录创建联系人测试",
+    "description": "测试从用户提供的聊天记录中提取联系人信息并创建联系人",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/新增人脉.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "罗彬",
+                  "company": "启迪亦庄",
+                  "phone": "13520058330"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "contact_id": "C123456",
+                    "name": "罗彬",
+                    "company": "启迪亦庄",
+                    "phone": "13520058330",
+                    "created_at": "2025-12-01T15:12:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建联系人：罗彬（启迪亦庄，电话13520058330）"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_008",
+    "user_id": "user_20260113_144329_821",
+    "name": "创建会议日程测试用例",
+    "description": "测试用户创建与江涵的会议日程功能",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "刚才和江涵约了今天下午两点要开一个会"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵开会",
+                  "description": "与江涵召开会议，会议相关人员为江涵",
+                  "start_time": "2026-01-13T14:00:00",
+                  "end_time": "2026-01-13T15:00:00",
+                  "category": "会议"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_123456",
+                    "title": "与江涵开会",
+                    "description": "与江涵召开会议，会议相关人员为江涵",
+                    "start_time": "2026-01-13T14:00:00",
+                    "end_time": "2026-01-13T15:00:00",
+                    "category": "会议",
+                    "created_at": "2026-01-13T10:30:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建今天下午两点与江涵的会议日程，会议时间为14:00-15:00。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_009",
+    "user_id": "user_20260113_144342_503",
+    "name": "创建联系人江涵并记录生日",
+    "description": "测试创建联系人江涵并记录其生日为7月20号的功能",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "帮我记一下江涵的生日是7月20号"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_create",
+                "parameters": {
+                  "name": "江涵",
+                  "birthday": "07-20"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "contact_123456",
+                    "name": "江涵",
+                    "birthday": "07-20",
+                    "created_at": "2026-01-13T10:00:00Z"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你记录江涵的生日为7月20号"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_010",
+    "user_id": "user_20260113_144352_036",
+    "name": "搜索联系人测试用例",
+    "description": "根据用户提供的聊天记录中的联系人姓名搜索联系人信息",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/腾讯会议链接.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "黄宜亮"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "1001",
+                      "name": "黄宜亮",
+                      "company": "Bisheng公司",
+                      "position": "产品经理",
+                      "phone": "13800138000",
+                      "email": "huangyiliang@bisheng.com"
+                    }
+                  ]
+                }
+              },
+              {
+                "step": 3,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "张增普"
+                }
+              },
+              {
+                "step": 4,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "1002",
+                      "name": "张增普",
+                      "company": "Bisheng公司",
+                      "position": "技术总监",
+                      "phone": "13900139000",
+                      "email": "zhangzengpu@bisheng.com"
+                    }
+                  ]
+                }
+              },
+              {
+                "step": 5,
+                "type": "tool_call",
+                "tool_name": "contacts_search",
+                "parameters": {
+                  "name": "湛雨桐"
+                }
+              },
+              {
+                "step": 6,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": [
+                    {
+                      "id": "1003",
+                      "name": "湛雨桐",
+                      "company": "Bisheng公司",
+                      "position": "设计师",
+                      "phone": "13700137000",
+                      "email": "zhanyutong@bisheng.com"
+                    }
+                  ]
+                }
+              },
+              {
+                "step": 7,
+                "type": "finish",
+                "expected_response": "已为你搜索到以下联系人信息：\n1. 黄宜亮 - 产品经理\n2. 张增普 - 技术总监\n3. 湛雨桐 - 设计师"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "contacts_search"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_011",
+    "user_id": "user_20260113_144409_176",
+    "name": "创建与孙永印的会议日程",
+    "description": "根据用户提供的聊天记录，创建与孙永印在望京国际商业中心F座2区312的会议日程",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/带齐资料.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与孙永印会议",
+                  "description": "与孙永印在望京国际商业中心F座2区312见面，讨论相关事宜",
+                  "start_time": "2025-12-02 14:00:00",
+                  "end_time": "2025-12-02 15:00:00",
+                  "location": "望京国际商业中心F座2区312",
+                  "category": "会议"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与孙永印会议",
+                    "description": "与孙永印在望京国际商业中心F座2区312见面，讨论相关事宜",
+                    "start_time": "2025-12-02 14:00:00",
+                    "end_time": "2025-12-02 15:00:00",
+                    "location": "望京国际商业中心F座2区312",
+                    "category": "会议",
+                    "created_at": "2025-12-01 11:25:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建与孙永印的会议日程，时间为2025-12-02 14:00-15:00，地点在望京国际商业中心F座2区312"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_012",
+    "user_id": "user_20260113_144425_039",
+    "name": "从聊天消息创建会议日程",
+    "description": "根据用户提供的会议信息截图，创建相应的日程安排",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/邮件链接.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "董江涵的会议",
+                  "description": "董江涵预定的会议，会议ID:984223968，来宾密码:486364，会议链接:https://meeting.huaweicloud.com:36443/#/j/984223968/YhJ0E47XJHNzZoKBSdrF3wYKQApK9djKc，手机拨入:拨打021-53290005(中文)，输入会议ID:984223968和来宾密码:486364，7#静音8#解除静音",
+                  "start_time": "2025-12-12 12:30",
+                  "end_time": "2025-12-12 13:15",
+                  "location": "线上会议",
+                  "category": "会议"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "董江涵的会议",
+                    "description": "董江涵预定的会议，会议ID:984223968，来宾密码:486364，会议链接:https://meeting.huaweicloud.com:36443/#/j/984223968/YhJ0E47XJHNzZoKBSdrF3wYKQApK9djKc，手机拨入:拨打021-53290005(中文)，输入会议ID:984223968和来宾密码:486364，7#静音8#解除静音",
+                    "start_time": "2025-12-12 12:30",
+                    "end_time": "2025-12-12 13:15",
+                    "location": "线上会议",
+                    "category": "会议",
+                    "created_at": "2025-12-01T11:53:00+08:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建会议日程：董江涵的会议，时间为2025-12-12 12:30 - 13:15"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "medium",
+      "required_tools": [
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_013",
+    "user_id": "user_20260113_144448_051",
+    "name": "创建知识平台需求沟通会日程",
+    "description": "根据用户提供的聊天记录创建知识平台需求沟通会的日程",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "image",
+            "content": "/home/libo/chatapi/test_dataset/images/腾讯会议链接.png"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "知识平台需求沟通会",
+                  "description": "知识平台需求沟通会，相关人员包括黄宜亮、张增普、湛雨桐、若缇等",
+                  "start_time": "2025-12-09 14:15:00",
+                  "end_time": "2025-12-09 15:45:00",
+                  "location": "现场",
+                  "category": "会议"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_123456",
+                    "title": "知识平台需求沟通会",
+                    "description": "知识平台需求沟通会，相关人员包括黄宜亮、张增普、湛雨桐、若缇等",
+                    "start_time": "2025-12-09 14:15:00",
+                    "end_time": "2025-12-09 15:45:00",
+                    "location": "现场",
+                    "category": "会议",
+                    "created_at": "2025-12-08 11:39:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建知识平台需求沟通会的日程，时间为2025年12月9日14:15-15:45，地点在现场。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "medium",
+      "required_tools": [
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_014",
+    "user_id": "user_20260113_144508_031",
+    "name": "创建拜访日程并设置提醒",
+    "description": "用户要求为江涵下周四的拜访创建日程，并提前一周预定粤菜馆包厢",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "江涵下周四要来拜访，记得提前一周预定公司附近那家他喜欢的粤菜馆包厢"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "江涵拜访",
+                  "description": "江涵下周四要来拜访，需要提前一周预定公司附近他喜欢的粤菜馆包厢",
+                  "start_time": "2026-01-22 09:00:00",
+                  "end_time": "2026-01-22 11:00:00",
+                  "reminder_time": "2026-01-15 09:00:00",
+                  "location": "公司附近粤菜馆",
+                  "category": "拜访"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "SCHEDULE_12345",
+                    "title": "江涵拜访",
+                    "description": "江涵下周四要来拜访，需要提前一周预定公司附近他喜欢的粤菜馆包厢",
+                    "start_time": "2026-01-22 09:00:00",
+                    "end_time": "2026-01-22 11:00:00",
+                    "reminder_time": "2026-01-15 09:00:00",
+                    "location": "公司附近粤菜馆",
+                    "category": "拜访",
+                    "created_at": "2026-01-13 10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为您创建江涵拜访的日程，时间为2026-01-22 09:00-11:00，并设置了提前一周（2026-01-15 09:00）的提醒，地点为公司附近粤菜馆。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_015",
+    "user_id": "user_20260113_144524_789",
+    "name": "创建下周一中午12点与李博吃肯德基的日程",
+    "description": "测试用户请求创建下周一中午12点与李博吃肯德基的日程，验证系统能否正确解析时间并创建日程",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "下周一中午12点和李博吃肯德基。"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与李博吃肯德基",
+                  "description": "与李博在肯德基共进午餐，相关人员：李博",
+                  "start_time": "2026-01-20T12:00:00",
+                  "end_time": "2026-01-20T13:00:00",
+                  "location": "肯德基",
+                  "category": "餐饮"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与李博吃肯德基",
+                    "description": "与李博在肯德基共进午餐，相关人员：李博",
+                    "start_time": "2026-01-20T12:00:00",
+                    "end_time": "2026-01-20T13:00:00",
+                    "location": "肯德基",
+                    "category": "餐饮",
+                    "created_at": "2026-01-13T10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建下周一（2026-01-20）中午12点与李博吃肯德基的日程，日程ID：schedule_123456。"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "schedules_create"
+      ]
+    }
+  },
+  {
+    "id": "TEST_EXCEL_016",
+    "user_id": "user_20260113_144539_888",
+    "name": "创建会议日程测试",
+    "description": "测试创建今天下午八点与江涵在202会议室的会议日程",
+    "mode": "single_turn",
+    "conversation": {
+      "turns": [
+        {
+          "turn_id": 1,
+          "user_input": {
+            "type": "text",
+            "content": "今天下午八点和江涵在202会议室开会"
+          },
+          "context": {
+            "requires_context": false,
+            "depends_on": []
+          },
+          "expected_behavior": {
+            "steps": [
+              {
+                "step": 1,
+                "type": "tool_call",
+                "tool_name": "schedules_create",
+                "parameters": {
+                  "title": "与江涵会议",
+                  "description": "与江涵在202会议室开会，讨论相关事项",
+                  "start_time": "2026-01-13 20:00:00",
+                  "end_time": "2026-01-13 21:00:00",
+                  "location": "202会议室",
+                  "category": "会议"
+                }
+              },
+              {
+                "step": 2,
+                "type": "tool_result",
+                "result": {
+                  "success": true,
+                  "data": {
+                    "id": "schedule_123456",
+                    "title": "与江涵会议",
+                    "description": "与江涵在202会议室开会，讨论相关事项",
+                    "start_time": "2026-01-13 20:00:00",
+                    "end_time": "2026-01-13 21:00:00",
+                    "location": "202会议室",
+                    "category": "会议",
+                    "created_at": "2026-01-13 10:00:00"
+                  }
+                }
+              },
+              {
+                "step": 3,
+                "type": "finish",
+                "expected_response": "已为你创建今天下午八点与江涵在202会议室的会议日程"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "metadata": {
+      "conversation_type": "single_turn",
+      "turns": 1,
+      "context_complexity": "low",
+      "required_tools": [
+        "schedules_create"
+      ]
+    }
+  }
+]

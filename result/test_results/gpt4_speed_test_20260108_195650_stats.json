@@ -1,0 +1,107 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T19:56:50.233635",
+    "model_name": "Azure-GPT-gpt-4.1",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "statistics": {
+    "model_name": "Azure-GPT-gpt-4.1",
+    "total_tests": 20,
+    "successful_tests": 20,
+    "failed_tests": 0,
+    "response_time_ms": {
+      "mean": 5257.79,
+      "median": 4565.9,
+      "min": 2067.84,
+      "max": 9617.75,
+      "p80": 8808.46,
+      "p90": 9003.38,
+      "p99": 9566.18
+    },
+    "output_tokens": {
+      "mean": 89.05,
+      "median": 89.0,
+      "min": 40,
+      "max": 165
+    },
+    "tokens_per_second": {
+      "mean": 19.46,
+      "median": 18.84,
+      "min": 9.42,
+      "max": 42.65,
+      "p80": 22.83,
+      "p90": 28.54,
+      "p99": 41.25
+    },
+    "text_type": {
+      "count": 10,
+      "response_time_ms": {
+        "mean": 2460.02,
+        "median": 2278.92,
+        "min": 2067.84,
+        "max": 3002.52,
+        "p80": 2865.89,
+        "p90": 2938.14,
+        "p99": 2996.08
+      },
+      "output_tokens": {
+        "mean": 61.3,
+        "median": 49.0,
+        "min": 40,
+        "max": 125
+      },
+      "tokens_per_second": {
+        "mean": 24.33,
+        "median": 21.28,
+        "min": 14.04,
+        "max": 42.65,
+        "p80": 29.29,
+        "p90": 36.04,
+        "p99": 41.99
+      }
+    },
+    "image_type": {
+      "count": 10,
+      "response_time_ms": {
+        "mean": 8055.57,
+        "median": 8380.04,
+        "min": 6129.28,
+        "max": 9617.75,
+        "p80": 9041.49,
+        "p90": 9373.44,
+        "p99": 9593.32
+      },
+      "output_tokens": {
+        "mean": 116.8,
+        "median": 119.0,
+        "min": 70,
+        "max": 165
+      },
+      "tokens_per_second": {
+        "mean": 14.59,
+        "median": 14.72,
+        "min": 9.42,
+        "max": 18.91,
+        "p80": 17.86,
+        "p90": 18.79,
+        "p99": 18.9
+      }
+    },
+    "image_vs_text_comparison": {
+      "response_time": {
+        "text_mean_ms": 2460.02,
+        "image_mean_ms": 8055.57,
+        "image_vs_text_diff_pct": 227.46,
+        "analysis": "图片比文本慢"
+      },
+      "tokens_per_second": {
+        "text_mean": 24.33,
+        "image_mean": 14.59,
+        "text_vs_image_diff_pct": 66.74,
+        "analysis": "文本比图片快"
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "test_time": "20260108_171809",
+  "model": "ByteDance-Doubao-doubao-seed-1-6-251015",
+  "results": [
+    {
+      "success": true,
+      "type": "text",
+      "question": "我今天有哪些安排",
+      "response_time_ms": 4545.1226234436035,
+      "output_tokens": 58,
+      "tokens_per_second": 12.760931839514686,
+      "response_preview": "{\n    \"show_content\": \"正在查询您今天的日程安排\",\n    \"action\": {\n        \"tool\": \"schedules_search\",\n        \"a..."
+    },
+    {
+      "success": true,
+      "type": "image",
+      "question": "[图片: 1张]",
+      "response_time_ms": 5833.207130432129,
+      "output_tokens": 76,
+      "tokens_per_second": 13.02885330498625,
+      "response_preview": "{\n    \"show_content\": \"正在创建联系人Rain...\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"..."
+    }
+  ]
+}

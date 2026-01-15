@@ -1,0 +1,431 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T16:17:14.141856",
+    "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+    "total_results": 10,
+    "successful_results": 10,
+    "failed_results": 0
+  },
+  "detailed_results": [
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 1,
+      "prompt_type": "text",
+      "response_time_ms": 6042.590379714966,
+      "input_tokens": 4166,
+      "output_tokens": 56,
+      "tokens_per_second": 9.267548597699514,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:15:26.798810",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请问你需要我帮你完成什么任务？例如创建联系人、日程安排等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请明确你的任务需求，以便我为你提供帮助。\"\n        }\n    }\n}",
+              "reasoning_content": "用户只说了“你的输出必须严格符合json格式”，没有具体的任务需求。根据规则，信息不足时只提出一个最关键的问题。那我需要询问用户具体想做什么，比如创建联系人、日程还是其他操作？所以下一步应该是向用户确认需求。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860126,
+        "id": "0217678601216564fe949375ac26682761f342713cef332777a41",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 137,
+          "prompt_tokens": 5052,
+          "total_tokens": 5189,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 62
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 2,
+      "prompt_type": "text",
+      "response_time_ms": 4823.081731796265,
+      "input_tokens": 4166,
+      "output_tokens": 56,
+      "tokens_per_second": 11.610833718785825,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:15:34.628534",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请告诉我你需要执行的具体任务，例如创建联系人、日程或搜索信息等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体任务内容以便我协助你。\"\n        }\n    }\n}",
+              "reasoning_content": "我现在需要处理用户的问题，但用户只说“你的输出必须严格符合json格式”，没有给出具体的任务内容。首先，我应该确认用户的具体需求是什么。根据系统提示，当信息不足时，应该提出一个最关键的问题。所以接下来我应该询问用户需要执行什么具体任务，比如创建联系人、日程，还是搜索信息等。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860134,
+        "id": "0217678601307543f971518a0c9d7974f8da0b075e934d3482b59",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 153,
+          "prompt_tokens": 5052,
+          "total_tokens": 5205,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 80
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 3,
+      "prompt_type": "text",
+      "response_time_ms": 6766.3702964782715,
+      "input_tokens": 4166,
+      "output_tokens": 50,
+      "tokens_per_second": 7.38948621035768,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:15:44.401529",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请告诉我您需要执行什么操作，例如创建联系人、日程等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"需要您提供具体操作需求\"\n        }\n    }\n}",
+              "reasoning_content": "\n用户只说输出必须严格符合json格式，但没有给出具体任务。我需要先明确用户的需求是什么。不过根据规则，如果信息不足，只提出一个最关键的问题。所以应该询问用户具体需要执行什么操作，比如创建联系人、日程还是其他。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860144,
+        "id": "021767860138737d9bd2cabe63500bc1fad307541601c16ed6c6d",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 124,
+          "prompt_tokens": 5052,
+          "total_tokens": 5176,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 59
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 4,
+      "prompt_type": "text",
+      "response_time_ms": 11495.351791381836,
+      "input_tokens": 4166,
+      "output_tokens": 53,
+      "tokens_per_second": 4.610559203567354,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:15:58.903778",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请提供具体操作需求（如创建联系人、日程等）\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"需要你明确具体操作任务，我才能执行相应操作。\"\n        }\n    }\n}",
+              "reasoning_content": "\n用户现在只说“你的输出必须严格符合json格式”，没有给出具体的任务需求，比如创建联系人、日程或者其他操作。根据规则，信息不足时要提出一个最关键的问题。那我应该询问用户具体需要执行什么操作，比如创建联系人、日程还是其他任务。需要确保回复符合格式要求，show_content是询问的话，action用finish吗？不对，因为还没完成任务，应该是先提问？或者看规则里说信息不足时只提出一个最关键的问题，其余默认自主判断推进。那这里应该输出一个询问用户具体需求的show_content，然后action用什么？哦，可能用户没有给出具体任务，所以需要先明确任务。那正确的输出应该是：\n\n{\n    \"show_content\": \"请告诉我你需要执行什么具体操作（如创建联系人、日程等）？\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体操作需求，以便我执行相应任务。\"\n        }\n    }\n}\n\n不对，等一下，规则里说当已经有足够信息回答问题时用finish。现在用户没有给出具体任务，所以需要询问，这时候应该用什么工具？或者是不是应该直接回复询问，用finish的话可能不合适？或者看示例，可能这种情况需要用finish工具返回需要用户提供更多信息的答案？因为用户没有给出具体任务，所以必须让用户说明。所以正确的输出应该是调用finish工具，answer是请求用户提供具体操作需求。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860158,
+        "id": "0217678601482464a1893a7016da6ddb77c20742a6044e9afd9d5",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 408,
+          "prompt_tokens": 5052,
+          "total_tokens": 5460,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 338
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 5,
+      "prompt_type": "text",
+      "response_time_ms": 5642.123222351074,
+      "input_tokens": 4166,
+      "output_tokens": 54,
+      "tokens_per_second": 9.570865057693332,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:16:07.552384",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请问你需要我执行什么具体任务？例如创建联系人、日程等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体任务需求，以便我协助你。\"\n        }\n    }\n}",
+              "reasoning_content": "用户现在只说了“你的输出必须严格符合json格式”，没有给出具体任务。我需要先明确用户的需求是什么，但根据规则，信息不足时只提一个最关键的问题。所以应该询问用户具体需要执行什么任务，比如创建联系人、日程还是其他操作？",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860167,
+        "id": "0217678601629354fe949375ac26682761f342713cef3322fc638",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 133,
+          "prompt_tokens": 5052,
+          "total_tokens": 5185,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 62
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 6,
+      "prompt_type": "text",
+      "response_time_ms": 26607.58876800537,
+      "input_tokens": 4166,
+      "output_tokens": 59,
+      "tokens_per_second": 2.2174125026671074,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:16:37.165477",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请提供具体任务需求（如创建联系人、日程安排等），以便我协助您执行操作。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"需明确具体任务内容才能继续，请补充说明。\"\n        }\n    }\n}",
+              "reasoning_content": "\n用户现在只说“你的输出必须严格符合json格式”，没有给出具体的任务内容，比如创建联系人、日程之类的。根据规则，信息不足时要提出一个最关键的问题。那我应该询问用户具体需要执行什么操作，比如创建联系人、日程还是其他任务？\n\n所以接下来的步骤是回复用户，询问具体任务。按照输出格式，show_content是要展示给用户的文本，action这里因为是提问，不需要调用工具？不对，看规则里的工具列表，没有提问的工具，那是不是应该用finish？不，finish是完成任务的时候用。哦，不对，用户现在没有给出具体任务，所以需要先明确任务。那应该输出show_content为询问的内容，action部分？或者是不是我理解错了？\n\n等一下，再看规则：信息不足时只提出一个最关键的问题，其余默认由Moly自主判断并推进。所以现在用户没有给出具体任务，所以要问用户需要执行什么操作。那输出的json里，show_content是“请问您需要执行什么操作？例如创建联系人、日程等。”，action部分？因为没有对应的工具，是不是这里不需要调用工具，只需要展示内容？但看输出格式要求必须有action吗？看输出格式的示例，是有action的。或者是不是我哪里错了？\n\n再仔细看用户的输入：用户只输入了“你的输出必须严格符合json格式”，没有具体任务。根据规则第5条：信息不足时只提出一个最关键的问题。所以正确的做法是回复用户，询问具体任务。那对应的输出应该是：\n\n{\n    \"show_content\": \"请问您需要执行什么操作？例如创建联系人、日程等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体任务需求，以便我协助您。\"\n        }\n    }\n}\n\n不对，finish是完成任务的时候用，但现在任务还没开始，因为用户没说要做什么。或者是不是应该用其他方式？哦，可能我误解了，用户可能是之前的对话里有任务，但这里只粘贴了这一句？不，当前用户输入就是这一句。那按照规则，必须提出一个关键问题。那输出的show_content是问题，action部分？或者是不是不需要调用工具，直接输出show_content？但输出格式要求必须有action。\n\n等一下，再看工具列表里的finish工具的描述：“当你已经有足够信息回答问题时使用。” 现在用户没有给出问题，所以不能用finish。那怎么办？或者是不是用户的输入有误？或者我应该按照规则，询问用户具体任务。那输出应该是：\n\n{\n    \"show_content\": \"请问您需要执行什么操作？例如创建联系人、日程等。\",\n    \"action\": {\n        \"tool\": \"\",\n        \"args\": {}\n    }\n}\n\n但这样不符合工具要求，因为tool必须是可用工具里的。那可能用户的输入缺少任务内容，所以正确的回复是询问具体任务，用show_content展示，而action部分可能不需要？但规则说每次迭代只能选择一个工具。或者是不是我哪里错了？\n\n哦，可能用户是想测试输出格式，但根据规则，必须处理。那可能正确的做法是回复用户需要具体任务，用finish工具？或者可能我应该输出：\n\n{\n    \"show_content\": \"请提供具体的任务需求，例如创建联系人、日程安排等，以便我为您执行操作。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"需要您提供具体任务内容才能继续操作。\"\n        }\n    }\n}\n\n对，这样符合格式，也回答了用户的隐含需求（需要具体任务）。所以就这样输出吧。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860197,
+        "id": "0217678601716324fe949375ac26682761f342713cef332b6a26a",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 915,
+          "prompt_tokens": 5052,
+          "total_tokens": 5967,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 838
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 7,
+      "prompt_type": "text",
+      "response_time_ms": 7126.977920532227,
+      "input_tokens": 4166,
+      "output_tokens": 57,
+      "tokens_per_second": 7.997779793282055,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:16:47.298999",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请问您需要我帮您完成什么任务？例如创建联系人、日程安排或搜索信息等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体任务需求以便我协助您。\"\n        }\n    }\n}",
+              "reasoning_content": "用户只提到我的输出必须严格符合json格式，但没有给出具体的任务或问题。首先需要明确用户的需求是什么？可能用户是在测试我的输出格式是否正确？或者可能用户接下来会有任务，但现在还没说？不过根据规则，如果信息不足，我应该提出一个最关键的问题。那现在最关键的问题就是用户需要我做什么任务？比如创建联系人、日程，还是搜索什么？所以我应该询问用户具体的需求。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860207,
+        "id": "02176786020108505f4998a4b036137ca52d90e5e3ca4d88416f1",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 176,
+          "prompt_tokens": 5052,
+          "total_tokens": 5228,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 101
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 8,
+      "prompt_type": "text",
+      "response_time_ms": 4602.564334869385,
+      "input_tokens": 4166,
+      "output_tokens": 50,
+      "tokens_per_second": 10.863509200989569,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:16:54.908467",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请告诉我你需要执行的具体任务，例如创建联系人、日程等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体任务需求\"\n        }\n    }\n}",
+              "reasoning_content": "用户只说“你的输出必须严格符合json格式”，没有具体任务。根据规则，信息不足时提出一个最关键的问题。需要询问用户具体需要执行什么任务，比如创建联系人、日程等。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860214,
+        "id": "0217678602112919714bbc3c9fecc3b13ecab02ed7b1a8c9a25e9",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 112,
+          "prompt_tokens": 5052,
+          "total_tokens": 5164,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 47
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 9,
+      "prompt_type": "text",
+      "response_time_ms": 5561.383008956909,
+      "input_tokens": 4166,
+      "output_tokens": 57,
+      "tokens_per_second": 10.249249136086906,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:17:03.476343",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请问你需要我执行什么操作？例如创建联系人、日程，或者搜索相关信息等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体任务需求以便我执行操作。\"\n        }\n    }\n}",
+              "reasoning_content": "用户只说了“你的输出必须严格符合json格式”，没有给出具体任务。我需要先询问用户需要执行什么操作，比如创建联系人、日程，还是搜索相关信息等。根据规则，信息不足时只提出一个最关键的问题。所以下一步应该是询问用户具体需求。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860223,
+        "id": "0217678602188778a58463ef17b425f3abf24ab17dedfd6144614",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 138,
+          "prompt_tokens": 5052,
+          "total_tokens": 5190,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 64
+          }
+        }
+      }
+    },
+    {
+      "model_name": "ByteDance-Doubao-doubao-seed-1-6-251015",
+      "prompt_id": 10,
+      "prompt_type": "text",
+      "response_time_ms": 4654.424428939819,
+      "input_tokens": 4166,
+      "output_tokens": 55,
+      "tokens_per_second": 11.816713503398283,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T16:17:11.137764",
+      "raw_response": {
+        "choices": [
+          {
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "content": "{\n    \"show_content\": \"请告诉我您需要完成什么具体任务，例如创建联系人、安排日程等。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"请提供具体任务需求以便我协助处理。\"\n        }\n    }\n}",
+              "reasoning_content": "用户只说“你的输出必须严格符合json格式”，没有给出具体任务。根据规则，当信息不足时只提出一个最关键的问题。我需要询问用户具体需要完成什么任务，比如创建联系人、安排日程等。所以下一步应该用自然语言询问用户具体需求。",
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767860231,
+        "id": "02176786022736553efce2506f8ba33cd433680ff709829832fd3",
+        "model": "doubao-seed-1-6-251015",
+        "service_tier": "default",
+        "object": "chat.completion",
+        "usage": {
+          "completion_tokens": 134,
+          "prompt_tokens": 5052,
+          "total_tokens": 5186,
+          "prompt_tokens_details": {
+            "cached_tokens": 0
+          },
+          "completion_tokens_details": {
+            "reasoning_tokens": 63
+          }
+        }
+      }
+    }
+  ]
+}

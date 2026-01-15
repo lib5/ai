@@ -1,0 +1,103 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-09T14:54:20.217679",
+    "model_name": "Azure-GPT-gpt-4.1",
+    "test_type": "stream_ttft_test",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "statistics": {
+    "model_name": "Azure-GPT-gpt-4.1",
+    "total_tests": 20,
+    "successful_tests": 20,
+    "failed_tests": 0,
+    "ttft_ms": {
+      "mean": 5083.59,
+      "median": 4503.41,
+      "min": 2052.61,
+      "max": 11695.22,
+      "p80": 7207.62,
+      "p90": 8624.39,
+      "p99": 11448.72
+    },
+    "total_response_time_ms": {
+      "mean": 5647.95,
+      "median": 5153.83,
+      "min": 2250.11,
+      "max": 12220.31,
+      "p80": 8197.72,
+      "p90": 9743.37,
+      "p99": 12001.29
+    },
+    "tokens_per_second": {
+      "mean": 4.62,
+      "median": 3.93,
+      "min": 1.31,
+      "max": 9.6,
+      "p80": 6.56,
+      "p90": 6.86,
+      "p99": 9.09
+    },
+    "total_tokens": {
+      "mean": 19.75,
+      "median": 19.0,
+      "min": 14,
+      "max": 28
+    },
+    "text_type": {
+      "count": 10,
+      "ttft_ms": {
+        "mean": 2343.17,
+        "median": 2237.38,
+        "min": 2052.61,
+        "max": 3080.67
+      },
+      "total_response_time_ms": {
+        "mean": 2660.1,
+        "median": 2505.67,
+        "min": 2250.11,
+        "max": 3794.67
+      },
+      "tokens_per_second": {
+        "mean": 6.6,
+        "median": 6.39,
+        "min": 4.49,
+        "max": 9.6
+      },
+      "total_tokens": {
+        "mean": 17.6,
+        "median": 16.0,
+        "min": 14,
+        "max": 28
+      }
+    },
+    "image_type": {
+      "count": 10,
+      "ttft_ms": {
+        "mean": 7824.01,
+        "median": 6972.56,
+        "min": 5926.15,
+        "max": 11695.22
+      },
+      "total_response_time_ms": {
+        "mean": 8635.79,
+        "median": 8119.04,
+        "min": 6512.99,
+        "max": 12220.31
+      },
+      "tokens_per_second": {
+        "mean": 2.64,
+        "median": 2.84,
+        "min": 1.31,
+        "max": 3.36
+      },
+      "total_tokens": {
+        "mean": 21.9,
+        "median": 23.5,
+        "min": 16,
+        "max": 26
+      }
+    }
+  }
+}

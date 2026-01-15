@@ -1,0 +1,12 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-15T12:09:36.947368",
+    "model_name": "Google-Gemini-gemini-3-flash-preview",
+    "total_results": 20,
+    "successful_results": 0,
+    "failed_results": 20
+  },
+  "statistics": {
+    "error": "模型 Google-Gemini-gemini-3-flash-preview 没有成功的测试结果"
+  }
+}

@@ -1,0 +1,1839 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-08T19:56:50.233635",
+    "model_name": "Azure-GPT-gpt-4.1",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "detailed_results": [
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 1,
+      "prompt_type": "text",
+      "response_time_ms": 2930.986166000366,
+      "input_tokens": 4427,
+      "output_tokens": 125,
+      "tokens_per_second": 42.647761852310424,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:06.902540",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"你今天有6项日程：1. 跟李博吃早饭（09:30-10:30）；2. 去吃麦当劳（12:00-13:00）；3. 跟李博吃麦当劳（12:00-13:00）；4. 拜访客户（14:00-16:00）；5. 去吃肯德基（18:00-19:00）；6. 跟李博吃水煮鱼（18:00-20:00）。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"你今天有6项安排：09:30-10:30 跟李博吃早饭，12:00-13:00 去吃麦当劳，12:00-13:00 跟李博吃麦当劳，14:00-16:00 拜访客户，18:00-19:00 去吃肯德基，18:00-20:00 跟李博吃水煮鱼。\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873245,
+        "id": "chatcmpl-CvisXQIMkexWCupzDEB0PRbzPrdme",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 242,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4805,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 5047
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 2,
+      "prompt_type": "text",
+      "response_time_ms": 2282.460927963257,
+      "input_tokens": 4379,
+      "output_tokens": 53,
+      "tokens_per_second": 23.220550832076807,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:12.191674",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"正在创建联系人：老徐，生日为8月8日。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"老徐\",\n            \"birthday\": \"2026-08-08\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873251,
+        "id": "chatcmpl-CvisdNZhogcr29hoW37xCvRHwEM8d",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 65,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4709,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4774
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 3,
+      "prompt_type": "text",
+      "response_time_ms": 2254.7929286956787,
+      "input_tokens": 4459,
+      "output_tokens": 44,
+      "tokens_per_second": 19.513987045121926,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:17.450084",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"正在为您修改梅琳达的生日为10月1日。\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"梅琳达\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873256,
+        "id": "chatcmpl-CvisiC3dItMcaokFjuakHRqzymQT5",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_b9041e10b4",
+        "usage": {
+          "completion_tokens": 55,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4807,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4862
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 4,
+      "prompt_type": "text",
+      "response_time_ms": 2067.8417682647705,
+      "input_tokens": 4383,
+      "output_tokens": 41,
+      "tokens_per_second": 19.827435846024695,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:22.523356",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"AAA的生日是9月1日。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"AAA的生日是9月1日。\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873261,
+        "id": "chatcmpl-CvisnxDvKeNDgNV90ygSh0bt7tnkN",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 54,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4709,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4763
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 5,
+      "prompt_type": "text",
+      "response_time_ms": 2243.3183193206787,
+      "input_tokens": 4378,
+      "output_tokens": 51,
+      "tokens_per_second": 22.734178899516948,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:27.773426",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"新建联系人AAA，生日为9月1日。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"AAA\",\n            \"birthday\": \"2026-09-01\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873266,
+        "id": "chatcmpl-CvissInUJUWf0SAtvojYWtc96YlgD",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 62,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4707,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4769
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 6,
+      "prompt_type": "text",
+      "response_time_ms": 2426.0265827178955,
+      "input_tokens": 4403,
+      "output_tokens": 47,
+      "tokens_per_second": 19.373241964787358,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:33.206314",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"已为覃睿设置性别为男。\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"name\": \"覃睿\",\n            \"gender\": \"male\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873272,
+        "id": "chatcmpl-CvisyUoX6qCWrEbu6Q2DNQFlFFx6j",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_b9041e10b4",
+        "usage": {
+          "completion_tokens": 60,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4741,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4801
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 7,
+      "prompt_type": "text",
+      "response_time_ms": 2267.216205596924,
+      "input_tokens": 4410,
+      "output_tokens": 63,
+      "tokens_per_second": 27.78738077315968,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:38.478367",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"已为覃睿添加职位：互联网公司产品负责人。\",\n    \"action\": {\n        \"tool\": \"contacts_update\",\n        \"args\": {\n            \"name\": \"覃睿\",\n            \"company\": \"互联网公司\",\n            \"position\": \"产品负责人\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873277,
+        "id": "chatcmpl-Cvit3Gq0KzncO5BEdmHUHpGvFTEIi",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 71,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4750,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4821
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 8,
+      "prompt_type": "text",
+      "response_time_ms": 3002.5179386138916,
+      "input_tokens": 4503,
+      "output_tokens": 106,
+      "tokens_per_second": 35.30370248143622,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:44.487420",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"正在为您新建嘉华集团人脉，职位董事长，电话13800138013。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"嘉华集团\",\n            \"company\": \"嘉华集团\",\n            \"position\": \"董事长\",\n            \"phone\": \"13800138013\",\n            \"email\": \"zhangsan@gmail.com\",\n            \"address\": \"北京市海淀区\",\n            \"notes\": \"这是一个测试人脉\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873282,
+        "id": "chatcmpl-Cvit8WOhlbmSZGWifv6BNJLrAXuP1",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 123,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4871,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4994
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 9,
+      "prompt_type": "text",
+      "response_time_ms": 2275.388717651367,
+      "input_tokens": 4446,
+      "output_tokens": 43,
+      "tokens_per_second": 18.897869918412955,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:49.767077",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"正在将梅琳达的生日修改为10月3日。\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"梅琳达\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873288,
+        "id": "chatcmpl-CvitE4rZ7bY6W6IuSz9lblVNJH0w5",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_b9041e10b4",
+        "usage": {
+          "completion_tokens": 54,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 4797,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 4851
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 10,
+      "prompt_type": "text",
+      "response_time_ms": 2849.612236022949,
+      "input_tokens": 4526,
+      "output_tokens": 40,
+      "tokens_per_second": 14.036997558596202,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:54:55.619671",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"正在查询李博的生日信息。\",\n    \"action\": {\n        \"tool\": \"contacts_search\",\n        \"args\": {\n            \"name\": \"李博\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873294,
+        "id": "chatcmpl-CvitKdr88EsgZmp177XQrkDJQcNXO",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 47,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 5007,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 5054
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 11,
+      "prompt_type": "image",
+      "response_time_ms": 6129.278182983398,
+      "input_tokens": 87107,
+      "output_tokens": 90,
+      "tokens_per_second": 14.683621351999545,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:55:04.799505",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"Rain目前就职于一家做智能体开发的公司，计算机硕士，已在国内环境部署过相关产品并认可BISHENG产品。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"Rain\",\n            \"company\": \"一家做智能体开发的公司\",\n            \"notes\": \"计算机硕士，已在国内环境部署过相关产品，认可BISHENG产品\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873302,
+        "id": "chatcmpl-CvitSJvFUabMrIFofJd412L6VcOuN",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 5,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          },
+          {
+            "prompt_index": 0,
+            "content_filter_result": {}
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 109,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 6272,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 6381
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 12,
+      "prompt_type": "image",
+      "response_time_ms": 6444.865942001343,
+      "input_tokens": 122308,
+      "output_tokens": 70,
+      "tokens_per_second": 10.861358580604191,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:55:14.309582",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"刘紫晔请求协助拉群并准备相关材料，建议为刘紫晔创建联系人并备注沟通内容。\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"刘紫晔\",\n            \"notes\": \"刚与用户电话沟通，请协助拉群，准备所需材料。\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873311,
+        "id": "chatcmpl-CvitblQfanEYHR5QeCRffLiL7tKip",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 4,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          },
+          {
+            "prompt_index": 0,
+            "content_filter_result": {}
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 92,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 7701,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 7793
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 13,
+      "prompt_type": "image",
+      "response_time_ms": 8965.282917022705,
+      "input_tokens": 321144,
+      "output_tokens": 109,
+      "tokens_per_second": 12.158010071610544,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:55:26.404947",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"已识别部分新联系人及公司信息，如：ZhaoJXii（毕昇 MCP配置）、Jankin（BISHENG达人）、LOUSANPANG（鲁商集团 姜广浩）、科大讯飞 charliex（科大讯飞，工作流咨询）、运营 fastgpt 刘钊（FastGPT 运营 刘钊）、倾金疏（菡泽乐科 孙鹿龙）。如需添加或更新某位联系人，请告知具体需求。\",\n    \"action\": {\n        \"tool\": \"finish\",\n        \"args\": {\n            \"answer\": \"联系人及公司信息已提取，等待您的下一步指示。\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873322,
+        "id": "chatcmpl-CvitmbQ524LhpQZCcv2pqvRopWQOp",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 3,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          },
+          {
+            "prompt_index": 0,
+            "content_filter_result": {}
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 159,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 9171,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 9330
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 14,
+      "prompt_type": "image",
+      "response_time_ms": 8901.804685592651,
+      "input_tokens": 419057,
+      "output_tokens": 113,
+      "tokens_per_second": 12.694055193424731,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:55:38.410009",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"已识别冯磊联系方式及公司信息，是否需要添加为联系人？\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"冯磊\",\n            \"company\": \"金科创新社 FintechInChina\",\n            \"position\": \"运营负责人\",\n            \"phone\": \"15712971843\",\n            \"notes\": \"数字金融垂直媒体 www.fintechinchina.com，沟通内容涉及加入BISHENG社群。\",\n            \"relationship_type\": \"media\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873334,
+        "id": "chatcmpl-CvityLjAb61429R8XTw5EQKSJvJSV",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 3,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          },
+          {
+            "prompt_index": 0,
+            "content_filter_result": {}
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 129,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 10569,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 10698
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 15,
+      "prompt_type": "image",
+      "response_time_ms": 9346.298694610596,
+      "input_tokens": 577830,
+      "output_tokens": 88,
+      "tokens_per_second": 9.415491937010733,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:55:50.972291",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"王磊，魔珐科技开发者关系负责人，有合作意向。需是否创建联系人？\",\n    \"action\": {\n        \"tool\": \"contacts_create\",\n        \"args\": {\n            \"name\": \"王磊\",\n            \"company\": \"魔珐科技\",\n            \"position\": \"开发者关系负责人\",\n            \"notes\": \"希望与毕昇社区合作开发者活动和推广具身数字人应用\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873347,
+        "id": "chatcmpl-CviuBBaHzhODPulpl5xkldJXadFgJ",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 2,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          },
+          {
+            "prompt_index": 0,
+            "content_filter_result": {}
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 106,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 13421,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 13527
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 16,
+      "prompt_type": "image",
+      "response_time_ms": 7092.681646347046,
+      "input_tokens": 131961,
+      "output_tokens": 125,
+      "tokens_per_second": 17.62379960538324,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:56:01.121056",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"地址为望京国际商业中心F座2区312，时间为今天下午两点，相关人员为孙永印。已为您整理关键信息。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"与孙永印会面\",\n            \"description\": \"望京国际商业中心F座2区312会面，相关人员：孙永印\",\n            \"start_time\": \"2026-01-08T14:00:00\",\n            \"end_time\": \"2026-01-08T15:00:00\",\n            \"location\": \"望京国际商业中心F座2区312\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873358,
+        "id": "chatcmpl-CviuMpDa3zZ64wV7CyfA0PvKgJwud",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 166,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 7718,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 7884
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 17,
+      "prompt_type": "image",
+      "response_time_ms": 7297.628164291382,
+      "input_tokens": 187790,
+      "output_tokens": 138,
+      "tokens_per_second": 18.910253700683054,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:56:11.516538",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"12月9日14:15-15:45有腾讯会议，主题为“么爽预定的会议”，需现场沟通知识平台需求。会议链接和号码已整理。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"知识平台需求沟通腾讯会议\",\n            \"description\": \"现场参加知识平台需求沟通，相关人员包括产品团队成员\",\n            \"start_time\": \"2025-12-09T14:15:00\",\n            \"end_time\": \"2025-12-09T15:45:00\",\n            \"location\": \"腾讯会议 https://meeting.tencent.com/dm/87bdHKnQl0dx\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873368,
+        "id": "chatcmpl-CviuWqF5h1S07gKTvGEXvdQ5Zgjc2",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 3,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          },
+          {
+            "prompt_index": 0,
+            "content_filter_result": {}
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 173,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 7791,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 7964
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 18,
+      "prompt_type": "image",
+      "response_time_ms": 8785.11929512024,
+      "input_tokens": 254253,
+      "output_tokens": 165,
+      "tokens_per_second": 18.781759752727606,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:56:23.382175",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"为您创建会议日程：2025年12月12日12:30-13:15，主题：董江涵的会议，会议链接和ID已包含，相关人员：董江涵。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"董江涵的会议\",\n            \"description\": \"会议测试，会议ID: 984223968，来宾密码: 486364，会议链接: https://meeting.huaweicloud.com:36443/#/j/984223968/YhJ0E47XJHNZzoKBSdrF3wYKQApK9djKc；手机拨号入会: 拨打021-53290005，输入会议ID和密码。相关人员：董江涵。\",\n            \"start_time\": \"2025-12-12T12:30:00\",\n            \"end_time\": \"2025-12-12T13:15:00\",\n            \"location\": \"线上会议\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873379,
+        "id": "chatcmpl-CviuhK3ar8wik8fqUQg8LU8KmUDa6",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 2,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          },
+          {
+            "prompt_index": 0,
+            "content_filter_result": {}
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 239,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 9199,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 9438
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 19,
+      "prompt_type": "image",
+      "response_time_ms": 7974.965333938599,
+      "input_tokens": 305126,
+      "output_tokens": 128,
+      "tokens_per_second": 16.050226507603462,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:56:34.463453",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"根据聊天内容，需安排一次周四上午9:30在上海绿地外滩中心T3与曾总见面。请确认具体日期。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"与曾总会面\",\n            \"description\": \"与曾总在上海绿地外滩中心T3见面，参与人员：张健、曾总。\",\n            \"start_time\": \"2026-01-08T09:30:00\",\n            \"end_time\": \"2026-01-08T10:30:00\",\n            \"location\": \"上海市黄浦区会馆街51号 绿地外滩中心T3\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873390,
+        "id": "chatcmpl-CviusVCsTxTfj2xLXcMZ7p4y4BJva",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 177,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 10818,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 10995
+        }
+      }
+    },
+    {
+      "model_name": "Azure-GPT-gpt-4.1",
+      "prompt_id": 20,
+      "prompt_type": "image",
+      "response_time_ms": 9617.751359939575,
+      "input_tokens": 382144,
+      "output_tokens": 142,
+      "tokens_per_second": 14.76436587781493,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-08T19:56:47.227180",
+      "raw_response": {
+        "choices": [
+          {
+            "content_filter_results": {
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              }
+            },
+            "finish_reason": "stop",
+            "index": 0,
+            "logprobs": null,
+            "message": {
+              "annotations": [],
+              "content": "{\n    \"show_content\": \"已为您创建腾讯会议面试日程：2026年1月8日11:00-12:00，主题为“ui设计师实习生--沙漠的面试会议”，会议链接和会议号已记录。\",\n    \"action\": {\n        \"tool\": \"schedules_create\",\n        \"args\": {\n            \"title\": \"ui设计师实习生--沙漠的面试会议\",\n            \"description\": \"腾讯会议，链接：https://meeting.tencent.com/dm/e9xQIKL6SDA6，会议号：534-788-066\",\n            \"start_time\": \"2026-01-08T11:00:00\",\n            \"end_time\": \"2026-01-08T12:00:00\",\n            \"location\": \"线上-腾讯会议\",\n            \"category\": \"meeting\"\n        }\n    }\n}",
+              "refusal": null,
+              "role": "assistant"
+            }
+          }
+        ],
+        "created": 1767873402,
+        "id": "chatcmpl-Cviv4rxihYGY3XGj0PrND7Bild6zT",
+        "model": "gpt-4.1-2025-04-14",
+        "object": "chat.completion",
+        "prompt_filter_results": [
+          {
+            "prompt_index": 0,
+            "content_filter_result": {
+              "sexual": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "violence": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "hate": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "self_harm": {
+                "filtered": false,
+                "severity": "safe"
+              },
+              "custom_blocklists": {
+                "filtered": false,
+                "details": []
+              }
+            }
+          }
+        ],
+        "system_fingerprint": "fp_f99638a8d7",
+        "usage": {
+          "completion_tokens": 195,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 12077,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 12272
+        }
+      }
+    }
+  ]
+}

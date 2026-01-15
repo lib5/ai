@@ -1,0 +1,1063 @@
+{
+  "test_info": {
+    "timestamp": "2026-01-15T11:32:25.117993",
+    "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+    "total_results": 20,
+    "successful_results": 20,
+    "failed_results": 0
+  },
+  "detailed_results": [
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 1,
+      "prompt_type": "text",
+      "response_time_ms": 2394.545316696167,
+      "input_tokens": 4427,
+      "output_tokens": 56,
+      "tokens_per_second": 23.386485780634565,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:30:26.942846",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"日程安排\": \"明天的所有日程已挪至今日\",\n  \"相关信息\": {\n    \"李博生日\": \"3月1号\",\n    \"待补充信息\": \"由于历史记录中未提及具体的日程内容及覃睿所属公司，建议您检查具体日历事项或提供更多关于覃睿的背景信息。\"\n  }\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX8Lqdi4Zf6lmfcg0HC0tNAnsNGNcAvl6iHiz6Jw="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 59,
+          "candidatesTokenCount": 87,
+          "totalTokenCount": 146,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 59
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 87
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "UV9oaeK6GofH4_UPsJvW0QY"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 2,
+      "prompt_type": "text",
+      "response_time_ms": 2203.2768726348877,
+      "input_tokens": 4379,
+      "output_tokens": 13,
+      "tokens_per_second": 5.900302481936084,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:30:30.149465",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"姓名\": \"老徐\",\n  \"生日\": \"8月8日\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX3HDCBExBtp39DVv6VLrAQ9FMSu9Hs3bWExRLTM="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 68,
+          "candidatesTokenCount": 28,
+          "totalTokenCount": 96,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 68
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 28
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "VF9oab6yOcKb4_UPqb-TsAM"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 3,
+      "prompt_type": "text",
+      "response_time_ms": 9248.71277809143,
+      "input_tokens": 4459,
+      "output_tokens": 49,
+      "tokens_per_second": 5.298034567153211,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:30:40.402901",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"updated_contacts\": [\n    {\n      \"name\": \"梅琳达\",\n      \"company_type\": \"咨询公司\",\n      \"position\": \"设计师\",\n      \"industry\": \"金融行业\",\n      \"birthday\": \"10月1日\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX5U/rSxEQIk82gRqx1FXCLQvJr55eyMv/18IEwA="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 85,
+          "candidatesTokenCount": 75,
+          "totalTokenCount": 160,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 85
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 75
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "Xl9oaYeBNYmS4_UPoaHFwAg"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 4,
+      "prompt_type": "text",
+      "response_time_ms": 1312.3226165771484,
+      "input_tokens": 4383,
+      "output_tokens": 12,
+      "tokens_per_second": 9.144092960387189,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:30:42.720331",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"姓名\": \"AAA\",\n  \"生日\": \"9月1日\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX/Isx0VgOp+agQmBDkOGZrZGEIeA58NbUhiXzBs="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 64,
+          "candidatesTokenCount": 27,
+          "totalTokenCount": 91,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 64
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 27
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "YV9oaen_LYfH4_UPsJvW0QY"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 5,
+      "prompt_type": "text",
+      "response_time_ms": 11494.779348373413,
+      "input_tokens": 4378,
+      "output_tokens": 21,
+      "tokens_per_second": 1.8269163211881607,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:30:55.220260",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"action\": \"create_contact\",\n  \"name\": \"AAA\",\n  \"birthday\": \"9月1日\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX1T2/ij2bwyFkq+zvsVSPNU6Ml5QisPunzmJi5E="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 67,
+          "candidatesTokenCount": 37,
+          "totalTokenCount": 104,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 67
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 37
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "bV9oaeTsPM2EodAPzdKE0AY"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 6,
+      "prompt_type": "text",
+      "response_time_ms": 2035.005807876587,
+      "input_tokens": 4403,
+      "output_tokens": 32,
+      "tokens_per_second": 15.724770846423375,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:30:58.260038",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"姓名\": \"覃睿\",\n  \"性别\": \"男\",\n  \"推断依据\": \"在中文语境及提供的社交描述中，“他”作为第三人称代词特指男性。\"\n}\n```",
+                  "thoughtSignature": "EjQKMgFyyNp8RFnyhMnwT8ZRxe0BNSpyNVzSGhEV8pyhjJYNoZeYKjODS5zPYVBMgScXPsMO"
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 54,
+          "candidatesTokenCount": 55,
+          "totalTokenCount": 109,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 54
+            }
+          ]
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "cV9oaen5MZGR_uMP343vkQo"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 7,
+      "prompt_type": "text",
+      "response_time_ms": 1788.8877391815186,
+      "input_tokens": 4410,
+      "output_tokens": 48,
+      "tokens_per_second": 26.832315381602285,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:01.054163",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"姓名\": \"覃睿\",\n  \"籍贯\": \"北京\",\n  \"职业\": \"互联网公司产品负责人\",\n  \"生日\": \"7月20日\",\n  \"喜好\": \"麻辣烫\",\n  \"会议变更\": {\n    \"原定时间\": \"06:30\",\n    \"变更地点\": \"沈阳\"\n  }\n}\n```",
+                  "thoughtSignature": "EjQKMgFyyNp8phuHN8j8IyW/Nn/2xzB3kCvjRnaLnGXDJgmZGQykTx6nnOnkIJJ8/WoYtK2O"
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 58,
+          "candidatesTokenCount": 94,
+          "totalTokenCount": 152,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 58
+            }
+          ]
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "dF9oaZK_MOnR_uMPlcmBgQE"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 8,
+      "prompt_type": "text",
+      "response_time_ms": 2653.0420780181885,
+      "input_tokens": 4503,
+      "output_tokens": 58,
+      "tokens_per_second": 21.86169623186895,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:04.712676",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"title\": \"嘉华集团\",\n  \"description\": \"这是一个测试人脉\",\n  \"company\": \"嘉华集团\",\n  \"position\": \"董事长\",\n  \"phone\": \"13800138013\",\n  \"email\": \"zhangsan@gmail.com\",\n  \"wechat\": \"zhangsan\",\n  \"address\": \"北京市海淀区\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX+rlJyzmKYyVsO+jZ8tY8+uF7+dixgq4aMDRTW0="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 120,
+          "candidatesTokenCount": 99,
+          "totalTokenCount": 219,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 120
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 99
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "d19oafMSiZLj9Q-hocXACA"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 9,
+      "prompt_type": "text",
+      "response_time_ms": 2050.7256984710693,
+      "input_tokens": 4446,
+      "output_tokens": 26,
+      "tokens_per_second": 12.678438671434437,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:07.768261",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"姓名\": \"梅琳达\",\n  \"职业\": \"咨询公司设计师\",\n  \"行业\": \"金融行业\",\n  \"生日\": \"10月3日\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX9gbGsZqRUpo5oWZ6g+2c8xw0899zKQR7xNatJ4="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 80,
+          "candidatesTokenCount": 49,
+          "totalTokenCount": 129,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 80
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 49
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "el9oaYPUJoOwodAPsZT6UA"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 10,
+      "prompt_type": "text",
+      "response_time_ms": 2283.815622329712,
+      "input_tokens": 4526,
+      "output_tokens": 29,
+      "tokens_per_second": 12.69804782682816,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:11.056298",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"answer\": \"抱歉，在您提供的历史聊天记录中，没有提及“李博的生日”相关信息，因此我无法回答您的问题。\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX/MrshWtFUz5L42mnYCQzQoMXnMDV9EmbTeAtys="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 52,
+          "candidatesTokenCount": 43,
+          "totalTokenCount": 95,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 52
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 43
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "fV9oacnsJ7SO4_UP6tSK8A4"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 11,
+      "prompt_type": "image",
+      "response_time_ms": 4999.506950378418,
+      "input_tokens": 87107,
+      "output_tokens": 161,
+      "tokens_per_second": 32.203175552704,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:17.081831",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"日程调整\": {\n    \"原定时间\": \"今天\",\n    \"调整后时间\": \"明天\",\n    \"操作\": \"将今天的所有日程全部挪至明天\"\n  },\n  \"新增日程\": {\n    \"活动\": \"滑雪\",\n    \"时间\": \"明天晚上\",\n    \"参与人\": \"覃睿\"\n  },\n  \"人物关系提取\": {\n    \"覃睿\": {\n      \"性别\": \"男\",\n      \"职业背景\": \"计算机硕士，就职于智能体开发公司\",\n      \"技术能力\": \"熟悉国内环境部署，曾私有化部署过Bisheng\",\n      \"同事\": \"李博\"\n    },\n    \"李博\": {\n      \"公司\": \"与覃睿同一家公司\"\n    }\n  },\n  \"对话摘要\": \"用户与Rain（覃睿）建立了联系。覃睿是一名计算机硕士，目前在智能体开发公司工作，对Bisheng产品评价很高，且有私有化部署经验。用户已邀请其加入相关群聊或协作环境。\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX+DxLlcenS8tctmD9Aze1d6HELwBNf1x3nvyPjQ="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 1124,
+          "candidatesTokenCount": 253,
+          "totalTokenCount": 1377,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 46
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 1078
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 253
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "gV9oadv_Bce-odAPzsHj-Ak"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 12,
+      "prompt_type": "image",
+      "response_time_ms": 5257.860898971558,
+      "input_tokens": 122308,
+      "output_tokens": 142,
+      "tokens_per_second": 27.00718081525803,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:23.395272",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"schedule_update\": {\n    \"action\": \"move_all\",\n    \"from_date\": \"2025-12-31\",\n    \"to_date\": \"2026-01-01\",\n    \"reason\": \"skipping today's tasks\"\n  },\n  \"new_events\": [\n    {\n      \"event_name\": \"和覃睿去滑雪\",\n      \"time\": \"2026-01-01 Night\",\n      \"participants\": [\"董老师\", \"覃睿\"],\n      \"details\": \"覃睿为男性，与李博同公司\"\n    }\n  ],\n  \"contacts_info\": [\n    {\n      \"name\": \"刘紫晔\",\n      \"action\": \"拉群并告知所需材料\",\n      \"status\": \"pending\"\n    },\n    {\n      \"name\": \"覃睿\",\n      \"gender\": \"male\",\n      \"colleague\": \"李博\"\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX8qbhpMpKm7UGXlSTToYIQX5cLdagTBoBvsX8QQ="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 2202,
+          "candidatesTokenCount": 240,
+          "totalTokenCount": 2442,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 46
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 2156
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 240
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "h19oadLoIJO7odAP-dPCoQs"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 13,
+      "prompt_type": "image",
+      "response_time_ms": 8349.077939987183,
+      "input_tokens": 321144,
+      "output_tokens": 107,
+      "tokens_per_second": 12.815786457991104,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:32.880732",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n[\n  {\n    \"intent\": \"UPDATE_CALENDAR\",\n    \"parameters\": {\n      \"source_date\": \"TODAY\",\n      \"target_date\": \"TOMORROW\",\n      \"action\": \"MOVE_ALL_EVENTS\"\n    }\n  },\n  {\n    \"intent\": \"CREATE_CALENDAR_EVENT\",\n    \"parameters\": {\n      \"title\": \"跟覃睿去滑雪\",\n      \"start_time\": \"TOMORROW_EVENING\",\n      \"participants\": [\n        \"覃睿\",\n        \"李博\"\n      ],\n      \"note\": \"李博和覃睿是同一家公司的\"\n    }\n  }\n]\n```",
+                  "thoughtSignature": "CiEBjz1rX33Igsr8QL8St9QJh0dSeQ3IOieB7DKjyoLUlYM="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 3276,
+          "candidatesTokenCount": 156,
+          "totalTokenCount": 3432,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 42
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 3234
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 156
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "kV9oadPpIIO_998P7LLtwAw"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 14,
+      "prompt_type": "image",
+      "response_time_ms": 7677.628040313721,
+      "input_tokens": 419057,
+      "output_tokens": 189,
+      "tokens_per_second": 24.616977926984482,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:41.709952",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n[\n  {\n    \"intent\": \"CREATE_CALENDAR_EVENT\",\n    \"parameters\": {\n      \"title\": \"跟覃睿去滑雪\",\n      \"startTime\": \"2025-12-17 18:00:00\",\n      \"endTime\": \"2025-12-17 21:00:00\",\n      \"participants\": [\"覃睿\"]\n    }\n  },\n  {\n    \"intent\": \"MOVE_CALENDAR_EVENT\",\n    \"parameters\": {\n      \"sourceDate\": \"2025-12-16\",\n      \"targetDate\": \"2025-12-17\",\n      \"scope\": \"ALL_DAY_EVENTS\"\n    }\n  },\n  {\n    \"intent\": \"UPDATE_CONTACT_INFO\",\n    \"parameters\": {\n      \"name\": \"冯磊\",\n      \"company\": \"金科创新社\",\n      \"phone\": \"15712971843\",\n      \"website\": \"www.fintechinchina.com\",\n      \"position\": \"运营负责人\"\n    }\n  },\n  {\n    \"intent\": \"UPDATE_CONTACT_INFO\",\n    \"parameters\": {\n      \"name\": \"李博\",\n      \"company\": \"金科创新社\"\n    }\n  }\n]\n```",
+                  "thoughtSignature": "EjQKMgFyyNp8cQPQLg5MCisVLNSCoWU7sLXoe/cUvj/0+Drux/7P6W5O2dtU0S2v+nd3ISn4"
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 4355,
+          "candidatesTokenCount": 322,
+          "totalTokenCount": 4677,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 4312
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 43
+            }
+          ]
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "nV9oaZHKG_SP_PUPjY-eyQc"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 15,
+      "prompt_type": "image",
+      "response_time_ms": 11547.765970230103,
+      "input_tokens": 577830,
+      "output_tokens": 192,
+      "tokens_per_second": 16.626592580328694,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:54.459430",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"actions\": [\n    {\n      \"action\": \"modify_calendar_event\",\n      \"parameters\": {\n        \"search_keyword\": \"李博\",\n        \"original_date\": \"2025-12-10\",\n        \"new_date\": \"2025-12-11\",\n        \"note\": \"根据用户要求，将今天的日程挪到明天\"\n      }\n    },\n    {\n      \"action\": \"modify_calendar_event\",\n      \"parameters\": {\n        \"search_keyword\": \"覃睿\",\n        \"original_date\": \"2025-12-10\",\n        \"new_date\": \"2025-12-11\",\n        \"note\": \"根据用户要求，将今天的日程挪到明天\"\n      }\n    },\n    {\n      \"action\": \"modify_calendar_event\",\n      \"parameters\": {\n        \"search_keyword\": \"魔珐科技\",\n        \"original_date\": \"2025-12-10\",\n        \"new_date\": \"2025-12-11\",\n        \"note\": \"李博和覃睿所在公司的相关日程同步挪动\"\n      }\n    }\n  ]\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX8z5a2xV04rhr+3aEkGNVT27YmhgPGTosrOG1UM="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 6502,
+          "candidatesTokenCount": 299,
+          "totalTokenCount": 6801,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 34
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 6468
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 299
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "pl9oaciUCeiY4_UPoYjimQk"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 16,
+      "prompt_type": "image",
+      "response_time_ms": 3812.394380569458,
+      "input_tokens": 131961,
+      "output_tokens": 128,
+      "tokens_per_second": 33.574700627084816,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:31:59.328593",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n[\n  {\n    \"intent\": \"日程安排\",\n    \"content\": \"与江涵开会\",\n    \"time\": \"今天下午14:00\"\n  },\n  {\n    \"intent\": \"日程安排\",\n    \"content\": \"与孙永印及其同行人员会面\",\n    \"time\": \"8月26日下午14:00\",\n    \"location\": \"望京国际商业中心F座2区312\"\n  },\n  {\n    \"intent\": \"事项提醒\",\n    \"content\": \"为周六与江涵的聚餐订位\",\n    \"time\": \"周六前\"\n  },\n  {\n    \"intent\": \"资料保存\",\n    \"content\": \"江涵的生日是7月20号\"\n  },\n  {\n    \"intent\": \"日程安排\",\n    \"content\": \"与江涵聚餐\",\n    \"time\": \"本周六\"\n  }\n]\n```",
+                  "thoughtSignature": "EjQKMgFyyNp8Io2F5fPZeIYYPfKkqX4FssvgKSSoNpSFkQA4KozO2LnZwpK1PM/JvXNGUeJ1"
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 2219,
+          "candidatesTokenCount": 228,
+          "totalTokenCount": 2447,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 63
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 2156
+            }
+          ]
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "r19oaanKBb-W_uMPnNGkoA4"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 17,
+      "prompt_type": "image",
+      "response_time_ms": 6121.197700500488,
+      "input_tokens": 187790,
+      "output_tokens": 110,
+      "tokens_per_second": 17.97033936528566,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:32:06.522409",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"日程安排\": [\n    {\n      \"事项\": \"与江涵开会\",\n      \"时间\": \"今天下午 14:00\"\n    },\n    {\n      \"事项\": \"与江涵聚餐\",\n      \"时间\": \"本周六\",\n      \"备注\": \"记得提醒订位\"\n    }\n  ],\n  \"重要信息备忘\": [\n    {\n      \"姓名\": \"江涵\",\n      \"属性\": \"生日\",\n      \"内容\": \"7月20号\"\n    }\n  ],\n  \"历史聊天记录提及会议\": {\n    \"主题\": \"知识平台的需求沟通会\",\n    \"时间\": \"2025年12月9日 14:15-15:45\",\n    \"会议号\": \"880-874-890\"\n  }\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX6ofVfl5obZ2aLaLgZP0dDVjD29FCKJLPjbzHFU="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 2218,
+          "candidatesTokenCount": 212,
+          "totalTokenCount": 2430,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 62
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 2156
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 212
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "sl9oadqAK_-N6tkPzcqd4Q0"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 18,
+      "prompt_type": "image",
+      "response_time_ms": 4333.784818649292,
+      "input_tokens": 254253,
+      "output_tokens": 105,
+      "tokens_per_second": 24.22824491612052,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:32:11.967825",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"reminders\": [\n    {\n      \"event\": \"江涵生日聚餐\",\n      \"date\": \"2024-07-20\",\n      \"day_of_week\": \"Saturday\",\n      \"actions\": [\n        \"订位\",\n        \"聚餐\"\n      ],\n      \"contact_info\": {\n        \"name\": \"董江涵\",\n        \"email\": \"dongjianghan@dataelem.com\",\n        \"phone\": \"+86 18600241181\"\n      }\n    }\n  ],\n  \"note\": \"已记录江涵（董江涵）7月20日周六生日及聚餐需求，届时将提醒您提前订位。\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rX7fa1VrgiecxgvA3cp+9DblSK7LsAa86Td7UnP4="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 3282,
+          "candidatesTokenCount": 180,
+          "totalTokenCount": 3462,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 48
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 3234
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 180
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "uF9oaemoM-Cb4_UP27LgsAU"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 19,
+      "prompt_type": "image",
+      "response_time_ms": 5207.391738891602,
+      "input_tokens": 305126,
+      "output_tokens": 70,
+      "tokens_per_second": 13.442430204972359,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:32:18.286315",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"会议主题\": \"上海外服与BISHENG业务面谈\",\n  \"时间\": \"11月21日（周四） 09:30\",\n  \"地点\": \"绿地外滩中心 T3（上海市黄浦区会馆街51号）\",\n  \"参会人员\": [\n    \"曾总\",\n    \"张健\",\n    \"洪老师 (上海外服)\",\n    \"湛雨桐 (方案负责人)\"\n  ],\n  \"待办事项\": \"张健确认曾总行程安排\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rXxrJZTkyWhmJW+Sh6RauW460iPjMYiEebi1ho4o="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 4346,
+          "candidatesTokenCount": 135,
+          "totalTokenCount": 4481,
+          "promptTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 34
+            },
+            {
+              "modality": "IMAGE",
+              "tokenCount": 4312
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 135
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "v19oaZDWGb-Q4_UPz9rH-Qc"
+      }
+    },
+    {
+      "model_name": "147ai-Gemini-gemini-3-flash-preview-low",
+      "prompt_id": 20,
+      "prompt_type": "image",
+      "response_time_ms": 4713.300704956055,
+      "input_tokens": 382144,
+      "output_tokens": 62,
+      "tokens_per_second": 13.154263621416463,
+      "success": true,
+      "error_message": null,
+      "timestamp": "2026-01-15T11:32:24.110021",
+      "raw_response": {
+        "candidates": [
+          {
+            "content": {
+              "role": "model",
+              "parts": [
+                {
+                  "text": "```json\n{\n  \"日程标题\": \"UI设计师实习生--沙澍的面试会议\",\n  \"开始时间\": \"2026-01-08 11:00:00\",\n  \"结束时间\": \"2026-01-08 12:00:00\",\n  \"地点\": \"腾讯会议\",\n  \"备注\": \"会议链接：https://meeting.tencent.com/dm/e9xQIKL6SDA6\\n腾讯会议ID：534-788-066\"\n}\n```",
+                  "thoughtSignature": "CiEBjz1rXxI4wIhdubW9XHxGT3YIJCxVNilJef605IDt8P8="
+                }
+              ]
+            },
+            "finishReason": "STOP",
+            "index": 0
+          }
+        ],
+        "promptFeedback": {
+          "safetyRatings": null
+        },
+        "usageMetadata": {
+          "promptTokenCount": 5412,
+          "candidatesTokenCount": 135,
+          "totalTokenCount": 5547,
+          "promptTokensDetails": [
+            {
+              "modality": "IMAGE",
+              "tokenCount": 5390
+            },
+            {
+              "modality": "TEXT",
+              "tokenCount": 22
+            }
+          ],
+          "candidatesTokensDetails": [
+            {
+              "modality": "TEXT",
+              "tokenCount": 135
+            }
+          ],
+          "trafficType": "ON_DEMAND"
+        },
+        "modelVersion": "gemini-3-flash-preview",
+        "responseId": "xF9oaZvfKeiY4_UPoYjimQk"
+      }
+    }
+  ]
+}
