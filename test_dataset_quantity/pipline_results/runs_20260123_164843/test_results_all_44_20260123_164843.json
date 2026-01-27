@@ -1,0 +1,121 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "user_20260113_115811_649",
+    "session_id": "0f6d129d-a8db-4aa1-9a4d-8ce66d37f3b9",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "execution_result": {
+          "status": "incomplete",
+          "chunks_count": 3,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "5136cd70-1053-4785-8255-9bb4a17a48e0"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人“老徐”的信息...",
+              "message_id": "efc43610-1843-415d-9ab9-bb83bcc4ac04",
+              "timestamp": 1769157892522
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "efc43610-1843-415d-9ab9-bb83bcc4ac04",
+              "timestamp": 1769157915556
+            }
+          ],
+          "trace_id": "691d72b2-aefa-465e-a5ea-95bcb8ad17b6",
+          "response_analysis": {
+            "has_tool_call": false,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_search",
+              "parameters": {
+                "query": "老徐"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "items": [],
+                  "total": 0
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "老徐",
+                "birthday": "08-08"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "contact_123456",
+                  "name": "老徐",
+                  "birthday": "08-08",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "已成功创建联系人：老徐，生日：08-08"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-23T16:49:38.220432",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115822_321",
+    "execution_user_id": "user_20260113_115822_321",
+    "session_id": "9abcf184-45b3-49b9-9112-6bd09de2c17d",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "status": "conversion_failed"
+      }
+    ],
+    "timestamp": "2026-01-23T16:49:40.442318",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  }
+]

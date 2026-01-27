@@ -1,0 +1,31 @@
+{
+  "timestamp": "20260126_174100",
+  "pipeline_status": "completed",
+  "steps": {
+    "step1_run_tests": {
+      "status": "completed",
+      "output_file": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/test_results_all_44_20260126_174100.json"
+    },
+    "step2_merge_stream_data": {
+      "status": "completed",
+      "input_file": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/test_results_all_44_20260126_174100.json",
+      "output_file": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/test_results_merged_20260126_174100.json"
+    },
+    "step3_validate_results": {
+      "status": "completed",
+      "input_file": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/test_results_merged_20260126_174100.json",
+      "output_file": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/validation_report_20260126_174100.json"
+    }
+  },
+  "output_directory": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100",
+  "summary": {
+    "raw_response": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/test_results_all_44_20260126_174100.json",
+    "merged_response": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/test_results_merged_20260126_174100.json",
+    "validation_report": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260126_174100/validation_report_20260126_174100.json"
+  },
+  "statistics": {
+    "success_rate": 100.0,
+    "completed_steps": 3,
+    "total_steps": 3
+  }
+}

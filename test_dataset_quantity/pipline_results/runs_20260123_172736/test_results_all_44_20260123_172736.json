@@ -1,0 +1,1502 @@
+[
+  {
+    "test_case_id": "MULTI_TURN_027",
+    "test_mode": "multi_turn",
+    "total_turns": 2,
+    "original_user_id": "user_20260121_164358_264",
+    "execution_user_id": "user_20260121_164358_264",
+    "session_id": "ff3ad684-09e0-4ed7-bf34-a6c6243cfd5c",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "明天下午三点和江涵开会；明天10点和鲁力开产品PRD对齐的会议；明天晚上八点要讨论产品之后Roadmap"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 17,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "a7762f6c-26cb-4998-9b15-eda1bbd79832"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您安排明天下午三点与江涵的会议日程。",
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160202676
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和江涵开会\", \"start_time\": \"2026-01-24T15:00:00\", \"end_time\": \"2026-01-24T16:00:00\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160212776
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和江涵开会\", \"start_time\": \"2026-01-24T15:00:00\", \"end_time\": \"2026-01-24T16:00:00\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"fe49972a-457b-4dcc-ad9a-7fd5e8016e93\",\n    \"title\": \"和江涵开会\",\n    \"start_time\": \"2026-01-24T15:00:00\",\n    \"end_time\": \"2026-01-24T16:00:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:23:32.837504\"\n  }\n}"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160213033
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "和江涵开会",
+                  "description": null,
+                  "start_time": "2026-01-24T15:00:00",
+                  "end_time": "2026-01-24T16:00:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "fe49972a-457b-4dcc-ad9a-7fd5e8016e93",
+                "id": "fe49972a-457b-4dcc-ad9a-7fd5e8016e93"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160213036
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您安排明天上午10点与鲁力的产品PRD对齐会议。",
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160217384
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和鲁力开产品PRD对齐会议\", \"start_time\": \"2026-01-24T10:00:00\", \"end_time\": \"2026-01-24T11:00:00\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160217437
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和鲁力开产品PRD对齐会议\", \"start_time\": \"2026-01-24T10:00:00\", \"end_time\": \"2026-01-24T11:00:00\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"dd72897a-8267-4526-9f24-eddd1992e077\",\n    \"title\": \"和鲁力开产品PRD对齐会议\",\n    \"start_time\": \"2026-01-24T10:00:00\",\n    \"end_time\": \"2026-01-24T11:00:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:23:37.496660\"\n  }\n}"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160217621
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "和鲁力开产品PRD对齐会议",
+                  "description": null,
+                  "start_time": "2026-01-24T10:00:00",
+                  "end_time": "2026-01-24T11:00:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "dd72897a-8267-4526-9f24-eddd1992e077",
+                "id": "dd72897a-8267-4526-9f24-eddd1992e077"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160217624
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您安排明天晚上八点的产品Roadmap讨论日程。",
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160221542
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"讨论产品之后Roadmap\", \"start_time\": \"2026-01-24T20:00:00\", \"end_time\": \"2026-01-24T21:00:00\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160221627
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"讨论产品之后Roadmap\", \"start_time\": \"2026-01-24T20:00:00\", \"end_time\": \"2026-01-24T21:00:00\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"acd77cd6-3de9-49d7-85ec-e58827e9b5e7\",\n    \"title\": \"讨论产品之后Roadmap\",\n    \"start_time\": \"2026-01-24T20:00:00\",\n    \"end_time\": \"2026-01-24T21:00:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:23:41.681432\"\n  }\n}"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160221793
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "讨论产品之后Roadmap",
+                  "description": null,
+                  "start_time": "2026-01-24T20:00:00",
+                  "end_time": "2026-01-24T21:00:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "acd77cd6-3de9-49d7-85ec-e58827e9b5e7",
+                "id": "acd77cd6-3de9-49d7-85ec-e58827e9b5e7"
+              },
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160221795
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您安排好明天的三项日程：\\n1. 10:00-11:00 和鲁力开产品PRD对齐",
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160232330
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "会议\\n2. 15:00-16:00 和江涵开会\\n3. 20:00-21:00 讨论产品之后Roadmap",
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160232602
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您安排好明天的三项日程：\n1. 10:00-11:00 和鲁力开产品PRD对齐会议\n2. 15:00-16:00 和江涵开会\n3. 20:00-21:00 讨论产品之后Roadmap",
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160232740
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "4c38e25c-e246-4ff8-8987-3e5e6931199e",
+              "timestamp": 1769160233177
+            }
+          ],
+          "trace_id": "f739cea7-ff8b-4327-bf5c-e73512b99b56",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "和鲁力开产品PRD对齐的会议",
+                "description": "和鲁力开产品PRD对齐的会议",
+                "start_time": "2026-01-22 10:00:00",
+                "end_time": "2026-01-22 11:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_001",
+                  "title": "和鲁力开产品PRD对齐的会议",
+                  "description": "和鲁力开产品PRD对齐的会议",
+                  "start_time": "2026-01-22 10:00:00",
+                  "end_time": "2026-01-22 11:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "和江涵开会",
+                "description": "和江涵开会",
+                "start_time": "2026-01-22 15:00:00",
+                "end_time": "2026-01-22 16:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_002",
+                  "title": "和江涵开会",
+                  "description": "和江涵开会",
+                  "start_time": "2026-01-22 15:00:00",
+                  "end_time": "2026-01-22 16:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "讨论产品之后Roadmap",
+                "description": "讨论产品之后Roadmap",
+                "start_time": "2026-01-22 20:00:00",
+                "end_time": "2026-01-22 21:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 6,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_003",
+                  "title": "讨论产品之后Roadmap",
+                  "description": "讨论产品之后Roadmap",
+                  "start_time": "2026-01-22 20:00:00",
+                  "end_time": "2026-01-22 21:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 7,
+              "type": "finish",
+              "expected_response": "好的,已经为您安排好了明天（1月22日）的三项日程：\n1. 10:00-11:00 和鲁力开产品PRD对齐的会议\n2. 15:00-16:00 和江涵开会\n3. 20:00-21:00 讨论产品之后Roadmap"
+            }
+          ]
+        }
+      },
+      {
+        "turn_id": 2,
+        "user_input": {
+          "type": "text",
+          "content": "把明天下午的会议挪到后天开"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 12,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "7cddd57e-2da0-4e2b-bde3-7e2e574b20e4"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在查询明天下午与江涵的会议安排...",
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160239710
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"start_time\": \"2026-01-24T12:00:00\", \"end_time\": \"2026-01-24T23:59:59\"}",
+                "status": "start"
+              },
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160239836
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"start_time\": \"2026-01-24T12:00:00\", \"end_time\": \"2026-01-24T23:59:59\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [\n      {\n        \"id\": \"fe49972a-457b-4dcc-ad9a-7fd5e8016e93\",\n        \"title\": \"和江涵开会\",\n        \"description\": null,\n        \"start_time\": \"2026-01-24T15:00:00\",\n        \"end_time\": \"2026-01-24T16:00:00\",\n        \"full_day\": null,\n        \"reminder_time\": \"-5m\",\n        \"location\": null,\n        \"participants\": null,\n        \"category\": \"meeting\",\n        \"related_meeting_id\": null,\n        \"status\": \"pending\",\n        \"created_at\": \"2026-01-23T17:23:32.837000\",\n        \"updated_at\": null\n      },\n      {\n        \"id\": \"acd77cd6-3de9-49d7-85ec-e58827e9b5e7\",\n        \"title\": \"讨论产品之后Roadmap\",\n        \"description\": null,\n        \"start_time\": \"2026-01-24T20:00:00\",\n        \"end_time\": \"2026-01-24T21:00:00\",\n        \"full_day\": null,\n        \"reminder_time\": \"-5m\",\n        \"location\": null,\n        \"participants\": null,\n        \"category\": \"meeting\",\n        \"related_meeting_id\": null,\n        \"status\": \"pending\",\n        \"created_at\": \"2026-01-23T17:23:41.681000\",\n        \"updated_at\": null\n      }\n    ],\n    \"total\": 2\n  }\n}"
+              },
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160239926
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在将明天下午与江涵的会议",
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160244737
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "调整至后天（1月25日）15:00...",
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160245116
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_update",
+                "name_cn": "更新日程",
+                "arguments": "{\"id\": \"fe49972a-457b-4dcc-ad9a-7fd5e8016e93\", \"start_time\": \"2026-01-25T15:00:00\", \"end_time\": \"2026-01-25T16:00:00\"}",
+                "status": "start"
+              },
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160245286
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_update",
+                "name_cn": "更新日程",
+                "arguments": "{\"id\": \"fe49972a-457b-4dcc-ad9a-7fd5e8016e93\", \"start_time\": \"2026-01-25T15:00:00\", \"end_time\": \"2026-01-25T16:00:00\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"fe49972a-457b-4dcc-ad9a-7fd5e8016e93\",\n    \"title\": \"和江涵开会\",\n    \"start_time\": \"2026-01-25T15:00:00\",\n    \"end_time\": \"2026-01-25T16:00:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"updated_at\": \"2026-01-23T17:24:05.343000\"\n  }\n}"
+              },
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160245586
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "和江涵开会",
+                  "description": null,
+                  "start_time": "2026-01-25T15:00:00",
+                  "end_time": "2026-01-25T16:00:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "fe49972a-457b-4dcc-ad9a-7fd5e8016e93",
+                "id": "fe49972a-457b-4dcc-ad9a-7fd5e8016e93"
+              },
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160245588
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已将原定于明天（1月24日）下午15:00与江涵的会议调整至后天（1月25日）下午",
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160251572
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "15:00。",
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160251632
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "572a7fee-7906-4456-bb3b-78375320724d",
+              "timestamp": 1769160251894
+            }
+          ],
+          "trace_id": "fff5dec0-c801-4e20-8484-dc7183fa58c3",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_search",
+              "parameters": {
+                "start_time": "2026-01-22 12:00:00",
+                "end_time": "2026-01-22 18:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": [
+                  {
+                    "id": "sch_20260122_002",
+                    "title": "和江涵开会",
+                    "description": "和江涵开会",
+                    "start_time": "2026-01-22 15:00:00",
+                    "end_time": "2026-01-22 16:00:00",
+                    "location": null,
+                    "category": "meeting",
+                    "full_day": null,
+                    "reminder_time": null
+                  }
+                ]
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "schedules_update",
+              "parameters": {
+                "id": "sch_20260122_002",
+                "start_time": "2026-01-23 15:00:00",
+                "end_time": "2026-01-23 16:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_002",
+                  "title": "和江涵开会",
+                  "start_time": "2026-01-23 15:00:00",
+                  "end_time": "2026-01-23 16:00:00",
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "好的,我已经为您把原定于明天（1月22日）下午15:00的'和江涵开会'挪到了后天（1月23日）下午15:00举行。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-23T17:28:34.688252",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "MULTI_TURN_028",
+    "test_mode": "multi_turn",
+    "total_turns": 2,
+    "original_user_id": "user_20260122_152130_935",
+    "execution_user_id": "user_20260122_152130_935",
+    "session_id": "b3c83a4e-b92a-4d72-83e6-07bd7718d42b",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "明天下午三点和江涵开会；明天10点和鲁力开产品PRD对齐的会议；明天晚上八点要讨论产品之后Roadmap"
+        },
+        "execution_result": {
+          "status": "incomplete",
+          "chunks_count": 4,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "72c42985-ec9b-4301-96c8-9f0ee242bed3"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您安排",
+              "message_id": "6e14e69a-6290-4855-98f3-d17d72ec6df1",
+              "timestamp": 1769160259108
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "明天下午三点与江涵的会议日程。",
+              "message_id": "6e14e69a-6290-4855-98f3-d17d72ec6df1",
+              "timestamp": 1769160259581
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "6e14e69a-6290-4855-98f3-d17d72ec6df1",
+              "timestamp": 1769160284584
+            }
+          ],
+          "trace_id": "8119dd11-07f8-4767-a431-2f74b645d6d2",
+          "response_analysis": {
+            "has_tool_call": false,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "和鲁力开产品PRD对齐的会议",
+                "description": "和鲁力开产品PRD对齐的会议",
+                "start_time": "2026-01-22 10:00:00",
+                "end_time": "2026-01-22 11:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_001",
+                  "title": "和鲁力开产品PRD对齐的会议",
+                  "description": "和鲁力开产品PRD对齐的会议",
+                  "start_time": "2026-01-22 10:00:00",
+                  "end_time": "2026-01-22 11:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "和江涵开会",
+                "description": "和江涵开会",
+                "start_time": "2026-01-22 15:00:00",
+                "end_time": "2026-01-22 16:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_002",
+                  "title": "和江涵开会",
+                  "description": "和江涵开会",
+                  "start_time": "2026-01-22 15:00:00",
+                  "end_time": "2026-01-22 16:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "讨论产品之后Roadmap",
+                "description": "讨论产品之后Roadmap",
+                "start_time": "2026-01-22 20:00:00",
+                "end_time": "2026-01-22 21:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 6,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_003",
+                  "title": "讨论产品之后Roadmap",
+                  "description": "讨论产品之后Roadmap",
+                  "start_time": "2026-01-22 20:00:00",
+                  "end_time": "2026-01-22 21:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 7,
+              "type": "finish",
+              "expected_response": "好的,已经为您安排好了明天（1月22日）的三项日程：\n1. 10:00-11:00 和鲁力开产品PRD对齐的会议\n2. 15:00-16:00 和江涵开会\n3. 20:00-21:00 讨论产品之后Roadmap"
+            }
+          ]
+        }
+      },
+      {
+        "turn_id": 2,
+        "user_input": {
+          "type": "text",
+          "content": "明天下午的会议取消了"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 22,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "f143aa8b-7b63-4c32-9cc8-bdfbd6845670"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询明天下午与江涵的会议安排...",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160290879
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"title\": \"江涵\", \"start_time\": \"2026-01-24T15:00:00\", \"end_time\": \"2026-01-24T23:59:59\"}",
+                "status": "start"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160290935
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"title\": \"江涵\", \"start_time\": \"2026-01-24T15:00:00\", \"end_time\": \"2026-01-24T23:59:59\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160291181
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查找明天下午的会议安排...",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160297883
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"会议\", \"start_time\": \"2026-01-24T12:00:00\", \"end_time\": \"2026-01-24T18:00:00\"}",
+                "status": "start"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160297913
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"会议\", \"start_time\": \"2026-01-24T12:00:00\", \"end_time\": \"2026-01-24T18:00:00\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160298243
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查找与江涵相关的日程信息...",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160311750
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"江涵\"}",
+                "status": "start"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160311778
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"江涵\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160312069
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您核",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160316080
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "实明天所有的日程安排...",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160316118
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"2026-01-24\"}",
+                "status": "start"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160316130
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"2026-01-24\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160316298
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您核实明天的日程安排...",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160326396
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"Roadmap\"}",
+                "status": "start"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160326412
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"Roadmap\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160326752
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您核实明天的日程安排...",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160335272
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"鲁力\"}",
+                "status": "start"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160335279
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"鲁力\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160335555
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您核实，系统中未查询到明天下午与江涵的会议日程，因此无需执行取消操作。",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160347666
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "c4916dc3-821c-42cc-ac33-85d2b53c08e8",
+              "timestamp": 1769160347970
+            }
+          ],
+          "trace_id": "861d3118-2355-4e24-8ea5-5d6bac52acc4",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_search",
+              "parameters": {
+                "start_time": "2026-01-22 12:00:00",
+                "end_time": "2026-01-22 18:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": [
+                  {
+                    "id": "sch_20260122_002",
+                    "title": "和江涵开会",
+                    "description": "和江涵开会",
+                    "start_time": "2026-01-22 15:00:00",
+                    "end_time": "2026-01-22 16:00:00",
+                    "location": null,
+                    "category": "meeting",
+                    "full_day": null,
+                    "reminder_time": null
+                  }
+                ]
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "schedules_delete",
+              "parameters": {
+                "id": "sch_20260122_002"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_20260122_002"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "好的,我已经为您取消了明天（1月22日）下午15:00与江涵的会议。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-23T17:30:10.767875",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "MULTI_TURN_029",
+    "test_mode": "multi_turn",
+    "total_turns": 2,
+    "original_user_id": "user_20260121_164537_245",
+    "execution_user_id": "user_20260121_164537_245",
+    "session_id": "b06656b0-953c-471e-870d-ad986070c9fa",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "明天下午三点和江涵开会；明天10点和鲁力开产品PRD对齐的会议；明天晚上八点要讨论产品之后Roadmap"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 18,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "f6686a1f-c488-465c-ae55-f452b8fc11cc"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您安排",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160355189
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "明天下午三点与江涵的会议日程。",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160355598
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和江涵开会\", \"start_time\": \"2026-01-24T15:00:00\", \"end_time\": \"2026-01-24T16:00:00\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160383150
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和江涵开会\", \"start_time\": \"2026-01-24T15:00:00\", \"end_time\": \"2026-01-24T16:00:00\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"c0b3603f-d9f2-409e-b554-118ab407edda\",\n    \"title\": \"和江涵开会\",\n    \"start_time\": \"2026-01-24T15:00:00\",\n    \"end_time\": \"2026-01-24T16:00:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:26:23.212273\"\n  }\n}"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160383421
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "和江涵开会",
+                  "description": null,
+                  "start_time": "2026-01-24T15:00:00",
+                  "end_time": "2026-01-24T16:00:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "c0b3603f-d9f2-409e-b554-118ab407edda",
+                "id": "c0b3603f-d9f2-409e-b554-118ab407edda"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160383423
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您安排明天上午十点与鲁力的产品PRD对齐会议。",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160388213
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和鲁力开产品PRD对齐会议\", \"start_time\": \"2026-01-24T10:00:00\", \"end_time\": \"2026-01-24T11:00:00\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160388268
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"和鲁力开产品PRD对齐会议\", \"start_time\": \"2026-01-24T10:00:00\", \"end_time\": \"2026-01-24T11:00:00\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"07aed141-f4cb-47a5-bb50-c438e3b64b5a\",\n    \"title\": \"和鲁力开产品PRD对齐会议\",\n    \"start_time\": \"2026-01-24T10:00:00\",\n    \"end_time\": \"2026-01-24T11:00:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:26:28.329107\"\n  }\n}"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160388482
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "和鲁力开产品PRD对齐会议",
+                  "description": null,
+                  "start_time": "2026-01-24T10:00:00",
+                  "end_time": "2026-01-24T11:00:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "07aed141-f4cb-47a5-bb50-c438e3b64b5a",
+                "id": "07aed141-f4cb-47a5-bb50-c438e3b64b5a"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160388486
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您安排明天晚上八点讨论产品Roadmap的日程。",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160392166
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"讨论产品Roadmap\", \"start_time\": \"2026-01-24T20:00:00\", \"end_time\": \"2026-01-24T21:00:00\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160392341
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"讨论产品Roadmap\", \"start_time\": \"2026-01-24T20:00:00\", \"end_time\": \"2026-01-24T21:00:00\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"6a2f164e-caaf-4b91-aa48-b20c0465d727\",\n    \"title\": \"讨论产品Roadmap\",\n    \"start_time\": \"2026-01-24T20:00:00\",\n    \"end_time\": \"2026-01-24T21:00:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:26:32.396551\"\n  }\n}"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160392518
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "讨论产品Roadmap",
+                  "description": null,
+                  "start_time": "2026-01-24T20:00:00",
+                  "end_time": "2026-01-24T21:00:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "6a2f164e-caaf-4b91-aa48-b20c0465d727",
+                "id": "6a2f164e-caaf-4b91-aa48-b20c0465d727"
+              },
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160392520
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您安排好明天的三项日程：\\n1. 10:00-11:00：和鲁",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160396682
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "力开产品PRD对齐会议\\n2. 15:00-16:00：和江涵开会\\n3. 20:00-21:00：讨论产品Roadmap",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160397028
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您安排好明天的三项日程：\n1. 10:00-11:00：和鲁力开产品PRD对齐会议\n2. 15:00-16:00：和江涵开会\n3. 20:00-21:00：讨论产品Roadmap",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160397194
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "d2dd2c32-524c-44c8-b3f5-d75f90463367",
+              "timestamp": 1769160397426
+            }
+          ],
+          "trace_id": "bc395022-d3e5-4e7f-8d4a-dbea2fc44031",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "和江涵开会",
+                "description": "和江涵开会",
+                "start_time": "2026-01-22 15:00:00",
+                "end_time": "2026-01-22 16:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_9901",
+                  "title": "和江涵开会",
+                  "description": "和江涵开会",
+                  "start_time": "2026-01-22 15:00:00",
+                  "end_time": "2026-01-22 16:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "和鲁力开产品PRD对齐的会议",
+                "description": "和鲁力开产品PRD对齐的会议",
+                "start_time": "2026-01-22 10:00:00",
+                "end_time": "2026-01-22 11:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_9902",
+                  "title": "和鲁力开产品PRD对齐的会议",
+                  "description": "和鲁力开产品PRD对齐的会议",
+                  "start_time": "2026-01-22 10:00:00",
+                  "end_time": "2026-01-22 11:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "讨论产品之后Roadmap",
+                "description": "讨论产品之后Roadmap",
+                "start_time": "2026-01-22 20:00:00",
+                "end_time": "2026-01-22 21:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 6,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_9903",
+                  "title": "讨论产品之后Roadmap",
+                  "description": "讨论产品之后Roadmap",
+                  "start_time": "2026-01-22 20:00:00",
+                  "end_time": "2026-01-22 21:00:00",
+                  "full_day": null,
+                  "reminder_time": null,
+                  "location": null,
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 7,
+              "type": "finish",
+              "expected_response": "好的,已经为您安排好了明天（1月22日）的三项日程：\n1. 10:00-11:00 和鲁力开产品PRD对齐的会议\n2. 15:00-16:00 和江涵开会\n3. 20:00-21:00 讨论产品之后Roadmap"
+            }
+          ]
+        }
+      },
+      {
+        "turn_id": 2,
+        "user_input": {
+          "type": "text",
+          "content": "明天下午的会议改到上午开了"
+        },
+        "execution_result": {
+          "status": "error",
+          "error": "peer closed connection without sending complete message body (incomplete chunked read)",
+          "trace_id": "165194df-a73c-45e5-8d13-b742acaf8712"
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_search",
+              "parameters": {
+                "start_time": "2026-01-22 12:00:00",
+                "end_time": "2026-01-22 18:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": [
+                  {
+                    "id": "sch_9901",
+                    "title": "和江涵开会",
+                    "description": "和江涵开会",
+                    "start_time": "2026-01-22 15:00:00",
+                    "end_time": "2026-01-22 16:00:00",
+                    "location": null,
+                    "category": "meeting",
+                    "full_day": null,
+                    "reminder_time": null
+                  }
+                ]
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "schedules_update",
+              "parameters": {
+                "id": "sch_9901",
+                "start_time": "2026-01-22 09:00:00",
+                "end_time": "2026-01-22 10:00:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "sch_9901",
+                  "title": "和江涵开会",
+                  "start_time": "2026-01-22 09:00:00",
+                  "end_time": "2026-01-22 10:00:00",
+                  "category": "meeting"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "好的,我已经为您将明天（1月22日）下午与江涵的会议调整到了上午09:00-10:00。\n注意：这个时间段可能与现有日程冲突,请确认是否调整。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-23T17:32:11.345139",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  }
+]

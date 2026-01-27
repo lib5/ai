@@ -1,0 +1,1522 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "user_20260113_115811_649",
+    "session_id": "6cdfa1d3-2415-4ba7-a375-05f3115ecd2e",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 81,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "5034ae03-c214-4536-bb4e-df2a439097cf",
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在创建联系人‘老徐’，生日为8月8日。由于未提供年份，默认设为1990年（可后续更新）。",
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426816241,
+              "is_merged": true,
+              "original_fragments": 35
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "start"
+              },
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426817761,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426818199,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "未找到名为‘老徐’的联系人，准备创建新联系人。",
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426818888,
+              "is_merged": true,
+              "original_fragments": 17
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"1990-08-08\"}",
+                "status": "start"
+              },
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426820328,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"1990-08-08\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"4c7a1fa4-7af8-4496-831e-01310dce2ab1\",\n    \"name\": \"老徐\",\n    \"company\": null,\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"老徐，1990年8月8日出生，信息有限，初步印象待更多了解。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T19:27:01.595407\",\n    \"birthday\": \"1990-08-08\",\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426821712,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "老徐",
+                  "company": null,
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": null,
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": "1990-08-08",
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "4c7a1fa4-7af8-4496-831e-01310dce2ab1",
+                "id": "4c7a1fa4-7af8-4496-831e-01310dce2ab1"
+              },
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426821714,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已成功创建联系人‘老徐’，生日为1990年8月8日。处理完成",
+              "message_id": "4805634c-34fe-437d-873e-fa8086b30d4a",
+              "timestamp": 1769426823527,
+              "is_merged": true,
+              "original_fragments": 23
+            }
+          ],
+          "trace_id": "67d27f36-0f89-46b5-9dec-ded9f628f674",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ],
+            "is_merged": true,
+            "original_count": 81,
+            "merged_count": 9
+          },
+          "is_merged": true
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_search",
+              "parameters": {
+                "query": "老徐"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "items": [],
+                  "total": 0
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "老徐",
+                "birthday": "08-08"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "contact_123456",
+                  "name": "老徐",
+                  "birthday": "08-08",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "已成功创建联系人：老徐，生日：08-08"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T19:31:42.298360",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115822_321",
+    "execution_user_id": "user_20260113_115822_321",
+    "session_id": "c45aabdb-6921-491d-b5f8-6e414f7d4fc0",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset_quantity/images/四点开会.png"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 237,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "5bfc7332-d293-4225-aac0-37ee9fd08e1b",
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "图片内容为一段微信群聊记录，核心信息是：贾盛楠邀请参加腾讯会议，主题为‘中石油华北&BISHENG交流’，原定时间为2025年6月9日16:00-16:30（北京时间）。但后续对话显示，双方协商改期至‘周一或周二下午4点’，最终确认为‘今天4点还是周二’→‘四点’，即**2025年6月9日（星期一）16:00**。注意：当前系统时间是2026年1月26日，该会议已过期，需确认是否为历史记录或需新建未来会议。",
+              "message_id": "e5f354c4-558b-489a-bae3-9b4208a7c18f",
+              "timestamp": 1769426830370,
+              "is_merged": true,
+              "original_fragments": 150
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"中石油华北&BISHENG交流\"}",
+                "status": "start"
+              },
+              "message_id": "e5f354c4-558b-489a-bae3-9b4208a7c18f",
+              "timestamp": 1769426834399,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_search",
+                "name_cn": "搜索日程",
+                "arguments": "{\"query\": \"中石油华北&BISHENG交流\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "e5f354c4-558b-489a-bae3-9b4208a7c18f",
+              "timestamp": 1769426834722,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "未查到标题为“中石油华北&BISHENG交流”的日程。根据聊天记录，会议已协商确定为2025年6月9日（星期一）16:00-16:30，但该时间已过期。是否需创建一个**新的同类会议日程**（例如安排在近期某周一或周二下午4点）？处理完成",
+              "message_id": "e5f354c4-558b-489a-bae3-9b4208a7c18f",
+              "timestamp": 1769426836746,
+              "is_merged": true,
+              "original_fragments": 84
+            }
+          ],
+          "trace_id": "f6d84657-f1ec-4a8e-9171-bfff55b900a6",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ],
+            "is_merged": true,
+            "original_count": 237,
+            "merged_count": 5
+          },
+          "is_merged": true
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "中石油华北&BISHENG交流",
+                "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                "start_time": "2025-06-09T16:00:00",
+                "end_time": "2025-06-09T16:30:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "SCHEDULE_12345",
+                  "title": "中石油华北&BISHENG交流",
+                  "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                  "start_time": "2025-06-09T16:00:00",
+                  "end_time": "2025-06-09T16:30:00",
+                  "category": "meeting",
+                  "created_at": "2025-06-09 19:24:00"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建中石油华北&BISHENG交流的日程，时间为2025-06-09 16:00-16:30，参与人员包括贾盛楠、袁宏、贺老师。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T19:31:57.855948",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_002",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115846_923",
+    "execution_user_id": "user_20260113_115846_923",
+    "session_id": "965834a0-6e24-4935-adc0-de2d18898184",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset_quantity/images/添加名片.png"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 153,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "2a64c43a-3dfa-4d63-a0b0-6f68c4e51636",
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已识别名片信息：姓名：林毅杰，职位：运营总监，公司：上海国方私募基金管理有限公司，地址：上海市静安区威海路511号19楼 200041，电话：021-60151998 / 13585655800，邮箱：linyijie@growth.sh.cn。接下来将查询该联系人是否已存在。",
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426845445,
+              "is_merged": true,
+              "original_fragments": 97
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\"}",
+                "status": "start"
+              },
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426848943,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426849225,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "未找到名为‘林毅杰’、公司为‘上海国方私募基金管理有限公司’的联系人，将创建新联系人。",
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426852011,
+              "is_merged": true,
+              "original_fragments": 29
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\", \"position\": \"运营总监\", \"phone\": \"13585655800\", \"email\": \"linyijie@growth.sh.cn\", \"address\": \"上海市静安区威海路511号19楼 200041\", \"wechat\": \"\", \"notes\": \"名片信息提取：电话 021-60151998 / 13585655800；邮箱 linyijie@growth.sh.cn；公司 logo 为 Growth 国方创新\", \"relationship_type\": \"partner\", \"industry\": \"金融\"}",
+                "status": "start"
+              },
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426858342,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\", \"position\": \"运营总监\", \"phone\": \"13585655800\", \"email\": \"linyijie@growth.sh.cn\", \"address\": \"上海市静安区威海路511号19楼 200041\", \"wechat\": \"\", \"notes\": \"名片信息提取：电话 021-60151998 / 13585655800；邮箱 linyijie@growth.sh.cn；公司 logo 为 Growth 国方创新\", \"relationship_type\": \"partner\", \"industry\": \"金融\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"d2a5edb2-596a-429e-ae59-9a844401e40e\",\n    \"name\": \"林毅杰\",\n    \"company\": \"上海国方私募基金管理有限公司\",\n    \"position\": \"运营总监\",\n    \"phone\": \"13585655800\",\n    \"email\": \"linyijie@growth.sh.cn\",\n    \"wechat\": \"\",\n    \"address\": \"上海市静安区威海路511号19楼 200041\",\n    \"notes\": \"名片信息提取：电话 021-60151998 / 13585655800；邮箱 linyijie@growth.sh.cn；公司 logo 为 Growth 国方创新\",\n    \"impression\": \"林毅杰，上海国方私募运营总监，金融行业，有两电话一邮箱，是合作伙伴。\",\n    \"avatar_url\": null,\n    \"relationship_type\": \"partner\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T19:27:39.943774\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": \"金融\",\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426860070,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "林毅杰",
+                  "company": "上海国方私募基金管理有限公司",
+                  "position": "运营总监",
+                  "phone": "13585655800",
+                  "email": "linyijie@growth.sh.cn",
+                  "wechat": "",
+                  "address": "上海市静安区威海路511号19楼 200041",
+                  "notes": "名片信息提取：电话 021-60151998 / 13585655800；邮箱 linyijie@growth.sh.cn；公司 logo 为 Growth 国方创新",
+                  "relationship_type": "partner",
+                  "industry": "金融",
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "d2a5edb2-596a-429e-ae59-9a844401e40e",
+                "id": "d2a5edb2-596a-429e-ae59-9a844401e40e"
+              },
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426860073,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已成功创建联系人：林毅杰（上海国方私募基金管理有限公司，运营总监）处理完成",
+              "message_id": "f523cacf-7978-4d31-824e-9894b84af3ce",
+              "timestamp": 1769426862003,
+              "is_merged": true,
+              "original_fragments": 21
+            }
+          ],
+          "trace_id": "40540d99-55fa-4127-8282-0bebbf16a83b",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ],
+            "is_merged": true,
+            "original_count": 153,
+            "merged_count": 9
+          },
+          "is_merged": true
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "林毅杰",
+                "company": "上海国方私募基金管理有限公司",
+                "position": "运营总监",
+                "phone": "021-60151998,13585655800",
+                "email": "linyijie@growth.sh.cn",
+                "address": "上海市静安区威海路511号19楼 200041"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "contact_id": "c_123456",
+                  "name": "林毅杰",
+                  "company": "上海国方私募基金管理有限公司",
+                  "position": "运营总监",
+                  "phone": [
+                    "021-60151998",
+                    "13585655800"
+                  ],
+                  "email": "linyijie@growth.sh.cn",
+                  "address": "上海市静安区威海路511号19楼 200041",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建联系人林毅杰，职位是上海国方私募基金管理有限公司运营总监，联系电话021-60151998、13585655800，邮箱linyijie@growth.sh.cn，地址上海市静安区威海路511号19楼 200041。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T19:32:22.189848",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_003",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115904_297",
+    "execution_user_id": "user_20260113_115904_297",
+    "session_id": "35e54b6c-feb0-4416-b010-ba12f030d3d0",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "创建王权富贵 道家公司老总，金融行业 住在北京"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 56,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "d54ed90b-2464-4b03-b407-ef92b62ddd3e",
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在查询联系人'王权富贵'是否存在...",
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426868487,
+              "is_merged": true,
+              "original_fragments": 11
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"王权富贵\"}",
+                "status": "start"
+              },
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426869340,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"王权富贵\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426869605,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "未找到名为‘王权富贵’的联系人，将创建新联系人。",
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426871747,
+              "is_merged": true,
+              "original_fragments": 18
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"王权富贵\", \"company\": \"道家公司\", \"position\": \"老总\", \"industry\": \"金融\", \"address\": \"北京市\", \"relationship_type\": \"client\"}",
+                "status": "start"
+              },
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426873486,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"王权富贵\", \"company\": \"道家公司\", \"position\": \"老总\", \"industry\": \"金融\", \"address\": \"北京市\", \"relationship_type\": \"client\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"3462a216-401b-4812-8b18-12266d0f9b10\",\n    \"name\": \"王权富贵\",\n    \"company\": \"道家公司\",\n    \"position\": \"老总\",\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": \"北京市\",\n    \"notes\": null,\n    \"impression\": \"王权富贵，道家公司老总，从事金融行业，位于北京，是重要客户。\",\n    \"avatar_url\": null,\n    \"relationship_type\": \"client\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T19:27:54.486875\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": \"金融\",\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426874594,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "王权富贵",
+                  "company": "道家公司",
+                  "position": "老总",
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": "北京市",
+                  "notes": null,
+                  "relationship_type": "client",
+                  "industry": "金融",
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "3462a216-401b-4812-8b18-12266d0f9b10",
+                "id": "3462a216-401b-4812-8b18-12266d0f9b10"
+              },
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426874597,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已成功创建联系人：王权富贵（道家公司老总，金融行业，北京）处理完成",
+              "message_id": "12dd3848-f24b-4687-aa1c-1c7dc2f3de2b",
+              "timestamp": 1769426875617,
+              "is_merged": true,
+              "original_fragments": 21
+            }
+          ],
+          "trace_id": "075b1fb6-3395-4b74-8e5f-270678f2f1f9",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ],
+            "is_merged": true,
+            "original_count": 56,
+            "merged_count": 9
+          },
+          "is_merged": true
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "王权富贵",
+                "company": "道家公司",
+                "position": "老总",
+                "industry": "金融行业",
+                "address": "北京"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "contact_id": "1001",
+                  "name": "王权富贵",
+                  "company": "道家公司",
+                  "position": "老总",
+                  "industry": "金融行业",
+                  "address": "北京",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已成功创建联系人王权富贵，道家公司老总，金融行业，住在北京"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T19:32:34.192285",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_004",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115915_682",
+    "execution_user_id": "user_20260113_115915_682",
+    "session_id": "32fd5066-88ec-428e-90eb-e26961a35fe1",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "请帮我创建一个人脉,张三,公司为:嘉华集团,职位为:董事长,电话为:13800138013,邮箱为:zhangsan@gmail.com,微信为:zhangsan"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 55,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "645e8b37-5ddf-4e15-bd95-77954bafbf61",
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您创建联系人张三的信息，请稍候...",
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426881428,
+              "is_merged": true,
+              "original_fragments": 12
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"张三\", \"company\": \"嘉华集团\"}",
+                "status": "start"
+              },
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426882442,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"张三\", \"company\": \"嘉华集团\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426882885,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "未找到名为张三、公司为嘉华集团的联系人，将为您创建新联系人。",
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426883797,
+              "is_merged": true,
+              "original_fragments": 22
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"张三\", \"company\": \"嘉华集团\", \"position\": \"董事长\", \"phone\": \"13800138013\", \"email\": \"zhangsan@gmail.com\", \"wechat\": \"zhangsan\", \"relationship_type\": \"partner\"}",
+                "status": "start"
+              },
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426886214,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"张三\", \"company\": \"嘉华集团\", \"position\": \"董事长\", \"phone\": \"13800138013\", \"email\": \"zhangsan@gmail.com\", \"wechat\": \"zhangsan\", \"relationship_type\": \"partner\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"2a0d5f05-0f79-490a-b2d6-8a2d30422ff5\",\n    \"name\": \"张三\",\n    \"company\": \"嘉华集团\",\n    \"position\": \"董事长\",\n    \"phone\": \"13800138013\",\n    \"email\": \"zhangsan@gmail.com\",\n    \"wechat\": \"zhangsan\",\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"张三，嘉华集团董事长，是合作伙伴，可通过电话13800138013等方式联系。\",\n    \"avatar_url\": null,\n    \"relationship_type\": \"partner\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T19:28:07.421018\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426887534,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "张三",
+                  "company": "嘉华集团",
+                  "position": "董事长",
+                  "phone": "13800138013",
+                  "email": "zhangsan@gmail.com",
+                  "wechat": "zhangsan",
+                  "address": null,
+                  "notes": null,
+                  "relationship_type": "partner",
+                  "industry": null,
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "2a0d5f05-0f79-490a-b2d6-8a2d30422ff5",
+                "id": "2a0d5f05-0f79-490a-b2d6-8a2d30422ff5"
+              },
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426887538,
+              "is_merged": false,
+              "original_fragments": 1
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已成功创建联系人：张三（嘉华集团董事长）处理完成",
+              "message_id": "ffcc0f43-5e59-47c4-b8be-d4401235945c",
+              "timestamp": 1769426889384,
+              "is_merged": true,
+              "original_fragments": 15
+            }
+          ],
+          "trace_id": "b8b2b846-fa38-497f-9c5e-fd3729060a75",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ],
+            "is_merged": true,
+            "original_count": 55,
+            "merged_count": 9
+          },
+          "is_merged": true
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "张三",
+                "company": "嘉华集团",
+                "position": "董事长",
+                "phone": "13800138013",
+                "email": "zhangsan@gmail.com",
+                "notes": "微信：zhangsan"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "contact_123456",
+                  "name": "张三",
+                  "company": "嘉华集团",
+                  "position": "董事长",
+                  "phone": "13800138013",
+                  "email": "zhangsan@gmail.com",
+                  "address": null,
+                  "notes": "微信：zhangsan",
+                  "relationship_type": null,
+                  "birthday": null,
+                  "gender": null,
+                  "industry": null
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已成功为您创建联系人：张三（嘉华集团董事长），联系电话：13800138013，邮箱：zhangsan@gmail.com，微信：zhangsan。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T19:32:49.366586",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  }
+]

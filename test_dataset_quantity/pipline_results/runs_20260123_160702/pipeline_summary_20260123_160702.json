@@ -1,0 +1,31 @@
+{
+  "timestamp": "20260123_160702",
+  "pipeline_status": "partial",
+  "steps": {
+    "step1_run_tests": {
+      "status": "failed",
+      "output_file": null
+    },
+    "step2_merge_stream_data": {
+      "status": "failed",
+      "input_file": null,
+      "output_file": "N/A"
+    },
+    "step3_validate_results": {
+      "status": "failed",
+      "input_file": "N/A",
+      "output_file": "N/A"
+    }
+  },
+  "output_directory": "/home/libo/chatapi/test_dataset_quantity/pipline_results/runs_20260123_160702",
+  "summary": {
+    "raw_response": null,
+    "merged_response": "N/A",
+    "validation_report": "N/A"
+  },
+  "statistics": {
+    "success_rate": 0.0,
+    "completed_steps": 0,
+    "total_steps": 3
+  }
+}

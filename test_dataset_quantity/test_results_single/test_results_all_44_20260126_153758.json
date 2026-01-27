@@ -1,0 +1,183 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "user_20260113_115811_649",
+    "session_id": "fcba85bb-9f2d-4a4c-95a1-3f41ac8f39b2",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 7,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "d0994b1d-09ce-427b-90cf-00421f6135f3"
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "start"
+              },
+              "message_id": "4dac915d-874b-4203-8c2f-53fedd65b480",
+              "timestamp": 1769412790033
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "4dac915d-874b-4203-8c2f-53fedd65b480",
+              "timestamp": 1769412790402
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"2000-08-08\"}",
+                "status": "start"
+              },
+              "message_id": "4dac915d-874b-4203-8c2f-53fedd65b480",
+              "timestamp": 1769412797623
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"2000-08-08\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"69438061-96b0-4675-b251-9045722bb8e9\",\n    \"name\": \"老徐\",\n    \"company\": null,\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"老徐，生于2000年8月8日，信息有限，有待了解更多。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T15:33:18.976742\",\n    \"birthday\": \"2000-08-08\",\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "4dac915d-874b-4203-8c2f-53fedd65b480",
+              "timestamp": 1769412799111
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "老徐",
+                  "company": null,
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": null,
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": "2000-08-08",
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "69438061-96b0-4675-b251-9045722bb8e9",
+                "id": "69438061-96b0-4675-b251-9045722bb8e9"
+              },
+              "message_id": "4dac915d-874b-4203-8c2f-53fedd65b480",
+              "timestamp": 1769412799114
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "4dac915d-874b-4203-8c2f-53fedd65b480",
+              "timestamp": 1769412801740
+            }
+          ],
+          "trace_id": "02c4d8b8-0205-492a-8d08-51324defce24",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "tool",
+              "tool",
+              "tool",
+              "tool",
+              "card",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_search",
+              "parameters": {
+                "query": "老徐"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "items": [],
+                  "total": 0
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "老徐",
+                "birthday": "08-08"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "contact_123456",
+                  "name": "老徐",
+                  "birthday": "08-08",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "已成功创建联系人：老徐，生日：08-08"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T15:37:58.108254",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  }
+]

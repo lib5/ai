@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-01-20T17:43:19.243955",
+  "results": [
+    {
+      "name": "Gemini验证报告",
+      "total_cases": 44,
+      "true_positive": 43,
+      "false_positive": 1,
+      "true_negative": 0,
+      "false_negative": 0,
+      "accuracy": 0.9772727272727273,
+      "precision": 0.9772727272727273,
+      "recall": 1.0,
+      "f1_score": 0.9885057471264368,
+      "real_error_count": 1
+    },
+    {
+      "name": "Doubao验证报告",
+      "total_cases": 44,
+      "true_positive": 37,
+      "false_positive": 4,
+      "true_negative": 3,
+      "false_negative": 0,
+      "accuracy": 0.9090909090909091,
+      "precision": 0.9024390243902439,
+      "recall": 1.0,
+      "f1_score": 0.9487179487179488,
+      "real_error_count": 7
+    },
+    {
+      "name": "Qwem验证报告",
+      "total_cases": 44,
+      "true_positive": 37,
+      "false_positive": 2,
+      "true_negative": 4,
+      "false_negative": 1,
+      "accuracy": 0.9318181818181818,
+      "precision": 0.9487179487179487,
+      "recall": 0.9736842105263158,
+      "f1_score": 0.9610389610389611,
+      "real_error_count": 6
+    }
+  ],
+  "average_f1": 0.9660875522944489,
+  "description": "三个验证报告的F1分数分析"
+}

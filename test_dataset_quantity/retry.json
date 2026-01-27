@@ -1,0 +1,290 @@
+[
+    {
+        "test_case_id": "TEST_EXCEL_005",
+        "test_mode": "single_turn",
+        "total_turns": 1,
+        "original_user_id": "user_20260113_115928_623",
+        "execution_user_id": "user_20260113_115928_623",
+        "session_id": "99c1db64-df16-43f5-a8fa-581a54490f11",
+        "turn_results": [
+          {
+            "turn_id": 1,
+            "user_input": {
+              "type": "text",
+              "content": "新建人脉：王五，生日5月20日，职位CTO"
+            },
+            "execution_result": {
+              "status": "success",
+              "chunks_count": 66,
+              "raw_data": [
+                {
+                  "type": "task_id",
+                  "task_id": "4cd66755-d6e3-4a8c-99d0-05bb574faa8a",
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "markdown",
+                  "content": "正在查找是否存在名为'王五'的联系人...",
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420287962,
+                  "is_merged": true,
+                  "original_fragments": 12
+                },
+                {
+                  "role": "assistant",
+                  "type": "tool",
+                  "content": {
+                    "name": "contacts_search",
+                    "name_cn": "搜索联系人",
+                    "arguments": "{\"name\": \"王五\"}",
+                    "status": "start"
+                  },
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420289241,
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "tool",
+                  "content": {
+                    "name": "contacts_search",
+                    "name_cn": "搜索联系人",
+                    "arguments": "{\"name\": \"王五\"}",
+                    "status": "success",
+                    "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+                  },
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420289409,
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "tool",
+                  "content": {
+                    "name": "contacts_search",
+                    "name_cn": "搜索联系人",
+                    "arguments": "{\"name\": \"王五\"}",
+                    "status": "start"
+                  },
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420292995,
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "tool",
+                  "content": {
+                    "name": "contacts_search",
+                    "name_cn": "搜索联系人",
+                    "arguments": "{\"name\": \"王五\"}",
+                    "status": "success",
+                    "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+                  },
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420293241,
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "markdown",
+                  "content": "已确认‘王五’尚未存在于联系人中，现在为您创建该联系人。",
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420293911,
+                  "is_merged": true,
+                  "original_fragments": 19
+                },
+                {
+                  "role": "assistant",
+                  "type": "tool",
+                  "content": {
+                    "name": "contacts_create",
+                    "name_cn": "创建联系人",
+                    "arguments": "{\"name\": \"王五\", \"position\": \"CTO\", \"birthday\": \"2026-05-20\"}",
+                    "status": "start"
+                  },
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420296187,
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "tool",
+                  "content": {
+                    "name": "contacts_create",
+                    "name_cn": "创建联系人",
+                    "arguments": "{\"name\": \"王五\", \"position\": \"CTO\", \"birthday\": \"2026-05-20\"}",
+                    "status": "success",
+                    "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"c12871dc-fb7f-461d-bfe3-623213514d0d\",\n    \"name\": \"王五\",\n    \"company\": null,\n    \"position\": \"CTO\",\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"王五，担任CTO职位，技术领域关键人物，生日为2026年5月20日。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T17:38:17.594884\",\n    \"birthday\": \"2026-05-20\",\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+                  },
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420297719,
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "card",
+                  "content": {
+                    "card_type": "contact",
+                    "data": {
+                      "name": "王五",
+                      "company": null,
+                      "position": "CTO",
+                      "phone": null,
+                      "email": null,
+                      "wechat": null,
+                      "address": null,
+                      "notes": null,
+                      "relationship_type": null,
+                      "industry": null,
+                      "birthday": "2026-05-20",
+                      "gender": null
+                    },
+                    "actions": [
+                      "confirm",
+                      "modify",
+                      "change_type",
+                      "cancel"
+                    ],
+                    "card_id": "c12871dc-fb7f-461d-bfe3-623213514d0d",
+                    "id": "c12871dc-fb7f-461d-bfe3-623213514d0d"
+                  },
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420297721,
+                  "is_merged": false,
+                  "original_fragments": 1
+                },
+                {
+                  "role": "assistant",
+                  "type": "markdown",
+                  "content": "已成功创建联系人：王五，职位CTO，生日为2026年5月20日。处理完成",
+                  "message_id": "7296db8f-14ae-466f-91c0-ab93516b9e32",
+                  "timestamp": 1769420298920,
+                  "is_merged": true,
+                  "original_fragments": 27
+                }
+              ],
+              "trace_id": "5844239f-0022-4a9d-bffb-da2a1eabed71",
+              "response_analysis": {
+                "has_tool_call": true,
+                "has_finish": true,
+                "response_types": [
+                  "task_id",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "tool",
+                  "tool",
+                  "tool",
+                  "tool",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "tool",
+                  "tool",
+                  "card",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown",
+                  "markdown"
+                ],
+                "is_merged": true,
+                "original_count": 66,
+                "merged_count": 11
+              },
+              "is_merged": true
+            },
+            "expected_behavior": {
+              "steps": [
+                {
+                  "step": 1,
+                  "type": "tool_call",
+                  "tool_name": "contacts_create",
+                  "parameters": {
+                    "name": "王五",
+                    "birthday": "5月20日",
+                    "position": "CTO"
+                  }
+                },
+                {
+                  "step": 2,
+                  "type": "tool_result",
+                  "result": {
+                    "success": true,
+                    "data": {
+                      "id": "contact_123456",
+                      "name": "王五",
+                      "birthday": "5月20日",
+                      "position": "CTO",
+                      "created_at": "2025-12-01T10:00:00Z"
+                    }
+                  }
+                },
+                {
+                  "step": 3,
+                  "type": "finish",
+                  "expected_response": "已成功创建联系人：王五（CTO），生日5月20日。联系人ID：contact_123456"
+                }
+              ]
+            }
+          }
+        ],
+        "timestamp": "2026-01-26T17:42:58.205233",
+        "note": "使用final_cast.json中的user_id确保数据隔离"
+      }
+]

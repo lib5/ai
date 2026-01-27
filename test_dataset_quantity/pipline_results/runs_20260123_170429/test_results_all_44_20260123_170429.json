@@ -1,0 +1,667 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "user_20260113_115811_649",
+    "session_id": "f9c68f6c-227b-48f5-b257-1ce872c8e268",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 9,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "d37fc161-1c77-4734-b6cf-381f8ec3bdb5"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人“老徐”的信息...",
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158812979
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "start"
+              },
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158813031
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158813384
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您创建联系人“老徐”，生日设定为8月8日。",
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158821656
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"2000-08-08\"}",
+                "status": "start"
+              },
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158821707
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"2000-08-08\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"961bd55c-65f7-4276-b57e-424bfdbd3dbc\",\n    \"name\": \"老徐\",\n    \"company\": null,\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"老徐，生于2000年8月8日，信息较少，有待进一步了解其更多特质。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:00:22.978211\",\n    \"birthday\": \"2000-08-08\",\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158823093
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "老徐",
+                  "company": null,
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": null,
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": "2000-08-08",
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "961bd55c-65f7-4276-b57e-424bfdbd3dbc",
+                "id": "961bd55c-65f7-4276-b57e-424bfdbd3dbc"
+              },
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158823096
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "9c667257-c3fb-478b-ba13-59453b205a4b",
+              "timestamp": 1769158833444
+            }
+          ],
+          "trace_id": "bd4e44ce-8dd0-45c9-9bf6-5eda4b89637a",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_search",
+              "parameters": {
+                "query": "老徐"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "items": [],
+                  "total": 0
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "老徐",
+                "birthday": "08-08"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "contact_123456",
+                  "name": "老徐",
+                  "birthday": "08-08",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "已成功创建联系人：老徐，生日：08-08"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-23T17:04:56.159772",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115822_321",
+    "execution_user_id": "user_20260113_115822_321",
+    "session_id": "a1d63e0c-e015-4841-8add-9b66e8fc7cbe",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset_quantity/images/四点开会.png"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 29,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "79d68036-599e-4b55-ba24-ae683624cb49"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您创建日程：中石油华北&BISH",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158844450
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "ENG交流，时间为2025年6月9日 16:00-16:30。",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158844479
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"中石油华北&BISHENG交流\", \"description\": \"线上对一下报告生成的具体细节（腾讯会议）\", \"start_time\": \"2025-06-09T16:00:00\", \"end_time\": \"2025-06-09T16:30:00\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158844516
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"中石油华北&BISHENG交流\", \"description\": \"线上对一下报告生成的具体细节（腾讯会议）\", \"start_time\": \"2025-06-09T16:00:00\", \"end_time\": \"2025-06-09T16:30:00\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"f31bb496-ec02-4166-9391-87fb78a65497\",\n    \"title\": \"中石油华北&BISHENG交流\",\n    \"start_time\": \"2025-06-09T16:00:00\",\n    \"end_time\": \"2025-06-09T16:30:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:00:44.574318\"\n  }\n}"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158844845
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "中石油华北&BISHENG交流",
+                  "description": "线上对一下报告生成的具体细节（腾讯会议）",
+                  "start_time": "2025-06-09T16:00:00",
+                  "end_time": "2025-06-09T16:30:00",
+                  "full_day": null,
+                  "location": null,
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "f31bb496-ec02-4166-9391-87fb78a65497",
+                "id": "f31bb496-ec02-4166-9391-87fb78a65497"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158845161
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人贾盛楠的信息...",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158851911
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"贾盛楠\"}",
+                "status": "start"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158851913
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"贾盛楠\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158852212
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"贾盛楠\", \"company\": \"中石油工程华北\", \"notes\": \"XBISHENG项目组成员\"}",
+                "status": "start"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158858915
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"贾盛楠\", \"company\": \"中石油工程华北\", \"notes\": \"XBISHENG项目组成员\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"1d7f2c27-3159-4c9d-9d59-4cc00b20a35f\",\n    \"name\": \"贾盛楠\",\n    \"company\": \"中石油工程华北\",\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": \"XBISHENG项目组成员\",\n    \"impression\": \"贾盛楠，就职于中石油工程华北，是XBISHENG项目组成员。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:01:00.094908\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158860335
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "贾盛楠",
+                  "company": "中石油工程华北",
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": "XBISHENG项目组成员",
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "1d7f2c27-3159-4c9d-9d59-4cc00b20a35f",
+                "id": "1d7f2c27-3159-4c9d-9d59-4cc00b20a35f"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158860337
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158869698
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "人袁宏的信息...",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158869712
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"袁宏\"}",
+                "status": "start"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158869726
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"袁宏\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158869998
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"袁宏\", \"company\": \"中石油工程华北\", \"notes\": \"XBISHENG项目组成员\"}",
+                "status": "start"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158874875
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"袁宏\", \"company\": \"中石油工程华北\", \"notes\": \"XBISHENG项目组成员\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"4cac3bbf-e53e-4a86-b687-aec673d270f7\",\n    \"name\": \"袁宏\",\n    \"company\": \"中石油工程华北\",\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": \"XBISHENG项目组成员\",\n    \"impression\": \"袁宏，就职于中石油工程华北，是XBISHENG项目组成员。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:01:16.245742\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158876384
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "袁宏",
+                  "company": "中石油工程华北",
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": "XBISHENG项目组成员",
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "4cac3bbf-e53e-4a86-b687-aec673d270f7",
+                "id": "4cac3bbf-e53e-4a86-b687-aec673d270f7"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158876387
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人贺老师的信息...",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158892434
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"贺老师\"}",
+                "status": "start"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158892445
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"贺老师\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158892700
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"贺老师\", \"company\": \"中石油工程华北\", \"notes\": \"XBISHENG项目组成员，微信昵称为“狗儿要听狗儿歌”\"}",
+                "status": "start"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158899087
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"贺老师\", \"company\": \"中石油工程华北\", \"notes\": \"XBISHENG项目组成员，微信昵称为“狗儿要听狗儿歌”\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"bf300ad9-e1a5-441b-a985-b3e63b6b01a3\",\n    \"name\": \"贺老师\",\n    \"company\": \"中石油工程华北\",\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": \"XBISHENG项目组成员，微信昵称为“狗儿要听狗儿歌”\",\n    \"impression\": \"贺老师就职于中石油工程华北，是XBISHENG项目组成员，微信昵称“狗儿要听狗儿歌”。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-23T17:01:41.178858\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158901332
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "贺老师",
+                  "company": "中石油工程华北",
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": "XBISHENG项目组成员，微信昵称为“狗儿要听狗儿歌”",
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "bf300ad9-e1a5-441b-a985-b3e63b6b01a3",
+                "id": "bf300ad9-e1a5-441b-a985-b3e63b6b01a3"
+              },
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158901334
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您完成以下操作：\\n1. **创建日程**：中石油华北&BISHENG交流，时间为2025年6月9日 16:00-16:30。\\n2. **添加联系人**：已将贾盛楠、",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158911994
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "袁宏及贺老师（狗儿要听狗儿歌）添加至联系人，备注为中石油工程华北 XBISHENG 项目组成员。",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158912025
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您完成以下操作：\n1. **创建日程**：中石油华北&BISHENG交流，时间为2025年6月9日 16:00-16:30。\n2. **添加联系人**：已将贾盛楠、袁宏及贺老师（狗儿要听狗儿歌）添加至联系人，备注为中石油工程华北 XBISHENG 项目组成员。",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158912043
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "fd64d239-99bf-4574-a465-c502a1c6f468",
+              "timestamp": 1769158912284
+            }
+          ],
+          "trace_id": "6dfe177f-e0e6-4ca9-86eb-ec6ec9c82097",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "tool",
+              "tool",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "tool",
+              "tool",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "中石油华北&BISHENG交流",
+                "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                "start_time": "2025-06-09T16:00:00",
+                "end_time": "2025-06-09T16:30:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "SCHEDULE_12345",
+                  "title": "中石油华北&BISHENG交流",
+                  "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                  "start_time": "2025-06-09T16:00:00",
+                  "end_time": "2025-06-09T16:30:00",
+                  "category": "meeting",
+                  "created_at": "2025-06-09 19:24:00"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建中石油华北&BISHENG交流的日程，时间为2025-06-09 16:00-16:30，参与人员包括贾盛楠、袁宏、贺老师。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-23T17:06:15.003884",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  }
+]

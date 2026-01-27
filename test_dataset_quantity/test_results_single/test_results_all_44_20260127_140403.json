@@ -1,0 +1,14 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "status": "error",
+    "error": "无法获取session_id",
+    "timestamp": "2026-01-27T14:04:03.427642"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "status": "error",
+    "error": "无法获取session_id",
+    "timestamp": "2026-01-27T14:04:06.000452"
+  }
+]

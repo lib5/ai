@@ -19,23 +19,35 @@ import argparse
 import base64
 from datetime import datetime
 from typing import Dict, List, Optional
+from dotenv import load_dotenv
+import openai
 
-# Add project root to path
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# 加载.env文件
+load_dotenv('/home/libo/chatapi/.env')
 
-from services.true_react_agent import TrueReActAgent
+# OpenAI 配置（Gemini-3-Flash-Preview）
+openai_api_key: str = os.getenv("OPENAI_API_KEY", "sk-hk69mLmsHF6FfIM8cPn2Zitfk0Jca6suzwIptZymPn6h1u6x")
+openai_base_url: str = os.getenv("OPENAI_BASE_URL", "https://llm.onerouter.pro/v1")
+openai_model: str = os.getenv("OPENAI_MODEL", "gemini-3-flash-preview")
 
 
 class MultiTurnTestCaseGenerator:
     """多轮测试用例生成器"""
 
     def __init__(self):
-        self.agent = None
+        self.client = None
 
     async def initialize(self):
         """初始化"""
-        self.agent = TrueReActAgent()
-        await self.agent.initialize()
+        print(f"正在初始化Gemini-3-Flash-Preview...")
+        print(f"  Base URL: {openai_base_url}")
+        print(f"  模型: {openai_model}")
+        print(f"  API Key: {openai_api_key[:10]}...")
+
+        self.client = openai.AsyncOpenAI(
+            api_key=openai_api_key,
+            base_url=openai_base_url
+        )
 
     def _generate_unique_user_id(self) -> str:
         """生成唯一的user_id"""
@@ -378,64 +390,139 @@ class MultiTurnTestCaseGenerator:
                 {"role": "user", "content": user_prompt}
             ]
 
-            try:
-                # 调用GPT生成测试用例
-                response = await self.agent.openai_service.chat_completion(
-                    messages,
-                    max_tokens=4000,
-                    temperature=0.1
-                )
+            max_retries = 5
+            retry_count = 0
+            api_success = False
 
-                content = response.get("choices", [{}])[0].get("message", {}).get("content", "")
-                print(f"   ✅ GPT响应完成")
+            while retry_count < max_retries and not api_success:
+                try:
+                    print(f"   🔄 第 {turn_number} 轮第 {retry_count + 1} 次尝试...")
+                    # 调用Gemini生成测试用例
+                    response = await self.client.chat.completions.create(
+                        model=openai_model,
+                        messages=messages,
+                        max_tokens=4000,
+                        temperature=0.1
+                    )
 
-                # 解析JSON响应
-                test_case_json = self._extract_json_from_response(content)
+                    content = response.choices[0].message.content
+                    print(f"   ✅ Gemini API调用成功")
+                    print(f"   📄 响应长度: {len(content)} 字符")
+                    print(f"   📄 响应预览: {content[:500]}...")
 
-                # 构建turn结构
-                turn = {
-                    "turn_id": turn_number,
-                    "user_input": test_case_json["conversation"]["turns"][0]["user_input"],
-                    "context": {
-                        "requires_context": False,
-                        "depends_on": []
-                    },
-                    "expected_behavior": test_case_json["conversation"]["turns"][0]["expected_behavior"]
-                }
+                    # 检查响应是否包含无法理解的提示
+                    if self._is_unclear_response(content):
+                        print(f"   ⚠️  检测到无法理解的响应，将重试...")
+                        retry_count += 1
+                        if retry_count < max_retries:
+                            await asyncio.sleep(2 * retry_count)  # 递增等待时间
+                            continue
 
-                # 如果是图片类型，强制将content替换为原始路径
-                if turn["user_input"].get("type") == "image":
-                    turn["user_input"]["content"] = query
+                    # 检查响应是否完整（基本完整性检查）
+                    if not self._is_response_complete(content):
+                        print(f"   ⚠️  响应可能被截断，将在1秒后重试...")
+                        retry_count += 1
+                        if retry_count < max_retries:
+                            await asyncio.sleep(1)
+                            continue
 
-                turns.append(turn)
+                    api_success = True
 
-                # 存储轮次的重要信息用于后续上下文
-                self._store_turn_context(turn, previous_turns_context)
+                    # 解析JSON响应 (使用新的重试机制)
+                    test_case_json = await self._parse_json_with_retry(content)
 
-            except Exception as e:
-                print(f"   ❌ 第 {turn_number} 轮生成失败: {e}")
-                # 创建基本的turn结构
-                turn = {
-                    "turn_id": turn_number,
-                    "user_input": {
-                        "type": "text",
-                        "content": query
-                    },
-                    "context": {
-                        "requires_context": False,
-                        "depends_on": []
-                    },
-                    "expected_behavior": {
-                        "steps": [
-                            {
-                                "step": 1,
-                                "type": "finish",
-                                "expected_response": f"无法生成第 {turn_number} 轮的测试用例"
+                    # 验证JSON结构和解析结果
+                    if test_case_json.get("id") == "PARSE_ERROR":
+                        print(f"   ⚠️  JSON解析失败，将重试...")
+                        retry_count += 1
+                        if retry_count < max_retries:
+                            await asyncio.sleep(2 * retry_count)
+                            continue
+
+                    if "conversation" not in test_case_json or "turns" not in test_case_json["conversation"]:
+                        print(f"   ⚠️  JSON结构不完整，使用默认结构")
+                        test_case_json = {
+                            "id": "STRUCTURE_ERROR",
+                            "conversation": {
+                                "turns": [{
+                                    "user_input": {
+                                        "type": "text",
+                                        "content": query
+                                    },
+                                    "context": {
+                                        "requires_context": False,
+                                        "depends_on": []
+                                    },
+                                    "expected_behavior": {
+                                        "steps": [{
+                                            "step": 1,
+                                            "type": "finish",
+                                            "expected_response": "我正在理解您的需求，请稍等片刻或尝试重新描述您的请求。"
+                                        }]
+                                    }
+                                }]
                             }
-                        ]
+                        }
+
+                            # 构建turn结构
+                    is_first_turn = (turn_idx == 0)
+                    turn = {
+                        "turn_id": turn_number,
+                        "user_input": test_case_json["conversation"]["turns"][0]["user_input"],
+                        "context": {
+                            "requires_context": not is_first_turn,
+                            "depends_on": list(range(1, turn_number)) if not is_first_turn else []
+                        },
+                        "expected_behavior": test_case_json["conversation"]["turns"][0]["expected_behavior"]
                     }
-                }
-                turns.append(turn)
+
+                    # 如果是图片类型，强制将content替换为原始路径
+                    if turn["user_input"].get("type") == "image":
+                        turn["user_input"]["content"] = query
+
+                    turns.append(turn)
+
+                    # 存储轮次的重要信息用于后续上下文
+                    self._store_turn_context(turn, previous_turns_context)
+
+                    print(f"   ✅ 第 {turn_number} 轮处理完成")
+
+                except Exception as e:
+                    retry_count += 1
+                    error_msg = str(e)[:200]
+                    print(f"   ❌ 第 {turn_number} 轮第 {retry_count} 次尝试失败: {error_msg}")
+
+                    if retry_count >= max_retries:
+                        print(f"   💥 第 {turn_number} 轮达到最大重试次数（{max_retries}），使用错误处理结构")
+
+                        # 创建更详细的错误信息
+                        error_response = f"请求处理遇到问题，请稍后重试或重新描述您的需求。（错误次数：{retry_count}）"
+
+                        # 创建基本的turn结构
+                        turn = {
+                            "turn_id": turn_number,
+                            "user_input": {
+                                "type": "text",
+                                "content": query
+                            },
+                            "context": {
+                                "requires_context": False,
+                                "depends_on": []
+                            },
+                            "expected_behavior": {
+                                "steps": [
+                                    {
+                                        "step": 1,
+                                        "type": "finish",
+                                        "expected_response": error_response
+                                    }
+                                ]
+                            }
+                        }
+                        turns.append(turn)
+                    else:
+                        print(f"   ⏳ 等待 {2 * retry_count} 秒后重试...")
+                        await asyncio.sleep(2 * retry_count)
 
         # 构建最终测试用例
         test_case = {
@@ -613,56 +700,285 @@ class MultiTurnTestCaseGenerator:
 - 确保JSON格式正确，可以直接使用
 - 输出工具返回数据要模拟 不能直接返回一句话
 - 每条测试都是独立的数据 不需要有任何依赖
+- 🚨 user_id必须独一无二：每个测试用例都必须使用不同的user_id，建议使用时间戳格式（如：user_20260113_152922_311）
 - 🚨 严格禁止：不要在工具返回数据中编造任何用户未提及的信息
 """
 
     def _extract_json_from_response(self, response: str) -> Dict:
-        """从GPT响应中提取JSON"""
+        """从Gemini响应中提取JSON (已弃用，改用_parse_json_with_retry)"""
         import re
+
+        print(f"   📄 原始响应长度: {len(response)} 字符")
+        print(f"   📄 响应前200字符: {response[:200]}...")
 
         # 尝试直接解析JSON
         try:
-            return json.loads(response)
-        except:
-            pass
+            result = json.loads(response)
+            print(f"   ✅ 直接JSON解析成功")
+            return result
+        except Exception as e:
+            print(f"   ⚠️  直接JSON解析失败: {str(e)[:50]}")
 
-        # 尝试从代码块中提取JSON
-        json_pattern = r'```json\s*(\{.*?\})\s*```'
+        # 尝试从代码块中提取JSON - 修复正则表达式处理嵌套大括号
+        json_pattern = r'```(?:json)?\s*(\{[\s\S]*?\})\s*```'
         match = re.search(json_pattern, response, re.DOTALL)
         if match:
             try:
-                return json.loads(match.group(1))
-            except:
-                pass
+                result = json.loads(match.group(1))
+                print(f"   ✅ 从代码块JSON解析成功")
+                return result
+            except Exception as e:
+                print(f"   ⚠️  代码块JSON解析失败: {str(e)[:50]}")
 
-        # 尝试提取第一个完整的JSON对象
-        json_pattern = r'\{[^{}]*(?:\{[^{}]*\}[^{}]*)*\}'
+        # 尝试提取第一个完整的JSON对象（改进的正则表达式）
+        json_pattern = r'\{(?:[^{}]|\{[^{}]*\})*\}'
         match = re.search(json_pattern, response, re.DOTALL)
         if match:
             try:
-                return json.loads(match.group())
-            except:
-                pass
+                result = json.loads(match.group())
+                print(f"   ✅ 提取JSON对象解析成功")
+                return result
+            except Exception as e:
+                print(f"   ⚠️  提取JSON对象解析失败: {str(e)[:50]}")
+                # 尝试修复常见的JSON格式问题
+                fixed_json = self._try_fix_json(match.group())
+                if fixed_json:
+                    try:
+                        result = json.loads(fixed_json)
+                        print(f"   ✅ 修复后JSON解析成功")
+                        return result
+                    except Exception as e2:
+                        print(f"   ⚠️  修复后JSON解析仍然失败: {str(e2)[:50]}")
 
         # 如果都无法解析，返回默认结构
-        print(f"   ⚠️  无法解析JSON，使用默认结构")
+        print(f"   ❌ 所有JSON解析方法都失败，使用默认错误结构")
+        # 返回一个完整的、有效格式的JSON结构
         return {
+            "id": "PARSE_ERROR",
             "conversation": {
                 "turns": [{
                     "user_input": {
                         "type": "text",
-                        "content": "无法解析的内容"
+                        "content": "无法解析API响应内容"
+                    },
+                    "context": {
+                        "requires_context": False,
+                        "depends_on": []
                     },
                     "expected_behavior": {
                         "steps": [{
                             "step": 1,
                             "type": "finish",
-                            "expected_response": "无法解析响应"
+                            "expected_response": "我正在理解您的需求，请稍等片刻或尝试重新描述您的请求。"
                         }]
                     }
                 }]
             }
         }
+
+    def _try_fix_json(self, json_str: str) -> Optional[str]:
+        """尝试修复常见的JSON格式问题"""
+        import re
+        try:
+            # 移除可能的尾随逗号
+            fixed = re.sub(r',(\s*[}\]])', r'\1', json_str)
+            # 修复单引号为双引号
+            fixed = re.sub(r"'([^']*)':", r'"\1":', fixed)
+            fixed = re.sub(r": '([^']*)'", r': "\1"', fixed)
+            # 修复未闭合的字符串
+            fixed = self._fix_unclosed_strings(fixed)
+            # 修复换行符
+            fixed = fixed.replace('\n', '\\n').replace('\r', '\\r')
+            # 修复制表符
+            fixed = fixed.replace('\t', '\\t')
+            return fixed
+        except Exception as e:
+            print(f"   ⚠️  JSON修复尝试失败: {str(e)[:50]}")
+            return None
+
+    def _fix_unclosed_strings(self, json_str: str) -> str:
+        """修复未闭合的字符串"""
+        # 计算字符串中未闭合的双引号数量
+        double_quotes = json_str.count('"') - json_str.count('\\"')
+        # 如果是奇数，说明有未闭合的字符串
+        if double_quotes % 2 == 1:
+            # 在最后添加闭合引号
+            json_str = json_str.rstrip() + '"'
+        return json_str
+
+    async def _parse_json_with_retry(self, response: str, max_retries: int = 3) -> Dict:
+        """使用多种策略重试解析JSON"""
+        import json
+        import re
+
+        print(f"   📄 开始JSON解析，响应长度: {len(response)} 字符")
+
+        # 策略1: 直接解析
+        try:
+            result = json.loads(response)
+            print(f"   ✅ 策略1成功: 直接JSON解析")
+            return result
+        except Exception as e:
+            print(f"   ⚠️  策略1失败: {str(e)[:100]}")
+
+        # 策略2: 从代码块中提取
+        try:
+            json_pattern = r'```(?:json)?\s*(\{[\s\S]*?\})\s*```'
+            match = re.search(json_pattern, response, re.DOTALL)
+            if match:
+                result = json.loads(match.group(1))
+                print(f"   ✅ 策略2成功: 从代码块提取JSON")
+                return result
+        except Exception as e:
+            print(f"   ⚠️  策略2失败: {str(e)[:100]}")
+
+        # 策略3: 提取第一个完整的JSON对象
+        try:
+            json_pattern = r'\{(?:[^{}]|\{[^{}]*\})*\}'
+            match = re.search(json_pattern, response, re.DOTALL)
+            if match:
+                # 尝试修复JSON
+                fixed_json = self._try_fix_json(match.group())
+                if fixed_json:
+                    result = json.loads(fixed_json)
+                    print(f"   ✅ 策略3成功: 提取并修复JSON对象")
+                    return result
+        except Exception as e:
+            print(f"   ⚠️  策略3失败: {str(e)[:100]}")
+
+        # 策略4: 逐行清理和修复
+        for retry in range(max_retries):
+            try:
+                print(f"   🔄 策略4重试 {retry + 1}/{max_retries}")
+
+                # 清理响应文本
+                cleaned = response.strip()
+
+                # 如果有markdown代码块标记，提取内容
+                if cleaned.startswith('```'):
+                    # 移除开头的```和可能的json标记
+                    cleaned = re.sub(r'^```[a-zA-Z]*\s*', '', cleaned)
+                    # 移除结尾的```
+                    cleaned = re.sub(r'\s*```$', '', cleaned)
+
+                # 尝试直接解析
+                result = json.loads(cleaned)
+                print(f"   ✅ 策略4成功: 清理后解析")
+                return result
+            except Exception as e:
+                error_msg = str(e)[:100]
+                print(f"   ⚠️  策略4重试 {retry + 1} 失败: {error_msg}")
+
+                # 如果不是最后一次重试，等待一下
+                if retry < max_retries - 1:
+                    await asyncio.sleep(0.5)
+
+        # 策略5: 尝试提取部分JSON并补全
+        try:
+            print(f"   🔄 策略5: 尝试提取部分JSON")
+
+            # 查找第一个{
+            first_brace = response.find('{')
+            last_brace = response.rfind('}')
+
+            if first_brace != -1 and last_brace != -1:
+                partial = response[first_brace:last_brace + 1]
+
+                # 尝试修复
+                fixed = self._try_fix_json(partial)
+                if fixed:
+                    result = json.loads(fixed)
+                    print(f"   ✅ 策略5成功: 提取部分JSON并修复")
+                    return result
+        except Exception as e:
+            print(f"   ⚠️  策略5失败: {str(e)[:100]}")
+            import traceback
+            traceback.print_exc()
+
+        # 所有策略都失败，返回默认错误结构
+        print(f"   ❌ 所有JSON解析策略都失败，使用默认错误结构")
+
+        return {
+            "id": "PARSE_ERROR",
+            "conversation": {
+                "turns": [{
+                    "user_input": {
+                        "type": "text",
+                        "content": "无法解析API响应内容"
+                    },
+                    "context": {
+                        "requires_context": False,
+                        "depends_on": []
+                    },
+                    "expected_behavior": {
+                        "steps": [{
+                            "step": 1,
+                            "type": "finish",
+                            "expected_response": "我正在理解您的需求，请稍等片刻或尝试重新描述您的请求。"
+                        }]
+                    }
+                }]
+            }
+        }
+
+    def _is_response_complete(self, response: str) -> bool:
+        """检查API响应是否完整"""
+        # 基本完整性检查
+        # 1. 检查是否有未闭合的大括号
+        open_braces = response.count('{')
+        close_braces = response.count('}')
+        if open_braces != close_braces:
+            return False
+
+        # 2. 检查是否有未闭合的方括号
+        open_brackets = response.count('[')
+        close_brackets = response.count(']')
+        if open_brackets != close_brackets:
+            return False
+
+        # 3. 检查是否以完整JSON结构结尾（以}结尾）
+        stripped = response.strip()
+        if not stripped.endswith('}') and not stripped.endswith(']'):
+            return False
+
+        # 4. 检查响应长度是否过短（可能截断）
+        if len(response) < 200:
+            return False
+
+        return True
+
+    def _is_unclear_response(self, response: str) -> bool:
+        """检查响应是否包含无法理解的提示"""
+        unclear_patterns = [
+            "抱歉，我无法理解",
+            "无法理解您的请求",
+            "重新描述",
+            "无法处理",
+            "无法解析",
+            "我无法理解",
+            "抱歉，无法",
+            "无法帮助您",
+            "无法完成",
+            "无法识别",
+            "不清楚您的需求",
+            "请重新描述",
+            "重新提问",
+            "I cannot understand",
+            "Sorry, I can't",
+            "Unable to understand",
+            "I'm sorry, I cannot"
+        ]
+
+        response_lower = response.lower()
+        for pattern in unclear_patterns:
+            if pattern.lower() in response_lower:
+                return True
+
+        # 检查响应是否过短且没有JSON结构
+        if len(response.strip()) < 50 and '{' not in response and '[' not in response:
+            return True
+
+        return False
 
     def _extract_required_tools(self, turns: List[Dict]) -> List[str]:
         """提取所有需要的工具"""
@@ -683,12 +999,13 @@ async def main():
     parser = argparse.ArgumentParser(description='多轮Excel测试用例生成器')
     parser.add_argument('--count', type=int, help='测试指定数量的数据（例如：--count 2）')
     parser.add_argument('--all', action='store_true', help='测试所有数据')
+    parser.add_argument('--failed', action='store_true', help='只生成之前失败的测试用例')
     parser.add_argument('--excel', required=True, help='Excel文件路径（例如：多轮.xlsx）')
     parser.add_argument('--output', default='multi_turn_test_cases.json', help='输出JSON文件名（默认：multi_turn_test_cases.json）')
     args = parser.parse_args()
 
-    if not args.count and not args.all:
-        print("错误：必须指定 --count 或 --all 参数")
+    if not args.count and not args.all and not args.failed:
+        print("错误：必须指定 --count、--all 或 --failed 参数")
         return
 
     print("=" * 80)
@@ -705,7 +1022,7 @@ async def main():
     generator = MultiTurnTestCaseGenerator()
 
     # 初始化
-    print("正在初始化GPT-4.1...")
+    print("正在初始化Gemini-3-Flash-Preview...")
     await generator.initialize()
     print("初始化完成！\n")
 
@@ -722,6 +1039,15 @@ async def main():
         start_idx = 0
         end_idx = len(df)
         total_count = end_idx - start_idx
+    elif args.failed:
+        print(f"🚀 开始生成多轮测试用例 (只重新生成失败的用例)")
+        # 有问题的测试用例对应的行索引
+        # MULTI_TURN_028, MULTI_TURN_034
+        failed_indices = [1, 7]  # 对应Excel中的行号-1
+        start_idx = min(failed_indices)
+        end_idx = max(failed_indices) + 1
+        total_count = len(failed_indices)
+        print(f"   失败的行索引: {failed_indices}")
     else:
         count = args.count
         print(f"🚀 开始生成多轮测试用例 (指定数量: {count})")
@@ -735,15 +1061,23 @@ async def main():
     successful = 0
     failed = 0
 
+    # 确定要处理的具体行
+    if args.failed:
+        # 只处理失败的行
+        indices_to_process = [1, 7]  # Excel行索引-1
+    else:
+        # 处理指定范围内的所有行
+        indices_to_process = list(range(start_idx, end_idx))
+
     # 处理数据
-    for idx in range(start_idx, end_idx):
+    for idx in indices_to_process:
         try:
             # 获取一行数据（包含多个轮次）
             row_data = df.iloc[idx].to_dict()
 
-            test_case_id = f"MULTI_TURN_{idx:03d}"
+            test_case_id = f"MULTI_TURN_{idx + 27:03d}"
 
-            print(f"\n[进度] {idx - start_idx + 1}/{total_count}")
+            print(f"\n[进度] {indices_to_process.index(idx) + 1}/{total_count}")
             print(f"   测试用例ID: {test_case_id}")
             print(f"   User ID将使用: {generator._generate_unique_user_id()[:30]}...")
 
@@ -768,7 +1102,13 @@ async def main():
             failed += 1
 
     # 保存到JSON文件
-    output_file = args.output
+    if args.failed:
+        # 如果是重新生成失败的用例，使用不同的输出文件名
+        timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+        output_file = f'multi_turn_failed_retries_{timestamp}.json'
+    else:
+        output_file = args.output
+
     with open(output_file, 'w', encoding='utf-8') as f:
         json.dump(all_test_cases, f, ensure_ascii=False, indent=2)
 
@@ -789,6 +1129,7 @@ async def main():
     print(f"\n🔧 使用方式:")
     print(f"   • 测试前2条: python generate_multi_turn.py --count 2 --excel {args.excel}")
     print(f"   • 测试所有数据: python generate_multi_turn.py --all --excel {args.excel}")
+    print(f"   • 重新生成失败用例: python generate_multi_turn.py --failed --excel {args.excel}")
 
 
 if __name__ == "__main__":

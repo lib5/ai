@@ -1,0 +1,802 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "user_20260113_115811_649",
+    "session_id": "856d71ac-371d-4fb4-9aca-05e8490c59d3",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 12,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "379d9da3-3823-4087-8fef-de1f2fa8dee6"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人“老徐”的信息...",
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438972631
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "start"
+              },
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438972666
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"老徐\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438972967
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您新建联系人“老徐”，生日设置为",
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438975323
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "8月8日。",
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438975492
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"2026-08-08\"}",
+                "status": "start"
+              },
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438975536
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"老徐\", \"birthday\": \"2026-08-08\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"ebd4d1d6-d577-4453-b771-a419a93e6ac4\",\n    \"name\": \"老徐\",\n    \"company\": null,\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"老徐，预计2026年8月8日生日，信息有限暂难知更多特点。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T22:49:36.797484\",\n    \"birthday\": \"2026-08-08\",\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438976923
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "老徐",
+                  "company": null,
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": null,
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": "2026-08-08",
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "ebd4d1d6-d577-4453-b771-a419a93e6ac4",
+                "id": "ebd4d1d6-d577-4453-b771-a419a93e6ac4"
+              },
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438976925
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您新建联系人“老徐”，生日",
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438979225
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "设定为8月8日。",
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438979376
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "71353c52-1018-4754-ae2d-72b13cd5851c",
+              "timestamp": 1769438979661
+            }
+          ],
+          "trace_id": "4c0ab334-3447-47b5-9ffb-2154724f7e92",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_search",
+              "parameters": {
+                "query": "老徐"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "items": [],
+                  "total": 0
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "老徐",
+                "birthday": "08-08"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "contact_123456",
+                  "name": "老徐",
+                  "birthday": "08-08",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "已成功创建联系人：老徐，生日：08-08"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T22:54:17.427019",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115822_321",
+    "execution_user_id": "user_20260113_115822_321",
+    "session_id": "d4119b01-b29b-4d38-93b5-6a535e3799b6",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset_quantity/images/四点开会.png"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 23,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "3673c2e1-fa58-4fc9-bcc6-2143bb327b2e"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您记录",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769438999943
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "图片中的会议日程：2025年6月9日 16:00-16:30 的“中石油华北&BISHENG交流”。",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769438999961
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"中石油华北&BISHENG交流\", \"start_time\": \"2025-06-09T16:00:00\", \"end_time\": \"2025-06-09T16:30:00\", \"location\": \"腾讯会议\", \"description\": \"线上对一下报告生成的具体细节。\", \"category\": \"meeting\"}",
+                "status": "start"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769438999987
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "schedules_create",
+                "name_cn": "创建日程",
+                "arguments": "{\"title\": \"中石油华北&BISHENG交流\", \"start_time\": \"2025-06-09T16:00:00\", \"end_time\": \"2025-06-09T16:30:00\", \"location\": \"腾讯会议\", \"description\": \"线上对一下报告生成的具体细节。\", \"category\": \"meeting\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"a0fa906c-942e-474d-8524-0ad02fc369f7\",\n    \"title\": \"中石油华北&BISHENG交流\",\n    \"start_time\": \"2025-06-09T16:00:00\",\n    \"end_time\": \"2025-06-09T16:30:00\",\n    \"full_day\": null,\n    \"reminder_time\": \"-5m\",\n    \"category\": \"meeting\",\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T22:50:00.041044\"\n  }\n}"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439000261
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "schedule",
+                "data": {
+                  "title": "中石油华北&BISHENG交流",
+                  "description": "线上对一下报告生成的具体细节。",
+                  "start_time": "2025-06-09T16:00:00",
+                  "end_time": "2025-06-09T16:30:00",
+                  "full_day": null,
+                  "location": "腾讯会议",
+                  "participants": null,
+                  "category": "meeting",
+                  "reminder_time": "-5m"
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "a0fa906c-942e-474d-8524-0ad02fc369f7",
+                "id": "a0fa906c-942e-474d-8524-0ad02fc369f7"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439000264
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人信息...",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439014285
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"袁宏\"}",
+                "status": "start"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439014316
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"袁宏\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439014577
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您创建联系人 袁宏",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439028376
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"袁宏\", \"company\": \"中石油工程华北\"}",
+                "status": "start"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439028401
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"袁宏\", \"company\": \"中石油工程华北\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"54386f0c-113f-47a6-9c4c-48a7b920b247\",\n    \"name\": \"袁宏\",\n    \"company\": \"中石油工程华北\",\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"袁宏，就职于中石油工程华北，在石油工程领域有相关工作经历。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T22:50:29.872350\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439030019
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "袁宏",
+                  "company": "中石油工程华北",
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": null,
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "54386f0c-113f-47a6-9c4c-48a7b920b247",
+                "id": "54386f0c-113f-47a6-9c4c-48a7b920b247"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439030022
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人“贾盛楠”",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439040419
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "的信息...",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439040419
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"贾盛楠\"}",
+                "status": "start"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439040461
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"贾盛楠\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439040730
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您创建联系人贾盛楠...",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439049282
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"贾盛楠\", \"company\": \"中石油工程华北\"}",
+                "status": "start"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439049315
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"贾盛楠\", \"company\": \"中石油工程华北\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"90b6ca69-2184-4880-aa86-baba6eb6db33\",\n    \"name\": \"贾盛楠\",\n    \"company\": \"中石油工程华北\",\n    \"position\": null,\n    \"phone\": null,\n    \"email\": null,\n    \"wechat\": null,\n    \"address\": null,\n    \"notes\": null,\n    \"impression\": \"贾盛楠，就职于中石油工程华北，有石油工程相关工作背景。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T22:50:50.251955\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439050560
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "贾盛楠",
+                  "company": "中石油工程华北",
+                  "position": null,
+                  "phone": null,
+                  "email": null,
+                  "wechat": null,
+                  "address": null,
+                  "notes": null,
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "90b6ca69-2184-4880-aa86-baba6eb6db33",
+                "id": "90b6ca69-2184-4880-aa86-baba6eb6db33"
+              },
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439050562
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您创建日程并保存相关联系人信息。",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439062692
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "82586482-9378-4f10-b0e1-c811b0c801ce",
+              "timestamp": 1769439063368
+            }
+          ],
+          "trace_id": "e6fdb43b-9285-4ac7-a7e3-31d32caf07ba",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "中石油华北&BISHENG交流",
+                "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                "start_time": "2025-06-09T16:00:00",
+                "end_time": "2025-06-09T16:30:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "SCHEDULE_12345",
+                  "title": "中石油华北&BISHENG交流",
+                  "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                  "start_time": "2025-06-09T16:00:00",
+                  "end_time": "2025-06-09T16:30:00",
+                  "category": "meeting",
+                  "created_at": "2025-06-09 19:24:00"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建中石油华北&BISHENG交流的日程，时间为2025-06-09 16:00-16:30，参与人员包括贾盛楠、袁宏、贺老师。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T22:55:41.138052",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_002",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115846_923",
+    "execution_user_id": "user_20260113_115846_923",
+    "session_id": "5dd4f947-ffd8-41ec-96ff-95484c638979",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset_quantity/images/添加名片.png"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 11,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "1e634e67-e9bd-4a0e-8434-5c1add5257af"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人林毅杰的信息...",
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439074759
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"林毅杰\"}",
+                "status": "start"
+              },
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439074775
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"林毅杰\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439075025
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您创建联系人：林毅杰（",
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439081610
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "国方创新 运营总监）。",
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439081939
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\", \"position\": \"运营总监\", \"phone\": \"13585655800\", \"email\": \"linyijie@growth.sh.cn\", \"address\": \"上海市静安区威海路511号19楼\", \"notes\": \"座机：021-60151998\", \"industry\": \"金融\"}",
+                "status": "start"
+              },
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439082008
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\", \"position\": \"运营总监\", \"phone\": \"13585655800\", \"email\": \"linyijie@growth.sh.cn\", \"address\": \"上海市静安区威海路511号19楼\", \"notes\": \"座机：021-60151998\", \"industry\": \"金融\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"1b667ccc-679f-45a7-afd4-5649c6742956\",\n    \"name\": \"林毅杰\",\n    \"company\": \"上海国方私募基金管理有限公司\",\n    \"position\": \"运营总监\",\n    \"phone\": \"13585655800\",\n    \"email\": \"linyijie@growth.sh.cn\",\n    \"wechat\": null,\n    \"address\": \"上海市静安区威海路511号19楼\",\n    \"notes\": \"座机：021-60151998\",\n    \"impression\": \"林毅杰，上海国方私募运营总监，金融行业，有电话、邮箱，公司在上海静安区。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-26T22:51:23.544032\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": \"金融\",\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439083661
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "林毅杰",
+                  "company": "上海国方私募基金管理有限公司",
+                  "position": "运营总监",
+                  "phone": "13585655800",
+                  "email": "linyijie@growth.sh.cn",
+                  "wechat": null,
+                  "address": "上海市静安区威海路511号19楼",
+                  "notes": "座机：021-60151998",
+                  "relationship_type": null,
+                  "industry": "金融",
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "1b667ccc-679f-45a7-afd4-5649c6742956",
+                "id": "1b667ccc-679f-45a7-afd4-5649c6742956"
+              },
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439083663
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您将名片信息录入联系人。",
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439090411
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "e0b44092-30df-4517-ac20-65fb300a4b3d",
+              "timestamp": 1769439090836
+            }
+          ],
+          "trace_id": "70e9519e-1d52-4619-abd9-750a19751d5a",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "林毅杰",
+                "company": "上海国方私募基金管理有限公司",
+                "position": "运营总监",
+                "phone": "021-60151998,13585655800",
+                "email": "linyijie@growth.sh.cn",
+                "address": "上海市静安区威海路511号19楼 200041"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "contact_id": "c_123456",
+                  "name": "林毅杰",
+                  "company": "上海国方私募基金管理有限公司",
+                  "position": "运营总监",
+                  "phone": [
+                    "021-60151998",
+                    "13585655800"
+                  ],
+                  "email": "linyijie@growth.sh.cn",
+                  "address": "上海市静安区威海路511号19楼 200041",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建联系人林毅杰，职位是上海国方私募基金管理有限公司运营总监，联系电话021-60151998、13585655800，邮箱linyijie@growth.sh.cn，地址上海市静安区威海路511号19楼 200041。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T22:56:08.607224",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  }
+]

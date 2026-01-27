@@ -1,0 +1,1622 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "user_20260113_115811_649",
+    "session_id": "d30ac452-3ece-481e-81e6-0d290bdc7f60",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 92,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "88f4cb84-25eb-4b28-ada0-91bec5ea8b5a"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622423
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "创建",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622444
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "联系",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622487
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "人",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622551
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "“",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622554
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "老",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622555
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "徐",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622575
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "”，",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622599
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "需要",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622624
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "确认",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622652
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "生日",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622681
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "年",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622705
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "份",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622736
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "。",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622756
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "由于",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622851
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "用户",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622852
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "只",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622855
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "提供了",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622859
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "“",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622887
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "8",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622912
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "月",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622939
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "8",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622968
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "号",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421622993
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "”，",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623020
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "未",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623093
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "指定",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623100
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "年",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623103
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "份",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623127
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623156
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "我",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623185
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "将",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623213
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "默认",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623250
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "使用",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623286
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "2",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623300
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623321
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "2",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623343
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "6",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623415
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "年",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623419
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "（",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623426
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "当前",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623456
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "年",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623484
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "份",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623513
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "）",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623532
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "作为",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623596
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "生日",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623597
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "年",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623611
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "份",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623635
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "。",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421623704
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"\\u8001\\u5f90\"}",
+                "status": "start"
+              },
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421624586
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"\\u8001\\u5f90\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421624796
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626380
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "为您",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626412
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "创建",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626433
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "明天",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626549
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "（",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626551
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626554
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "月",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626557
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "2",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626575
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "7",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626598
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "日",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626638
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626712
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "星期",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626714
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "二",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626736
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "）",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626753
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626767
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "8",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626786
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": ":",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626811
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626882
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626885
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "-",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626894
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626924
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "9",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626950
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": ":",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421626977
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627006
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627056
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "与",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627116
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "江",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627246
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "涵",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627250
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "的",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627253
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "会议",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627260
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "日",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627262
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "程",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627411
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627440
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "提醒",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627491
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "时间为",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627504
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "会议",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627510
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "前",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627517
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "5",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627520
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "分钟",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627525
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "。",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421627596
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "be0289b3-aefe-47a8-b4ab-8d1be5fe6d62",
+              "timestamp": 1769421629799
+            }
+          ],
+          "trace_id": "f3d66d65-096b-4aad-85ff-fa8ac19e10eb"
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T18:05:06.643980"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115822_321",
+    "execution_user_id": "user_20260113_115822_321",
+    "session_id": "b68807c8-2cc2-4e80-ac97-640a5ca96e7d",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset_quantity/images/四点开会.png"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 130,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "df835443-ce24-41a7-b434-5aa355100380"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "图片",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421623828
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "内容",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421623851
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "为",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421623894
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "一段",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421623982
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "会议",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421623985
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "邀",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421623988
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "约",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421623990
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "聊天",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624014
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "记录",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624034
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624087
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "确认",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624103
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "了",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624128
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "‘",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624177
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "中",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624179
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "石油",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624277
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "华北",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624280
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "&B",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624283
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "ISH",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624296
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "ENG",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624342
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "交流",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624389
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "’",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624403
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "会议",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624480
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "时间为",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624482
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "2",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624485
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624512
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "2",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624538
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "5",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624633
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "年",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624636
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "6",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624646
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "月",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624651
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "9",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624701
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "日",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624716
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624744
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "6",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624833
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": ":",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624835
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624837
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624862
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "-",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624884
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624920
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "6",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624944
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": ":",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421624997
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "3",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625002
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625058
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "（",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625060
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "北京时间",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625073
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "）。",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625148
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "该",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625152
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "信息",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625162
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "与",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625193
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "当前",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625220
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "任务",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625249
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "‘",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625279
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "新建",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625309
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "人脉",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625336
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "老",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625423
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "徐",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625426
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625433
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "生日",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625458
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "是",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625487
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "8",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625519
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "月",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625545
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "8",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625575
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "号",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625601
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "’",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625632
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "无",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625687
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "直接",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625697
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "关联",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625771
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "。",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625772
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "我",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625788
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "将",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625841
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "先",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625844
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "查询",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625861
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "是否存在",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625894
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "名为",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625927
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "‘",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625960
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "老",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421625998
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "徐",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626070
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "’",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626075
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "的",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626078
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "联系",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626089
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "人",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626117
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626146
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "避免",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626173
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "重复",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626202
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "创建",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626230
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "。",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421626305
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"\\u8001\\u5f90\"}",
+                "status": "start"
+              },
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421627237
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"\\u8001\\u5f90\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421627425
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629560
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "为您",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629594
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "创建",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629629
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "明天",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629705
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "（",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629707
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629728
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "月",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629757
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "2",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629778
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "7",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629809
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "日",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629848
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629864
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "星期",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629910
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "二",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629919
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "）",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629952
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421629981
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "8",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630014
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": ":",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630058
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630125
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630127
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "-",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630137
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "1",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630167
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "9",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630231
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": ":",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630241
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630300
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "0",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630304
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "与",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630355
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "江",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630358
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "涵",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630375
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "的",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630406
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "会议",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630440
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "日",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630466
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "程",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630541
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "，",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630541
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "提醒",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630570
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "时间为",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630586
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "会议",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630617
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "前",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630649
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "5",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630683
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "分钟",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630705
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "。",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421630807
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "6ad7f9a9-c50c-4ea1-afff-37a6fb8d8e76",
+              "timestamp": 1769421632930
+            }
+          ],
+          "trace_id": "b3937bc4-83a2-483a-a99b-99dcd8a3ba64"
+        }
+      }
+    ],
+    "timestamp": "2026-01-26T18:05:09.775300"
+  }
+]
