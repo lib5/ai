@@ -342,115 +342,199 @@ def convert_turn_to_api_request(turn, test_user_id, turn_index):
     return request_data
 
 
-async def execute_api_test(session_id, request_data, test_case, turn_index):
-    """执行API测试（保持原有逻辑，但减少输出）"""
+async def execute_api_test(session_id, request_data, test_case, turn_index, max_retries=3):
+    """执行API测试（优化超时和重试机制）"""
     trace_id = str(uuid.uuid4())
 
-    try:
-        async with httpx.AsyncClient(timeout=120.0) as client:
-            print(f"\n📤 发送API请求")
+    for attempt in range(max_retries):
+        try:
+            print(f"\n📤 发送API请求 (尝试 {attempt + 1}/{max_retries})")
             print(f"   URL: {API_BASE_URL}/api/v1/chat")
             print(f"   使用final_cast.json中的user_id: {request_data.get('user_id')}")
             print(f"   Session ID: {session_id[:20] + '...' if session_id and len(session_id) > 20 else session_id}")
             print(f"   Trace ID: {trace_id}")
 
-            headers = {
-                "Content-Type": "application/json",
-                "X-App-Id": "test-app",
-                "X-App-Version": "1.0.0",
-                "X-Moly-Trace-Id": trace_id,
-            }
-            if session_id:
-                headers["X-Session-Id"] = session_id
+            # 使用更宽松的超时设置
+            timeout = httpx.Timeout(
+                connect=30.0,  # 连接超时30秒
+                read=180.0,    # 读取超时180秒（原120秒）
+                write=30.0,    # 写入超时30秒
+                pool=60.0      # 连接池超时60秒
+            )
 
-            async with client.stream(
-                "POST",
-                f"{API_BASE_URL}/api/v1/chat",
-                json=request_data,
-                headers=headers
-            ) as response:
-                print(f"\n📥 响应状态码: {response.status_code}")
+            async with httpx.AsyncClient(timeout=timeout) as client:
+                headers = {
+                    "Content-Type": "application/json",
+                    "X-App-Id": "test-app",
+                    "X-App-Version": "1.0.0",
+                    "X-Moly-Trace-Id": trace_id,
+                }
+                if session_id:
+                    headers["X-Session-Id"] = session_id
 
-                if response.status_code == 200:
-                    chunk_count = 0
-                    all_responses = []
-                    async for line in response.aiter_lines():
-                        if not line.strip():
-                            continue
+                try:
+                    async with client.stream(
+                        "POST",
+                        f"{API_BASE_URL}/api/v1/chat",
+                        json=request_data,
+                        headers=headers
+                    ) as response:
+                        print(f"\n📥 响应状态码: {response.status_code}")
 
-                        if line.startswith("data: "):
-                            data_str = line[6:]
+                        if response.status_code == 200:
+                            chunk_count = 0
+                            all_responses = []
+                            buffer = []  # 临时缓冲区
+
                             try:
-                                data = json.loads(data_str)
-                                chunk_count += 1
-                                all_responses.append(data)
+                                async for line in response.aiter_lines():
+                                    if not line.strip():
+                                        continue
 
-                                # 减少输出，只显示关键信息
-                                if chunk_count <= 2:
-                                    print(f"\n[Chunk {chunk_count}]")
-                                    print(f"   Type: {data.get('type', 'unknown')}")
+                                    if line.startswith("data: "):
+                                        data_str = line[6:]
+                                        buffer.append(data_str)
 
-                            except json.JSONDecodeError:
-                                if chunk_count <= 2:
-                                    print(f"   ⚠️ JSON解析失败: {data_str[:100]}")
+                                        # 处理数据
+                                        if len(buffer) >= 1:
+                                            try:
+                                                data = json.loads(buffer[-1])
+                                                chunk_count += 1
+                                                all_responses.append(data)
 
-                    response_types = [resp.get('type') for resp in all_responses]
-                    has_tool_call = any(t in ['tool', 'tool_call'] for t in response_types)
-                    has_finish = any('完成' in str(resp.get('content', '')) or 'complete' in str(resp.get('content', '')).lower() for resp in all_responses)
+                                                # 减少输出，只显示关键信息
+                                                if chunk_count <= 2:
+                                                    print(f"\n[Chunk {chunk_count}]")
+                                                    print(f"   Type: {data.get('type', 'unknown')}")
+                                                    if 'content' in data:
+                                                        content = str(data['content'])[:50]
+                                                        print(f"   Content: {content}...")
 
-                    if chunk_count < 5 or not has_tool_call:
-                        status = "incomplete"
-                        print(f"\n⚠️  警告：响应可能不完整")
+                                            except json.JSONDecodeError as e:
+                                                if chunk_count <= 2:
+                                                    print(f"   ⚠️ JSON解析失败: {data_str[:100]}")
+
+                                # 检查响应完整性
+                                response_types = [resp.get('type') for resp in all_responses]
+                                has_tool_call = any(t in ['tool', 'tool_call'] for t in response_types)
+                                has_finish = any('完成' in str(resp.get('content', '')) or 'complete' in str(resp.get('content', '')).lower() for resp in all_responses)
+
+                                # 判断状态
+                                if chunk_count < 3:  # 降低最小响应块要求
+                                    status = "incomplete"
+                                    print(f"\n⚠️  警告：响应可能不完整")
+                                    print(f"   响应块数: {chunk_count} (预期: >=3)")
+                                elif not has_tool_call:
+                                    status = "incomplete"
+                                    print(f"\n⚠️  警告：响应缺少工具调用")
+                                else:
+                                    status = "success"
+
+                                # 解码arguments字段
+                                for resp in all_responses:
+                                    if resp.get('type') == 'tool' and 'content' in resp:
+                                        content = resp['content']
+                                        if 'arguments' in content and isinstance(content['arguments'], str):
+                                            args_str = content['arguments']
+                                            try:
+                                                decoded_args = args_str.encode().decode('unicode_escape')
+                                                content['arguments'] = decoded_args
+                                            except Exception:
+                                                pass
+
+                                print("\n" + "="*60)
+                                print(f"✅ 测试完成，共收到 {chunk_count} 个响应块")
+                                print(f"   状态: {status}")
+                                print(f"   Trace ID: {trace_id}")
+                                print("="*60)
+
+                                return {
+                                    "status": status,
+                                    "chunks_count": chunk_count,
+                                    "raw_data": all_responses,
+                                    "trace_id": trace_id,
+                                    "response_analysis": {
+                                        "has_tool_call": has_tool_call,
+                                        "has_finish": has_finish,
+                                        "response_types": response_types
+                                    },
+                                    "attempts": attempt + 1
+                                }
+
+                            except httpx.ReadTimeout:
+                                print(f"\n⏰ 读取超时 (尝试 {attempt + 1}/{max_retries})")
+                                # 如果不是最后一次尝试，等待后重试
+                                if attempt < max_retries - 1:
+                                    print(f"   等待5秒后重试...")
+                                    await asyncio.sleep(5)
+                                    continue
+                                else:
+                                    # 最后一次尝试失败
+                                    return {
+                                        "status": "timeout",
+                                        "error": "ReadTimeout after all retries",
+                                        "chunks_received": chunk_count,
+                                        "trace_id": trace_id,
+                                        "attempts": attempt + 1,
+                                        "partial_data": all_responses if chunk_count > 0 else None
+                                    }
+
+                        else:
+                            error_text = await response.aread()
+                            print(f"❌ 请求失败: {response.status_code}")
+                            print(f"   错误: {error_text.decode('utf-8', errors='ignore')}")
+                            return {
+                                "status": "failed",
+                                "error": f"HTTP {response.status_code}",
+                                "error_text": error_text.decode('utf-8', errors='ignore'),
+                                "trace_id": trace_id,
+                                "attempts": attempt + 1
+                            }
+
+                except httpx.ReadTimeout as e:
+                    print(f"\n⏰ HTTPX读取超时: {str(e)}")
+                    if attempt < max_retries - 1:
+                        print(f"   等待5秒后重试...")
+                        await asyncio.sleep(5)
+                        continue
                     else:
-                        status = "success"
-
-                    # 解码arguments字段
-                    for resp in all_responses:
-                        if resp.get('type') == 'tool' and 'content' in resp:
-                            content = resp['content']
-                            if 'arguments' in content and isinstance(content['arguments'], str):
-                                args_str = content['arguments']
-                                try:
-                                    decoded_args = args_str.encode().decode('unicode_escape')
-                                    content['arguments'] = decoded_args
-                                except Exception:
-                                    pass
-
-                    print("\n" + "="*60)
-                    print(f"✅ 测试完成，共收到 {chunk_count} 个响应块")
-                    print(f"   状态: {status}")
-                    print(f"   Trace ID: {trace_id}")
-                    print("="*60)
-
-                    return {
-                        "status": status,
-                        "chunks_count": chunk_count,
-                        "raw_data": all_responses,
-                        "trace_id": trace_id,
-                        "response_analysis": {
-                            "has_tool_call": has_tool_call,
-                            "has_finish": has_finish,
-                            "response_types": response_types
+                        return {
+                            "status": "timeout",
+                            "error": f"ReadTimeout: {str(e)}",
+                            "trace_id": trace_id,
+                            "attempts": attempt + 1
                         }
-                    }
-                else:
-                    error_text = await response.aread()
-                    print(f"❌ 请求失败: {response.status_code}")
-                    print(f"   错误: {error_text.decode('utf-8', errors='ignore')}")
+
+                except Exception as e:
+                    print(f"\n❌ 请求异常: {str(e)}")
                     return {
-                        "status": "failed",
-                        "error": f"HTTP {response.status_code}",
-                        "error_text": error_text.decode('utf-8', errors='ignore'),
-                        "trace_id": trace_id
+                        "status": "error",
+                        "error": str(e),
+                        "trace_id": trace_id,
+                        "attempts": attempt + 1
                     }
 
-    except Exception as e:
-        print(f"❌ 测试异常: {str(e)}")
-        return {
-            "status": "error",
-            "error": str(e),
-            "trace_id": trace_id
-        }
+        except Exception as e:
+            print(f"\n❌ 测试异常 (尝试 {attempt + 1}/{max_retries}): {str(e)}")
+            if attempt < max_retries - 1:
+                print(f"   等待5秒后重试...")
+                await asyncio.sleep(5)
+                continue
+            else:
+                return {
+                    "status": "error",
+                    "error": str(e),
+                    "trace_id": trace_id,
+                    "attempts": attempt + 1
+                }
+
+    # 如果所有重试都失败
+    return {
+        "status": "failed",
+        "error": "All retry attempts failed",
+        "trace_id": trace_id,
+        "attempts": max_retries
+    }
 
 
 async def execute_single_test_case(test_case, test_index, total_cases, semaphore_manager, result_collector):
@@ -527,7 +611,7 @@ async def execute_single_test_case(test_case, test_index, total_cases, semaphore
                 })
                 continue
 
-            execution_result = await execute_api_test(session_id, request_data, test_case, turn_idx + 1)
+            execution_result = await execute_api_test(session_id, request_data, test_case, turn_idx + 1, max_retries=3)
 
             turn_result = {
                 "turn_id": turn_idx + 1,

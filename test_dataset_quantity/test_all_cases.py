@@ -40,7 +40,7 @@ PROJECT_ROOT = SCRIPT_DIR
 # API配置
 
 ## 环境地址 开发环境28000  测试环境8000 
-API_BASE_URL = os.getenv("TEST_BASE_URL", "http://192.168.106.108:28000")
+API_BASE_URL = os.getenv("TEST_BASE_URL", "http://192.168.106.108:8000")
 print(f"API_BASE_URL: {API_BASE_URL}")
 
 

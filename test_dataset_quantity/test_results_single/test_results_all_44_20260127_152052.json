@@ -1,0 +1,358 @@
+[
+  {
+    "test_case_id": "TEST_EXCEL_000",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115811_649",
+    "execution_user_id": "user_20260113_115811_649",
+    "session_id": "8f307138-8a47-46ed-8950-919328d9d70e",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "text",
+          "content": "新建人脉老徐，生日是8月8号"
+        },
+        "execution_result": {
+          "status": "error",
+          "error": "",
+          "trace_id": "51f8aa7e-82f3-4a94-a160-b14530ca5680"
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_search",
+              "parameters": {
+                "query": "老徐"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "items": [],
+                  "total": 0
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "老徐",
+                "birthday": "08-08"
+              }
+            },
+            {
+              "step": 4,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "contact_123456",
+                  "name": "老徐",
+                  "birthday": "08-08",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 5,
+              "type": "finish",
+              "expected_response": "已成功创建联系人：老徐，生日：08-08"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-27T15:18:05.154592",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_001",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115822_321",
+    "execution_user_id": "user_20260113_115822_321",
+    "session_id": "75784ae5-56d8-442e-82c9-e9ebcc10883b",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset/images/四点开会.png"
+        },
+        "execution_result": {
+          "status": "error",
+          "error": "",
+          "trace_id": "4666fa85-23bb-41da-9efa-6f8080049717"
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "schedules_create",
+              "parameters": {
+                "title": "中石油华北&BISHENG交流",
+                "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                "start_time": "2025-06-09T16:00:00",
+                "end_time": "2025-06-09T16:30:00",
+                "category": "meeting"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "id": "SCHEDULE_12345",
+                  "title": "中石油华北&BISHENG交流",
+                  "description": "讨论报告生成的具体细节，参与人员包括贾盛楠、袁宏、贺老师",
+                  "start_time": "2025-06-09T16:00:00",
+                  "end_time": "2025-06-09T16:30:00",
+                  "category": "meeting",
+                  "created_at": "2025-06-09 19:24:00"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建中石油华北&BISHENG交流的日程，时间为2025-06-09 16:00-16:30，参与人员包括贾盛楠、袁宏、贺老师。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-27T15:20:29.081186",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  },
+  {
+    "test_case_id": "TEST_EXCEL_002",
+    "test_mode": "single_turn",
+    "total_turns": 1,
+    "original_user_id": "user_20260113_115846_923",
+    "execution_user_id": "user_20260113_115846_923",
+    "session_id": "8eda1659-992b-43a7-8377-e9e3c21fbd84",
+    "turn_results": [
+      {
+        "turn_id": 1,
+        "user_input": {
+          "type": "image",
+          "content": "/home/libo/chatapi/test_dataset/images/添加名片.png"
+        },
+        "execution_result": {
+          "status": "success",
+          "chunks_count": 13,
+          "raw_data": [
+            {
+              "type": "task_id",
+              "task_id": "e81bc81e-d893-4c5e-bb72-5b192bc2e5ab"
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您查询联系人林毅杰的信息",
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498158647
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "...",
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498158740
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"林毅杰\"}",
+                "status": "start"
+              },
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498158853
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_search",
+                "name_cn": "搜索联系人",
+                "arguments": "{\"name\": \"林毅杰\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"items\": [],\n    \"total\": 0\n  }\n}"
+              },
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498159158
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "正在为您创建联系人：林毅杰（",
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498164549
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "上海国方私募基金管理有限公司 运营总监）",
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498164667
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\", \"position\": \"运营总监\", \"phone\": \"13585655800\", \"email\": \"linyijie@growth.sh.cn\", \"address\": \"上海市静安区威海路511号19楼\", \"notes\": \"座机：021-60151998\"}",
+                "status": "start"
+              },
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498165187
+            },
+            {
+              "role": "assistant",
+              "type": "tool",
+              "content": {
+                "name": "contacts_create",
+                "name_cn": "创建联系人",
+                "arguments": "{\"name\": \"林毅杰\", \"company\": \"上海国方私募基金管理有限公司\", \"position\": \"运营总监\", \"phone\": \"13585655800\", \"email\": \"linyijie@growth.sh.cn\", \"address\": \"上海市静安区威海路511号19楼\", \"notes\": \"座机：021-60151998\"}",
+                "status": "success",
+                "observation": "{\n  \"status\": 200,\n  \"message\": \"success\",\n  \"data\": {\n    \"id\": \"ae308ea1-5c3d-4183-a9cf-8e6696f646b9\",\n    \"name\": \"林毅杰\",\n    \"company\": \"上海国方私募基金管理有限公司\",\n    \"position\": \"运营总监\",\n    \"phone\": \"13585655800\",\n    \"email\": \"linyijie@growth.sh.cn\",\n    \"wechat\": null,\n    \"address\": \"上海市静安区威海路511号19楼\",\n    \"notes\": \"座机：021-60151998\",\n    \"impression\": \"林毅杰，上海国方私募运营总监，有手机号与邮箱，公司位于上海静安区，还有座机号。\",\n    \"avatar_url\": null,\n    \"relationship_type\": null,\n    \"status\": \"pending\",\n    \"created_at\": \"2026-01-27T15:16:06.511102\",\n    \"birthday\": null,\n    \"gender\": null,\n    \"industry\": null,\n    \"background\": null\n  }\n}"
+              },
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498166628
+            },
+            {
+              "role": "assistant",
+              "type": "card",
+              "content": {
+                "card_type": "contact",
+                "data": {
+                  "name": "林毅杰",
+                  "company": "上海国方私募基金管理有限公司",
+                  "position": "运营总监",
+                  "phone": "13585655800",
+                  "email": "linyijie@growth.sh.cn",
+                  "wechat": null,
+                  "address": "上海市静安区威海路511号19楼",
+                  "notes": "座机：021-60151998",
+                  "relationship_type": null,
+                  "industry": null,
+                  "birthday": null,
+                  "gender": null
+                },
+                "actions": [
+                  "confirm",
+                  "modify",
+                  "change_type",
+                  "cancel"
+                ],
+                "card_id": "ae308ea1-5c3d-4183-a9cf-8e6696f646b9",
+                "id": "ae308ea1-5c3d-4183-a9cf-8e6696f646b9"
+              },
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498166631
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "已为您将名片信息保存至联系人",
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498171105
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "。",
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498171202
+            },
+            {
+              "role": "assistant",
+              "type": "markdown",
+              "content": "处理完成",
+              "message_id": "43ff10de-6499-4d26-9231-01ab9f565504",
+              "timestamp": 1769498171611
+            }
+          ],
+          "trace_id": "297a054a-ef7e-44ee-827c-e0cadefa7cc1",
+          "response_analysis": {
+            "has_tool_call": true,
+            "has_finish": true,
+            "response_types": [
+              "task_id",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "markdown",
+              "markdown",
+              "tool",
+              "tool",
+              "card",
+              "markdown",
+              "markdown",
+              "markdown"
+            ]
+          }
+        },
+        "expected_behavior": {
+          "steps": [
+            {
+              "step": 1,
+              "type": "tool_call",
+              "tool_name": "contacts_create",
+              "parameters": {
+                "name": "林毅杰",
+                "company": "上海国方私募基金管理有限公司",
+                "position": "运营总监",
+                "phone": "021-60151998,13585655800",
+                "email": "linyijie@growth.sh.cn",
+                "address": "上海市静安区威海路511号19楼 200041"
+              }
+            },
+            {
+              "step": 2,
+              "type": "tool_result",
+              "result": {
+                "success": true,
+                "data": {
+                  "contact_id": "c_123456",
+                  "name": "林毅杰",
+                  "company": "上海国方私募基金管理有限公司",
+                  "position": "运营总监",
+                  "phone": [
+                    "021-60151998",
+                    "13585655800"
+                  ],
+                  "email": "linyijie@growth.sh.cn",
+                  "address": "上海市静安区威海路511号19楼 200041",
+                  "created_at": "2025-12-01T10:00:00Z"
+                }
+              }
+            },
+            {
+              "step": 3,
+              "type": "finish",
+              "expected_response": "已为你创建联系人林毅杰，职位是上海国方私募基金管理有限公司运营总监，联系电话021-60151998、13585655800，邮箱linyijie@growth.sh.cn，地址上海市静安区威海路511号19楼 200041。"
+            }
+          ]
+        }
+      }
+    ],
+    "timestamp": "2026-01-27T15:20:52.551327",
+    "note": "使用final_cast.json中的user_id确保数据隔离"
+  }
+]
